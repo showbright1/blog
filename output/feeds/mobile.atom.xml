@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>MM</title><link href="http://michaelmartinez.in/" rel="alternate"></link><link href="http://michaelmartinez.in/feeds/mobile.atom.xml" rel="self"></link><id>http://michaelmartinez.in/</id><updated>2011-08-31T00:00:00-07:00</updated><entry><title>UKDroidCon 2011</title><link href="http://michaelmartinez.in/ukdroidcon-2011.html" rel="alternate"></link><updated>2011-08-31T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2011-08-31:ukdroidcon-2011.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;Check this OUT!&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;This &lt;a href="http://uk.droidcon.com/"&gt;droidcon event&lt;/a&gt; looks AWESOME. Today is the last day to
+register at the early bird pricing, you know quids and all that. If you
+live in the UK, you owe it to yourself to get there and get your learn
+on!&lt;/p&gt;
+&lt;p&gt;Look at this amazing line up:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;DAY ONE - BARCAMP/DEMOCAMP&lt;/p&gt;
+&lt;p&gt;The first day will start at 9AM to meet up and vote for the Barcamp
+presentations.&lt;/p&gt;
+&lt;p&gt;By 10:30 ish the Barcamp will be in full swing with 10s of presentation
+to choose from.&lt;/p&gt;
+&lt;p&gt;Around 17:00 we'll get started for the Democamp.&lt;/p&gt;
+&lt;p&gt;And by 19:00 we should all be gathering for Beer&amp;amp;Pizzacamp!&lt;/p&gt;
+&lt;p&gt;DAY TWO - CONFERENCE&lt;/p&gt;
+&lt;p&gt;The second day will start around 9AM and finish by 6PM. Then you can
+join one of the many post-conference drinks!&lt;/p&gt;
+&lt;p&gt;Wireframing Like A Pro&lt;/p&gt;
+&lt;p&gt;Greg Taylor - Tigerspike&lt;/p&gt;
+&lt;p&gt;Greg Taylor will talk about Wireframing like a pro.&lt;/p&gt;
+&lt;p&gt;Concurrency And Multi-Core &amp;amp; Honeycomb&lt;/p&gt;
+&lt;p&gt;Al Sutton - Funky Android&lt;/p&gt;
+&lt;p&gt;Al will be talking about the mayhem of Multi-core. He'll teach you why
+more cores can be good for an application and show you when, and how,
+you can make use of any extra cores which might be available on the
+device your application runs on.&lt;/p&gt;
+&lt;p&gt;Android@Home, Bluetooth @ Android, Wireless M2M&lt;/p&gt;
+&lt;p&gt;Harald Naumann&lt;/p&gt;
+&lt;p&gt;Harald Naumann will talk about Android@Home, Bluetooth @ Android and
+Wireless M2M.&lt;/p&gt;
+&lt;p&gt;Gaming and Bluevia&lt;/p&gt;
+&lt;p&gt;Yosi Taguri - Bluevia&lt;/p&gt;
+&lt;p&gt;Yosi Taguri will talk about Gaming and Bluevia&lt;/p&gt;
+&lt;p&gt;Mobile Enterprise Security And The Need For Mobile Device Management&lt;/p&gt;
+&lt;p&gt;Alan Goode&lt;/p&gt;
+&lt;p&gt;Alan will talk about the use of mobile phones in the enterprise and
+share his experience of the Mobile Device Management market.
+Organisations are being challenged by employees bringing in their own
+mobile devices and expecting to access corporate networks and store
+corporate information. Alan will discuss some of the security challenges
+that this ‘Consumerisation’ trend is creating and how organisations are
+meeting this challenge.&lt;/p&gt;
+&lt;p&gt;Richard Hyndman - Google&lt;/p&gt;
+&lt;p&gt;Richard Hyndmann will talk about Google Fragments&lt;/p&gt;
+&lt;p&gt;Operator APIs&lt;/p&gt;
+&lt;p&gt;James Parton - O2&lt;/p&gt;
+&lt;p&gt;James Parton will talk about Operator API.&lt;/p&gt;
+&lt;p&gt;Open Intents - Historify And Other Aggregating Apps&lt;/p&gt;
+&lt;p&gt;Friedger Müffke&lt;/p&gt;
+&lt;p&gt;Friedger Müffke will talk about Historify And Other Aggregating
+Applications (Google Summer Of Code Project).&lt;/p&gt;
+&lt;p&gt;Kick-starting Android Application Development&lt;/p&gt;
+&lt;p&gt;Matthias Kaeppler - Qype&lt;/p&gt;
+&lt;p&gt;Matthias will talk about kick-starting Android Application Development:
+"Due to its basis in Java, the Android SDK is a simple way to get
+started with app development, even for those developers not coming from
+a mobile background. Still, the Android framework lacks standard,
+re-usable solutions to many recurring tasks, making it more difficult
+than necessary to get an application off the ground quickly. Thanks to
+the amazing Android development community, we have plenty of utility
+libraries today that patch these holes in the Android framework. In this
+talk I will present a selection of these freely available libraries,
+which will help kick-start app development, by managing your objects and
+builds, and by offering ready-to-use solutions for the most common
+issues."&lt;/p&gt;
+&lt;p&gt;The Geeksphone Story&lt;/p&gt;
+&lt;p&gt;Javier Agüera - Geeksphone&lt;/p&gt;
+&lt;p&gt;Javier Agüera will talk about the Geeksphone story.&lt;/p&gt;
+&lt;p&gt;Android Gaming&lt;/p&gt;
+&lt;p&gt;Mustafa Isik - CodeSurgeon&lt;/p&gt;
+&lt;p&gt;Mustafa Isik will talk about Android Gaming.&lt;/p&gt;
+&lt;p&gt;3D Advertising&lt;/p&gt;
+&lt;p&gt;Terence Eden - Inmobi&lt;/p&gt;
+&lt;p&gt;Terence will talk about the Reality of Mobile Advertising.&lt;/p&gt;
+&lt;p&gt;Test-Driving Android Applications with Roboelectric&lt;/p&gt;
+&lt;p&gt;Joseph Moore - Pivotal Labs&lt;/p&gt;
+&lt;p&gt;Joseph will talk about why and how Robolectric was built.&lt;/p&gt;
+&lt;p&gt;Reforming Addicts Or iOS To Android Made Easy&lt;/p&gt;
+&lt;p&gt;Kieran Gutteridge&lt;/p&gt;
+&lt;p&gt;Kieran will talk about reforming addicts or iOS to Android made easy.&lt;/p&gt;
+&lt;p&gt;UI For Tablet &amp;amp; Phone and TV&lt;/p&gt;
+&lt;p&gt;Nick Butcher - Google&lt;/p&gt;
+&lt;p&gt;Nick Butcher will talk about UI For Tablet &amp;amp; Phone and TV.&lt;/p&gt;
+&lt;p&gt;Android's Message-Driven Architecture&lt;/p&gt;
+&lt;p&gt;Carl Gustaf Harroch - Novoda&lt;/p&gt;
+&lt;p&gt;At Droidcon London 2011, Carl-Gustaf Harroch will explain Android's
+Message-driven Architecture.&lt;/p&gt;
+&lt;p&gt;Steps to Best Beta Releases&lt;/p&gt;
+&lt;p&gt;Jon Vlachoyiannis - Bugsense&lt;/p&gt;
+&lt;p&gt;Jon Vlachoyiannis will talk about testing, specifically Steps to Best
+Beta Releases.&lt;/p&gt;
+&lt;p&gt;Motion Recognition with Android Devices&lt;/p&gt;
+&lt;p&gt;Gabor Paller - Sfonge Ltd&lt;/p&gt;
+&lt;p&gt;A built-in accelerometer is an almost obligatory feature of Android
+devices. This sensor enables the auto-rotation feature and is used e.g.
+in game applications for tilt-controlling the action. This presentation
+discusses the usage of accelerometer for detecting dynamic motion
+patterns. Shake or walk detection are very common use cases but exotic
+features like dance detection can also improve the usability of a
+specific application significantly. Android does not have platform-level
+motion recognizer module therefore developers need to be aware, how to
+detect motion patterns in the accelerometer's sample stream. We will
+examine the most frequently used motion detection methods. The effect on
+battery consumption will also be presented.&lt;/p&gt;
+&lt;p&gt;Massively Scalable c2dm with QoS and SLAs&lt;/p&gt;
+&lt;p&gt;Dylan Boyd - Urban Air Ship&lt;/p&gt;
+&lt;p&gt;Dylan Boyd will talk about Push notifications, specifically massively
+scalable c2dm with QoS and SLAs.&lt;/p&gt;
+&lt;p&gt;Traceview and MAT for Fun and Profit&lt;/p&gt;
+&lt;p&gt;Mark Murphy - CommonsWare&lt;/p&gt;
+&lt;p&gt;Mark Murphy will talk about Traceview and MAT for Fun and Profit.&lt;/p&gt;
+&lt;p&gt;How To Run A Private Beta On The Android Market&lt;/p&gt;
+&lt;p&gt;Thai Tran - Lightbox&lt;/p&gt;
+&lt;p&gt;Thai will talk about How To Run A Private Beta On The Android Market.&lt;/p&gt;
+&lt;p&gt;Making Sense of In-App Billing&lt;/p&gt;
+&lt;p&gt;Hermes Pique Robot Media&lt;/p&gt;
+&lt;p&gt;Android In-App Billing is not for the faint of heart! Hermes Pique will
+introduce the core concepts behind the Android Market's Billing Service,
+and get you up and running with a working example using his open-source
+Android Billing Library.&lt;/p&gt;</summary></entry><entry><title>Tablet UI/UX Design Considerations</title><link href="http://michaelmartinez.in/tablet-uiux-design-considerations.html" rel="alternate"></link><updated>2011-05-13T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2011-05-13:tablet-uiux-design-considerations.html</id><summary type="html">&lt;p&gt;User Interface / User Experience design is obviously a major aspect of
+app design/development and one worthy, in my opinion, of considerable
+pontification. I've watched several videos regarding UI / NUI design
+and skimmed a few books. This aspect of development is really
+interesting to me and I plan on writing about it a lot more.&lt;/p&gt;
+&lt;p&gt;I really like the video here (click the picture above to play embedded
+version). Bill Van Hecke is the lead UI/UX designer for the Omni group
+and narrates the entire video. As I madly (digitally) scribbled notes (I
+love Evernote)... I thought I'd share.  Full disclosure: Yes, the video
+is for iPad... Android is obviously my platform of choice, but I
+recognize a good design when I see it. We can learn a lot from the iOS
+ecosystem.&lt;/p&gt;
+&lt;p&gt;Notes:&lt;/p&gt;
+&lt;p&gt;​1. Brutally Massacre Features - is the app still useful to the average
+user without this feature? If not, kill it dead.. at least initially.
+Simplify your UI as it helps make it more intuitive. It also helps to
+keep the project manageable from a development point of view. As with
+most things in life; the KISS principle applies.&lt;/p&gt;
+&lt;p&gt;​2. The Android tablet is not a giant phone - I'm super guilty of this
+as of this writing and I intend on rectifying this post-haste. Don't
+simply reuse your main layouts for the large and extra-large resource
+layout files. Not only is it super lazy design, its a total waste of
+space. Furthermore, you are missing an opportunity to enhance your UX,
+thus making your brand and app more desirable.&lt;/p&gt;
+&lt;p&gt;​3. Adding design "space filler" isn't good practice - Now that you have
+more space, adding elements and widgets to fill whitespace isn't good
+design. You don't want a NASA Space shuttle cockpit. You need to think
+about; control occlusion, accuracy, distractions and context. Hide
+buttons/menus behind logically groups menu and button items. Only
+display relevant controls for the context of the object in focus.&lt;/p&gt;
+&lt;p&gt;​4. Progressive disclosure - Universal Principles of Design. If you need
+three columns stuffed with controls; you are probably making your user
+think way too much, increasing the chance of distraction and not using
+the power of contextual menus/buttons. Taps are cheap from a cognitive
+load perspective, so make more objects "tap-able" and provide useful
+contextual actions based on those taps. The rarer something is, the more
+acceptable it is to bury the item deeper in lists.&lt;/p&gt;
+&lt;p&gt;​5. Taps are especially cheap in the Steering wheel zone - The 90 or so
+pixels going down the side of the app are super easy for users to reach
+and tap while holding the tablet with two hands. Try to implement the
+most actionable / relevant UI elements in this zone. The "middle" of the
+app is a great place to display the users content. Be cognizant of
+control occlusion.&lt;/p&gt;
+&lt;p&gt;​6. Think about your user eating a sandwich while using your app - I
+think this is pretty self explanatory. Gestures are really neat and fun
+when used in the right context. However, if your user constantly has to
+maneuver the tablet or reposition themselves to use the app, you are
+making them think too much.&lt;/p&gt;
+&lt;p&gt;​7. Tap, drag/swipe, touch &amp;amp; hold, double tap, pinch / un-pinch, rotate
+- These are iOS's gestures. Like it or not my fellow Android-ians... the
+Apple Marketing machine has cleverly trained future tablet users while
+marketing their wares. They show these "basic" gestures in commercials
+and elsewhere and research has shown these to be easily performed with
+one hand. Other gestures can be included for "power-users" but don't
+make them required.&lt;/p&gt;
+&lt;p&gt;​8. You have approximately 250ms to show users that a command was
+understood before they become confused, angry, anxious or other
+emotional state that is undesirable. When a user interacts with the app,
+it should respond with "something" be that a glowing, changing of state,
+movement, etc. Let your users know that the action they just performed
+is valid, even if it wasn't.&lt;/p&gt;
+&lt;p&gt;​9. Forgiveness - Enable and empower users to explore and exercise
+control over the app. Help them feel adventurous. Don't make them afraid
+to explore for fear of breaking or ruin something. Playful | fearless, a
+big part of the reason why children are better with new technology than
+adults. They are AWESOME at failing.&lt;/p&gt;
+&lt;p&gt;​10. Modality - Lots of basic gestures mean the exact same thing. For
+example, the drag can be panning, moving an object, selecting multiple
+objects and the list goes on. Setting explicit modes of operations
+separates concerns and helps to clearly define how the gesture will
+behave in mode. Usability testing becomes very important here. this can
+be complicated for the developer and SHOULD make it easier for the user.&lt;/p&gt;
+&lt;p&gt;​11. Organize the app by meaning, not based on opinion - Your work-flow
+may radically differ from your users work-flow. Embrace this, as I
+really think this makes designing and implementing the app better for
+the user and easier for the developer. DO think about how users will use
+the app. DON'T try to predict and code to those assumptions.&lt;/p&gt;</summary></entry><entry><title>Engineer Toolkit is publishing very soon!</title><link href="http://michaelmartinez.in/engineer-toolkit-is-publishing-very-soon.html" rel="alternate"></link><updated>2011-01-03T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2011-01-03:engineer-toolkit-is-publishing-very-soon.html</id><summary type="html">&lt;p&gt;95% of the Engineer Toolkit app is done. Stay tuned for more updates and
+a dedicated page with lots-of-info!!!&lt;/p&gt;</summary></entry><entry><title>Android Development</title><link href="http://michaelmartinez.in/android-development.html" rel="alternate"></link><updated>2010-10-25T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2010-10-25:android-development.html</id><summary type="html">&lt;p&gt;I just completed started my first Android app. It works... and its damn
+cool to see something you built on &lt;em&gt;your&lt;/em&gt; phone. That said, there is
+still a &lt;em&gt;TON&lt;/em&gt; of work to do. I hope that I'm not served with a &lt;a href="http://www.marketwatch.com/story/oracle-sues-google-for-patent-infringement-2010-08-12?dist=beforebell"&gt;cease
+and desist&lt;/a&gt; order, as Oracle is suing Google for patent infringements
+relating to Android development. Although, I once read if you're not
+getting in trouble you're not trying hard enough... perhaps?&lt;/p&gt;
+&lt;p&gt;Back to the app, its a fire department related app and the only
+competition retails his app at \$2.99. I've been thinking all along that
+I will release free apps as long as I have a decent job and my family is
+not wanting for anything. I believe in karma and as such,
+I definitely don't want to be greedy (especially as so many people are
+struggling to make ends meet in the current economic environment).  Not
+to say this app cures cancer or something, but I imagine the other
+developer may not like a free app similar to his... I don't know
+anything about developer decorum in such circumstances.&lt;/p&gt;
+&lt;p&gt;I'll have more very soon... STAY TUNED!&lt;/p&gt;</summary></entry><entry><title>Android Super Computer App</title><link href="http://michaelmartinez.in/android-super-computer-app.html" rel="alternate"></link><updated>2010-09-08T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2010-09-08:android-super-computer-app.html</id><summary type="html">&lt;p&gt;Did you ever wish you had a super computer in your pocket? You know for
+those debates at the firehouse; "Dude, I guarantee the human genome is
+completely indexable with the touch of a button, guarantee!"&lt;/p&gt;
+&lt;p&gt;Thanks to the geniuses at MIT, you could potentially deliver on such a
+promise. The &lt;a href="http://web.mit.edu/newsoffice/2010/supercomputer-smart-phones-0901.html"&gt;rbAPPmit&lt;/a&gt; has serious muscle behind the funny little
+green fella.&lt;/p&gt;
+&lt;p&gt;
+&gt; The new software works in cases where the general form of a problem is
+&gt; known in advance, but not the particulars. For instance, says Phuong
+&gt; Huynh, a postdoc who worked on the project, a computer simulation of
+&gt; fluid flow around an obstacle in a pipe could depend on a single
+&gt; parameter: the radius of the obstacle. But for a given value of the
+&gt; parameter, calculating the fluid flow could take an hour on a
+&gt; supercomputer with 500 processing units. The researchers’ new software
+&gt; can provide a very good approximation of the same calculation in a
+&gt; matter of seconds."
+
+&lt;/p&gt;
+
+&lt;p&gt;A rather complex video explaining some functionality: &lt;a href="http://augustine.mit.edu/methodology/video_clips/rbAPPmit_Feb11_2010_demo3.wmv"&gt;Here&lt;/a&gt;&lt;/p&gt;</summary></entry></feed>

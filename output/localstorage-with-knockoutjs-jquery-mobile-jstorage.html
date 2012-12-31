@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>MM</title>
+	<meta name="description" content="Michael Martinez Blog">
+	 <meta name="viewport" content="width=100%; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no;" />
+	<meta name="author" content="Michael Martinez">
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="./theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="./theme/bootstrap.css" rel="stylesheet">
+	<link href="./theme/bootstrap-custom-grid.css" rel="stylesheet">
+	<link href="./theme/monk.css" rel="stylesheet">
+	<link href="./theme/pygments.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./theme/font-awesome.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="./theme/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./theme/jquery.ui.totop.js"></script>
+           <script type="text/javascript" src="./theme/monkjs.js"></script>
+           <script type="text/javascript" src="./theme/chirp.min.js"></script>
+           <script type="text/javascript" src="./theme/superfish.js"></script>
+
+		<!---->
+	<!---->
+	<!--<a href="http://github.com/MichaelMartinez"><img style="position: absolute; top: 39px; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub" /></a>
+-->
+
+	<!-- <link rel="shortcut icon" href="assets/ico/favicon.ico">
+	<link rel="apple-touch-icon" href="assets/ico/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="assets/ico/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="assets/ico/apple-touch-icon-114x114.png"> -->
+
+</head>
+<body >
+
+<div class="container wrap">
+<section id="top-menu">
+    <div class="row-fluid">
+        <div class="span6">
+            <a class="MyLogo" href="index.html">MM</a>
+        </div>
+        <div class="span6 hidden-phone">
+        	<div id='mysocial'>
+        		<ul>
+        			<li><a href="http://github.com/MichaelMartinez"><i class="icon-github"></i></a></li>
+        			<li><a href="https://plus.google.com/u/0/106657123530243977683/"><i class="icon-google-plus"></i></a></li>
+        			<li><a href="http://twitter.com/MonkMartinez"><i class="icon-twitter"></i></a></li>
+        			<li><a href="http://www.linkedin.com/pub/michael-martinez/26/914/407"><i class="icon-linkedin"></i></a></li>
+        		</ul>
+        	</div>
+    </div>
+</section>
+
+<header id="header">
+    <nav id="menu" class="clearfix">
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="#">Labs</a></li>
+            <li><a href="#">Apps</a></li>
+            <li><a href="#">Notes</a>
+             <ul>
+                    <li class="last"><a href="notes/math-notes.html">Math Notes</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+   </header>
+
+<!--container-->
+<section id="container" class="clearfix sidebar-right">
+        <div class="row-fluid">
+            <section id="page-sidebar" class="alignleft span8">
+
+
+
+                <!-- This is my content as described in index.html -->
+				<div class='article'>
+		  <div class="page-title clearfix"><h1>LocalStorage with Knockout.js - jQuery Mobile - jStorage</h1>
+			<ul class="meta clearfix">
+			<li>When: <a class="more" href="./localstorage-with-knockoutjs-jquery-mobile-jstorage.html">January 2012</a></li>
+<li>Who: <a class="url fn" href="./author/michael.html">Michael</a> in <a href="./category/web-development.html">web development</a></li>
+		           </ul>
+		</div>
+		<article class="blog-post">
+		<div><p>I recently started evaluating various JS libraries/frameworks and other
+JavaScript goodies. I just wanted to post a quick tutorial when working
+with Phonegap (Cordova) <a href="http://jquerymobile.com/">jQuery Mobile</a> and <a href="http://knockoutjs.com/">Knockout.js</a>.</p>
+<p>This project uses;</p>
+<ol>
+<li><a href="http://incubator.apache.org/projects/callback.html">Cordova</a></li>
+<li><a href="http://jquerymobile.com/">jQuery Mobile</a></li>
+<li><a href="http://knockoutjs.com">Knockout.js</a></li>
+<li><a href="http://www.jstorage.info/">jStorage</a></li>
+</ol>
+</p>
+
+<p>Set a binding to a click event on the view model you want to save:</p>
+<div class="codehilite"><pre><span class="cm">/* GLOBAL VAR &amp; CLICK HANDLER/FUNCTION TO STORE ViewModel */</span>
+<span class="kd">var</span> <span class="nx">viewSaveID</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">saveThisViewModel</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// check to see if jStorage has items</span>
+    <span class="c1">// if not, assign 0 to key otherwise assign count number </span>
+<span class="c1">// as items are save chronologically and not overwritten</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">.</span><span class="nx">jStorage</span><span class="p">.</span><span class="nx">index</span><span class="p">().</span><span class="nx">length</span><span class="p">)</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">viewSaveID</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">viewSaveID</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">jStorage</span><span class="p">.</span><span class="nx">index</span><span class="p">().</span><span class="nx">length</span><span class="p">;</span>
+    <span class="c1">// increment counter for key to localStorage</span>
+    <span class="nx">viewSaveID</span> <span class="o">=</span> <span class="nx">viewSaveID</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="c1">// Set data to JS format could also be ko.toJSON for a JSON object</span>
+    <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">ko</span><span class="p">.</span><span class="nx">toJS</span><span class="p">(</span><span class="nx">myViewModel</span><span class="p">);</span>
+    <span class="c1">// on the dollar save via jStorage</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">jStorage</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">viewSaveID</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+    <span class="c1">// return true to keep default behavior in app</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Next I would like to show you how we get the data. Although this
+implementation looks incredibly simple, I went through a bunch of
+implementations to arrive at this:</p>
+<div class="codehilite"><pre><span class="cm">/* Get Data From Storage and save it to Array */</span>
+<span class="kd">function</span> <span class="nx">getDataStore</span><span class="p">()</span> <span class="p">{</span>
+<span class="c1">// assign the keys of the jStorage index to an observable array</span>
+    <span class="nx">myViewModel</span><span class="p">.</span><span class="nx">myDataStoreIndex</span><span class="p">(</span><span class="nx">$</span><span class="p">.</span><span class="nx">jStorage</span><span class="p">.</span><span class="nx">index</span><span class="p">());</span>
+
+<span class="c1">// check to see if there are items in the data store array</span>
+<span class="c1">// if yes, remove them </span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">myViewModel</span><span class="p">.</span><span class="nx">myDataStore</span><span class="p">().</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// This may not scale well, but for localStorage, we don&#39;t need it too.</span>
+<span class="c1">// the problem is overwriting and double entries, this little diddy solves both</span>
+        <span class="nx">myViewModel</span><span class="p">.</span><span class="nx">myDataStore</span><span class="p">.</span><span class="nx">removeAll</span><span class="p">();</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;removeAll fired&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="c1">//create a temp object to hold objects that are saved in storage</span>
+    <span class="kd">var</span> <span class="nx">savedData</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="c1">// iterate through the array of keys</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">myViewModel</span><span class="p">.</span><span class="nx">myDataStoreIndex</span><span class="p">().</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// pull the objects from storage based on the keys stored in the array</span>
+        <span class="nx">savedData</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">jStorage</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">myViewModel</span><span class="p">.</span><span class="nx">myDataStoreIndex</span><span class="p">()[</span><span class="nx">i</span><span class="p">]);</span>
+<span class="c1">// push the saved object to the observable array</span>
+        <span class="nx">myViewModel</span><span class="p">.</span><span class="nx">myDataStore</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">savedData</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Data has been pushed to vacDataStore &quot;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s2">&quot; times.&quot;</span><span class="p">);</span>
+<span class="c1">// when you iterate on a list view item in jQuery Mobile </span>
+<span class="c1">// you have refresh the list. Otherwise it displays incorrectly</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#myListView&#39;</span><span class="p">).</span><span class="nx">listview</span><span class="p">(</span><span class="s1">&#39;refresh&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Now all you need to do is work with the data in the myDataStore
+Observable array. I choose to iterate the objects into a list using the
+convient foreach and a template. The code is commented and should be
+self explanatory. If you have issues or need further clarification don't
+hesitate to comment. I will post the full app soon!</p></div>
+		<div>
+		</article>
+			<h2>Comments</h2>
+		 				
+		<div>
+	</div>
+
+    </section>
+	<!--sidebar-->
+            <aside id="sidebar" class="alignright span4">
+                <section class="blog-category">
+                    <div class="title-divider">
+                        <h3 class="title-sidebar">Categories</h3>
+                    </div>
+                    <ul class="ul-col2 clearfix">
+                        		<li ><a href="./category/apps.html"><i class="icon-chevron-right"></i>apps</a></li>
+	            		<li ><a href="./category/as3.html"><i class="icon-chevron-right"></i>as3</a></li>
+	            		<li ><a href="./category/design.html"><i class="icon-chevron-right"></i>design</a></li>
+	            		<li ><a href="./category/mobile.html"><i class="icon-chevron-right"></i>mobile</a></li>
+	            		<li ><a href="./category/programming.html"><i class="icon-chevron-right"></i>programming</a></li>
+	            		<li ><a href="./category/terms.html"><i class="icon-chevron-right"></i>terms</a></li>
+	            		<li class="active"><a href="./category/web-development.html"><i class="icon-chevron-right"></i>web development</a></li>
+	                                </ul>
+                </section>
+                <section class="blog-category">
+                    <div class="title-divider">
+                        <h3 class="title-sidebar">Archives</h3>
+                    </div>
+                    <ul class="ul-col2 clearfix">
+                    	<li><a href="archives.html"><i class="icon-chevron-right"></i>Complete Listing</a></li>
+                    </ul>
+                </section>
+            </aside>
+</section>
+<!--footer-->
+<footer id="footer">
+    <div class="row-fluid">
+
+        <div class="span4">
+            <div class="title-divider">
+                <h3>Thank You!</h3>
+            </div>
+            <div>
+                <p>Hey guys and gals! Thanks for visiting my blog, where the hope is to provide something of marginal utility. I am a full-time student in Computer Science and looking for interships or contract work. Drop me a line here: michael at caffeineindustries.com or send me a <a href="http://twitter.com/MonkMartinez">Tweet!</a></p>
+            </div>
+        </div>
+        <div class="span8">
+            <div class="title-divider">
+                <h3>Tweets</h3>
+            </div>
+            <div id='tweets'></div>
+        </div>
+        </div>
+</footer>
+
+<!--footer menu-->
+<section id="footer-menu">
+    <div class="row-fluid">
+        <p class="span8">&copy 2012 Michael Martinez <a style="color:#e1e1e1" href="#">Here</a></p>
+        <p class="span4"><span class="pull-right">Copyright 2012 - All Rights Reserved</span></p>
+    </div>
+</section>
+<!-- end footer -->
+
+</div><!-- main wrap -->
+
+</body>
+</html>
+<!-- Localized -->

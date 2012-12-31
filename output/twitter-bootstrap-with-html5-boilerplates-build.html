@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>MM</title>
+	<meta name="description" content="Michael Martinez Blog">
+	 <meta name="viewport" content="width=100%; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no;" />
+	<meta name="author" content="Michael Martinez">
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="./theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="./theme/bootstrap.css" rel="stylesheet">
+	<link href="./theme/bootstrap-custom-grid.css" rel="stylesheet">
+	<link href="./theme/monk.css" rel="stylesheet">
+	<link href="./theme/pygments.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./theme/font-awesome.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="./theme/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./theme/jquery.ui.totop.js"></script>
+           <script type="text/javascript" src="./theme/monkjs.js"></script>
+           <script type="text/javascript" src="./theme/chirp.min.js"></script>
+           <script type="text/javascript" src="./theme/superfish.js"></script>
+
+		<!---->
+	<!---->
+	<!--<a href="http://github.com/MichaelMartinez"><img style="position: absolute; top: 39px; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub" /></a>
+-->
+
+	<!-- <link rel="shortcut icon" href="assets/ico/favicon.ico">
+	<link rel="apple-touch-icon" href="assets/ico/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="assets/ico/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="assets/ico/apple-touch-icon-114x114.png"> -->
+
+</head>
+<body >
+
+<div class="container wrap">
+<section id="top-menu">
+    <div class="row-fluid">
+        <div class="span6">
+            <a class="MyLogo" href="index.html">MM</a>
+        </div>
+        <div class="span6 hidden-phone">
+        	<div id='mysocial'>
+        		<ul>
+        			<li><a href="http://github.com/MichaelMartinez"><i class="icon-github"></i></a></li>
+        			<li><a href="https://plus.google.com/u/0/106657123530243977683/"><i class="icon-google-plus"></i></a></li>
+        			<li><a href="http://twitter.com/MonkMartinez"><i class="icon-twitter"></i></a></li>
+        			<li><a href="http://www.linkedin.com/pub/michael-martinez/26/914/407"><i class="icon-linkedin"></i></a></li>
+        		</ul>
+        	</div>
+    </div>
+</section>
+
+<header id="header">
+    <nav id="menu" class="clearfix">
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="#">Labs</a></li>
+            <li><a href="#">Apps</a></li>
+            <li><a href="#">Notes</a>
+             <ul>
+                    <li class="last"><a href="notes/math-notes.html">Math Notes</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+   </header>
+
+<!--container-->
+<section id="container" class="clearfix sidebar-right">
+        <div class="row-fluid">
+            <section id="page-sidebar" class="alignleft span8">
+
+
+
+                <!-- This is my content as described in index.html -->
+				<div class='article'>
+		  <div class="page-title clearfix"><h1>Twitter Bootstrap with Html5 Boilerplate's Build</h1>
+			<ul class="meta clearfix">
+			<li>When: <a class="more" href="./twitter-bootstrap-with-html5-boilerplates-build.html">February 2012</a></li>
+<li>Who: <a class="url fn" href="./author/michael.html">Michael</a> in <a href="./category/web-development.html">web development</a></li>
+		           </ul>
+		</div>
+		<article class="blog-post">
+		<div><p><a href="http://twitter.github.com/bootstrap/">Twitter bootstrap</a> is a great piece of kit. <a href="http://html5boilerplate.com/">Html5 boilerplate
+(h5bp)</a> is also a great piece of kit. Those of you who have used h5bp
+know it also comes bundled (or not?) with a great <a href="https://github.com/h5bp/ant-build-script">ant build script</a>.
+This build script automagically builds, minifies, compresses,
+concatenates, lints and hints the files you specify. A ton of crap,
+really.</p>
+<p>You will have to read the <a href="http://html5boilerplate.com/docs/Build-script/">documentation</a> as it makes some assumptions
+in regards to your project scaffolding and what-have-you. Seriously,
+read the documentation. You don't have to trust me when I say its worth
+it, but it is.</p>
+<p>So now that I found this script, I want to use it on every project. Once
+everything is set-up it is just so easy to run. I have forced myself to
+use it on trivial tests and what not. My <a href="http://lab.caffeineindustries.com">lab page</a> is a total
+work-in-progress and made with Twitter bootstrap. I thought I would show
+you how I integrated h5bp ant-build-script with it.</p>
+<p>As you can see, I mimicked the file structure that h5bp recommends in
+the documentation (RTFM, right?)</p>
+<p>I then modified the project. properties file to include the changes you
+see here:</p>
+<div class="codehilite"><pre><span class="c"># project.properties file defines overrides for default.properties</span>
+
+<span class="c"># Explanation: This file should be created by each user as and when he or she needs to override particular values.</span>
+<span class="c"># Consequently, it should not be placed under version control.</span>
+
+<span class="c"># Stylesheets</span>
+<span class="c">#</span>
+<span class="c"># Note: Stylesheets will be concatenated in the order they are listed in the file.stylesheets property (i.e. the last</span>
+<span class="c"># file listed will be at the end of the concatenated file), so it probably makes sense to have the main style.css file</span>
+<span class="c"># as the first entry</span>
+<span class="c"># Example:</span>
+<span class="c"># file.stylesheets  = style.css, lightbox.css, plugin.css</span>
+<span class="c">#</span>
+<span class="n">file</span><span class="p">.</span><span class="n">stylesheets</span>  <span class="p">=</span> <span class="n">bootstrap</span><span class="p">.</span><span class="n">css</span><span class="p">,</span> <span class="n">style</span><span class="p">.</span><span class="n">css</span>
+
+<span class="c"># Web Pages</span>
+<span class="c">#</span>
+<span class="c"># These are the pages (files) that will be served to users (.html, .php, .asp, etc). Files in this property will</span>
+<span class="c"># be minified / optimised and have any stylesheet or javascript references updated to the minified examples</span>
+<span class="c">#</span>
+<span class="c"># The paths need to be relative</span>
+<span class="c">#</span>
+<span class="c"># Files can be added in a comma separated form</span>
+<span class="n">file</span><span class="p">.</span><span class="n">pages</span>        <span class="p">=</span> <span class="n">toolbox</span><span class="p">.</span><span class="n">html</span><span class="p">,</span> <span class="n">vacapp</span><span class="p">.</span><span class="n">html</span>
+
+<span class="c"># Excluded files and dirs</span>
+<span class="c">#</span>
+<span class="c"># Add any files or directories you add to the project and do not want to be copied to the publish directory as a</span>
+<span class="c"># comma separated list</span>
+<span class="c"># These files are ignored in addition to the default ones specified in default.properties.</span>
+<span class="c"># Example: file.exclude = badfolder/**</span>
+<span class="n">file</span><span class="p">.</span><span class="n">exclude</span>      <span class="p">=</span> <span class="n">js</span><span class="o">/</span><span class="n">tests</span><span class="o">/**</span><span class="p">,</span> <span class="n">style</span><span class="o">/</span><span class="n">less</span><span class="o">/**</span><span class="p">,</span>
+
+<span class="c"># Bypassed JavaScript files and dirs</span>
+<span class="c">#</span>
+<span class="c"># Add any files or folders within the mylibs directory that you want to be copied to the publish directory as a</span>
+<span class="c"># comma separated list</span>
+<span class="c"># These files will not be concatenated or minimized and will simply be copied over as is.</span>
+<span class="c"># Note: you cannot declare an empty file.bypass property, it would exclude the entire mylibs folder</span>
+<span class="c"># Example:</span>
+<span class="c"># file.js.bypass = widgets.js, gadgets.js, gidgets.js</span>
+<span class="n">file</span><span class="p">.</span><span class="n">js</span><span class="p">.</span><span class="n">bypass</span> <span class="p">=</span> <span class="n">cafflab</span><span class="p">.</span><span class="n">js</span>
+
+<span class="c"># Directory Structure</span>
+<span class="c">#</span>
+<span class="c"># Override any directory paths specific to this project</span>
+<span class="c">#</span>
+<span class="c"># dir.publish</span>
+<span class="c"># dir.js</span>
+<span class="c">#dir.js.libs = js/bootstrap</span>
+<span class="c">#dir.js.mylibs = js/bootstrap</span>
+<span class="nb">dir</span><span class="p">.</span><span class="n">css</span> <span class="p">=</span> <span class="n">style</span><span class="o">/</span><span class="n">css</span>
+<span class="c"># dir.img</span>
+</pre></div>
+
+
+<p>Note: I've only included the actual changes to my file. The actual
+project.properties is a bit denser.</p>
+<p>I haven't gone all-the-way with the power of the build script thus far.
+As you can see, I am not fully concatenating my javascript and css
+files. However, they are fully linted, hinted and compressed which is
+better than nothing, I suppose. I will keep working and making
+refinements to this process, but I've seen the light with an
+intermediate build step in deployment. It is so full of win, that I
+can't imagine doing it another way.</p>
+<p>If you simply use build like I have, you will save a tremendous amount
+of time optimizing your pages for production. Once you see this in
+action... You will have a hard time turning back as well, I reckon.</p>
+<p>Todo: Work out how to force the build script into nested directories for
+the manifest. Maybe even get a wild hair and attempt to write a pre
+build-build that analyzes the project structure.</p>
+<p>[<img alt="" src="http://caffeineindustries.com/wp-content/uploads/2012/02/Screen-shot-2012-02-20-at-4.31.30-PM-225x300.png" title="Screen shot 2012-02-20 at 4.31.30 PM" />]: http://caffeineindustries.com/wp-content/uploads/2012/02/Screen-shot-2012-02-20-at-4.31.30-PM.png</p></div>
+		<div>
+		</article>
+			<h2>Comments</h2>
+		 				
+		<div>
+	</div>
+
+    </section>
+	<!--sidebar-->
+            <aside id="sidebar" class="alignright span4">
+                <section class="blog-category">
+                    <div class="title-divider">
+                        <h3 class="title-sidebar">Categories</h3>
+                    </div>
+                    <ul class="ul-col2 clearfix">
+                        		<li ><a href="./category/apps.html"><i class="icon-chevron-right"></i>apps</a></li>
+	            		<li ><a href="./category/as3.html"><i class="icon-chevron-right"></i>as3</a></li>
+	            		<li ><a href="./category/design.html"><i class="icon-chevron-right"></i>design</a></li>
+	            		<li ><a href="./category/mobile.html"><i class="icon-chevron-right"></i>mobile</a></li>
+	            		<li ><a href="./category/programming.html"><i class="icon-chevron-right"></i>programming</a></li>
+	            		<li ><a href="./category/terms.html"><i class="icon-chevron-right"></i>terms</a></li>
+	            		<li class="active"><a href="./category/web-development.html"><i class="icon-chevron-right"></i>web development</a></li>
+	                                </ul>
+                </section>
+                <section class="blog-category">
+                    <div class="title-divider">
+                        <h3 class="title-sidebar">Archives</h3>
+                    </div>
+                    <ul class="ul-col2 clearfix">
+                    	<li><a href="archives.html"><i class="icon-chevron-right"></i>Complete Listing</a></li>
+                    </ul>
+                </section>
+            </aside>
+</section>
+<!--footer-->
+<footer id="footer">
+    <div class="row-fluid">
+
+        <div class="span4">
+            <div class="title-divider">
+                <h3>Thank You!</h3>
+            </div>
+            <div>
+                <p>Hey guys and gals! Thanks for visiting my blog, where the hope is to provide something of marginal utility. I am a full-time student in Computer Science and looking for interships or contract work. Drop me a line here: michael at caffeineindustries.com or send me a <a href="http://twitter.com/MonkMartinez">Tweet!</a></p>
+            </div>
+        </div>
+        <div class="span8">
+            <div class="title-divider">
+                <h3>Tweets</h3>
+            </div>
+            <div id='tweets'></div>
+        </div>
+        </div>
+</footer>
+
+<!--footer menu-->
+<section id="footer-menu">
+    <div class="row-fluid">
+        <p class="span8">&copy 2012 Michael Martinez <a style="color:#e1e1e1" href="#">Here</a></p>
+        <p class="span4"><span class="pull-right">Copyright 2012 - All Rights Reserved</span></p>
+    </div>
+</section>
+<!-- end footer -->
+
+</div><!-- main wrap -->
+
+</body>
+</html>
+<!-- Localized -->

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>MM</title>
+	<meta name="description" content="Michael Martinez Blog">
+	 <meta name="viewport" content="width=100%; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no;" />
+	<meta name="author" content="Michael Martinez">
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="./theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="./theme/bootstrap.css" rel="stylesheet">
+	<link href="./theme/bootstrap-custom-grid.css" rel="stylesheet">
+	<link href="./theme/monk.css" rel="stylesheet">
+	<link href="./theme/pygments.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./theme/font-awesome.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="./theme/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./theme/jquery.ui.totop.js"></script>
+           <script type="text/javascript" src="./theme/monkjs.js"></script>
+           <script type="text/javascript" src="./theme/chirp.min.js"></script>
+           <script type="text/javascript" src="./theme/superfish.js"></script>
+
+		<!---->
+	<!---->
+	<!--<a href="http://github.com/MichaelMartinez"><img style="position: absolute; top: 39px; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub" /></a>
+-->
+
+	<!-- <link rel="shortcut icon" href="assets/ico/favicon.ico">
+	<link rel="apple-touch-icon" href="assets/ico/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="assets/ico/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="assets/ico/apple-touch-icon-114x114.png"> -->
+
+</head>
+<body >
+
+<div class="container wrap">
+<section id="top-menu">
+    <div class="row-fluid">
+        <div class="span6">
+            <a class="MyLogo" href="index.html">MM</a>
+        </div>
+        <div class="span6 hidden-phone">
+        	<div id='mysocial'>
+        		<ul>
+        			<li><a href="http://github.com/MichaelMartinez"><i class="icon-github"></i></a></li>
+        			<li><a href="https://plus.google.com/u/0/106657123530243977683/"><i class="icon-google-plus"></i></a></li>
+        			<li><a href="http://twitter.com/MonkMartinez"><i class="icon-twitter"></i></a></li>
+        			<li><a href="http://www.linkedin.com/pub/michael-martinez/26/914/407"><i class="icon-linkedin"></i></a></li>
+        		</ul>
+        	</div>
+    </div>
+</section>
+
+<header id="header">
+    <nav id="menu" class="clearfix">
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="#">Labs</a></li>
+            <li><a href="#">Apps</a></li>
+            <li><a href="#">Notes</a>
+             <ul>
+                    <li class="last"><a href="notes/math-notes.html">Math Notes</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+   </header>
+
+<!--container-->
+<section id="container" class="clearfix sidebar-right">
+        <div class="row-fluid">
+            <section id="page-sidebar" class="alignleft span8">
+
+
+
+                <!-- This is my content as described in index.html -->
+				<div class='article'>
+		  <div class="page-title clearfix"><h1>AppFog - Ruby on Rails 3.2 Tutorial</h1>
+			<ul class="meta clearfix">
+			<li>When: <a class="more" href="./appfog-ruby-on-rails-32-tutorial.html">June 2012</a></li>
+<li>Who: <a class="url fn" href="./author/michael.html">Michael</a> in <a href="./category/programming.html">programming</a></li>
+		           </ul>
+		</div>
+		<article class="blog-post">
+		<div><p><a href="http://www.appfog.com/">AppFog</a> is an incredible service in the land of PaaS or Platform as a
+Service. They are a <a href="http://www.cloudfoundry.com/">Cloud Foundry</a>-powered polyglot platform. You
+can <a href="https://console.appfog.com/signup">sign up</a> for beta access now and start pushing apps strait away.
+Their web based management interface is really nice, and I am a sucker
+for nicely designed "things."  In this post I'd like to show you all how
+I got a Ruby on Rails app up and running.</p>
+<h2>Create</h2>
+<p></p>
+A developer has two ways to create a new RoR app.</p>
+<p>​1. Use the AppFog console to bootstrap a shell RoR app. [<a href="https://github.com/appfog/af-ruby-rails">source
+code</a>]</p>
+<p>This will net a basic shell RoR app with Ruby version 1.9.3-p125 and
+Rails version 3.2.5</p>
+<p>​2. Use the <strong>af</strong> gem to push your locally developed app to the cloud.</p>
+<h2>Push</h2>
+<p></p>
+How do you push an app to AppFog?</p>
+<p>Hopefully you are using rvm, rbenv or have some sort of Ruby/Gem
+management system set-up. Rvm and rbenv are out of the scope of this
+tutorial. I use rvm to create project-based gemsets with a directory
+level .rvmrc file. You can read more about rvm <a href="https://rvm.io//">here</a>.</p>
+<div class="codehilite"><pre><span class="nv">$ </span>gem install af
+</pre></div>
+
+
+<p>When you are ready to push issue this command:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>af push &lt;appname&gt; --runtime<span class="o">=</span>ruby193
+</pre></div>
+
+
+<p>If you don’t specify an app name, AppFog will use the directory name. I
+found that my Ruby version wasn't automatically detected without the
+runtime flag. I found this by looking through the af gem source code on
+Github. (I love OSS!) The runtimes supported by AppFog can be found
+using "af runtimes".</p>
+<p>You will then be taken though a series of yes/no questions where the
+details come into play. Accepting the default answer for all of these
+questions with the exception of database technology is the simplest way
+to get up and running. You can choose between Mongo and MySQL for the
+database technology to use, so even that isn’t very complicated.</p>
+<p>Let me be clear, I have not veered far from the quickest path to get my
+app set-up. Subsequent tutorials will have more on this front.</p>
+<h2>Running / Errors</h2>
+<p></p>
+At this point you are either running or you have error(s). If you have
+an error, use “af logs \&lt;appname>” to diagnose what went wrong. You can
+also head to the <a href="http://support.appfog.com/forums">support forums</a> or the <a href="https://groups.google.com/forum/?fromgroups#!forum/appfog-users">Google group</a> to ask a
+question or look through previous questions/discussions.</p>
+<p>In either app creation case, you are going to use "af update
+\&lt;appname>" once you have something you'd like show the world or need
+to make a change. This command is strait forward; push the changes to
+the cloud.</p>
+<h2>Sum it up</h2>
+</p>
+
+<ol>
+<li>create app either on AppFog or locally</li>
+<li>install af gem</li>
+<li>af push or af update</li>
+<li>profit</li>
+</ol>
+</p>
+
+<h3>Notes:</h3>
+<p></p>
+When I looked at the available commands using "af  --help", it was not
+immediately clear what each command was used for. A good option to learn
+more is to read though the <a href="https://github.com/appfog/af">source</a>.  OR you can wait for my next
+tutorial where I'll dive in with both feet on every available command.</p>
+<hr />
+<h2>Database</h2>
+<p></p>
+Using MySQL? You <strong><em>need</em></strong> the <strong><em>mysql2 gem</em></strong> in your gemfile. Also,
+if you intend to develop your app against MySQL locally, you will want
+your database.yml file to look like or similar to the gist below.</p>
+<div class="codehilite"><pre><span class="c"># comment out when working locally</span>
+<span class="c"># un-comment this for deployment</span>
+development:
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 5000
+
+<span class="c"># un-comment this when working locally</span>
+<span class="c"># comment out when deploying</span>
+<span class="c">#development:</span>
+<span class="c">#  adapter: mysql2</span>
+<span class="c">#  encoding: utf8</span>
+<span class="c">#  reconnect: false</span>
+<span class="c">#  database: gisticle_development</span>
+<span class="c">#  pool: 5</span>
+<span class="c">#  username: michaelmartinez</span>
+<span class="c">#  password: &lt;password&gt;</span>
+<span class="c">#  host: 127.0.0.1</span>
+
+production:
+  adapter: sqlite3
+  database: db/production.sqlite3
+  pool: 5
+  timeout: 5000
+</pre></div>
+
+
+<p>I am not sure why the database.yml needs to be set-up like this and
+quite frankly it could be my error (system or set-up). The error
+I received was database adapter not found and I have narrowed it down to
+the application creation process. Once the app is up and running, I have
+been able to use either configuration.</p>
+<h3>Notes:</h3>
+<p></p>
+Developing with MySQL locally will help to eliminate a potential source
+of frustration not related to AppFog. A simple query that works with
+sqlite3 may completely fail with PG or MySQL due to type casting, as
+just one example. Databases like PostgreSQL and MySQL have more features
+than sqlite3 but are more strict with type. So, you can avoid a lot of
+potential problems by simply developing against the database you intend
+to use in production.</p>
+<hr />
+<h2>Package</h2>
+<p></p>
+You need to pre-package the app to the greatest extent possible.</p>
+<div class="codehilite"><pre><span class="nv">$ </span>bundle package
+<span class="nv">$ </span>bundle install
+</pre></div>
+
+
+<p>Keep in mind that “bundler package” will add size, in some cases
+significant size, to your app. This command caches a local version of
+each gem to your vendor/cache dir and some gems are really large.</p>
+<p>Potential problems with gems, bundler and AppFog; Lets say you need to
+modify a published gem. Lets also posit that you fork and modify this
+gem to fit your particular app (change color scheme, etc.). You can use
+bundler's <a href="http://gembundler.com/git.html">git feature</a> to host this modified gem on Github and it
+will behave as if it was hosted on rubygems.org. This is great when
+working locally or you have access to bundler and/or rake.</p>
+<p>I've found that you may need to publish the modified gem to rubygems.org
+for it to work properly in production. In fact I have not been able to
+use un-published gems with AppFog. If your modification is a useful
+feature the community may benefit from, consider submitting a pull
+request through proper channels before going down this road.</p>
+<h3>Sum it up</h3>
+<p></p>
+In a nut shell... stick with published gems and you'll be A-OK.</p>
+<hr />
+<h2>Precompile</h2>
+<p></p>
+Speaking of packaging and pre-deployment. If you are using rails 3 and
+the asset pipeline you need to run this command before you push or
+update.</p>
+<div class="codehilite"><pre><span class="nv">$ </span>bundle <span class="nb">exec </span>rake assets:precompile
+</pre></div>
+
+
+<hr />
+<h2>Final Thoughts</h2>
+<p></p>
+Whew! I hope this helps you navigate the AppFog PaaS. Stay tuned for
+more and if you have questions don’t hesitate to ask… in the <a href="http://support.appfog.com/forums">support
+forums</a> or the <a href="https://groups.google.com/forum/?fromgroups#!forum/appfog-users">Google group</a>! I am neither an AppFog or
+CloudFoundry expert nor an employee, I simply believe in the Kool-Aid
+they are pushing.</p></div>
+		<div>
+		</article>
+			<h2>Comments</h2>
+		 				
+		<div>
+	</div>
+
+    </section>
+	<!--sidebar-->
+            <aside id="sidebar" class="alignright span4">
+                <section class="blog-category">
+                    <div class="title-divider">
+                        <h3 class="title-sidebar">Categories</h3>
+                    </div>
+                    <ul class="ul-col2 clearfix">
+                        		<li ><a href="./category/apps.html"><i class="icon-chevron-right"></i>apps</a></li>
+	            		<li ><a href="./category/as3.html"><i class="icon-chevron-right"></i>as3</a></li>
+	            		<li ><a href="./category/design.html"><i class="icon-chevron-right"></i>design</a></li>
+	            		<li ><a href="./category/mobile.html"><i class="icon-chevron-right"></i>mobile</a></li>
+	            		<li class="active"><a href="./category/programming.html"><i class="icon-chevron-right"></i>programming</a></li>
+	            		<li ><a href="./category/terms.html"><i class="icon-chevron-right"></i>terms</a></li>
+	            		<li ><a href="./category/web-development.html"><i class="icon-chevron-right"></i>web development</a></li>
+	                                </ul>
+                </section>
+                <section class="blog-category">
+                    <div class="title-divider">
+                        <h3 class="title-sidebar">Archives</h3>
+                    </div>
+                    <ul class="ul-col2 clearfix">
+                    	<li><a href="archives.html"><i class="icon-chevron-right"></i>Complete Listing</a></li>
+                    </ul>
+                </section>
+            </aside>
+</section>
+<!--footer-->
+<footer id="footer">
+    <div class="row-fluid">
+
+        <div class="span4">
+            <div class="title-divider">
+                <h3>Thank You!</h3>
+            </div>
+            <div>
+                <p>Hey guys and gals! Thanks for visiting my blog, where the hope is to provide something of marginal utility. I am a full-time student in Computer Science and looking for interships or contract work. Drop me a line here: michael at caffeineindustries.com or send me a <a href="http://twitter.com/MonkMartinez">Tweet!</a></p>
+            </div>
+        </div>
+        <div class="span8">
+            <div class="title-divider">
+                <h3>Tweets</h3>
+            </div>
+            <div id='tweets'></div>
+        </div>
+        </div>
+</footer>
+
+<!--footer menu-->
+<section id="footer-menu">
+    <div class="row-fluid">
+        <p class="span8">&copy 2012 Michael Martinez <a style="color:#e1e1e1" href="#">Here</a></p>
+        <p class="span4"><span class="pull-right">Copyright 2012 - All Rights Reserved</span></p>
+    </div>
+</section>
+<!-- end footer -->
+
+</div><!-- main wrap -->
+
+</body>
+</html>
+<!-- Localized -->

@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>MM</title><link href="http://michaelmartinez.in/" rel="alternate"></link><link href="http://michaelmartinez.in/feeds/programming.atom.xml" rel="self"></link><id>http://michaelmartinez.in/</id><updated>2012-06-27T00:00:00-07:00</updated><entry><title>AppFog - Ruby on Rails 3.2 Tutorial</title><link href="http://michaelmartinez.in/appfog-ruby-on-rails-32-tutorial.html" rel="alternate"></link><updated>2012-06-27T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2012-06-27:appfog-ruby-on-rails-32-tutorial.html</id><summary type="html">&lt;p&gt;&lt;a href="http://www.appfog.com/"&gt;AppFog&lt;/a&gt; is an incredible service in the land of PaaS or Platform as a
+Service. They are a &lt;a href="http://www.cloudfoundry.com/"&gt;Cloud Foundry&lt;/a&gt;-powered polyglot platform. You
+can &lt;a href="https://console.appfog.com/signup"&gt;sign up&lt;/a&gt; for beta access now and start pushing apps strait away.
+Their web based management interface is really nice, and I am a sucker
+for nicely designed "things."  In this post I'd like to show you all how
+I got a Ruby on Rails app up and running.&lt;/p&gt;
+&lt;h2&gt;Create&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+A developer has two ways to create a new RoR app.&lt;/p&gt;
+&lt;p&gt;​1. Use the AppFog console to bootstrap a shell RoR app. [&lt;a href="https://github.com/appfog/af-ruby-rails"&gt;source
+code&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;This will net a basic shell RoR app with Ruby version 1.9.3-p125 and
+Rails version 3.2.5&lt;/p&gt;
+&lt;p&gt;​2. Use the &lt;strong&gt;af&lt;/strong&gt; gem to push your locally developed app to the cloud.&lt;/p&gt;
+&lt;h2&gt;Push&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+How do you push an app to AppFog?&lt;/p&gt;
+&lt;p&gt;Hopefully you are using rvm, rbenv or have some sort of Ruby/Gem
+management system set-up. Rvm and rbenv are out of the scope of this
+tutorial. I use rvm to create project-based gemsets with a directory
+level .rvmrc file. You can read more about rvm &lt;a href="https://rvm.io//"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;gem install af
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;When you are ready to push issue this command:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;af push &amp;lt;appname&amp;gt; --runtime&lt;span class="o"&gt;=&lt;/span&gt;ruby193
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you don’t specify an app name, AppFog will use the directory name. I
+found that my Ruby version wasn't automatically detected without the
+runtime flag. I found this by looking through the af gem source code on
+Github. (I love OSS!) The runtimes supported by AppFog can be found
+using "af runtimes".&lt;/p&gt;
+&lt;p&gt;You will then be taken though a series of yes/no questions where the
+details come into play. Accepting the default answer for all of these
+questions with the exception of database technology is the simplest way
+to get up and running. You can choose between Mongo and MySQL for the
+database technology to use, so even that isn’t very complicated.&lt;/p&gt;
+&lt;p&gt;Let me be clear, I have not veered far from the quickest path to get my
+app set-up. Subsequent tutorials will have more on this front.&lt;/p&gt;
+&lt;h2&gt;Running / Errors&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+At this point you are either running or you have error(s). If you have
+an error, use “af logs \&amp;lt;appname&gt;” to diagnose what went wrong. You can
+also head to the &lt;a href="http://support.appfog.com/forums"&gt;support forums&lt;/a&gt; or the &lt;a href="https://groups.google.com/forum/?fromgroups#!forum/appfog-users"&gt;Google group&lt;/a&gt; to ask a
+question or look through previous questions/discussions.&lt;/p&gt;
+&lt;p&gt;In either app creation case, you are going to use "af update
+\&amp;lt;appname&gt;" once you have something you'd like show the world or need
+to make a change. This command is strait forward; push the changes to
+the cloud.&lt;/p&gt;
+&lt;h2&gt;Sum it up&lt;/h2&gt;
+&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;create app either on AppFog or locally&lt;/li&gt;
+&lt;li&gt;install af gem&lt;/li&gt;
+&lt;li&gt;af push or af update&lt;/li&gt;
+&lt;li&gt;profit&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/p&gt;
+
+&lt;h3&gt;Notes:&lt;/h3&gt;
+&lt;p&gt;&lt;/p&gt;
+When I looked at the available commands using "af  --help", it was not
+immediately clear what each command was used for. A good option to learn
+more is to read though the &lt;a href="https://github.com/appfog/af"&gt;source&lt;/a&gt;.  OR you can wait for my next
+tutorial where I'll dive in with both feet on every available command.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Database&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+Using MySQL? You &lt;strong&gt;&lt;em&gt;need&lt;/em&gt;&lt;/strong&gt; the &lt;strong&gt;&lt;em&gt;mysql2 gem&lt;/em&gt;&lt;/strong&gt; in your gemfile. Also,
+if you intend to develop your app against MySQL locally, you will want
+your database.yml file to look like or similar to the gist below.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# comment out when working locally&lt;/span&gt;
+&lt;span class="c"&gt;# un-comment this for deployment&lt;/span&gt;
+development:
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 5000
+
+&lt;span class="c"&gt;# un-comment this when working locally&lt;/span&gt;
+&lt;span class="c"&gt;# comment out when deploying&lt;/span&gt;
+&lt;span class="c"&gt;#development:&lt;/span&gt;
+&lt;span class="c"&gt;#  adapter: mysql2&lt;/span&gt;
+&lt;span class="c"&gt;#  encoding: utf8&lt;/span&gt;
+&lt;span class="c"&gt;#  reconnect: false&lt;/span&gt;
+&lt;span class="c"&gt;#  database: gisticle_development&lt;/span&gt;
+&lt;span class="c"&gt;#  pool: 5&lt;/span&gt;
+&lt;span class="c"&gt;#  username: michaelmartinez&lt;/span&gt;
+&lt;span class="c"&gt;#  password: &amp;lt;password&amp;gt;&lt;/span&gt;
+&lt;span class="c"&gt;#  host: 127.0.0.1&lt;/span&gt;
+
+production:
+  adapter: sqlite3
+  database: db/production.sqlite3
+  pool: 5
+  timeout: 5000
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I am not sure why the database.yml needs to be set-up like this and
+quite frankly it could be my error (system or set-up). The error
+I received was database adapter not found and I have narrowed it down to
+the application creation process. Once the app is up and running, I have
+been able to use either configuration.&lt;/p&gt;
+&lt;h3&gt;Notes:&lt;/h3&gt;
+&lt;p&gt;&lt;/p&gt;
+Developing with MySQL locally will help to eliminate a potential source
+of frustration not related to AppFog. A simple query that works with
+sqlite3 may completely fail with PG or MySQL due to type casting, as
+just one example. Databases like PostgreSQL and MySQL have more features
+than sqlite3 but are more strict with type. So, you can avoid a lot of
+potential problems by simply developing against the database you intend
+to use in production.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Package&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+You need to pre-package the app to the greatest extent possible.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;bundle package
+&lt;span class="nv"&gt;$ &lt;/span&gt;bundle install
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Keep in mind that “bundler package” will add size, in some cases
+significant size, to your app. This command caches a local version of
+each gem to your vendor/cache dir and some gems are really large.&lt;/p&gt;
+&lt;p&gt;Potential problems with gems, bundler and AppFog; Lets say you need to
+modify a published gem. Lets also posit that you fork and modify this
+gem to fit your particular app (change color scheme, etc.). You can use
+bundler's &lt;a href="http://gembundler.com/git.html"&gt;git feature&lt;/a&gt; to host this modified gem on Github and it
+will behave as if it was hosted on rubygems.org. This is great when
+working locally or you have access to bundler and/or rake.&lt;/p&gt;
+&lt;p&gt;I've found that you may need to publish the modified gem to rubygems.org
+for it to work properly in production. In fact I have not been able to
+use un-published gems with AppFog. If your modification is a useful
+feature the community may benefit from, consider submitting a pull
+request through proper channels before going down this road.&lt;/p&gt;
+&lt;h3&gt;Sum it up&lt;/h3&gt;
+&lt;p&gt;&lt;/p&gt;
+In a nut shell... stick with published gems and you'll be A-OK.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Precompile&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+Speaking of packaging and pre-deployment. If you are using rails 3 and
+the asset pipeline you need to run this command before you push or
+update.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;bundle &lt;span class="nb"&gt;exec &lt;/span&gt;rake assets:precompile
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr /&gt;
+&lt;h2&gt;Final Thoughts&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+Whew! I hope this helps you navigate the AppFog PaaS. Stay tuned for
+more and if you have questions don’t hesitate to ask… in the &lt;a href="http://support.appfog.com/forums"&gt;support
+forums&lt;/a&gt; or the &lt;a href="https://groups.google.com/forum/?fromgroups#!forum/appfog-users"&gt;Google group&lt;/a&gt;! I am neither an AppFog or
+CloudFoundry expert nor an employee, I simply believe in the Kool-Aid
+they are pushing.&lt;/p&gt;</summary></entry><entry><title>Coffeescript, Jasmine and Katas</title><link href="http://michaelmartinez.in/coffeescript-jasmine-and-katas.html" rel="alternate"></link><updated>2012-03-10T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2012-03-10:coffeescript-jasmine-and-katas.html</id><summary type="html">&lt;p&gt;Hey-O!&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://coffeescript.org/"&gt;CoffeeScript&lt;/a&gt; is nice. It provides syntactic sugar and adds
+tremendous functionality to the web developers tool-chest. Those who
+appreciate terse, yet readable and well formatted code; CoffeeScript
+will seem like a manna from heaven. I find that I am already looking at
+my JavaScript and refactoring it in my head to CoffeeScript.&lt;/p&gt;
+&lt;p&gt;On long road trips I generally have a few hours to kill while the rest
+of the family is asleep. I generally take this time to fire up some
+podcasts and/or tutorials and to learn as I drive. I actually look
+forward to this time as I can almost totally focus on the content.&lt;/p&gt;
+&lt;p&gt;This trip I decided to load my Galaxy Nexus with a metric ton of
+CoffeeScript screen casts (just audio) and podcasts. My intention was to
+get the basics out of the way and I accomplished that objective.&lt;/p&gt;
+&lt;p&gt;Since I've returned home, I have decided to stick with CoffeeScript and
+add a few more. I have decided that my code needs to tested more
+throughly. CoffeeScript has made testing a complete breeze.&lt;/p&gt;
+&lt;p&gt;I've also become a believer in dedicated, &lt;a href="http://www.missiontolearn.com/2010/04/deliberate-practice/"&gt;deliberate practice&lt;/a&gt;. One
+can constantly reuse the same patterns and never really push themselves
+to get better. However, those who deliberately practice techniques and
+patterns they are not comfortable with generally begin to excel faster
+than those who just put in the hours haphazardly.&lt;/p&gt;
+&lt;p&gt;I used &lt;a href="http://osherove.com/tdd-kata-1/"&gt;this code kata&lt;/a&gt; with CoffeeScript and Jasmine.&lt;/p&gt;
+&lt;p&gt;Click the post image to see the passing tests!&lt;/p&gt;
+&lt;p&gt;Here is my solution:&lt;/p&gt;
+&lt;p&gt;The Spec's in CoffeeScript&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;describe&lt;/span&gt; &amp;quot;&lt;span class="n"&gt;StringCalc&lt;/span&gt;&amp;quot;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+    &lt;span class="n"&gt;describe&lt;/span&gt; &amp;quot;&lt;span class="n"&gt;constructor&lt;/span&gt; &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="n"&gt;null&lt;/span&gt;&amp;quot;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+      &lt;span class="n"&gt;beforeEach&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="n"&gt;mystrCalc&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;StrCalc&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+      &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;replaces null with 0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;expect&lt;/span&gt; &lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="n"&gt;mystrCalc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;firstNum&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;toEqual&lt;/span&gt; 0
+
+    &lt;span class="n"&gt;describe&lt;/span&gt; &amp;quot;&lt;span class="n"&gt;constructor&lt;/span&gt; &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="n"&gt;zero&lt;/span&gt; &amp;quot;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+      &lt;span class="n"&gt;beforeEach&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="n"&gt;mystrCalc&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;StrCalc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+      &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;replaces &amp;quot;0&amp;quot; with 0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;expect&lt;/span&gt; &lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="n"&gt;mystrCalc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;firstNum&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;toEqual&lt;/span&gt; 0
+
+    &lt;span class="n"&gt;describe&lt;/span&gt; &amp;quot;&lt;span class="n"&gt;constructor&lt;/span&gt; &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="n"&gt;multiple&lt;/span&gt; &lt;span class="n"&gt;numbers&lt;/span&gt;&amp;quot;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+      &lt;span class="n"&gt;beforeEach&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="n"&gt;mystrCalc&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;StrCalc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;1, 2, 3&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+      &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;matches first arg to firstNum&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;expect&lt;/span&gt; &lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="n"&gt;mystrCalc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;firstNum&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;toEqual&lt;/span&gt; 1
+
+      &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;matches second arg to secondNum&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;expect&lt;/span&gt; &lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="n"&gt;mystrCalc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;secondNum&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;toEqual&lt;/span&gt; 2
+
+      &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;matches third arg to thirdNum&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;expect&lt;/span&gt; &lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="n"&gt;mystrCalc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;thirdNum&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;toEqual&lt;/span&gt; 3
+
+    &lt;span class="n"&gt;describe&lt;/span&gt; &amp;quot;&lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="n"&gt;method&lt;/span&gt;&amp;quot;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+      &lt;span class="n"&gt;beforeEach&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="n"&gt;mystrCalc&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;StrCalc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;2, 4, 6&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+      &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;adds three arguments of StrCalc&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;expect&lt;/span&gt; &lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="n"&gt;mystrCalc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;total&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;toEqual&lt;/span&gt; 12
+
+    &lt;span class="n"&gt;describe&lt;/span&gt; &amp;quot;&lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="n"&gt;method&lt;/span&gt; &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="n"&gt;bigger&lt;/span&gt; &lt;span class="n"&gt;numbers&lt;/span&gt;&amp;quot;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+      &lt;span class="n"&gt;beforeEach&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="n"&gt;mystrCalc&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;StrCalc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;20\n40, 60&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+      &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;adds three arguments for big numbers and wacky delimiters&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+        &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;expect&lt;/span&gt; &lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="n"&gt;mystrCalc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;total&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;toEqual&lt;/span&gt; 120
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The implementation in CoffeeScript:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;StrCalc&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;class&lt;/span&gt; &lt;span class="n"&gt;StrCalc&lt;/span&gt;
+
+    &lt;span class="n"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;myStr&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; 0&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+      &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;myStr&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;0&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;myStr&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; 0
+        &lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="n"&gt;firstNum&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; 0
+      &lt;span class="k"&gt;else&lt;/span&gt;
+        &lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="n"&gt;parseMyNum&lt;/span&gt; &lt;span class="n"&gt;myStr&lt;/span&gt;
+
+    &lt;span class="n"&gt;parseMyNum&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;myStr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+      &lt;span class="n"&gt;pattern&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;\&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;+.*&lt;/span&gt;?&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;\&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;gm&lt;/span&gt;
+      &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;myStr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;match&lt;/span&gt; &lt;span class="n"&gt;pattern&lt;/span&gt;
+      &lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="n"&gt;firstNum&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;parseInt&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;0&lt;span class="p"&gt;]&lt;/span&gt;
+      &lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="n"&gt;secondNum&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;parseInt&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;1&lt;span class="p"&gt;]&lt;/span&gt;
+      &lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="n"&gt;thirdNum&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;parseInt&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;2&lt;span class="p"&gt;]&lt;/span&gt;
+      &lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;
+      &lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="n"&gt;total&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="n"&gt;firstNum&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="n"&gt;secondNum&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="n"&gt;thirdNum&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Paste the CoffeeScript &lt;a href="http://js2coffee.org/"&gt;here&lt;/a&gt; to see what it looks like in JavaScript.&lt;/p&gt;</summary></entry><entry><title>Exciting times, choosing a platform!</title><link href="http://michaelmartinez.in/exciting-times-choosing-a-platform.html" rel="alternate"></link><updated>2011-10-03T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2011-10-03:exciting-times-choosing-a-platform.html</id><summary type="html">&lt;p&gt;As I sit here and write this post; I have an ActionScript 3 project
+open, a Flash Pro project open and a vanilla Java project open. Earlier
+I was working in Xcode on an HTML5/JavaScript &lt;a href="http://phonegap.com/"&gt;Phonegap&lt;/a&gt; project.&lt;/p&gt;
+&lt;p&gt;I know what you are thinking; "This dude is a freakin' badass!" HA! Rest
+assured that I'm merely ~~enthusiatic~~ crazy about technology and more
+specifically UI/UX and programming (and my children, but this blog is
+about tech, not diapers). I'm living and eating this stuff when the kids
+are sleeping or out and about.&lt;/p&gt;
+&lt;p&gt;There is a bit of a problem, however. I would really, really like to
+focus on a core programming language and/or platform. I want to be a
+Jedi master of the most ubiquitous, most loved and most profitable
+language and platform. In this day and age its a fools errand, a pipe
+dream and the emperor has no clothes.&lt;/p&gt;
+&lt;p&gt;Lots of geek pundits have said, "Just focus on iOS and be merry." Yes...
+but. There is always a "but" and I would be remiss to leave out the
+other exciting platforms. After all, my Android phone got me into this
+whole mess and Android is still growing like gangbusters. My problem,
+essentially, is that I want my cake and too eat it too. Another silly
+cop-out, eh?&lt;/p&gt;
+&lt;p&gt;I need something that will work on a variety of platforms with
+essentially one code base. As a one man shop with limited time, I don't
+have the luxury of coding every platform in its native tongue. I would
+LOVE to be that BADASS, but I'm not anywhere near that level. I need to
+work where I'm comfortable and productive from 8pm to midnight. I have a
+full-time job and diapers to change, I don't want to fight with
+something I enjoy doing in the hopes to make a quick buck; that simply
+isn't worth it.&lt;/p&gt;
+&lt;p&gt;So I went down the cross platform path to see what I could find;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://phonegap.com/"&gt;Phonegap&lt;/a&gt; as mentioned previously is righteous. It works and it works
+well. The bonus is I get to use the skills I've aquired from years of
+HTML and javascript ~~developing~~ hacking websites. There are some
+nagging performance issues outside of Phonegap based on the libraries
+one chooses. JQuery Mobile is NOT ready for prime time. In fairness to
+JQuery Mobile, its still in beta and has some serious corporate backing
+with Adobe and Microsoft. So it "should" be really good in time.&lt;/p&gt;
+&lt;p&gt;Sencha Touch looks great but will require a significant investment to
+learn. The same can be said for Appcelerator Titanium. These
+frameworksfor mobile development are basically javascript only and have
+a very specific (and different) ways of doing things. There are lots of
+reports of strong support for iOS and lacking support for Android with
+both. I can't comment directly on the issues with Sencha or Titanium as
+I have not used them for any length of time. However, the comments and
+blogs are there and in your face when you start to research.&lt;/p&gt;
+&lt;p&gt;The over arching problem with all of these is the dependence on the
+mobile browser. The very thing that made my want to stab myself in the
+ear with a pencil while developing websites, rears its ugly little head
+in this domain. This much is clear; All of the DOM manipulating cross
+platform solutions are dependent on the mobile browser. These browsers
+can vary widely and wildly from device to device. Android developers
+think fragmentation is bad, add another layer of abstraction and OEM
+specific implementations and you have some serious pain coming your way.&lt;/p&gt;
+&lt;p&gt;The only other game in town for cross platform mobile development is
+with Adobe and the Flash-FLEX / Air combo. The Flash apps I have built
+and tested for mobile just flat out work. They look great and you get to
+use a class based, statically typed language to build them in
+ActionScript 3. What is the downside? Reach! The good news is I can
+target iOS and Android with basically the same code base, but that is it
+(I will not mention the Blackberry Playbook as its sales look dismal,
+oops (I went there).&lt;/p&gt;
+&lt;p&gt;So the moral of this story is almost every solution has real, bonafide
+merits and warts and it you came to this article looking for the magic
+bullet... I apologize. You see, the magic platform with everything YOU
+want including buckets of money does NOT exist. There is an old adage
+that I read a lot on stackoverflow and tech-religious pieces; &lt;strong&gt;Choose
+the right tool for the job.&lt;/strong&gt; When people are choosing a path, this is
+the last thing they want to hear... and I understand the angst. However,
+this piece of advice is pure gold and everyone should take it to heart.&lt;/p&gt;
+&lt;p&gt;I have come to realize my, sometimes unhealthy, curiosity is both a
+blessing and a curse... but mostly pure blessing. I like learning new
+things and often get tired of "same" ( which is part of the reason my
+day job is a riding around in a fire engine, no day is ever the same.)
+Timing will always be a challenge as the IT industry moves at break-neck
+pace. With a healthy curiosity and a good method to learn, I think its
+possible to get on board and make a difference.&lt;/p&gt;</summary></entry><entry><title>New(ish) Directions</title><link href="http://michaelmartinez.in/newish-directions.html" rel="alternate"></link><updated>2011-06-11T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2011-06-11:newish-directions.html</id><summary type="html">&lt;p&gt;"Native" development is fun and challenging, but (there is always a but)
+I find myself wanting to embrace a wider audience. The rumors you hear
+about making money with Android may or may not be true. I have two apps
+out; one is paid and one is free.&lt;/p&gt;
+&lt;p&gt;My apps are completely different and 100% un-related from each other.
+That said, the free app has been downloaded almost an order of magnitude
+more than the paid app. I'm not sure if that means a damn thing, but its
+hard to miss. The quality of my apps and usefulness aside; its also
+difficult to look at the other platforms and not have a, "What if my app
+was in that store..." moment.&lt;/p&gt;
+&lt;p&gt;So I'm currently investigating ways to get my apps cross-platform and
+its been an extremely fun process. I've looked at;
+Flash/Flex/Air/JavaScript/HTML/CSS/Phonegap/Titanium/... and so on. I
+will be posting a nice big roundup here shortly. I'm still gathering
+materials/evidence as I don't want to alienate or mislead other people
+who are curious for the same info and another perspective.&lt;/p&gt;</summary></entry><entry><title>Google I/O 2011 - Initial Thoughts</title><link href="http://michaelmartinez.in/google-io-2011-initial-thoughts.html" rel="alternate"></link><updated>2011-05-12T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2011-05-12:google-io-2011-initial-thoughts.html</id><summary type="html">&lt;p&gt;This was my first year attending Google I/O and I hope to attend many
+more. Overall, the experience was simply mind bending. Every session I
+attended was packed [from an information &amp;amp; body count perspective] and
+meticulously presented.  I received a Google I/O review form and laid
+down some initial thoughts... I'll probably add another review in a week
+or so after full digestion.&lt;/p&gt;
+&lt;p&gt;Session Review:&lt;/p&gt;
+&lt;p&gt;First, I'd like to thank Google for the extremely professional,
+high-quality and INSPIRING developer conference. I appreciate the
+opportunity to participate.&lt;/p&gt;
+&lt;p&gt;I'd like to see some of the sessions last a bit longer in the future.
+I'm sure scheduling is not trivial, nor is it possible to please
+everyone. That said, I attended several sessions that were extremely
+compressed, but most were just right.&lt;/p&gt;
+&lt;p&gt;A good example of just right; The Android Protips session with Reto was
+awesome and easily digestible for the intended audience (experienced
+developers). The Protips session presented information that was new to a
+lot of developers, yet manageable from a cognitive point of view.&lt;/p&gt;
+&lt;p&gt;In other words, it was just right in my humble opinion. Which is not to
+say that I wouldn't appreciate a longer session with Reto. Code and
+advanced developer topics are easier to consume for people who spend a
+lot of time coding.&lt;/p&gt;
+&lt;p&gt;A good example of a compressed session; The Designing and Implementing
+of UI's for phones and tablets. Developers naturally spend most of their
+time coding, I think we can all agree on that. UI / UX design are topics
+where most developers will readily admit some level deficiency, myself
+included.&lt;/p&gt;
+&lt;p&gt;So if we know developers have ranging issues with UI / UX. I would think
+it makes sense to spend a bit more time on the topic. Furthermore, a
+fair amount of criticism for apps related to Android is a lack of
+polish, fit and feel. "Haters gonna hate", but there is a kernel of
+truth in those arguments. It may be selfish to ask for this, but I would
+really like to see more UI / UX topics.&lt;/p&gt;
+&lt;p&gt;I guess it boils down to how many developers "do it all" for their apps
+where the economics of hiring a designer is not possible or they simply
+don't know their UI's / UX's need help. In any case, I don't think
+spending more time on UI's / UX's would be time poorly spent or poorly
+received by the Android / Chrome developer community as a whole.&lt;/p&gt;</summary></entry><entry><title>*Development</title><link href="http://michaelmartinez.in/development.html" rel="alternate"></link><updated>2011-02-13T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2011-02-13:development.html</id><summary type="html">&lt;p&gt;So far I've really enjoyed my time learning Java and Android
+development.  It's taught me a great deal in regards to programming the
+entire life-cycle of an application. In class, we are generally given a
+small task to complete which can generally be accomplished in 1 to 3
+hours with 5 or 6 class files.&lt;/p&gt;
+&lt;p&gt;Developing a "REAL" Android app has been an extreme learning
+curve comparatively speaking. Every aspect must be accounted for and
+properly dealt with. However, I would bet that it takes me three times
+longer than a seasoned developer to accomplish most tasks. I'm changing
+that slowly but surely... its a passion thing.&lt;/p&gt;
+&lt;p&gt;How does one become more efficient with their programming? Study
+relevant bits and minimize distractions. I attempt to steer clear of
+religious and political debates unless I'm cornered in my personal life.
+I'm finding that doing the same in programming pays off.&lt;/p&gt;
+&lt;p&gt;You can search and seek out, x vs. y debates and disccusions on the
+intertubes until you're blue in the face. I've found that rarely, if
+ever, do you gain real insight from such discussions. I've found that
+its better to just do what you do until it doesn't work, then seek new
+and better approaches specific to your problem. Drilling down the
+issue/problem to its finest details yields the best ROI for time in my
+experience thus far.&lt;/p&gt;
+&lt;p&gt;I know that sounds intuitive and easy. When you're staring the giant
+programming world in the face with problems you barely comprehend
+its daunting and easy to be led astray. I've been clobbered by the time
+sucking ritual of IDE vs IDE debate when all I was looking for was a way
+to integrate a version control system. Countless hours; gone. No more, I
+say... I'm getting hyper-focused and staying there.&lt;/p&gt;
+&lt;p&gt;P.S. The picture is a preview of the next app...&lt;/p&gt;</summary></entry><entry><title>Microsoft moving from Silverlight!</title><link href="http://michaelmartinez.in/microsoft-moving-from-silverlight.html" rel="alternate"></link><updated>2010-10-29T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2010-10-29:microsoft-moving-from-silverlight.html</id><summary type="html">&lt;p&gt;This.&lt;/p&gt;
+&lt;p&gt;Frustration is likely the main word from the poor souls who've put in
+serious amounts of time to become proficient with Expression Studio
+(Blend) and the intricacies of Microsoft's Silverlight. &lt;a href="http://www.zdnet.com/blog/microsoft/microsoft-our-strategy-with-silverlight-has-shifted/7834"&gt;Mary Jo
+Foley&lt;/a&gt; has a post up today where she interviews Bob Muglia, the
+Microsoft President in charge of the company’s server and tools
+business. He basically says the company is moving away from Silverlight
+in the web space and the desktop space, but “&lt;a href="http://www.zdnet.com/blog/microsoft/microsofts-new-pitch-every-net-developer-just-became-a-windows-phone-developer/5316"&gt;Silverlight is our
+development platform for Windows Phone&lt;/a&gt;.”&lt;/p&gt;
+&lt;p&gt;I took an introductory class in VB.NET last semester and was
+very intrigued by Silverlight, XAML and the way &lt;em&gt;it seemed&lt;/em&gt; that
+Microsoft was aggressively pushing Expression Studio and Silverlight
+versions. I say "seemed" because its now obvious that Microsoft is
+losing its interest in Silverlight as a serious contender to Adobe's
+Flash and HTML 5. I'm a bit befuddled by this bit of news as the W3
+consortium &lt;a href="http://www.infoworld.com/d/developer-world/w3c-hold-html5-in-websites-041?page=0,1"&gt;doesn't think&lt;/a&gt; HTML5 is ready for prime-time and Flash has
+taken several bad PR shots to the chin as of late.&lt;/p&gt;
+&lt;p&gt;Is Microsoft giving up too soon? I have no idea, maybe? I will tell you
+that I was seriously interested in &lt;a href="http://caffeineindustries.com/?p=74"&gt;really&lt;/a&gt; learning C# and
+Silverlight development, but a series of related news items have forced
+me to rethink this position. Javascript, Python, Java and Ruby are
+really starting to look worthy of a &lt;em&gt;serious investmen&lt;/em&gt;t in time. If I
+had 5,000 hours invested in Silverlight development, I'd be half-passed
+extremely angry with Microsoft right now... especially given the
+Silverlight hype machine they've created in the last few years. I
+seriously feel bad for these developers as all of a sudden, the focus
+changes and the path moves. The developer is left in a lurch...
+press-on, adapt and overcome OR start over.&lt;/p&gt;
+&lt;p&gt;To me its that simple, but I'm not a sophisticated developer with years
+of experience. Maybe the Silverlight dev. can carve out a niche and make
+some money, but for how long? Furthermore, what if the Win7 phone
+is received like the &lt;a href="http://www.engadget.com/2010/06/30/microsoft-kin-is-dead/"&gt;Microsoft Kin&lt;/a&gt;. I'm not in a position to say
+whether Win7 phone will be successful or not (I hope it is as Android
+and iOS need more competition). That all said, a
+simple exercise in objective pragmatism must lead one to seriously
+consider all of the possible situations which can be conceptualized.
+Will Microsoft totally abandon Silverlight &lt;em&gt;sometime&lt;/em&gt; in the future?
+After three years and &lt;a href="http://www.riastats.com,"&gt;relatively low adoption rates&lt;/a&gt;, is it better to
+cut one's losses and press-on to another technology?&lt;/p&gt;
+&lt;p&gt;According to RIA Stats, Silverlight plugin penetration is a bit better
+than half on the big four browsers. Ok, what about sites that employ
+Silverlight to deliver content? I couldn't find an authoritive place to
+research such data, so lets get all hot and subjective. Its basic and
+within the Microsoft sphere, Silverlight is used on a few applications
+that are truly impressive. Day-to-day video and music media delivery is
+still firmly in Flash's backyard. Line of business applications from the
+cloud are a potential bright spot for Silverlight.&lt;/p&gt;
+&lt;p&gt;I wonder how many companies will hesitate to make a long-term
+Silverlight commitment because of the news today? Windows Azure supports
+popular standards, protocols and languages including SOAP, REST, XML,
+Java, PHP and Ruby. Why fiddle with Silverlight when Microsoft's own
+cloud supports such a diverse range of languages? How long has Microsoft
+known they were not in the "game" with Silverlight? Could they have
+released this information a year ago?&lt;/p&gt;
+&lt;p&gt;Lots of questions need to be answered.&lt;/p&gt;</summary></entry><entry><title>Part II: Choosing a programming language</title><link href="http://michaelmartinez.in/part-ii-choosing-a-programming-language.html" rel="alternate"></link><updated>2010-10-09T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2010-10-09:part-ii-choosing-a-programming-language.html</id><summary type="html">&lt;p&gt;I spent a considerable amount of time pondering which programming
+language I should really focus on.  I still have lingering questions and
+half-formed opinions at this time, perhaps getting them out here will
+help solidify the weaker aspects. This is not only an economical
+question, but also a philosophical question, as mentioned in the
+previous post.&lt;/p&gt;
+&lt;p&gt;The economics were that of the opportunity cost when learning one
+language over another. Learning in tandem is certainly an option,
+although part of me wonders if you really &lt;em&gt;learn&lt;/em&gt; that way. Another
+potential solution to this quandary is solve your current programming
+problem with the language you want to really learn.&lt;/p&gt;
+&lt;p&gt;The problem would have to be big enough to really test you. The features
+that you decide to implement in your solution need to capture the bulk
+of or at least a large portion of the framework behind the language.
+Otherwise you become the dreaded jack of the language with no mastery
+what-so-ever.&lt;/p&gt;
+&lt;p&gt;I read an interesting take on the issue of choosing programming
+languages. I read the article 4 tests, 8 programs, several sleepless
+nights at the firehouse and 3 projects ago and I couldn't find it
+(&lt;em&gt;Google Instant&lt;/em&gt; is awesome, but it has changed the way we get search
+for ever). I'll sum up the salient points that I recall wishing I could
+deliver proper attribution...&lt;/p&gt;
+&lt;p&gt;The author stated that programmers MUST know and have sufficient
+performance with multiple languages. His examples seemed valid and I
+respected the point of view. He then went on to describe his ideal of
+what languages one should learn. This also was respectable and made
+sense form a beginners point of view.&lt;/p&gt;
+&lt;p&gt;The author stated that one should focus on a language from distinct
+groups. One high-level strongly typed language, one functional based
+language and one script based language. What the heck does that mean?
+We'll get into that in the next post...&lt;/p&gt;</summary></entry><entry><title>Brain-Computer Interface</title><link href="http://michaelmartinez.in/brain-computer-interface.html" rel="alternate"></link><updated>2010-09-23T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2010-09-23:brain-computer-interface.html</id><summary type="html">&lt;p&gt;WOW.&lt;/p&gt;
+&lt;p&gt;Talk about a fun diversion. I was minding my own business reading
+through my emails and I came across this &lt;a href="http://daeken.com/the-hardware-hacker-manifesto"&gt;hardware hacker manifesto&lt;/a&gt;.
+I've been taking things apart and &lt;em&gt;trying&lt;/em&gt; to put them back together,
+sometimes in different configurations, for a looooonnnnggg time. Most
+people label this as a curious diversion or nerdy escapade if you
+explain it in context. I've never really thought to label it
+as&lt;em&gt;Hacking&lt;/em&gt;... until I became a subscriber to &lt;a href="http://makezine.com/"&gt;Make:&lt;/a&gt;. I don't really
+have an opinion as to the manifesto above, as its none of my business
+really... However, I became instantly and extremely interested in what
+this guy was hacking.&lt;/p&gt;
+&lt;p&gt;The item is called the&lt;a href="http://www.emotiv.com/index.php"&gt;Emotiv EPOC headset&lt;/a&gt; and it looks AWESOME. Why?
+Its a research
+grade &lt;strong&gt;&lt;a href="http://en.wikipedia.org/wiki/Electroencephalography"&gt;Electroencephalography&lt;/a&gt;&lt;/strong&gt;&lt;a href="http://en.wikipedia.org/wiki/Electroencephalography"&gt;(&lt;/a&gt;&lt;strong&gt;&lt;a href="http://en.wikipedia.org/wiki/Electroencephalography"&gt;EEG&lt;/a&gt;&lt;/strong&gt;&lt;a href="http://en.wikipedia.org/wiki/Electroencephalography"&gt;)&lt;/a&gt;
+device at a consumer price point that ships with a relatively low cost
+software development kit and a suite of tools that are plug and play. 
+This is the FUTURE as far as I'm concerned. Again, you may ask, why?
+Not only does it represent the ultimate in laziness (Humans do love to
+be lazy... just ask them), it represents the possibility of truly
+understanding the human condition.&lt;/p&gt;
+&lt;p&gt;The brain. Our brain is an amazing feat of biological engineering. As I
+sit here and struggle for words to tap into the keyboard so they can be
+suitable for displaying and conveying my thoughts and emotion... I
+wonder if this is how humans are to really designed to communicate. Does
+the written word represent the path of least resistance to enable
+communication of human thoughts and emotion in a static medium? Is there
+another way? A billion similar question
+and convoluted pseudo-philosophical arguments rage in my little noodle.&lt;/p&gt;
+&lt;p&gt;At this point, I'm not 100% sure what this headset is really &lt;em&gt;capable
+of&lt;/em&gt;. I've watched a handful of YouTube videos and read a white paper or
+two and I'm really just getting to the meat of it. One thing is for
+sure, I know what I want for Christmas.&lt;/p&gt;
+&lt;p&gt;Video Courtesy of ExtremeTech via YouTube&lt;/p&gt;</summary></entry><entry><title>A little JAVA; Overloaded Method</title><link href="http://michaelmartinez.in/a-little-java-overloaded-method.html" rel="alternate"></link><updated>2010-09-21T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2010-09-21:a-little-java-overloaded-method.html</id><summary type="html">&lt;p&gt;Overloaded methods are handy for situations when you want to pass
+parameters in varying ways. I'm sure this is really simple stuff for
+veteran Java Jedi's, but it may come in handy for a beginner like
+myself. Notice that the name of the method is the same for all three.
+The Java complier/runtime is actually smart enough to determine which
+one to use. Keep the variable names different unless you plan to use a
+"this" reference.... and watch your data types as you may run into an
+Ambiguous compile time error.&lt;/p&gt;
+&lt;p&gt;The first method passes in three parameters:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;computeNetPay&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;hrs&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;rtePay&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;taxRate&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+&lt;span class="c1"&gt;//var to hold tax amount&lt;/span&gt;
+&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;Withholding&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="c1"&gt;//assign vars&lt;/span&gt;
+&lt;span class="n"&gt;Hours&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;hrs&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;ratePay&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;rtePay&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;rateTaxes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;taxRate&lt;/span&gt;&lt;span class="o"&gt;;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class="c1"&gt;//calc gross&lt;/span&gt;
+&lt;span class="n"&gt;gross&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Hours&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;ratePay&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="c1"&gt;//calc amount to withhold from taxes&lt;/span&gt;
+&lt;span class="n"&gt;Withholding&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gross&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;rateTaxes&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="c1"&gt;//Find Net Pay&lt;/span&gt;
+&lt;span class="n"&gt;net&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gross&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Withholding&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;This method recieved three parameters and net pay is &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The second passes in two parameters and the third passes in one parameter as you can see from the rest of the code here:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Pay&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+&lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;Hours&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;ratePay&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;rateTaxes&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;gross&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="n"&gt;computeNetPay&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;hrs&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;rtePay&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;taxRate&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;
+&lt;span class="c1"&gt;//var to hold tax amount&lt;/span&gt;
+&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;Withholding&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="c1"&gt;//assign vars&lt;/span&gt;
+&lt;span class="n"&gt;Hours&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;hrs&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;ratePay&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;rtePay&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;rateTaxes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;taxRate&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="c1"&gt;//calc gross&lt;/span&gt;
+&lt;span class="n"&gt;gross&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Hours&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;ratePay&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="c1"&gt;//calc amount to withhold from taxes&lt;/span&gt;
+&lt;span class="n"&gt;Withholding&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gross&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;rateTaxes&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="c1"&gt;//Find Net Pay&lt;/span&gt;
+&lt;span class="n"&gt;net&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gross&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Withholding&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;This method recieved three parameters and net pay is &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;computeNetPay&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;hrs&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;rtePay&lt;/span&gt;&lt;span class="o"&gt;){&lt;/span&gt;
+&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;Withholding&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="c1"&gt;//assign tax rate&lt;/span&gt;
+&lt;span class="n"&gt;rateTaxes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.15&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;Hours&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;hrs&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;ratePay&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;rtePay&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;gross&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Hours&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;ratePay&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;Withholding&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gross&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;rateTaxes&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;net&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gross&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Withholding&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;This method recieved two parameters and net pay is &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;computeNetPay&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;hrs&lt;/span&gt;&lt;span class="o"&gt;){&lt;/span&gt;
+&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;Withholding&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;Hours&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;hrs&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;rateTaxes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.15&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="c1"&gt;//assign Pay rate&lt;/span&gt;
+&lt;span class="n"&gt;ratePay&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;5.85&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;gross&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Hours&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;ratePay&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;Withholding&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gross&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;rateTaxes&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;net&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;gross&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;Withholding&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;This method recieved one parameters and net pay is &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>Part I: Choosing a programming language...</title><link href="http://michaelmartinez.in/part-i-choosing-a-programming-language.html" rel="alternate"></link><updated>2010-09-20T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2010-09-20:part-i-choosing-a-programming-language.html</id><summary type="html">&lt;h2&gt;...is a hard thing to do.&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;
+The choices when it comes to &lt;em&gt;really&lt;/em&gt; learning a programming language
+are immense. Before I get to far ahead of myself, I'd like to make sure
+you know that I'm talking &lt;em&gt;computer programming languages.&lt;/em&gt; Spoken
+languages are beautiful, inspiring and I'd like to learn Chinese.
+However, my &lt;a href="http://www.medicalnewstoday.com/articles/60455.php"&gt;neural connections&lt;/a&gt; are maxed out with the two
+programming languages I'm learning now, coupled to learning Spanish with
+1.0 from our beautiful teacher.&lt;/p&gt;
+&lt;p&gt;To solve this problem, if you like learning its not really a "problem"
+per se, you need to break it down. There are several factors that make
+this decision somewhat difficult to quantify, we'll list them here and
+explore them subsequently. The &lt;a href="http://en.wikipedia.org/wiki/Opportunity_cost"&gt;opportunity cost&lt;/a&gt; of learning each
+language of interest is probably the single biggest factor
+when analyzing this problem. Another major factor is &lt;em&gt;&lt;a href="http://www.starnetdata.com/wp-content/uploads/2010/02/The-Phenomenon-of-Technology-Decay.pdf"&gt;technology
+decay&lt;/a&gt;,&lt;/em&gt;while a certain language may be "hot" right now, five years
+from now the language may be dead, non-supported or found to have major
+weaknesses as technology progresses. The last factor that makes choosing
+difficult is the experience level of the person making the decision.&lt;/p&gt;
+&lt;p&gt;Opportunity cost is very complex in this problem as the variables that
+make up the  equation tend to be diverse and seemingly never-ending.
+&lt;strong&gt;Time&lt;/strong&gt; is a huge factor for just about everything and it certainly
+plays a role in my decision to learn programming. One, I'm not getting
+any younger and my perception is that technology is moving faster and
+faster. If I want to become proficient to the point where I can program
+anything with the programming language, I need approximately
+5000 to&lt;a href="http://www.squidoo.com/10000-hour-rule"&gt;10000 hours&lt;/a&gt; of learning and working with the language
+(sprinkle a dash of luck for good measure).&lt;/p&gt;
+&lt;p&gt;The ever present "verses" argument goes something like this; Which is
+better... C++ vs. Java, Java vs. C#, VB.NET vs. Python, PERL vs. LUA
+and so on. I don't know if there is an empirical winner in these battles
+as my perception puts these battles squarely in the opinion realm. One
+theme I've heard mentioned time and again is; &lt;em&gt;Choose the right tool for
+the job!&lt;/em&gt; which is excellent advice for the seasoned developer to be
+sure. The not-so-salty beginner still needs to decide which language
+they will really concentrate on despite the excellent advice
+above because we don't know which tool is right for the job. We can
+study other solutions and glean information as to why they did this or
+that, but that will only get you so far.&lt;/p&gt;
+&lt;p&gt;Technology decay is probably something most people don't see coming
+until its too late. When I tell people of the baby boomer age that
+I'm studying programming, I generally get this answer; "I remember punch
+cards with Fortran back in College." I often wonder what happened to the
+person that &lt;em&gt;really&lt;/em&gt; knew Fortran when C and C++ came on the scene. Did
+they scoff? Did they embrace the new paradigms? Did they need to do
+anything?  Fortran is still in use, albeit relegated to somewhat of a
+niche language.  As long as the language has users, the language will
+never die... it will just die. We can find many people that still play
+with the &lt;a href="http://en.wikipedia.org/wiki/Atari_2600"&gt;Atari 2600&lt;/a&gt;, does that mean the Atari game developers are
+earning a livable wage? I don't know for sure, but I would hazard a
+guess at NO.&lt;/p&gt;
+&lt;p&gt;At the end of the day, my choice boils down to economics and priorities.
+I have a family with small children (1.0 and 2.0) who deserve the
+ABSOLUTE best I can provide them. In the event that I lose my current
+job, I would want to choose and &lt;em&gt;really&lt;/em&gt; learn a language that could
+immediately provide a livable wage for my family.&lt;/p&gt;
+&lt;p&gt;Let's talk languages... Continued in Part II&lt;/p&gt;</summary></entry><entry><title>App Inventor</title><link href="http://michaelmartinez.in/app-inventor.html" rel="alternate"></link><updated>2010-09-06T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2010-09-06:app-inventor.html</id><summary type="html">&lt;p&gt;&lt;a href="http://appinventor.googlelabs.com/about/"&gt;Google's App Inventor Beta&lt;/a&gt; is an AWESOME program and I'm lucky to be
+a part of it. They say it is intended for non-programmers and I agree to
+ a certain extent. However, people with programming experience will be
+quickly making apps that &lt;em&gt;work&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Anecdotal evidence, my own, from the Google AI discussion board suggests
+that people with no programming experience &lt;strong&gt;struggle&lt;/strong&gt;. They struggle
+with anything outside of hat was shown them in the&lt;a href="http://appinventor.googlelabs.com/learn/tutorials/index.html"&gt;tutorials&lt;/a&gt;. The
+good news is the tutorials are quite comprehensive... the bad news is
+the tutorials don't cover a LOT of material.&lt;/p&gt;
+&lt;p&gt;The documentation is decent, but lacks depth in many areas. As this beta
+progresses, I'm sure we'll see more in the form of documentation...
+among other improvements.&lt;/p&gt;
+&lt;p&gt;Stay tuned for the apps I'm working on, as I'll post them as they are
+complete and ready for download. Cheers.&lt;/p&gt;</summary></entry></feed>

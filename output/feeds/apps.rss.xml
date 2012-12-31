@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>MM</title><link>http://michaelmartinez.in/</link><description></description><atom:link href="http://michaelmartinez.in/feeds/apps.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 19 May 2011 00:00:00 -0700</lastBuildDate><item><title>Abecedario Infantil</title><link>http://michaelmartinez.in/abecedario-infantil.html</link><description>&lt;p&gt;Abecedario Infantil is an application that will teach you or your child
+the alphabet in Spanish in a fun and interactive way.&lt;/p&gt;
+&lt;p&gt;The Letras y Sonidos(letters &amp;amp; sounds)button will show you the correct
+pronunciation of the letter, it is audible when the letter card is
+loaded. If you miss the sound, simply touch the card and it will play
+again. This screen also includes a picture of an object or animal with
+the corresponding name in Spanish. In a future version, the card will
+also play those words.&lt;/p&gt;
+&lt;p&gt;The Signos (Signs) button will teach the basic sign language alphabet.&lt;/p&gt;
+&lt;p&gt;We are working on more interactive Spanish/English activities, so please
+stay tuned.&lt;/p&gt;
+&lt;p&gt;A bit of advice if I may: My three year old (ver 1.0) likes to touch the
+card, what seems like a thousand times, before moving on the the next
+letter. Adjust volume controls as necessary.&lt;/p&gt;
+&lt;p&gt;My wife is from Colombia and speaks nothing but Spanish to our children.
+A spectacular consequence is the ability of my children (1.0 only, as
+2.0 is still too young to speak) to switch between English and Spanish
+effortlessly. What we found amazing is that while 1.0 speaks Spanish, he
+really didn't know the alphabet. This app has really changed that and
+1.0 know knows his Spanish alphabet as well as the English alphabet.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://market.android.com/details?id=com.caffeine.alfabeto"&gt;Android Market Listing&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ScreenShots:&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;Main Screen&lt;/h2&gt;
+&lt;/p&gt;
+
+&lt;div&gt;
+[![][]][]
+
+&lt;/div&gt;
+
+&lt;/p&gt;
+
+&lt;h2&gt;Letras y Sonidos:&lt;/h2&gt;
+&lt;/p&gt;
+
+&lt;div&gt;
+[![][1]][]
+
+&lt;/div&gt;
+
+&lt;/p&gt;
+
+&lt;h2&gt;Signos:&lt;/h2&gt;
+&lt;/p&gt;
+
+&lt;div&gt;
+[![][2]][]
+
+&lt;/div&gt;
+
+&lt;/p&gt;
+
+&lt;p&gt;[&lt;img alt="" src="http://caffeineindustries.com/wp-content/uploads/2011/05/main.jpg" title="main" /&gt;]: http://caffeineindustries.com/wp-content/uploads/2011/05/main.jpg
+  [&lt;img alt="" src="http://caffeineindustries.com/wp-content/uploads/2011/05/letras.jpg" title="letras" /&gt;]: http://caffeineindustries.com/wp-content/uploads/2011/05/letras.jpg
+  [&lt;img alt="" src="http://caffeineindustries.com/wp-content/uploads/2011/05/signos.jpg" title="signos" /&gt;]: http://caffeineindustries.com/wp-content/uploads/2011/05/signos.jpg&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Michael</dc:creator><pubDate>Thu, 19 May 2011 00:00:00 -0700</pubDate><guid>tag:michaelmartinez.in,2011-05-19:abecedario-infantil.html</guid></item><item><title>Engineer Toolkit</title><link>http://michaelmartinez.in/engineer-toolkit.html</link><description>&lt;h1&gt;Engineer Toolkit&lt;/h1&gt;
+&lt;p&gt;&lt;/p&gt;
+My math teacher always told me to learn how to calculate formulas and
+such manually because I may not have a calculator to rely on. She was
+right and no one should rely 100% on a tool other than one's mind
+coupled with training and practice. That said, My math teach and I were
+not aware of the computing power that is riding around in most of our
+pockets 24/7 these days.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;Engineer Toolki&lt;/strong&gt;t is the first comprehensive Android tool for
+Engineers / Drivers / Pump operators. It will also prove helpful for
+fill-ins or anyone else that may need to calculate on the fireground.
+Quick , accurate and intuitive design and implementation objectives were
+strictly adhered to during design and construction.&lt;/p&gt;
+&lt;p&gt;Quick data entry is paramount when determining what to pump on scene.
+Input on mobile devices can be tedious and sometimes difficult when
+forwarding the latest joke to your crew. Now imagine typing all the hose
+lengths, various flows and nozzle pressures when your at the "big one"!
+You can't delay and recalling rote memorized hydraulic formulas can be
+difficult at 3am . This app requires ZERO manual input of values to get
+pump discharge pressure (PDP) and friction loss (FL) of complex hose
+lays and scenarios .&lt;/p&gt;
+&lt;p&gt;Most of the app is structured in a step-by-step fashion leading to the
+eventual calculated data, I.e. PDP, FL, etc.  It was designed to be
+intuitive and easy to use. If you find areas that can be improved or
+fixed, please don't hesitate to email, call, send smoke signals or call
+911 (Stranger things have happened, eh?). In all seriousness, I'm
+serious about helping Engineers perform on the fireground... I'm
+thinking up some kind of reward program for helpful suggestions and
+comments.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://market.android.com/details?id=com.caffeine.hydraulics"&gt;Android Market Listing&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Features: Version 1.0 (May 2011 Release)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Single line friction loss calculator&lt;/li&gt;
+&lt;li&gt;Wyed hose lay PDP / FL calculator&lt;/li&gt;
+&lt;li&gt;Siamese hose lay PDP / FL calculator&lt;/li&gt;
+&lt;li&gt;Masterstream calculator&lt;/li&gt;
+&lt;li&gt;Elevated Masterstream calculator&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;/p&gt;
+Roadmap (features still to come)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Engineer documentation which will include copious amounts of
+    information covering a wide variety of topics&lt;/li&gt;
+&lt;li&gt;Conversion of all calculation to metric&lt;/li&gt;
+&lt;li&gt;Many, many more that will be revealed soon...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;/p&gt;
+Screenshots: Main Screen&lt;/p&gt;
+&lt;p&gt;[&lt;img alt="" src="http://caffeineindustries.com/wp-content/uploads/2011/04/main1.png" title="flScreen" /&gt;][]&lt;/p&gt;
+&lt;p&gt;Screenshots: Basic Friction Loss Calculator&lt;/p&gt;
+&lt;p&gt;[&lt;img alt="" src="http://caffeineindustries.com/wp-content/uploads/2011/04/flScreen.png" title="flScreen" /&gt;][]&lt;/p&gt;
+&lt;p&gt;[&lt;img alt="" src="http://caffeineindustries.com/wp-content/uploads/2011/04/main1.png" title="flScreen" /&gt;]: http://caffeineindustries.com/wp-content/uploads/2011/04/main1.png
+  [&lt;img alt="" src="http://caffeineindustries.com/wp-content/uploads/2011/04/flScreen.png" title="flScreen" /&gt;]: http://caffeineindustries.com/wp-content/uploads/2011/04/flScreen.png&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Michael</dc:creator><pubDate>Sat, 30 Apr 2011 00:00:00 -0700</pubDate><guid>tag:michaelmartinez.in,2011-04-30:engineer-toolkit.html</guid></item></channel></rss>

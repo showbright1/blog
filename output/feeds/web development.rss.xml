@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>MM</title><link>http://michaelmartinez.in/</link><description></description><atom:link href="http://michaelmartinez.in/feeds/web%20development.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 10 Jul 2012 00:00:00 -0700</lastBuildDate><item><title>Nodejitsu Lab App</title><link>http://michaelmartinez.in/nodejitsu-lab-app.html</link><description>&lt;p&gt;So I've been playing around with &lt;a href="http://nodejs.org/"&gt;node.js&lt;/a&gt; a bit. I dig it basically
+because I dig Javascript. Node is one of those disruptive technologies
+that people either love or hate... or ironically both. You program to
+async patterns for E_V_E_R_Y_T_H_I_N_G, and I mean everything.
+Procedural code will break stuff and break it badly.&lt;/p&gt;
+&lt;p&gt;One of the strengths of node.js is the ability to write super fast
+command-line applications. I have a several that are complete messes at
+this point, but I am cleaning them up to be presentable on Github... So
+I can't, in good conscience leave you with no "demo"... so here is the
+monk lab page, written with the &lt;a href="http://expressjs.com/"&gt;Express&lt;/a&gt; framework and hosted by the
+awesome dudes at &lt;a href="http://www.nodejitsu.com/"&gt;Nodejitsu&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Check it out here; http://monklab.nodejitsu.com/&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Michael</dc:creator><pubDate>Tue, 10 Jul 2012 00:00:00 -0700</pubDate><guid>tag:michaelmartinez.in,2012-07-10:nodejitsu-lab-app.html</guid></item><item><title>Thick Client Architecture</title><link>http://michaelmartinez.in/thick-client-architecture.html</link><description>&lt;p&gt;The funny thing about not knowing something is... not knowing. Until a
+few weeks ago I had no idea that a massive transformation was taking
+place under my own feet. I knew that servers served and browsers
+display. I didn't realize that so many developers using ASP.NET MVC and
+Ruby on Rails relied on the server for everything except the container.
+Ignorance is bliss eh?&lt;/p&gt;
+&lt;p&gt;See, to me it makes perfect sense to do as much as one possibly can on
+the client. Knowing that the least amount of work one can do to get the
+best results is the perfect amount of work. I have always set out to get
+the maximum "bang-for-my-buck" as it were.&lt;/p&gt;
+&lt;p&gt;We are now seeing lots of posts titled: &lt;a href="http://fhwang.net/2012/03/05/Should-your-web-application-be-rich-client-from-day-one"&gt;Should your web application be
+rich-client from day one?&lt;/a&gt; and &lt;a href="http://eliperelman.com/blog/2012/03/03/decoupling-front-ends/"&gt;decoupling front ends&lt;/a&gt;. Great reads
+to be sure, but to me this is common wisdom. However, I haven't been a
+developer for as long as many of these developers so I don't have the
+experience or historical perspective.&lt;/p&gt;
+&lt;p&gt;I do feel that this is a prime time for indie-developers, like me, to
+make a dent in the development world. If front end developers have
+invested a little time to become proficient with JavaScript they will
+have very little trouble transferring to the newer thick-client
+architecture paradigm. In other words, a front end developer can now
+realistically get a big project off the ground without a massive backend
+effort in parallel.&lt;/p&gt;
+&lt;p&gt;Don't get me wrong, a masterfully crafted RESTful API is indeed a thing
+of beauty and generally bomb-proof. However, geting a "working" web app
+out the door without knowing the nuts and bolts of a massive server-side
+framework is within closer reach than ever before. Exciting!!!!&lt;/p&gt;
+&lt;p&gt;I would be lying if I told you this wasn't exciting to me on a personal
+and professional level. I have been really focused on mobile and web for
+the last year and I hope some exciting opportunities extend from my
+efforts.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Michael</dc:creator><pubDate>Sun, 04 Mar 2012 00:00:00 -0700</pubDate><guid>tag:michaelmartinez.in,2012-03-04:thick-client-architecture.html</guid></item><item><title>Using Knockoutjs's foreach on nested jQuery Mobile lists</title><link>http://michaelmartinez.in/using-knockoutjss-foreach-on-nested-jquery-mobile-lists.html</link><description>&lt;p&gt;I just want to drop a quick note to anyone who may search google for a
+problem I ran into.A nested jQuery mobile list can be populated with one
+knockoutjs observable array. The only caveat I've seen thus far is that
+you need to use the foreach data-binding twice. Once on the outer list
+and again for the inner "list" or page.&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;ul&lt;/span&gt; &lt;span class="na"&gt;data-role=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;listview&amp;quot;&lt;/span&gt;  &lt;span class="na"&gt;data-bind=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;foreach: watched&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;li&lt;/span&gt; &lt;span class="na"&gt;data-role=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;list-divider&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt; Repo: &lt;span class="nt"&gt;&amp;lt;h3&lt;/span&gt; &lt;span class="na"&gt;data-bind=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text: name&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/h3&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;ul&lt;/span&gt; &lt;span class="na"&gt;data-role=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;listview&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;data-bind=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;foreach: watched&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&amp;lt;h4&amp;gt;&lt;/span&gt;Description:&lt;span class="nt"&gt;&amp;lt;/h4&amp;gt;&lt;/span&gt;
+                    &lt;span class="nt"&gt;&amp;lt;p&lt;/span&gt; &lt;span class="na"&gt;data-bind=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text: description&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;span&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;ui-li-count&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Forks: &lt;span class="nt"&gt;&amp;lt;span&lt;/span&gt; &lt;span class="na"&gt;data-bind=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text: forks&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt; - Issues: &lt;span class="nt"&gt;&amp;lt;span&lt;/span&gt;
+                    &lt;span class="na"&gt;data-bind=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text: open_issues&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+                                      - Watchers: &lt;span class="nt"&gt;&amp;lt;span&lt;/span&gt; &lt;span class="na"&gt;data-bind=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text: watchers&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+                    &lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;&amp;lt;h4&amp;gt;&lt;/span&gt;Language: &lt;span class="nt"&gt;&amp;lt;/h4&amp;gt;&lt;/span&gt;
+                    &lt;span class="nt"&gt;&amp;lt;p&lt;/span&gt; &lt;span class="na"&gt;data-bind=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text: language&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+                    &lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;&amp;lt;h4&amp;gt;&lt;/span&gt;Owner:&lt;span class="nt"&gt;&amp;lt;/h4&amp;gt;&lt;/span&gt;
+                    &lt;span class="nt"&gt;&amp;lt;p&lt;/span&gt; &lt;span class="na"&gt;data-bind=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text: owner&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+                    &lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;&amp;lt;h4&amp;gt;&lt;/span&gt;URL:&lt;span class="nt"&gt;&amp;lt;/h4&amp;gt;&lt;/span&gt;
+                    &lt;span class="nt"&gt;&amp;lt;p&lt;/span&gt; &lt;span class="na"&gt;data-bind=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text: url&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+                &lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Michael</dc:creator><pubDate>Wed, 22 Feb 2012 00:00:00 -0700</pubDate><guid>tag:michaelmartinez.in,2012-02-22:using-knockoutjss-foreach-on-nested-jquery-mobile-lists.html</guid></item><item><title>Twitter Bootstrap with Html5 Boilerplate's Build</title><link>http://michaelmartinez.in/twitter-bootstrap-with-html5-boilerplates-build.html</link><description>&lt;p&gt;&lt;a href="http://twitter.github.com/bootstrap/"&gt;Twitter bootstrap&lt;/a&gt; is a great piece of kit. &lt;a href="http://html5boilerplate.com/"&gt;Html5 boilerplate
+(h5bp)&lt;/a&gt; is also a great piece of kit. Those of you who have used h5bp
+know it also comes bundled (or not?) with a great &lt;a href="https://github.com/h5bp/ant-build-script"&gt;ant build script&lt;/a&gt;.
+This build script automagically builds, minifies, compresses,
+concatenates, lints and hints the files you specify. A ton of crap,
+really.&lt;/p&gt;
+&lt;p&gt;You will have to read the &lt;a href="http://html5boilerplate.com/docs/Build-script/"&gt;documentation&lt;/a&gt; as it makes some assumptions
+in regards to your project scaffolding and what-have-you. Seriously,
+read the documentation. You don't have to trust me when I say its worth
+it, but it is.&lt;/p&gt;
+&lt;p&gt;So now that I found this script, I want to use it on every project. Once
+everything is set-up it is just so easy to run. I have forced myself to
+use it on trivial tests and what not. My &lt;a href="http://lab.caffeineindustries.com"&gt;lab page&lt;/a&gt; is a total
+work-in-progress and made with Twitter bootstrap. I thought I would show
+you how I integrated h5bp ant-build-script with it.&lt;/p&gt;
+&lt;p&gt;As you can see, I mimicked the file structure that h5bp recommends in
+the documentation (RTFM, right?)&lt;/p&gt;
+&lt;p&gt;I then modified the project. properties file to include the changes you
+see here:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# project.properties file defines overrides for default.properties&lt;/span&gt;
+
+&lt;span class="c"&gt;# Explanation: This file should be created by each user as and when he or she needs to override particular values.&lt;/span&gt;
+&lt;span class="c"&gt;# Consequently, it should not be placed under version control.&lt;/span&gt;
+
+&lt;span class="c"&gt;# Stylesheets&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;# Note: Stylesheets will be concatenated in the order they are listed in the file.stylesheets property (i.e. the last&lt;/span&gt;
+&lt;span class="c"&gt;# file listed will be at the end of the concatenated file), so it probably makes sense to have the main style.css file&lt;/span&gt;
+&lt;span class="c"&gt;# as the first entry&lt;/span&gt;
+&lt;span class="c"&gt;# Example:&lt;/span&gt;
+&lt;span class="c"&gt;# file.stylesheets  = style.css, lightbox.css, plugin.css&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stylesheets&lt;/span&gt;  &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;bootstrap&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;style&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;
+
+&lt;span class="c"&gt;# Web Pages&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;# These are the pages (files) that will be served to users (.html, .php, .asp, etc). Files in this property will&lt;/span&gt;
+&lt;span class="c"&gt;# be minified / optimised and have any stylesheet or javascript references updated to the minified examples&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;# The paths need to be relative&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;# Files can be added in a comma separated form&lt;/span&gt;
+&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pages&lt;/span&gt;        &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;toolbox&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vacapp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;
+
+&lt;span class="c"&gt;# Excluded files and dirs&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;# Add any files or directories you add to the project and do not want to be copied to the publish directory as a&lt;/span&gt;
+&lt;span class="c"&gt;# comma separated list&lt;/span&gt;
+&lt;span class="c"&gt;# These files are ignored in addition to the default ones specified in default.properties.&lt;/span&gt;
+&lt;span class="c"&gt;# Example: file.exclude = badfolder/**&lt;/span&gt;
+&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exclude&lt;/span&gt;      &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;js&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tests&lt;/span&gt;&lt;span class="o"&gt;/**&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;style&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;less&lt;/span&gt;&lt;span class="o"&gt;/**&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+
+&lt;span class="c"&gt;# Bypassed JavaScript files and dirs&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;# Add any files or folders within the mylibs directory that you want to be copied to the publish directory as a&lt;/span&gt;
+&lt;span class="c"&gt;# comma separated list&lt;/span&gt;
+&lt;span class="c"&gt;# These files will not be concatenated or minimized and will simply be copied over as is.&lt;/span&gt;
+&lt;span class="c"&gt;# Note: you cannot declare an empty file.bypass property, it would exclude the entire mylibs folder&lt;/span&gt;
+&lt;span class="c"&gt;# Example:&lt;/span&gt;
+&lt;span class="c"&gt;# file.js.bypass = widgets.js, gadgets.js, gidgets.js&lt;/span&gt;
+&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bypass&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cafflab&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
+
+&lt;span class="c"&gt;# Directory Structure&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;# Override any directory paths specific to this project&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;# dir.publish&lt;/span&gt;
+&lt;span class="c"&gt;# dir.js&lt;/span&gt;
+&lt;span class="c"&gt;#dir.js.libs = js/bootstrap&lt;/span&gt;
+&lt;span class="c"&gt;#dir.js.mylibs = js/bootstrap&lt;/span&gt;
+&lt;span class="nb"&gt;dir&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;style&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;
+&lt;span class="c"&gt;# dir.img&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Note: I've only included the actual changes to my file. The actual
+project.properties is a bit denser.&lt;/p&gt;
+&lt;p&gt;I haven't gone all-the-way with the power of the build script thus far.
+As you can see, I am not fully concatenating my javascript and css
+files. However, they are fully linted, hinted and compressed which is
+better than nothing, I suppose. I will keep working and making
+refinements to this process, but I've seen the light with an
+intermediate build step in deployment. It is so full of win, that I
+can't imagine doing it another way.&lt;/p&gt;
+&lt;p&gt;If you simply use build like I have, you will save a tremendous amount
+of time optimizing your pages for production. Once you see this in
+action... You will have a hard time turning back as well, I reckon.&lt;/p&gt;
+&lt;p&gt;Todo: Work out how to force the build script into nested directories for
+the manifest. Maybe even get a wild hair and attempt to write a pre
+build-build that analyzes the project structure.&lt;/p&gt;
+&lt;p&gt;[&lt;img alt="" src="http://caffeineindustries.com/wp-content/uploads/2012/02/Screen-shot-2012-02-20-at-4.31.30-PM-225x300.png" title="Screen shot 2012-02-20 at 4.31.30 PM" /&gt;]: http://caffeineindustries.com/wp-content/uploads/2012/02/Screen-shot-2012-02-20-at-4.31.30-PM.png&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Michael</dc:creator><pubDate>Mon, 20 Feb 2012 00:00:00 -0700</pubDate><guid>tag:michaelmartinez.in,2012-02-20:twitter-bootstrap-with-html5-boilerplates-build.html</guid></item><item><title>Github Mobile - A jQuery Mobile Project</title><link>http://michaelmartinez.in/github-mobile-a-jquery-mobile-project.html</link><description>&lt;p&gt;I was having so much fun with the Github Api and my new found love of
+Git &amp;amp;&amp;amp; Github that I to make something mobile!&lt;/p&gt;
+&lt;p&gt;It is definitely a work in progress. Don't put in your API token. As of
+now I don't have any features enabled that require it. So without
+further ado, have a play here:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;UPDATE:&lt;/em&gt; I am re-doing this code for the switch over to this blog&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Michael</dc:creator><pubDate>Sun, 12 Feb 2012 00:00:00 -0700</pubDate><guid>tag:michaelmartinez.in,2012-02-12:github-mobile-a-jquery-mobile-project.html</guid></item><item><title>Lab - Twitter Bootstrap V2</title><link>http://michaelmartinez.in/lab-twitter-bootstrap-v2.html</link><description>&lt;p&gt;The awesome duo, @mdo &amp;amp;&amp;amp; @fat, of &lt;a href="http://twitter.github.com/bootstrap/"&gt;Twitter bootstrap&lt;/a&gt; fame have
+released &lt;a href="http://twitter.github.com/bootstrap/"&gt;Twitter bootstrap&lt;/a&gt; 2.0. In short, &lt;a href="http://twitter.github.com/bootstrap/"&gt;Twitter bootstrap&lt;/a&gt; is a
+great way to get HTML5-CSS3-JavaScript up and running with a lot of the
+hard work already done.&lt;/p&gt;
+&lt;p&gt;The project comes with a heap of customization options and a full
+complement of Less files which compile down to CSS. If you haven't
+checked out &lt;a href="http://lesscss.org/"&gt;Less&lt;/a&gt;, you really ought to as it makes CSS dev much
+saner.&lt;/p&gt;
+&lt;p&gt;I have set-up a lab page for experiments, tests,
+projects-that-are-not-quite-done and my foray into game development. The
+Caffeine lab is built with &lt;a href="http://twitter.github.com/bootstrap/"&gt;Twitter bootstrap&lt;/a&gt; and is definitely a
+work in progress. The lab stuff will be in the lab link in the header.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Michael</dc:creator><pubDate>Thu, 09 Feb 2012 00:00:00 -0700</pubDate><guid>tag:michaelmartinez.in,2012-02-09:lab-twitter-bootstrap-v2.html</guid></item><item><title>Working with Github Api v3</title><link>http://michaelmartinez.in/working-with-github-api-v3.html</link><description>&lt;p&gt;I was pleasantly surprised when I needed to use the &lt;a href="http://develop.github.com/p/general.html"&gt;Github API&lt;/a&gt; for a
+project. The API is dead simple to use, retrive and iterate data for
+almost any repo based stat you can imagine. This is just a quick and
+dirty GET example that makes a list of all the repos I follow on Github.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;$( document ).ready( function () {
+
+var html = &amp;quot;&amp;quot;;
+$.ajax( {
+  url : &amp;quot;https://api.github.com/users/MichaelMartinez/watched&amp;quot;,
+  dataType : &amp;quot;jsonp&amp;quot;,
+  success : function ( returndata ) {
+    $.each( returndata.data, function ( i, item ) {
+      html += &amp;#39;&lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;&amp;#39; +
+        &amp;#39;&lt;span class="nt"&gt;&amp;lt;h3&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;#39; + this.html_url + &amp;#39;&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;&amp;#39; + this.name + &amp;#39;&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&amp;lt;/h3&amp;gt;&lt;/span&gt;&amp;#39; +
+        &amp;#39;&lt;span class="nt"&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;&amp;#39; +
+        &amp;#39;&lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;&amp;#39; + &amp;#39;Description: &amp;#39; + this.description + &amp;#39;&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;&amp;#39; +
+        &amp;#39;&lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;&amp;#39; + &amp;#39;Language: &amp;#39; + this.language + &amp;#39;&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;&amp;#39; +
+        &amp;#39;&lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;&amp;#39; + &amp;#39;Updated: &amp;#39; + this.updated_at + &amp;#39;&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;&amp;#39; +
+        &amp;#39;&lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;&amp;#39; + &amp;#39;Owner: &amp;#39; + this.owner.login + &amp;#39;&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;&amp;#39; +
+        &amp;#39;&lt;span class="nt"&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;&amp;#39; +
+        &amp;#39;&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;&amp;#39;;
+    } );
+    $( &amp;#39;#result&amp;#39; ).append( html );
+  }
+} );
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;} );&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Michael</dc:creator><pubDate>Wed, 08 Feb 2012 00:00:00 -0700</pubDate><guid>tag:michaelmartinez.in,2012-02-08:working-with-github-api-v3.html</guid></item><item><title>Vacation Hour Tracker App</title><link>http://michaelmartinez.in/vacation-hour-tracker-app.html</link><description>&lt;p&gt;Most of us deal with some aspect of our job/career that isn't directly
+under our control. For those who do not know, I am a firefighter for a
+medium to large metropolitan fire department that is located 1.5 hours
+south of Phoenix, Az. There are many of aspects in my job that I have
+very little control over.&lt;/p&gt;
+&lt;p&gt;Recently, I was charged for three days of vacation time that I did not
+take. I have to admit that I caught the error by mistake as I generally
+glance at the number of hours without much thought. When I realized the
+error, I decided to go back and inspect the last six months and I found
+two more errors... Which prompted another 6 months of inspection and one
+more error.&lt;/p&gt;
+&lt;p&gt;I really don't want to painstakingly evaluate and cross reference my pay
+stub to our staffing software for correctness every two weeks. That
+isn't exactly my idea of a good time. So I wrote this little application
+that should, in theory, be my ever watchful vacation hour sentry. As a
+great by product of writing this app, I investigated several javascript
+MV* / MVVM frameworks and various libraries.&lt;/p&gt;
+&lt;p&gt;The libraries used for this app are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://github.com/brianleroux/Cordova"&gt;Phonegap / Cordova - Phone version&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/SteveSanderson/knockout"&gt;Knockoutjs - MVVM Framework / Data Binding&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.jquerymobile.com"&gt;jQuery Mobile - 1.0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/andris9/jStorage"&gt;jStorage - localStorage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/timrwood/moment"&gt;Momentjs - JavaScript Date Library&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://code.google.com/p/mobiscroll/"&gt;Mobiscroll jQuery Mobile plugin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Zend Framework GData Library - PHP&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;/p&gt;
+The file tree and code are completely UGLY and it is not
+my prettiest work to be sure. So when you go snooping around the
+src remember I've been HACKING on this like crazy. I have three or four
+implementations of this app contained within the asset/www file so be
+sure to snoop around and look at the backbone version and vanilla jQuery
+mobile version.&lt;/p&gt;
+&lt;p&gt;I chose to go with Knockout for a variety of reasons for the main app.
+The big reason was that it works with my brain and I was able to
+accomplish a ton with very little boilerplate. I really eff'ing hate
+boilerplate. I watched several Backbone tutorials and I read countless
+lines of Backbone code and I was (am?) still pretty much lost. It made
+me work way too hard to get basic functionality. I had several "aha"
+moments with Backbone... only to have them stuffed in my pie-hole
+minutes later. Not a good experience but I plan on re-visiting Backbone
+in the future.&lt;/p&gt;
+&lt;p&gt;I'll have several follow on posts regarding this app in the coming days.
+I will also spend some time styling this app as its is default to a
+fault right now using non-standard icons and Adobe Fireworks. I can post
+that as a tutorial if there is interest.&lt;/p&gt;
+&lt;p&gt;Here is the fully functional app (tested with Safari 5+, Firefox 9,
+Chrome 16 on Mac):&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Update:&lt;/em&gt; this page will be updated soon as I transition to new blog software&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Michael</dc:creator><pubDate>Mon, 23 Jan 2012 00:00:00 -0700</pubDate><guid>tag:michaelmartinez.in,2012-01-23:vacation-hour-tracker-app.html</guid></item><item><title>LocalStorage with Knockout.js - jQuery Mobile - jStorage</title><link>http://michaelmartinez.in/localstorage-with-knockoutjs-jquery-mobile-jstorage.html</link><description>&lt;p&gt;I recently started evaluating various JS libraries/frameworks and other
+JavaScript goodies. I just wanted to post a quick tutorial when working
+with Phonegap (Cordova) &lt;a href="http://jquerymobile.com/"&gt;jQuery Mobile&lt;/a&gt; and &lt;a href="http://knockoutjs.com/"&gt;Knockout.js&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This project uses;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="http://incubator.apache.org/projects/callback.html"&gt;Cordova&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://jquerymobile.com/"&gt;jQuery Mobile&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://knockoutjs.com"&gt;Knockout.js&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.jstorage.info/"&gt;jStorage&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Set a binding to a click event on the view model you want to save:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="cm"&gt;/* GLOBAL VAR &amp;amp; CLICK HANDLER/FUNCTION TO STORE ViewModel */&lt;/span&gt;
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;viewSaveID&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;saveThisViewModel&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="c1"&gt;// check to see if jStorage has items&lt;/span&gt;
+    &lt;span class="c1"&gt;// if not, assign 0 to key otherwise assign count number &lt;/span&gt;
+&lt;span class="c1"&gt;// as items are save chronologically and not overwritten&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;jStorage&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;index&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;length&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;viewSaveID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="nx"&gt;viewSaveID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;jStorage&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;index&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;length&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="c1"&gt;// increment counter for key to localStorage&lt;/span&gt;
+    &lt;span class="nx"&gt;viewSaveID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;viewSaveID&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="c1"&gt;// Set data to JS format could also be ko.toJSON for a JSON object&lt;/span&gt;
+    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;ko&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;toJS&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;myViewModel&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="c1"&gt;// on the dollar save via jStorage&lt;/span&gt;
+    &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;jStorage&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;viewSaveID&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="c1"&gt;// return true to keep default behavior in app&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Next I would like to show you how we get the data. Although this
+implementation looks incredibly simple, I went through a bunch of
+implementations to arrive at this:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="cm"&gt;/* Get Data From Storage and save it to Array */&lt;/span&gt;
+&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;getDataStore&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="c1"&gt;// assign the keys of the jStorage index to an observable array&lt;/span&gt;
+    &lt;span class="nx"&gt;myViewModel&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;myDataStoreIndex&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;jStorage&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;index&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+
+&lt;span class="c1"&gt;// check to see if there are items in the data store array&lt;/span&gt;
+&lt;span class="c1"&gt;// if yes, remove them &lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;myViewModel&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;myDataStore&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;length&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="c1"&gt;// This may not scale well, but for localStorage, we don&amp;#39;t need it too.&lt;/span&gt;
+&lt;span class="c1"&gt;// the problem is overwriting and double entries, this little diddy solves both&lt;/span&gt;
+        &lt;span class="nx"&gt;myViewModel&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;myDataStore&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;removeAll&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;removeAll fired&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="c1"&gt;//create a temp object to hold objects that are saved in storage&lt;/span&gt;
+    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;savedData&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{};&lt;/span&gt;
+&lt;span class="c1"&gt;// iterate through the array of keys&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="nx"&gt;myViewModel&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;myDataStoreIndex&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;length&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="c1"&gt;// pull the objects from storage based on the keys stored in the array&lt;/span&gt;
+        &lt;span class="nx"&gt;savedData&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;jStorage&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;myViewModel&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;myDataStoreIndex&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;
+&lt;span class="c1"&gt;// push the saved object to the observable array&lt;/span&gt;
+        &lt;span class="nx"&gt;myViewModel&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;myDataStore&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;savedData&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Data has been pushed to vacDataStore &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot; times.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="c1"&gt;// when you iterate on a list view item in jQuery Mobile &lt;/span&gt;
+&lt;span class="c1"&gt;// you have refresh the list. Otherwise it displays incorrectly&lt;/span&gt;
+        &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#myListView&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;listview&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;refresh&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now all you need to do is work with the data in the myDataStore
+Observable array. I choose to iterate the objects into a list using the
+convient foreach and a template. The code is commented and should be
+self explanatory. If you have issues or need further clarification don't
+hesitate to comment. I will post the full app soon!&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Michael</dc:creator><pubDate>Sun, 15 Jan 2012 00:00:00 -0700</pubDate><guid>tag:michaelmartinez.in,2012-01-15:localstorage-with-knockoutjs-jquery-mobile-jstorage.html</guid></item><item><title>JavaScript and teh new year...</title><link>http://michaelmartinez.in/javascript-and-teh-new-year.html</link><description>&lt;p&gt;Amazing.&lt;/p&gt;
+&lt;p&gt;It is really quite amazing what you can get accomplished with Javascript
+once you wrap mind around its subtleties. I am there. I'm launching
+something quite new in the next week or so.... a sort of repository.&lt;/p&gt;
+&lt;p&gt;I will have my very own LABS page in the coming days. I will post
+demo's, odds &amp;amp; ends there with full descriptions and tutorials here.
+Keep your eyes peeled.&lt;/p&gt;
+&lt;p&gt;The apps/market playground is quite fun and I'm not done there yet. The
+inevitable consolidation of the various app markets is underway, and the
+great migration to the next &lt;em&gt;wild west&lt;/em&gt; is taking place once again.&lt;/p&gt;
+&lt;p&gt;The beauty in this consolidation is that it always lags and never fails
+to not materialize ( ? double negative === falsy : sue me :) )... except
+in one arena: teh internetz.&lt;/p&gt;
+&lt;p&gt;( My Dad told me to never use always, and to always remember that).&lt;/p&gt;
+&lt;p&gt;So where is the next gold rush? Who knows! Who cares? I'm having so much
+fun playing with the power of Javascript that I could care less. I just
+want to be "better" and that is all I'm working on right now, in
+multiple avenues.&lt;/p&gt;
+&lt;p&gt;In any case, its late and I've been pounding away on a cool
+cross-platform application (TBA soon). See you next year!&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Michael</dc:creator><pubDate>Fri, 30 Dec 2011 00:00:00 -0700</pubDate><guid>tag:michaelmartinez.in,2011-12-30:javascript-and-teh-new-year.html</guid></item><item><title>PhoneGap/Callback 1.3.0 - USE IT!</title><link>http://michaelmartinez.in/phonegapcallback-130-use-it.html</link><description>&lt;p&gt;PhoneGap 1.2.0 broke apps when used on devices with Ice Cream Sandwich /
+Android 4.0.* The &lt;meta&gt; tag was being ignored I.e.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;viewport&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;width=device-width, initial-scale=1.0, &lt;/span&gt;
+&lt;span class="s"&gt;minimum-scale=1.0, user-scalable=no&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is not parsed by the browser in PG 1.2.0, or is parsed and parsed
+incorrectly which made the viewport appear to be very zoomed out.
+Whichever case it may be, this is not good for the apps out there using
+the amazing Phonegap. I filed a JIRA ticket on the &lt;a href="https://issues.apache.org/jira/browse/CB-131"&gt;Apache JIRA Callback
+site.&lt;/a&gt; I was informed by Brion Vibber that 1.3.0 was fixing the issue
+and that it had been tagged in git. Alright!&lt;/p&gt;
+&lt;p&gt;So what do you do?&lt;/p&gt;
+&lt;p&gt;Well, I cloned PhoneGap from here: https://github.com/callback/phonegap&lt;/p&gt;
+&lt;p&gt;You then have two options; Build it using Ant or Build it using Eclipse
+or similar IDE&lt;/p&gt;
+&lt;p&gt;I think using a pure Ant is the easiest and I'll explain it here:&lt;/p&gt;
+&lt;p&gt;​1. Download latest PhoneGap/Callback from git&lt;/p&gt;
+&lt;p&gt;​2. Make a local.properties with SDK directory with this snippet:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;sdk.dir&lt;span class="o"&gt;=&lt;/span&gt;/Developer/Development/android-sdk-mac_x86
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;​3. Then in terminal, navigate (cd /blah/blah) to the "framework"
+directory within the Callback directory&lt;/p&gt;
+&lt;p&gt;​4. type "ant jar" (Hopefully you get no build.xml errors)&lt;/p&gt;
+&lt;p&gt;​5. Done&lt;/p&gt;
+&lt;p&gt;The other way is not significantly more difficult but involves more
+steps. If all you need is the PhoneGap Jar and *.js Use the "pure" ant
+method. If you want to have a play with the source then by all means use
+the IDE to build the file. I will explain it if there is demand.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Michael</dc:creator><pubDate>Sat, 17 Dec 2011 00:00:00 -0700</pubDate><guid>tag:michaelmartinez.in,2011-12-17:phonegapcallback-130-use-it.html</guid></item></channel></rss>

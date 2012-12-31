@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>MM</title><link>http://michaelmartinez.in/</link><description></description><atom:link href="http://michaelmartinez.in/feeds/design.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 16 Sep 2011 00:00:00 -0700</lastBuildDate><item><title>Another MadComponent Logo...</title><link>http://michaelmartinez.in/another-madcomponent-logo.html</link><description>&lt;p&gt;And here is number 2:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="MadComponent-Dos" src="http://caffeineindustries.com/wp-content/uploads/2011/09/MCSecondLegoStyleExPNG.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Michael</dc:creator><pubDate>Fri, 16 Sep 2011 00:00:00 -0700</pubDate><guid>tag:michaelmartinez.in,2011-09-16:another-madcomponent-logo.html</guid></item><item><title>MadComponents Logo</title><link>http://michaelmartinez.in/madcomponents-logo.html</link><description>&lt;p&gt;Daniel thought it may be a good idea to come up with a logo. I'm always
+keen to have a go at some design work. This is what I came up with:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="MadComponentsLogo" src="http://caffeineindustries.com/wp-content/uploads/2011/09/crazyRobotJACKET.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Michael</dc:creator><pubDate>Wed, 14 Sep 2011 00:00:00 -0700</pubDate><guid>tag:michaelmartinez.in,2011-09-14:madcomponents-logo.html</guid></item><item><title>Some design stuff I've been working on...</title><link>http://michaelmartinez.in/some-design-stuff-ive-been-working-on.html</link><description>&lt;p&gt;You gotta keep the skills in Photoshop up to date... otherwise they
+whither.&lt;/p&gt;
+&lt;p&gt;[&lt;img alt="" src="http://caffeineindustries.com/wp-content/uploads/2011/08/3d_map_MarkParis.png" title="3d_map_MarkParis" /&gt;][]&lt;/p&gt;
+&lt;p&gt;[&lt;img alt="" src="http://caffeineindustries.com/wp-content/uploads/2011/08/caffe1.png" title="caffe" /&gt;][]&lt;/p&gt;
+&lt;p&gt;[&lt;img alt="" src="http://caffeineindustries.com/wp-content/uploads/2011/08/3d_map_MarkParis.png" title="3d_map_MarkParis" /&gt;]: http://caffeineindustries.com/wp-content/uploads/2011/08/3d_map_MarkParis.png
+  [&lt;img alt="" src="http://caffeineindustries.com/wp-content/uploads/2011/08/caffe1.png" title="caffe" /&gt;]: http://caffeineindustries.com/wp-content/uploads/2011/08/caffe1.png&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Michael</dc:creator><pubDate>Wed, 17 Aug 2011 00:00:00 -0700</pubDate><guid>tag:michaelmartinez.in,2011-08-17:some-design-stuff-ive-been-working-on.html</guid></item><item><title>Android Holographic UI Elements for Mockup</title><link>http://michaelmartinez.in/android-holographic-ui-elements-for-mockup.html</link><description>&lt;p&gt;After searching high and low for a set of Android Holographic UI
+elements for mockups and coming up empty.... I decided to create one. It
+is very, very much a work in progress, but I thought I'd get it out
+there and see what happens. Help spread the word!!!&lt;/p&gt;
+&lt;p&gt;All of the elements are grouped in sub-layers for Fireworks. The
+Photoshop file is also organized in layers. Both files are vectors and
+fully editable. Let me know if you'd like to see something, changes,
+etc.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.mediafire.com/?i1pipnll6yme3de"&gt;Download the file&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Michael</dc:creator><pubDate>Wed, 18 May 2011 00:00:00 -0700</pubDate><guid>tag:michaelmartinez.in,2011-05-18:android-holographic-ui-elements-for-mockup.html</guid></item><item><title>Android and the UI</title><link>http://michaelmartinez.in/android-and-the-ui.html</link><description>&lt;p&gt;I just watched the &lt;a href="http://www.youtube.com/watch?v=M1ZBjlCRfz0" title="Google I/O Android UI Design"&gt;Google I/O 2010 Android UI Design Patterns video&lt;/a&gt;
+a bit to be sure, but it was very informative and I suggest watching it
+when you have the time (1 hour) if you haven't seen it. The video
+explained some concepts that I have had trouble grasping for which I'm
+very thankful. Hopefully, I'll find more along these lines.&lt;/p&gt;
+&lt;p&gt;A few of the tutorials I've followed in making apps request the user to
+delete the HDPI, MDPI and LDPI folders and simply rename one folder
+to Drawable. The talk explains why those folders are not only included
+in the initial app structure, but why they are increasingly critical for
+cross device penetration. For example, lets say you have app icons that
+look great on a medium density pixel per inch screen. If you simply use
+the Drawable folder with said icons, when your app encounters a LDPI or
+HDPI screen the icons will scale horribly if you haven't accounted for
+it in the code.&lt;/p&gt;
+&lt;p&gt;The talk also spoke to 5 main design paradigms for great Android
+applications, which are; Dashboard, Action bar, Search bar, Quick
+Actions and Companion widget. I'm not going to get into each one as the
+Googlers do a &lt;em&gt;WAY&lt;/em&gt; better job (with visuals aids) explaining them.  I
+found them to a great place to start and perhaps some self introspection
+to my own shortcomings when designing just about everything. I think I
+should pay way more attention to usability and user expectations.&lt;/p&gt;
+&lt;p&gt;The QA was really enlightening for me and here is why. I've been
+struggling like heck with the Quasi-WYSIWYG &amp;amp; XML based UI editor  in
+the Eclipse IDE. I thought I was deficient in my XML coding ability and
+I am, BUT I not as bad as I thought. I mean, I had problems making the
+simplest things look right in the editor and subsequently the emulator.
+Thank goodness I have a real Android device otherwise I would have made
+a completely unusable app. Back to the point, A question asked if the
+Google Android team was working on a UI editor that either replaced or
+updated the "ATROCIOUS" Eclipse implementation. All of the Google
+employees on the stage simply looked down and smiled when the question
+came in. I think its safe to say that anyone (Including Googlers) who
+have worked with the tool thinks of it as a brain-stealing-puppy-killer.&lt;/p&gt;
+&lt;p&gt;The product manager said they are working on a product to resolve this
+very issue but he was not in a position to disclose the details
+publicly. Needless to say, I'm eagerly anticipating its release. I hope
+they take some strong cues from Microsofts Expression Blend and/or
+Design. A tool that would automagically convert PSD/AI files to Android
+specific XML files would be so absolutely kick arse. I can't really
+think of any adjectives to describe how happy I'd be.&lt;/p&gt;
+&lt;p&gt;An Aside about tutorials/learning:&lt;/p&gt;
+&lt;p&gt;Learning from a book is easy when the book has a lot of pictures and
+samples/examples. Its not as easy to learn when the book is simply text
+and the concept is abstract and non-linear. Perhaps the best method of
+learning is the video, at least for me. You can skip ahead in a video,
+but its annoying once you realize that you missed something important
+and have to rewind. So I generally let it play from start to end. When
+I'm nose deep in a book, I have the tendency to jump around and look at
+the pictures and read ahead, then back and then I'm lost. This is before
+I really understand what I'm looking at which is a of a waste of time
+because I have to read it over.&lt;/p&gt;
+&lt;p&gt;*Also, don't always blindly accept tutorials as the correct way to do
+something simply because it worked. I have learned an important lesson
+tonight in regards to this point in the example above.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Michael</dc:creator><pubDate>Wed, 03 Nov 2010 00:00:00 -0700</pubDate><guid>tag:michaelmartinez.in,2010-11-03:android-and-the-ui.html</guid></item></channel></rss>

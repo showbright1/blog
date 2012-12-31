@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>MM</title>
+	<meta name="description" content="Michael Martinez Blog">
+	 <meta name="viewport" content="width=100%; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no;" />
+	<meta name="author" content="Michael Martinez">
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="./theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="./theme/bootstrap.css" rel="stylesheet">
+	<link href="./theme/bootstrap-custom-grid.css" rel="stylesheet">
+	<link href="./theme/monk.css" rel="stylesheet">
+	<link href="./theme/pygments.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./theme/font-awesome.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="./theme/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./theme/jquery.ui.totop.js"></script>
+           <script type="text/javascript" src="./theme/monkjs.js"></script>
+           <script type="text/javascript" src="./theme/chirp.min.js"></script>
+           <script type="text/javascript" src="./theme/superfish.js"></script>
+
+		<!---->
+	<!---->
+	<!--<a href="http://github.com/MichaelMartinez"><img style="position: absolute; top: 39px; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub" /></a>
+-->
+
+	<!-- <link rel="shortcut icon" href="assets/ico/favicon.ico">
+	<link rel="apple-touch-icon" href="assets/ico/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="assets/ico/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="assets/ico/apple-touch-icon-114x114.png"> -->
+
+</head>
+<body >
+
+<div class="container wrap">
+<section id="top-menu">
+    <div class="row-fluid">
+        <div class="span6">
+            <a class="MyLogo" href="index.html">MM</a>
+        </div>
+        <div class="span6 hidden-phone">
+        	<div id='mysocial'>
+        		<ul>
+        			<li><a href="http://github.com/MichaelMartinez"><i class="icon-github"></i></a></li>
+        			<li><a href="https://plus.google.com/u/0/106657123530243977683/"><i class="icon-google-plus"></i></a></li>
+        			<li><a href="http://twitter.com/MonkMartinez"><i class="icon-twitter"></i></a></li>
+        			<li><a href="http://www.linkedin.com/pub/michael-martinez/26/914/407"><i class="icon-linkedin"></i></a></li>
+        		</ul>
+        	</div>
+    </div>
+</section>
+
+<header id="header">
+    <nav id="menu" class="clearfix">
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="#">Labs</a></li>
+            <li><a href="#">Apps</a></li>
+            <li><a href="#">Notes</a>
+             <ul>
+                    <li class="last"><a href="notes/math-notes.html">Math Notes</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+   </header>
+
+<!--container-->
+<section id="container" class="clearfix sidebar-right">
+        <div class="row-fluid">
+            <section id="page-sidebar" class="alignleft span8">
+
+
+
+                <!-- This is my content as described in index.html -->
+				<div class='article'>
+		  <div class="page-title clearfix"><h1>Coffeescript, Jasmine and Katas</h1>
+			<ul class="meta clearfix">
+			<li>When: <a class="more" href="./coffeescript-jasmine-and-katas.html">March 2012</a></li>
+<li>Who: <a class="url fn" href="./author/michael.html">Michael</a> in <a href="./category/programming.html">programming</a></li>
+		           </ul>
+		</div>
+		<article class="blog-post">
+		<div><p>Hey-O!</p>
+<p><a href="http://coffeescript.org/">CoffeeScript</a> is nice. It provides syntactic sugar and adds
+tremendous functionality to the web developers tool-chest. Those who
+appreciate terse, yet readable and well formatted code; CoffeeScript
+will seem like a manna from heaven. I find that I am already looking at
+my JavaScript and refactoring it in my head to CoffeeScript.</p>
+<p>On long road trips I generally have a few hours to kill while the rest
+of the family is asleep. I generally take this time to fire up some
+podcasts and/or tutorials and to learn as I drive. I actually look
+forward to this time as I can almost totally focus on the content.</p>
+<p>This trip I decided to load my Galaxy Nexus with a metric ton of
+CoffeeScript screen casts (just audio) and podcasts. My intention was to
+get the basics out of the way and I accomplished that objective.</p>
+<p>Since I've returned home, I have decided to stick with CoffeeScript and
+add a few more. I have decided that my code needs to tested more
+throughly. CoffeeScript has made testing a complete breeze.</p>
+<p>I've also become a believer in dedicated, <a href="http://www.missiontolearn.com/2010/04/deliberate-practice/">deliberate practice</a>. One
+can constantly reuse the same patterns and never really push themselves
+to get better. However, those who deliberately practice techniques and
+patterns they are not comfortable with generally begin to excel faster
+than those who just put in the hours haphazardly.</p>
+<p>I used <a href="http://osherove.com/tdd-kata-1/">this code kata</a> with CoffeeScript and Jasmine.</p>
+<p>Click the post image to see the passing tests!</p>
+<p>Here is my solution:</p>
+<p>The Spec's in CoffeeScript</p>
+<div class="codehilite"><pre><span class="n">describe</span> &quot;<span class="n">StringCalc</span>&quot;<span class="p">,</span> <span class="o">-&gt;</span>
+    <span class="n">describe</span> &quot;<span class="n">constructor</span> <span class="n">with</span> <span class="n">null</span>&quot;<span class="p">,</span> <span class="o">-&gt;</span>
+      <span class="n">beforeEach</span> <span class="o">-&gt;</span>
+        <span class="p">@</span><span class="n">mystrCalc</span> <span class="p">=</span> <span class="n">new</span> <span class="n">StrCalc</span><span class="p">()</span>
+
+      <span class="n">it</span> <span class="s">&#39;replaces null with 0&#39;</span><span class="p">,</span> <span class="o">-&gt;</span>
+        <span class="p">(</span><span class="n">expect</span> <span class="p">@</span><span class="n">mystrCalc</span><span class="p">.</span><span class="n">firstNum</span><span class="p">).</span><span class="n">toEqual</span> 0
+
+    <span class="n">describe</span> &quot;<span class="n">constructor</span> <span class="n">with</span> <span class="n">zero</span> &quot;<span class="p">,</span> <span class="o">-&gt;</span>
+      <span class="n">beforeEach</span> <span class="o">-&gt;</span>
+        <span class="p">@</span><span class="n">mystrCalc</span> <span class="p">=</span> <span class="n">new</span> <span class="n">StrCalc</span><span class="p">(</span><span class="s">&#39;0&#39;</span><span class="p">)</span>
+
+      <span class="n">it</span> <span class="s">&#39;replaces &quot;0&quot; with 0&#39;</span><span class="p">,</span> <span class="o">-&gt;</span>
+        <span class="p">(</span><span class="n">expect</span> <span class="p">@</span><span class="n">mystrCalc</span><span class="p">.</span><span class="n">firstNum</span><span class="p">).</span><span class="n">toEqual</span> 0
+
+    <span class="n">describe</span> &quot;<span class="n">constructor</span> <span class="n">with</span> <span class="n">multiple</span> <span class="n">numbers</span>&quot;<span class="p">,</span> <span class="o">-&gt;</span>
+      <span class="n">beforeEach</span> <span class="o">-&gt;</span>
+        <span class="p">@</span><span class="n">mystrCalc</span> <span class="p">=</span> <span class="n">new</span> <span class="n">StrCalc</span><span class="p">(</span><span class="s">&#39;1, 2, 3&#39;</span><span class="p">)</span>
+
+      <span class="n">it</span> <span class="s">&#39;matches first arg to firstNum&#39;</span><span class="p">,</span> <span class="o">-&gt;</span>
+        <span class="p">(</span><span class="n">expect</span> <span class="p">@</span><span class="n">mystrCalc</span><span class="p">.</span><span class="n">firstNum</span><span class="p">).</span><span class="n">toEqual</span> 1
+
+      <span class="n">it</span> <span class="s">&#39;matches second arg to secondNum&#39;</span><span class="p">,</span> <span class="o">-&gt;</span>
+        <span class="p">(</span><span class="n">expect</span> <span class="p">@</span><span class="n">mystrCalc</span><span class="p">.</span><span class="n">secondNum</span><span class="p">).</span><span class="n">toEqual</span> 2
+
+      <span class="n">it</span> <span class="s">&#39;matches third arg to thirdNum&#39;</span><span class="p">,</span> <span class="o">-&gt;</span>
+        <span class="p">(</span><span class="n">expect</span> <span class="p">@</span><span class="n">mystrCalc</span><span class="p">.</span><span class="n">thirdNum</span><span class="p">).</span><span class="n">toEqual</span> 3
+
+    <span class="n">describe</span> &quot;<span class="n">add</span> <span class="n">method</span>&quot;<span class="p">,</span> <span class="o">-&gt;</span>
+      <span class="n">beforeEach</span> <span class="o">-&gt;</span>
+        <span class="p">@</span><span class="n">mystrCalc</span> <span class="p">=</span> <span class="n">new</span> <span class="n">StrCalc</span><span class="p">(</span><span class="s">&#39;2, 4, 6&#39;</span><span class="p">)</span>
+
+      <span class="n">it</span> <span class="s">&#39;adds three arguments of StrCalc&#39;</span><span class="p">,</span> <span class="o">-&gt;</span>
+        <span class="p">(</span><span class="n">expect</span> <span class="p">@</span><span class="n">mystrCalc</span><span class="p">.</span><span class="n">total</span><span class="p">).</span><span class="n">toEqual</span> 12
+
+    <span class="n">describe</span> &quot;<span class="n">add</span> <span class="n">method</span> <span class="n">with</span> <span class="n">bigger</span> <span class="n">numbers</span>&quot;<span class="p">,</span> <span class="o">-&gt;</span>
+      <span class="n">beforeEach</span> <span class="o">-&gt;</span>
+        <span class="p">@</span><span class="n">mystrCalc</span> <span class="p">=</span> <span class="n">new</span> <span class="n">StrCalc</span><span class="p">(</span><span class="s">&#39;20\n40, 60&#39;</span><span class="p">)</span>
+
+      <span class="n">it</span> <span class="s">&#39;adds three arguments for big numbers and wacky delimiters&#39;</span><span class="p">,</span> <span class="o">-&gt;</span>
+        <span class="p">(</span><span class="n">expect</span> <span class="p">@</span><span class="n">mystrCalc</span><span class="p">.</span><span class="n">total</span><span class="p">).</span><span class="n">toEqual</span> 120
+</pre></div>
+
+
+<p>The implementation in CoffeeScript:</p>
+<div class="codehilite"><pre><span class="n">window</span><span class="p">.</span><span class="n">StrCalc</span> <span class="p">=</span> <span class="n">class</span> <span class="n">StrCalc</span>
+
+    <span class="n">constructor</span><span class="p">:</span> <span class="p">(</span><span class="n">myStr</span> <span class="p">=</span> 0<span class="p">)</span> <span class="o">-&gt;</span>
+      <span class="k">if</span> <span class="n">myStr</span> <span class="n">is</span> <span class="s">&#39;0&#39;</span> <span class="n">or</span> <span class="n">myStr</span> <span class="n">is</span> 0
+        <span class="p">@</span><span class="n">firstNum</span> <span class="p">=</span> 0
+      <span class="k">else</span>
+        <span class="p">@</span><span class="n">parseMyNum</span> <span class="n">myStr</span>
+
+    <span class="n">parseMyNum</span><span class="p">:</span> <span class="p">(</span><span class="n">myStr</span><span class="p">)</span> <span class="o">-&gt;</span>
+      <span class="n">pattern</span> <span class="p">=</span> <span class="o">/</span><span class="p">(</span><span class="o">\</span><span class="n">d</span><span class="p">)</span><span class="o">+.*</span>?<span class="p">(</span><span class="o">\</span><span class="n">d</span><span class="o">*</span><span class="p">)</span><span class="o">/</span><span class="n">gm</span>
+      <span class="n">result</span> <span class="p">=</span> <span class="n">myStr</span><span class="p">.</span><span class="n">match</span> <span class="n">pattern</span>
+      <span class="p">@</span><span class="n">firstNum</span> <span class="p">=</span> <span class="n">parseInt</span> <span class="n">result</span><span class="p">[</span>0<span class="p">]</span>
+      <span class="p">@</span><span class="n">secondNum</span> <span class="p">=</span> <span class="n">parseInt</span> <span class="n">result</span><span class="p">[</span>1<span class="p">]</span>
+      <span class="p">@</span><span class="n">thirdNum</span> <span class="p">=</span> <span class="n">parseInt</span> <span class="n">result</span><span class="p">[</span>2<span class="p">]</span>
+      <span class="p">@</span><span class="n">add</span><span class="p">()</span>
+
+    <span class="n">add</span><span class="p">:</span> <span class="o">-&gt;</span>
+      <span class="p">@</span><span class="n">total</span> <span class="p">=</span> <span class="p">@</span><span class="n">firstNum</span> <span class="o">+</span> <span class="p">@</span><span class="n">secondNum</span> <span class="o">+</span> <span class="p">@</span><span class="n">thirdNum</span>
+</pre></div>
+
+
+<p>Paste the CoffeeScript <a href="http://js2coffee.org/">here</a> to see what it looks like in JavaScript.</p></div>
+		<div>
+		</article>
+			<h2>Comments</h2>
+		 				
+		<div>
+	</div>
+
+    </section>
+	<!--sidebar-->
+            <aside id="sidebar" class="alignright span4">
+                <section class="blog-category">
+                    <div class="title-divider">
+                        <h3 class="title-sidebar">Categories</h3>
+                    </div>
+                    <ul class="ul-col2 clearfix">
+                        		<li ><a href="./category/apps.html"><i class="icon-chevron-right"></i>apps</a></li>
+	            		<li ><a href="./category/as3.html"><i class="icon-chevron-right"></i>as3</a></li>
+	            		<li ><a href="./category/design.html"><i class="icon-chevron-right"></i>design</a></li>
+	            		<li ><a href="./category/mobile.html"><i class="icon-chevron-right"></i>mobile</a></li>
+	            		<li class="active"><a href="./category/programming.html"><i class="icon-chevron-right"></i>programming</a></li>
+	            		<li ><a href="./category/terms.html"><i class="icon-chevron-right"></i>terms</a></li>
+	            		<li ><a href="./category/web-development.html"><i class="icon-chevron-right"></i>web development</a></li>
+	                                </ul>
+                </section>
+                <section class="blog-category">
+                    <div class="title-divider">
+                        <h3 class="title-sidebar">Archives</h3>
+                    </div>
+                    <ul class="ul-col2 clearfix">
+                    	<li><a href="archives.html"><i class="icon-chevron-right"></i>Complete Listing</a></li>
+                    </ul>
+                </section>
+            </aside>
+</section>
+<!--footer-->
+<footer id="footer">
+    <div class="row-fluid">
+
+        <div class="span4">
+            <div class="title-divider">
+                <h3>Thank You!</h3>
+            </div>
+            <div>
+                <p>Hey guys and gals! Thanks for visiting my blog, where the hope is to provide something of marginal utility. I am a full-time student in Computer Science and looking for interships or contract work. Drop me a line here: michael at caffeineindustries.com or send me a <a href="http://twitter.com/MonkMartinez">Tweet!</a></p>
+            </div>
+        </div>
+        <div class="span8">
+            <div class="title-divider">
+                <h3>Tweets</h3>
+            </div>
+            <div id='tweets'></div>
+        </div>
+        </div>
+</footer>
+
+<!--footer menu-->
+<section id="footer-menu">
+    <div class="row-fluid">
+        <p class="span8">&copy 2012 Michael Martinez <a style="color:#e1e1e1" href="#">Here</a></p>
+        <p class="span4"><span class="pull-right">Copyright 2012 - All Rights Reserved</span></p>
+    </div>
+</section>
+<!-- end footer -->
+
+</div><!-- main wrap -->
+
+</body>
+</html>
+<!-- Localized -->

@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>math-notes</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="title" content="math-notes"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2012-12-17 23:21:25 MST"/>
+<meta name="author" content="Michael Martinez"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="{{SITEURL}}/theme/org.css" />
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">math-notes</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Math 122</a>
+<ul>
+<li><a href="#sec-1-1">1.1 Questions</a>
+<ul>
+<li><a href="#sec-1-1-1">1.1.1 Zero-factor Property</a></li>
+<li><a href="#sec-1-1-2">1.1.2 Domain and Range of Functions</a></li>
+<li><a href="#sec-1-1-3">1.1.3 Write the Rational Expression in Lowest terms</a></li>
+<li><a href="#sec-1-1-4">1.1.4 Divide Polynomials</a></li>
+<li><a href="#sec-1-1-5">1.1.5 Adding Polynomials</a></li>
+<li><a href="#sec-1-1-6">1.1.6 Solving Polynomial equations</a></li>
+<li><a href="#sec-1-1-7">1.1.7 Distance, Rate and Time word problems</a></li>
+<li><a href="#sec-1-1-8">1.1.8 Absolute values of radicals</a></li>
+<li><a href="#sec-1-1-9">1.1.9 Evaluate the expression or exponential</a></li>
+<li><a href="#sec-1-1-10">1.1.10 Write with radicals</a></li>
+<li><a href="#sec-1-1-11">1.1.11 Simplify radical by rewriting and solving</a></li>
+<li><a href="#sec-1-1-12">1.1.12 Write the expression with rational exponents</a></li>
+<li><a href="#sec-1-1-13">1.1.13 More rules of exponents</a></li>
+<li><a href="#sec-1-1-14">1.1.14 Product rule for radicals</a></li>
+<li><a href="#sec-1-1-15">1.1.15 Use Rational exponents to simplify</a></li>
+<li><a href="#sec-1-1-16">1.1.16 Distance formula</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2">1.2 Video</a>
+<ul>
+<li><a href="#sec-1-2-1">1.2.1 Multiply and Divide Rational expressions</a></li>
+<li><a href="#sec-1-2-2">1.2.2 Negative one factoring</a></li>
+<li><a href="#sec-1-2-3">1.2.3 Add and Subtract Rational expressions (algebraic fractions)</a></li>
+<li><a href="#sec-1-2-4">1.2.4 Solving Rational Equations</a></li>
+<li><a href="#sec-1-2-5">1.2.5 Word Problems with Rational expression</a></li>
+<li><a href="#sec-1-2-6">1.2.6 Complex Numbers</a></li>
+<li><a href="#sec-1-2-7">1.2.7 Completing the square</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-2">2 Math 187 Pre-Calc</a>
+<ul>
+<li><a href="#sec-2-1">2.1 Lesson 1</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Math 122</h2>
+<div class="outline-text-2" id="text-1">
+
+<p> <span class="timestamp-wrapper"> <span class="timestamp">2012-12-08 Sat</span></span><br/>
+</p>
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Questions</h3>
+<div class="outline-text-3" id="text-1-1">
+
+
+</div>
+
+<div id="outline-container-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> Zero-factor Property</h4>
+<div class="outline-text-4" id="text-1-1-1">
+
+<ul>
+<li>solve using zero-factor property
+</li>
+<li>set each polynomial to zero
+</li>
+<li>solve for variable
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-2" class="outline-4">
+<h4 id="sec-1-1-2"><span class="section-number-4">1.1.2</span> Domain and Range of Functions</h4>
+<div class="outline-text-4" id="text-1-1-2">
+
+<ul>
+<li>find the domain of a function == X value
+</li>
+<li>Find the range of a function == Y value
+</li>
+<li>the Domain is the denominator, factor it out and set it equal to zero
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-3" class="outline-4">
+<h4 id="sec-1-1-3"><span class="section-number-4">1.1.3</span> Write the Rational Expression in Lowest terms</h4>
+<div class="outline-text-4" id="text-1-1-3">
+
+<ul>
+<li>Factor everything
+</li>
+<li>look for cancellations
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-4" class="outline-4">
+<h4 id="sec-1-1-4"><span class="section-number-4">1.1.4</span> Divide Polynomials</h4>
+<div class="outline-text-4" id="text-1-1-4">
+
+<ul>
+<li>Specifically, polynomials with leading negativity Ie. (8-a)
+</li>
+<li>(8-a) is actually -1(a-8)
+</li>
+<li>flip the equation and multiply
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-5" class="outline-4">
+<h4 id="sec-1-1-5"><span class="section-number-4">1.1.5</span> Adding Polynomials</h4>
+<div class="outline-text-4" id="text-1-1-5">
+
+<ul>
+<li>Find the LCM
+</li>
+<li>Multiply each factor(polynomial) by the LCM
+</li>
+<li>Gather like terms
+</li>
+<li>factor again and cancel
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-6" class="outline-4">
+<h4 id="sec-1-1-6"><span class="section-number-4">1.1.6</span> Solving Polynomial equations</h4>
+<div class="outline-text-4" id="text-1-1-6">
+
+<ul>
+<li>Some say, without solving find the numbers that would be rejected as solutions
+<ul>
+<li>set these equal to zero and solve for the variable
+</li>
+</ul>
+
+</li>
+<li>TODO: watch video on these
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-7" class="outline-4">
+<h4 id="sec-1-1-7"><span class="section-number-4">1.1.7</span> Distance, Rate and Time word problems</h4>
+<div class="outline-text-4" id="text-1-1-7">
+
+<ul>
+<li>WATCH VIDEO ON THIS!!!!
+</li>
+<li>Take notes here and in book
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-8" class="outline-4">
+<h4 id="sec-1-1-8"><span class="section-number-4">1.1.8</span> Absolute values of radicals</h4>
+<div class="outline-text-4" id="text-1-1-8">
+
+<ul>
+<li>convert radical to exponential form
+</li>
+<li>exponent value of the variable is the numerator
+</li>
+<li>the index of the radical is the denominator
+</li>
+<li>use |x| in the final answer
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-9" class="outline-4">
+<h4 id="sec-1-1-9"><span class="section-number-4">1.1.9</span> Evaluate the expression or exponential</h4>
+<div class="outline-text-4" id="text-1-1-9">
+
+<ul>
+<li>Be sure to see if they want it simplified or in another form
+</li>
+<li>(-27)<sup>1</sup>/3
+</li>
+<li>This evals to - \(\sqrt[3]{27}\)
+</li>
+<li>simplified this is -3
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-10" class="outline-4">
+<h4 id="sec-1-1-10"><span class="section-number-4">1.1.10</span> Write with radicals</h4>
+<div class="outline-text-4" id="text-1-1-10">
+
+<ul>
+<li>Means just that, massage the equation into another form
+</li>
+<li>remember negative signs are "misplaced bases" put them in denominator under 1
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-11" class="outline-4">
+<h4 id="sec-1-1-11"><span class="section-number-4">1.1.11</span> Simplify radical by rewriting and solving</h4>
+<div class="outline-text-4" id="text-1-1-11">
+
+<ul>
+<li>not completely needed as punching into calculator works well
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-12" class="outline-4">
+<h4 id="sec-1-1-12"><span class="section-number-4">1.1.12</span> Write the expression with rational exponents</h4>
+<div class="outline-text-4" id="text-1-1-12">
+
+<ul>
+<li>then apply the rules for exponents
+<ul>
+<li>write the rules for exponents here
+</li>
+</ul>
+
+</li>
+<li>assume all variables are positive real numbers
+</li>
+<li>Final form of answer is in radical form not exponential form
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-13" class="outline-4">
+<h4 id="sec-1-1-13"><span class="section-number-4">1.1.13</span> More rules of exponents</h4>
+<div class="outline-text-4" id="text-1-1-13">
+
+<ul>
+<li>Write them down here
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-14" class="outline-4">
+<h4 id="sec-1-1-14"><span class="section-number-4">1.1.14</span> Product rule for radicals</h4>
+<div class="outline-text-4" id="text-1-1-14">
+
+<ul>
+<li>write it down here and watch the video
+</li>
+<li>the index of the radical must be the same to use
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-15" class="outline-4">
+<h4 id="sec-1-1-15"><span class="section-number-4">1.1.15</span> Use Rational exponents to simplify</h4>
+<div class="outline-text-4" id="text-1-1-15">
+
+<ul>
+<li>Find the numbers that work for the index
+</li>
+<li>Example - 2<sup>4</sup> if index of radical is \(\sqrt[4]{x}\)
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-1-16" class="outline-4">
+<h4 id="sec-1-1-16"><span class="section-number-4">1.1.16</span> Distance formula</h4>
+<div class="outline-text-4" id="text-1-1-16">
+
+<ul>
+<li>\(\sqrt[2]{(x_{2} - x_{1})^2 + (y_{2}-y_{1})^2}\)
+</li>
+<li>First find that number
+</li>
+<li>then see if it is a square
+</li>
+<li>Simplify as needed
+</li>
+</ul>
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Video</h3>
+<div class="outline-text-3" id="text-1-2">
+
+
+</div>
+
+<div id="outline-container-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> Multiply and Divide Rational expressions</h4>
+<div class="outline-text-4" id="text-1-2-1">
+
+<ul>
+<li>First find the numbers that will cause the denominator to not be zero
+</li>
+<li>Can only eliminate factors(binomials) that are alike. Can't factor pieces 
+</li>
+<li>Ex. \(3(x-2)\) can only factor 3 or \((x-2)\)
+</li>
+<li>factor everything in sight and then cancel out
+</li>
+<li>Dividing: Use reciprocal and multiply  
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-2" class="outline-4">
+<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> Negative one factoring</h4>
+<div class="outline-text-4" id="text-1-2-2">
+
+<ul>
+<li>If the problem has \((5-x)\)
+</li>
+<li>Force a negative one out of the factor(binomial)
+</li>
+<li>Ex. \(-1(x-5)\)
+</li>
+<li>If that happens in the denominator
+<ul>
+<li>Divide the numerator by the -1 once the factor is cancelled
+</li>
+</ul>
+
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-3" class="outline-4">
+<h4 id="sec-1-2-3"><span class="section-number-4">1.2.3</span> Add and Subtract Rational expressions (algebraic fractions)</h4>
+<div class="outline-text-4" id="text-1-2-3">
+
+<ul>
+<li>what is a rational expression? \(\frac{(2x)}{(2x-3)} - \frac{3x-5}{5x}\)
+</li>
+<li>Find the LCM
+<ul>
+<li>The LCM is the simplest polynomial that contains all the factors of each polynomial
+</li>
+</ul>
+
+</li>
+<li>Ex. Find the LCM of \((4x^2+4x)\) and \((x^2+2x+1)\)
+</li>
+<li>Factored form: \(4x(x+1)\) and \((x+1)(x+1)\)
+</li>
+<li>LCM == \(4x(x+1)(x+1)\)
+</li>
+</ul>
+
+<ul>
+<li id="sec-1-2-3-1">Finding the fraction with Common Denominator<br/>
+<ol>
+<li>Rewrite the fraction so that the denominator equals the LCM
+</li>
+<li>That involves multiplying the denominator by the terms that make it equal the LCM
+</li>
+<li>Multiply the numerator by the same number from step 2
+</li>
+<li>Then add or subtract over the common denominator
+</li>
+<li>You may need to factor and/or cancel to get the right answer
+</li>
+</ol>
+
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-1-2-4" class="outline-4">
+<h4 id="sec-1-2-4"><span class="section-number-4">1.2.4</span> Solving Rational Equations</h4>
+<div class="outline-text-4" id="text-1-2-4">
+
+<ul>
+<li>Find the LCM
+</li>
+<li>Multiply through all terms and look for cancellation opportunities 
+</li>
+<li>Factor the equation to zero
+</li>
+<li>Verify that each solution does not set the denominator to division by zero
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-5" class="outline-4">
+<h4 id="sec-1-2-5"><span class="section-number-4">1.2.5</span> Word Problems with Rational expression</h4>
+<div class="outline-text-4" id="text-1-2-5">
+
+<ul>
+<li>Work rate problems
+<ol>
+<li>machine 1 can do a job in 5 hours, machine 2 can do the same job in 3 hours
+</li>
+<li>Unit of time \(\frac{1}{5}\) and \(\frac{1}{3}\)
+</li>
+<li>Let x = time working together
+</li>
+<li>In one unit of time: Machine 1 + Machine 2 = Time together
+</li>
+<li>\(\frac{1}{5}\) + \(\frac{1}{3}\) = \(\frac{1}{x}\)
+</li>
+<li>Solve: find LCM then multiply through and solve for x
+
+</li>
+</ol>
+
+</li>
+<li>Distance, Rate, Time
+<ol>
+<li>Look for the statement of equality 
+</li>
+<li>outline the information
+</li>
+<li>Set up a table with D R T
+</li>
+</ol>
+
+</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="left" /><col class="left" /><col class="right" />
+</colgroup>
+<tbody>
+<tr><td class="left">D</td><td class="left">R</td><td class="right">T</td></tr>
+<tr><td class="left">xe</td><td class="left">34</td><td class="right">45</td></tr>
+<tr><td class="left">34435</td><td class="left">x6</td><td class="right">43</td></tr>
+</tbody>
+</table>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-6" class="outline-4">
+<h4 id="sec-1-2-6"><span class="section-number-4">1.2.6</span> Complex Numbers</h4>
+<div class="outline-text-4" id="text-1-2-6">
+
+<ul>
+<li>\(\sqrt{-9} = \sqrt{9(-1)} = 3i\)
+</li>
+<li>\(\sqrt{-75} = \sqrt{25 * 3(-1)} = 5i\sqrt{3}\)
+</li>
+<li>Adding and subtracting 
+<ol>
+<li>Simplify as much as possible
+</li>
+<li>Drop the parens and collect like terms
+</li>
+<li>Express the answer in \(ax+b\) form
+</li>
+</ol>
+
+</li>
+<li>Multiplying
+<ol>
+<li>Distribute terms
+</li>
+<li>\(-3i(10-15i)\)
+</li>
+<li>\(-30i+45i^2\) and \(i^2 = -1\)
+</li>
+<li>\(-30i-45\)
+</li>
+<li>\(ax+b\) form = \(-45-30i\)
+</li>
+<li>If binomial, simply FOIL
+</li>
+</ol>
+
+</li>
+<li>Finding the value of \(i^n\)
+<ol>
+<li>recall that $i = \sqrt{-1}
+</li>
+<li>Make sure calculator is in \(ax+b\) mode
+</li>
+<li>so \(i^5\) is simply \(\sqrt{-1}*\sqrt{-1}*\sqrt{-1}*\sqrt{-1}*\sqrt{-1}\)
+</li>
+<li>Answer is: \(i\)
+</li>
+</ol>
+
+</li>
+<li>Dividing
+<ol>
+<li>Use a conjugate to clear the denominator
+</li>
+<li>\(\frac{4-5i}{2i}\) what will clear the denominator?
+</li>
+<li>in this case simply multiplying by \(i\) will do it
+</li>
+<li>in cases with a binomial use the conjugate as well
+</li>
+<li>Ex.\(\frac{4-5i}{3-7i} * \frac{3+7i}{3+7i}\)  
+</li>
+<li>Make sure to simplify fractions and write in the correct form
+</li>
+</ol>
+
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-7" class="outline-4">
+<h4 id="sec-1-2-7"><span class="section-number-4">1.2.7</span> Completing the square</h4>
+<div class="outline-text-4" id="text-1-2-7">
+
+<ul>
+<li>Use this technique when we have a quadratic in \(ax^2+bx+c\)
+</li>
+<li>write into this form \(ax^2+bx = -c\)
+</li>
+<li>Take half of \(bx\) and raise it to the \(n^2\) power
+</li>
+<li>so now we have \(ax^2+bx+\frac{1}{2}(bx)^2 = -c + \frac{1}{2}(bx)^2\)
+</li>
+<li>then we have \((x+\frac{1}{2}(bx))^2 = cd\)
+</li>
+<li>to clear the exponent on the binomial, square both sides
+</li>
+<li>\(x + \frac{1}{2}(bx) = \sqrt{cd}\)
+</li>
+<li>\(x = - \frac{1}{2}(bx) +- \sqrt{cd}\)
+</li>
+</ul>
+
+
+</div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Math 187 Pre-Calc</h2>
+<div class="outline-text-2" id="text-2">
+
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Lesson 1</h3>
+<div class="outline-text-3" id="text-2-1">
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2012-12-17 23:21:25 MST</p>
+<p class="author">Author: Michael Martinez</p>
+<p class="creator">Org version 7.8.11 with Emacs version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>

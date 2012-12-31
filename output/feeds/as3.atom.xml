@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>MM</title><link href="http://michaelmartinez.in/" rel="alternate"></link><link href="http://michaelmartinez.in/feeds/as3.atom.xml" rel="self"></link><id>http://michaelmartinez.in/</id><updated>2011-11-17T00:00:00-07:00</updated><entry><title>Flex, Flash, Spoon and the road ahead....</title><link href="http://michaelmartinez.in/flex-flash-spoon-and-the-road-ahead.html" rel="alternate"></link><updated>2011-11-17T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2011-11-17:flex-flash-spoon-and-the-road-ahead.html</id><summary type="html">&lt;p&gt;I just had to brain vomit this....&lt;/p&gt;
+&lt;p&gt;​1. Flex relies on the Flash Player and/or Air, correct? Without
+constant tight integration between Spoon and the Flash Player... I think
+Flex is heading down a troubled road with a stormy horizon around 1, 2
+or 3 years from now.&lt;/p&gt;
+&lt;p&gt;You can innovate until you are blue in the face, but you need deep
+integration into the Flash Player to make things work even halfway
+decently. Lets face it, Flex has been a bit of a dog in performance. It
+has issues like the rest of the software world, but now it lacks
+significant engineering efforts.&lt;/p&gt;
+&lt;p&gt;Is this situation going to materially improve in the next 6 months? Will
+it be better or worse without heavy, heavy Flash player integration? How
+will that be accomplished given Adobe needs to focus like they've never
+focused on their new SaaS offerings among other treats outlined in the
+linked document?&lt;/p&gt;
+&lt;p&gt;​2. Enterprise was the leading innovation context for a long time, this
+is changing! Are we not at all concerned that a consumer driven
+revolution in productivity and innovation will change Enterprise?&lt;/p&gt;
+&lt;p&gt;Furthermore, we are seeing a lot more of; "Here is my iPad, now make it
+work!" from the CEO's through Mobile Sales to IT. This is a major shift
+and its accelerating. Many are starting to say that for the first time,
+consumer tech will drive enterprise tech going forward.&lt;/p&gt;
+&lt;p&gt;I see a lot of Flex folks saying; "Enterprise will save us!" Maybe.
+Economic conditions are changing very rapidly from governments to
+bakeries. Radical divergence from the status quo will be common place in
+tech. I've seen an iPad in a fire truck.&lt;/p&gt;
+&lt;p&gt;​3. What a lot of people fail to realize is Adobe is in a bit of trouble
+financially speaking. They have revised enterprise growth down every
+quarter and "legacy" (*cough*) projections look tepid at best. See
+here:&lt;/p&gt;
+&lt;p&gt;http://www.adobe.com/aboutadobe/invrelations/2011_analyst_mtg/pdfs/FA2011_web_MarkGarrett.pdf&lt;/p&gt;
+&lt;p&gt;Their strategy is to focus on the marketer and boost subscription rates
+to meet top line growth. They are literally betting the farm on
+subscriptions and marketing. That doesn't sound "enterprise-y",
+"flash-y" or "flex-y" to me.&lt;/p&gt;
+&lt;p&gt;​4. They will try to move the creative seats to a subscription based
+model in the next three years. OUCH! I fucking hate subscriptions,
+everyone and their mother wants a \$5 dollar a month (or more) deduction
+from my checking account! Obviously, I don't believe in this model.&lt;/p&gt;
+&lt;p&gt;I'm sure if I can see the following, many others have as well. The
+market is ripe for Adobe to get upstaged in their legacy apps (PS, AI,
+FW). What I'm trying to say is, nothing lasts forever and this company
+is in an awkward place right now.&lt;/p&gt;
+&lt;p&gt;I like seeing the glass half full, but there are way larger forces at
+work here. We are fool hardy to accept them at face value with no
+further consideration.&lt;/p&gt;</summary></entry><entry><title>Adobe Changes Course</title><link href="http://michaelmartinez.in/adobe-changes-course.html" rel="alternate"></link><updated>2011-11-11T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2011-11-11:adobe-changes-course.html</id><summary type="html">&lt;p&gt;By now you've surely heard that Adobe has ceased all operations in
+regard to the mobile browser Flash player. I can't say that I'm really
+surprised, but I'm concerned with how they did it and what it means
+long-term. It was apparently out-of-the-blue for not only the public but
+also the 750 employees that were let go.&lt;/p&gt;
+&lt;p&gt;That really sucks for the guys/gals who were let go on such short
+notice. I know that is one of my biggest fears and I completely
+empathize with them. The response from the likes of &lt;a href="http://sfdesignerdw.wordpress.com/2011/11/10/thoughts-on-stuff-and-things-adobe"&gt;Doug Winnie&lt;/a&gt;show
+enormous restraint and passion. It makes one wonder how someone with
+that kind of dedication and passion was let go. The biggest take away
+here, in my opinion, is that nothing is sacred and everything is open
+for negotiation. Good and bad.&lt;/p&gt;
+&lt;p&gt;Now what?&lt;/p&gt;
+&lt;p&gt;As many of you know, I recently went all-aboard the ActionScript 3 train
+via AIR for mobile devices. I'm rattled.&lt;/p&gt;
+&lt;p&gt;The web was abuzz with all kinds of vitriolic drivel from the likes of
+mostly Apple fanboi's. &lt;em&gt;"Steve was right!"&lt;/em&gt; is completely and 100%
+bullshit. We know that from the reading the &lt;em&gt;&lt;a href="http://www.amazon.com/Steve-Jobs-Walter-Isaacson/dp/1451648537"&gt;Walt Isaacson book&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;I am rattled, however. I ~~knew~~know learning and using a proprietary
+solution is dangerous. I saw what happened to the Microsoft Silverlight
+developers as they were promised the world only to have the rug pulled
+out from under them in one OS release cycle (Win 7 -&gt; Win 8). Those
+Silverlight devs that saw it coming but continued to stay the course
+based on the promise of support are now &lt;a href="http://forums.silverlight.net/t/230725.aspx/1?Windows+8+apps+going+html5+wtf+part+2"&gt;really angry (22 million views?
+Wow!)&lt;/a&gt; and have every right to be.&lt;/p&gt;
+&lt;p&gt;So, the question(s) are; Are we ActionScript 3 and Air developers now
+armed with the same foresight? Is the entire Flash ecosystem on the
+chopping block? Is Air next as the great migration from Desk to Mobile
+continues unabated?&lt;/p&gt;
+&lt;p&gt;I do not have the will power nor the inclination to really debate this.
+Frankly, at this point I want to use the least proprietary solution
+available. I don't trust the IT corporations to have, ultimately, my
+best interest at heart. Nor are they supposed to, as the bottom line is
+what keeps the electricity on and paychecks coming. Adobe made a tough
+decision and they should have handled it better on the employee end.
+However, make no mistake, this decision took guts and was the right
+thing to do from a business standpoint.&lt;/p&gt;
+&lt;p&gt;My stay in the ActionScript sphere of influence was very short lived. I
+enjoyed learning it and the community was really nice and helpful which
+was a total bonus. This is the end of my ActionScript days and the
+beginning of my JavaScript days for cross platform mobile development. I
+welcome my new prototypical based overlords with open arms. Now where is
+that &lt;a href="http://javascript.crockford.com/"&gt;Crockford&lt;/a&gt; book that i threw against the wall in disgust a year
+ago?&lt;/p&gt;
+&lt;p&gt;I had real trouble with my last attempts to become a Javascript ninja. I
+like classes and encapsulation. All that is needed is a resolve to try
+harder.&lt;/p&gt;</summary></entry><entry><title>AS3 MadComponents Tutorial Series - Tablet and Phone in One!</title><link href="http://michaelmartinez.in/as3-madcomponents-tutorial-series-tablet-and-phone-in-one.html" rel="alternate"></link><updated>2011-09-12T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2011-09-12:as3-madcomponents-tutorial-series-tablet-and-phone-in-one.html</id><summary type="html">&lt;p&gt;This tutorial will demonstrate both tablet and phone layout in one
+ActionScript 3 Flash application for mobile. We will utilize the
+powerful &lt;a href="http://madskool.wordpress.com/"&gt;MadComponents library&lt;/a&gt; to quickly and easily add an amazing
+spilt screen view for the tablet. Then we will basically recycle the
+phone tutorial shown in the previous &lt;a href="http://caffeineindustries.com/?p=234"&gt;separation of concerns
+tutorial&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Tablets such as the iPad and Android variants have quite a bit more
+screen real estate to work with. We can literally replicate a desktop
+experience with the tablet resolutions we are seeing today. So what
+should we do with all of this real estate? The answer to that question
+is; It depends. I know that is a bit of a cop-out, but we can not
+realistically attempt to cover every situation.&lt;/p&gt;
+&lt;p&gt;This app will determine the screen resolution and choose the best layout
+to initialize. The table will utilize the popular split-view pattern for
+the tablet with a list control on the left side and content on the
+right. The phone layout consists of list based navigation as shown in
+the previous &lt;a href="http://caffeineindustries.com/?p=234"&gt;example.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;DISCLAIMER: The colors used are ATROCIOUS. I did this to make absolutely
+sure the tutorial-ee can see what colors are used and where. Its a bit
+confusing and you'll need to experiment anyway.&lt;/p&gt;
+&lt;p&gt;The SRC files can be downloaded &lt;a href="http://www.mediafire.com/file/d4sbql4o0x44uhd/src.zip"&gt;HERE&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Lets get this party started:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kd"&gt;package&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;com.danielfreeman.madcomponents.&lt;/span&gt;&lt;span class="o"&gt;*;&lt;/span&gt;
+
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.desktop.NativeApplication&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.display.Sprite&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.display.StageAlign&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.display.StageScaleMode&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.events.Event&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.events.KeyboardEvent&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.events.MouseEvent&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.system.Capabilities&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.ui.Keyboard&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="n"&gt;SplitViewMAD&lt;/span&gt; &lt;span class="kd"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Sprite&lt;/span&gt;
+    &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="c1"&gt;//////////////////////////// DATA FOR BOTH APPLICATIONS ////////////////////////////&lt;/span&gt;
+        &lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="n"&gt;DATA&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;XML&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;List Item 1&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;List Item 2&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;List Item 3 (this wrapping text; test test test test)&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;List Item 4&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;;&lt;/span&gt;
+    &lt;span class="c1"&gt;//////////////////////////// END DATA //////////////////////////////////////////////&lt;/span&gt;
+
+    &lt;span class="c1"&gt;/////////////////////////// TABLET XML DEFINITION //////////////////////////////////    &lt;/span&gt;
+        &lt;span class="c1"&gt;// List can also be masked for a wrapping effect&lt;/span&gt;
+        &lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="n"&gt;SPLITVIEW&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;XML&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt; &lt;span class="n"&gt;stageColour&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#A15D6F&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;myCols&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;gapH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;4&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;widths&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;36%, 64%&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#707449&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;vertical&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;myScroll&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#E4D1B0&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;myList&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;colour&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#c10000&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;autoLayout&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;true&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;search&lt;/span&gt; &lt;span class="n"&gt;colour&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#D66821&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;field&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;label&amp;quot;&lt;/span&gt;&lt;span class="sr"&gt;/&amp;gt;{DATA}&amp;lt;label id=&amp;quot;label&amp;quot; alignH=&amp;quot;fill&amp;quot;/&amp;gt;&amp;lt;/list&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;vertical&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;pages&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;myPages&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;{&lt;/span&gt;&lt;span class="n"&gt;Page0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;LAYOUT&lt;/span&gt;&lt;span class="o"&gt;}{&lt;/span&gt;&lt;span class="n"&gt;Page1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;LAYOUT1&lt;/span&gt;&lt;span class="o"&gt;}{&lt;/span&gt;&lt;span class="n"&gt;Page2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;LAYOUT2&lt;/span&gt;&lt;span class="o"&gt;}{&lt;/span&gt;&lt;span class="n"&gt;Page3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;LAYOUT3&lt;/span&gt;&lt;span class="o"&gt;}&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;pages&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;;&lt;/span&gt;
+
+        &lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="n"&gt;_page&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;UIPages&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+    &lt;span class="c1"&gt;/////////////////////////// END TABLET ///////////////////////////////////////////////&lt;/span&gt;
+
+    &lt;span class="c1"&gt;/////////////////////////// PHONE XML DEFINITIONS ///////////////////////////////////&lt;/span&gt;
+
+        &lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="n"&gt;LIST&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;XML&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt; &lt;span class="n"&gt;colour&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#999999&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#DADED4&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;search&lt;/span&gt; &lt;span class="n"&gt;colour&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#DADED4&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;field&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;label&amp;quot;&lt;/span&gt;&lt;span class="sr"&gt;/&amp;gt;{DATA}&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;;&lt;/span&gt;
+
+        &lt;span class="c1"&gt;// Each additional &amp;quot;Page&amp;quot; needs to have different id&amp;#39;s for the components, even when they are separated into separate classes&lt;/span&gt;
+        &lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="n"&gt;NAVIGATION&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;XML&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;navigation&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;nav&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;colour&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#C100000&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;clickColour&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#C100000&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Phone Nav&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="n"&gt;LIST&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+        &lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Page0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;LAYOUT&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+        &lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Page1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;LAYOUT1&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+        &lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Page2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;LAYOUT2&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+        &lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Page3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;LAYOUT3&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;navigation&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;;&lt;/span&gt;
+
+        &lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;UINavigation&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+        &lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="n"&gt;_list&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;UIList&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="c1"&gt;////////////////////////////// END PHONE //////////////////////////////////////////////&lt;/span&gt;
+
+    &lt;span class="c1"&gt;///////////////////////////// INDEPENDENT CLASS VARS ////////////////////////////////// &lt;/span&gt;
+        &lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="n"&gt;_resY&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Capabilities&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;screenResolutionX&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+        &lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="n"&gt;_resX&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Capabilities&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;screenResolutionY&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+        &lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="n"&gt;_dpi&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Capabilities&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;screenDPI&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="c1"&gt;///////////////////////////// END CLASS VARS //////////////////////////////////////////&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The comments should visually separate the XML. The order in which you
+define this data is absolutely inconsequential.&lt;/p&gt;
+&lt;p&gt;The DATA constant is used for both layouts. I'm quite sure there are a
+myriad of optimizations you could make here, but I wanted to make this
+as clear as possible for the uninitiated.&lt;/p&gt;
+&lt;p&gt;Lets concentrate on the SPLITVIEW constant for a bit. The root node or
+tag is &lt;strong&gt;columns&lt;/strong&gt;. We can use any numbers we like here. 36% for the
+left column and 64% for the right looked good on my Galaxy Tab 10.1
+Android tablet.&lt;/p&gt;
+&lt;p&gt;After columns, you'll see the &lt;vertical&gt; node and it is the container
+for the left column. I choose to define the list here. You can get
+really creative and add images and/or other components in this column.
+The main thing to consider is text wrapping. If you aren't careful or
+have long labels, the text will spill onto the next column. In this
+case, I set &lt;strong&gt;autoLayout = true&lt;/strong&gt; in the list node. Then we define the
+actual label node contained in the DATA constant with this tag; \&amp;lt; label
+id="label" alignH="fill" /&gt;. This will make your text wrap nice and
+neat.&lt;/p&gt;
+&lt;p&gt;The right column is defined in the \&amp;lt; pages &gt; node. This, again, can be
+any node you'd like for your particular application but page worked well
+for this example. Note that we once again defined our pages outside this
+class and call them by their LAYOUT constant, then initialize them in a
+later method. You don't need to specify LAYOUT followed by a number, as
+LAYOUT or any other name will work just as well. I do that because,
+again, my brain works best with everything separated as cleanly as
+possible.&lt;/p&gt;
+&lt;p&gt;The independent class vars grab the screen resolution in the X and Y
+axis and also provide the screen DPI. This will enable us to make the
+right decision on which layout we like to display.&lt;/p&gt;
+&lt;p&gt;Lets move onto the constructor:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c1"&gt;//////////////////////////// CONSTRUCTOR /////////////////////////////////////////////  &lt;/span&gt;
+&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;function &lt;/span&gt;&lt;span class="nf"&gt;SplitViewMAD&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;screen&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;Sprite&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;null&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;screen&lt;/span&gt;&lt;span class="o"&gt;){&lt;/span&gt;
+        &lt;span class="n"&gt;screen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;addChild&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+
+    &lt;span class="nf"&gt;trace&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Screen Resolution is &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;_resX&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;x&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;_resY&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot; at &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;_dpi&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;ppi&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// support autoOrients&lt;/span&gt;
+    &lt;span class="n"&gt;stage&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;align&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;StageAlign&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;TOP_LEFT&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;stage&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;scaleMode&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;StageScaleMode&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;NO_SCALE&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// If the screen in the Y-axis is larger than 855px init tablet layout&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;_resY&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="mi"&gt;855&lt;/span&gt;&lt;span class="o"&gt;){&lt;/span&gt;
+    &lt;span class="n"&gt;initializeTablet&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt; 
+    &lt;span class="c1"&gt;// If the screen in the Y-axis is smaller than 855px init Phone layout&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;_resY&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;855&lt;/span&gt;&lt;span class="o"&gt;){&lt;/span&gt;
+    &lt;span class="c1"&gt;//Register the back button listener in constructor before UI.create and all is well&lt;/span&gt;
+    &lt;span class="n"&gt;stage&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;addEventListener&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;KeyboardEvent&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;KEY_DOWN&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;goBackButton&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;initializePhone&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This constructor simply chooses to initialize the phone or tablet based
+on the resolution in the Y-axis. The number I decided to use for a break
+over is 855px because I'm testing on the OG Droid-1 (480x854) and a
+Galaxy 10.1 tablet (800 x 1290). I needed a way to make sure that the
+proper layout is initializing (you know, that it actually works). A more
+robust switch statement or if/else block is absolutely more appropriate
+in a real world scenario based on the devices one is targeting.&lt;/p&gt;
+&lt;p&gt;The only gotcha here is the physical Android back button in the
+initializePhone block. The physical Android back button listener needs
+to be called before UI.create, which is in the initializePhone method,
+to work properly.&lt;/p&gt;
+&lt;p&gt;In the interest of keeping all the logic available to copy and paste
+here is the phone logic. Note: its not materially different than the
+&lt;a href="http://caffeineindustries.com/?p=234"&gt;previous tutorial&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c1"&gt;////////////////////// PHONE ////////////////////////&lt;/span&gt;
+&lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;function &lt;/span&gt;&lt;span class="nf"&gt;initializePhone&lt;/span&gt;&lt;span class="o"&gt;():&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="c1"&gt;// Create the main UI or &amp;quot;Landing Page&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;UI&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;create&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;NAVIGATION&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Initialize &amp;quot;views&amp;quot;&lt;/span&gt;
+    &lt;span class="c1"&gt;// Initialize &amp;quot;views&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;Page0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;initialize&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+    &lt;span class="n"&gt;Page1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;initialize&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+    &lt;span class="n"&gt;Page2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;initialize&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+    &lt;span class="n"&gt;Page3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;initialize&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Navigation layout and behaviour &lt;/span&gt;
+    &lt;span class="n"&gt;_uiNavigation&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;UINavigation&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;UI&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;findViewById&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;nav&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;));&lt;/span&gt;
+    &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;autoForward&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;autoBack&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="c1"&gt;// Change page handler&lt;/span&gt;
+    &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;addEventListener&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;UIList&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;CLICKED&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;navigationChange&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;navigationBar&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;backButton&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;addEventListener&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;MouseEvent&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;MOUSE_UP&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;goBack&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+    &lt;span class="c1"&gt;// Nav back button color&lt;/span&gt;
+    &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;navigationBar&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;backButton&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;colour&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;999999&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="c1"&gt;// Handles List item clicks&lt;/span&gt;
+&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;function &lt;/span&gt;&lt;span class="nf"&gt;navigationChange&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;Event&lt;/span&gt;&lt;span class="o"&gt;):&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+
+    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="n"&gt;navIndex&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;index&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="c1"&gt;// Check to see if current page is @ 0 to set correct title&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;pages&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;]){&lt;/span&gt;
+        &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Phone Nav&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// navigation logic &lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;navIndex&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;){&lt;/span&gt;
+        &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;goToPage&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;UIPages&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;SLIDE_LEFT&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Page 1&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;navIndex&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;){&lt;/span&gt;
+        &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;goToPage&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;UIPages&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;SLIDE_LEFT&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Page 2&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;navIndex&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;){&lt;/span&gt;
+        &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;goToPage&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;UIPages&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;SLIDE_LEFT&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Page 3&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="c1"&gt;// Nav bar back button&lt;/span&gt;
+&lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="kd"&gt;function &lt;/span&gt;&lt;span class="nf"&gt;goBack&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;Event&lt;/span&gt;&lt;span class="o"&gt;):&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="n"&gt;navIndex&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;index&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;goToPage&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;UIPages&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;SLIDE_RIGHT&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Phone Nav&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="nf"&gt;trace&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;NavBar Event fired&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="c1"&gt;// Device back button handler&lt;/span&gt;
+&lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="kd"&gt;function &lt;/span&gt;&lt;span class="nf"&gt;goBackButton&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;KeyboardEvent&lt;/span&gt;&lt;span class="o"&gt;):&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="c1"&gt;// With autoBack set to false, you lose the back button for some reason&lt;/span&gt;
+    &lt;span class="c1"&gt;// You can use the Native App library to hard check a back button press&lt;/span&gt;
+    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="n"&gt;navIndex&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;index&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;keyCode&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;Keyboard&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;BACK&lt;/span&gt;&lt;span class="o"&gt;){&lt;/span&gt;
+        &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;goToPage&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;UIPages&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;SLIDE_RIGHT&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Phone Nav&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+        &lt;span class="nf"&gt;trace&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Keyboard event fired&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;   
+&lt;span class="c1"&gt;//////////////////////// END PHONE /////////////////////////////&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Next we'll look at the tablet specific code:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c1"&gt;/////////////////////// TABLET ////////////////////////////////&lt;/span&gt;
+&lt;span class="kd"&gt;private&lt;/span&gt; &lt;span class="kd"&gt;function &lt;/span&gt;&lt;span class="nf"&gt;initializeTablet&lt;/span&gt;&lt;span class="o"&gt;():&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="c1"&gt;// Create the main UI or &amp;quot;Landing Page&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;UI&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;create&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;SPLITVIEW&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Initialize &amp;quot;views&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;Page0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;initialize&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+    &lt;span class="n"&gt;Page1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;initialize&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+    &lt;span class="n"&gt;Page2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;initialize&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+    &lt;span class="n"&gt;Page3&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;initialize&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Add the list &lt;/span&gt;
+    &lt;span class="n"&gt;_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;UIList&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;UI&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;findViewById&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;myList&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;));&lt;/span&gt;
+    &lt;span class="n"&gt;_list&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;addEventListener&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;UIList&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;CLICKED&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;changePage&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Add the pages component&lt;/span&gt;
+    &lt;span class="n"&gt;_page&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;UIPages&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;UI&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;findViewById&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;myPages&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;));&lt;/span&gt;
+
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="kd"&gt;function &lt;/span&gt;&lt;span class="nf"&gt;changePage&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;Event&lt;/span&gt;&lt;span class="o"&gt;):&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="c1"&gt;// TODO: holder page @ index 0 in DATA constant so first page is 1 and second is two. Holder will have a cool logo or something&lt;/span&gt;
+    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;_list&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;index&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Navigation logic &lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;){&lt;/span&gt;
+        &lt;span class="n"&gt;_page&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;goToPage&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;UIPages&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;SLIDE_RIGHT&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;){&lt;/span&gt;
+        &lt;span class="n"&gt;_page&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;goToPage&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;UIPages&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;SLIDE_RIGHT&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;){&lt;/span&gt;
+        &lt;span class="n"&gt;_page&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;goToPage&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="n"&gt;UIPages&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;SLIDE_RIGHT&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="c1"&gt;////////////////////// END TABLET ////////////////////////////////&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We call UI.create and pass in the SPLITVIEW constant. This is the
+MadComponents standard, so if don't get it... I suggest you to have a go
+with the other tutorials on &lt;a href="http://madskool.wordpress.com/"&gt;Daniels&lt;/a&gt; site or
+mine. Next, we initialize all the pages that reside outside of this
+class, but are defined in the pages node.&lt;/p&gt;
+&lt;p&gt;We need a way to capture the clicks for the list on the left. So we
+instantiate a UIList variable to hold the list data. We then assign a
+click listener to the list variable. We also need a mechanism to
+navigate the pages once we've determined which list item has been
+clicked. So, again we assign a UIPages variable to hold and act on that
+data. This is all handled in the changePage event handler which is
+relatively self explanatory. I'm still working on the Android back
+button for this block. I will update it once I get it handled.&lt;/p&gt;
+&lt;p&gt;I hope this helps you visualize what is possible with tablets and the
+ActionScript3 MadComponent Library. Expect more tutorials to follow!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;This is a screen shot of the tablet running this app:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Tablet Split View" src="http://caffeineindustries.com/wp-content/uploads/2011/09/splitviewtablet800.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;This is a screen shot of the phone running this app:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Phone Split View" src="http://caffeineindustries.com/wp-content/uploads/2011/09/device-2011-09-12-134809.png" /&gt;&lt;/p&gt;</summary></entry><entry><title>AS3 MadComponents Tutorial Series - Separation of Concerns</title><link href="http://michaelmartinez.in/as3-madcomponents-tutorial-series-separation-of-concerns.html" rel="alternate"></link><updated>2011-09-04T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2011-09-04:as3-madcomponents-tutorial-series-separation-of-concerns.html</id><summary type="html">&lt;p&gt;Best practices for programming tell us separation of concerns,
+encapsulation and modularity are desirable in most, but not all,
+application contexts. A complex app with many views and/or items could
+quickly get out of control in a plethora of ways within
+the monolithic class context.&lt;/p&gt;
+&lt;p&gt;The project I'm working on has nearly 50 separate views and consist of
+mostly textual data. So my first task was learning the method(s) to
+separate class files the &lt;a href="http://code.google.com/p/mad-components/"&gt;MadComponent&lt;/a&gt;way. This example will be quite
+simple but will illustrate how one would go about using different AS
+class files to separate concerns.&lt;/p&gt;
+&lt;p&gt;&lt;span style="text-decoration: underline;"&gt;&lt;strong&gt;User Story:&lt;/strong&gt;&lt;/span&gt; A list
+based component is chosen by the user. This item navigates to a
+"details" page or another component with more data.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lets build the "landing page" or main application page;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;First the XML layout:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;public class SeparateClassExample extends Sprite{
+
+    protected static const DATA:XML = &lt;span class="nt"&gt;&amp;lt;data&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;item&lt;/span&gt; &lt;span class="na"&gt;label=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Page 0&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;item&lt;/span&gt; &lt;span class="na"&gt;label=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Page 1&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/data&amp;gt;&lt;/span&gt;;
+
+    protected static const LIST:XML = 
+        &lt;span class="nt"&gt;&amp;lt;list&lt;/span&gt; &lt;span class="na"&gt;colour=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;#999999&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;background=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;#DADED4&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;search&lt;/span&gt; &lt;span class="na"&gt;colour=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;#DADED4&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;field=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;label&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;{DATA}&lt;span class="nt"&gt;&amp;lt;/list&amp;gt;&lt;/span&gt;;
+
+    //Important
+    protected static const NAVIGATION:XML = 
+        &lt;span class="nt"&gt;&amp;lt;navigation&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;nav&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;colour=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;#C100000&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;title=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Home&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+        {LIST}
+        {Page0.LAYOUT}
+        {Page1.LAYOUT}
+        &lt;span class="nt"&gt;&amp;lt;/navigation&amp;gt;&lt;/span&gt;;
+
+    protected var _uiNavigation:UINavigation;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The DATA constant simply defines the items that will populate the list.
+The LIST constant accepts the DATA constant and applies some basic
+formatting, Ie. colour (note the UK spelling). We also implement the
+search feature here which will filter the list based on the item's
+label. (I have experimented with different search methods, but have been
+unsuccessful thus far... we will explore this later).&lt;/p&gt;
+&lt;p&gt;The NAVIGATION constant is actually the heart and soul of this simple
+app. You can think of the NAVIGATION constant as an Array of data that
+you define in XML and classes. As my astute readers will probably note
+based on a quick glance. We haven't defined Page0, Page1 and you can't
+spot LAYOUT anywhere. These are defined separate class files, although
+not completely necessary, it helps me keep things organized.&lt;/p&gt;
+&lt;p&gt;We declare the _uiNavigation instance or class level variable which
+we'll define in subsequent steps.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lets move on to the constructor:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;function &lt;/span&gt;&lt;span class="nf"&gt;SeparateClassExample&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;screen&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;Sprite&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;null&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;screen&lt;/span&gt;&lt;span class="o"&gt;){&lt;/span&gt;
+        &lt;span class="n"&gt;screen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;addChild&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+    &lt;span class="c1"&gt;// support autoOrients&lt;/span&gt;
+    &lt;span class="n"&gt;stage&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;align&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;StageAlign&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;TOP_LEFT&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;stage&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;scaleMode&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;StageScaleMode&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;NO_SCALE&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Create the main UI or &amp;quot;Landing Page&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;UI&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;create&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;NAVIGATION&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Initialize &amp;quot;views&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;Page0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;initialize&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+    &lt;span class="n"&gt;Page1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;initialize&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Navigation layout and behaviour &lt;/span&gt;
+    &lt;span class="n"&gt;_uiNavigation&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;UINavigation&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;UI&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;findViewById&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;nav&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;));&lt;/span&gt;
+    &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;autoForward&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Must set to false otherwise the app scrolls through all the pages in the &amp;quot;stack&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;autoBack&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Go to the &amp;quot;page&amp;quot; requested&lt;/span&gt;
+    &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;addEventListener&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;UIList&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;CLICKED&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;navigationChange&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Go Back using the Nav bar back button&lt;/span&gt;
+    &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;navigationBar&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;backButton&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;addEventListener&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;MouseEvent&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;MOUSE_UP&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;goBack&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Go back using the hardware back button&lt;/span&gt;
+    &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;addEventListener&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;KeyboardEvent&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;KEY_UP&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;goBackButton&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;navigationBar&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;backButton&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;colour&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;999999&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The UI.create method instantiates the UI or "landing page" and all of
+the code relating to the use of MadComponents must be implemented after
+this method call. We initialize Page0 with a call to a public method
+inside the Page0 class. This method can be named anything you like.&lt;/p&gt;
+&lt;p&gt;We then instantiate the _uiNavigation variable to the NAVIGATION
+constant defined at the class level through the id we can name
+arbitrarily. We can now programmatically add formatting, assign event
+listeners and so forth to the _uiNavigation variable.&lt;/p&gt;
+&lt;p&gt;The first event listener UI.CLICKED will direct the navigation to the
+"page" that is assigned to the index of the NAVIGATION constant. In this
+case 0 is the list itself, while 1 and 2 will be Page0 and Page1
+respectively.&lt;/p&gt;
+&lt;p&gt;The second event listener is assigned to the navigationBar.backButton
+and is a simple MouseEvent.MOUSE_UP event. As you will see, this event
+will handle the back button that is added to the navigation bar once we
+have navigated away from the main list.&lt;/p&gt;
+&lt;p&gt;The third event listener is added to handle the device back button,
+generally this is an Android device. I found through testing that if
+autoBack is set to false, you lose back button functionality. In some
+cases you may want the autoBack functionality, but its not appropriate
+in this context as it will scroll through the stack of items defined in
+the NAVIGATION constant. This event listener simply adds the devices
+back button into the app.&lt;/p&gt;
+&lt;p&gt;Daniel is working on documentation as we speak, but a good starting
+place to learn about the framework are the PDF(s) included on the
+&lt;a href="http://code.google.com/p/mad-components/downloads/list"&gt;download page&lt;/a&gt;. You can see what I've done to customize the
+_uiNavigation variable based on the comments added into the code.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Now lets handle the events we declared in the constructor:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="n"&gt;navigationChange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Event&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+
+    &lt;span class="n"&gt;var&lt;/span&gt; &lt;span class="n"&gt;navIndex&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;int&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Check&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;see&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;current&lt;/span&gt; &lt;span class="n"&gt;page&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="p"&gt;@&lt;/span&gt; 0 &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;correct&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pages&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;0&lt;span class="p"&gt;]){&lt;/span&gt;
+        &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &amp;quot;&lt;span class="n"&gt;Home&lt;/span&gt;&amp;quot;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;navigation&lt;/span&gt; &lt;span class="n"&gt;Stuff&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;navIndex&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; 0&lt;span class="p"&gt;){&lt;/span&gt;
+        &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;goToPage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;1&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;UIPages&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SLIDE_LEFT&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &amp;quot;&lt;span class="n"&gt;Page&lt;/span&gt; 0&amp;quot;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;navIndex&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; 1&lt;span class="p"&gt;){&lt;/span&gt;
+        &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;goToPage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;2&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;UIPages&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SLIDE_LEFT&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &amp;quot;&lt;span class="n"&gt;Page&lt;/span&gt; 1&amp;quot;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;For&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;back&lt;/span&gt; &lt;span class="n"&gt;button&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;Navigation&lt;/span&gt; &lt;span class="n"&gt;bar&lt;/span&gt;
+    &lt;span class="n"&gt;protected&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="n"&gt;goBack&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;Event&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+
+        &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;goToPage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;0&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;UIPages&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SLIDE_RIGHT&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &amp;quot;&lt;span class="n"&gt;Home&lt;/span&gt;&amp;quot;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;With&lt;/span&gt; &lt;span class="n"&gt;autoBack&lt;/span&gt; &lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;false&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;lose&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;device&lt;/span&gt; &lt;span class="n"&gt;back&lt;/span&gt; &lt;span class="n"&gt;button&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;some&lt;/span&gt; &lt;span class="n"&gt;reason&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;You&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt; &lt;span class="n"&gt;use&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;Native&lt;/span&gt; &lt;span class="n"&gt;App&lt;/span&gt; &lt;span class="n"&gt;library&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;check&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;device&lt;/span&gt; &lt;span class="n"&gt;back&lt;/span&gt; &lt;span class="n"&gt;button&lt;/span&gt; &lt;span class="n"&gt;event&lt;/span&gt;
+    &lt;span class="n"&gt;protected&lt;/span&gt; &lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="n"&gt;goBackButton&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;KeyboardEvent&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="n"&gt;void&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+
+        &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keyCode&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;Keyboard&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;BACK&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+            &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;goToPage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;0&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;UIPages&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SLIDE_RIGHT&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &amp;quot;&lt;span class="n"&gt;Home&lt;/span&gt;&amp;quot;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;       
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In this example, I want the navigationChange event to take the user to
+the page associated with the index they select. We let the gotoPage
+method do all the heavy lifting and add a nice visual transition. Beyond
+that the back button in the navigation bar and the device back button
+(if available) simply takes the user back to the list. If you've
+followed any of the tutorials mentioned in the starting out post, you
+will not see anything surprising here. The exception is maybe the event
+handler for the back button which is similar to the way one handles an
+event on the decktop or web based flash application.&lt;/p&gt;
+&lt;p&gt;A little gotcha I found is when you don't explicitly set the title, the
+navigation component will leave the previous title in the navigation bar
+despite the change. Checking to make sure its set correctly just adds a
+bit of polish.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Now lets add the separate class "views" or Page0 and Page1:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kd"&gt;package&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;com.danielfreeman.madcomponents.&lt;/span&gt;&lt;span class="o"&gt;*;&lt;/span&gt;
+
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.display.Sprite&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.display.StageAlign&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.display.StageScaleMode&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.events.Event&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.system.Capabilities&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.text.TextField&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="n"&gt;Page0&lt;/span&gt; &lt;span class="kd"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Sprite&lt;/span&gt;
+    &lt;span class="o"&gt;{&lt;/span&gt;
+
+        &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="n"&gt;LAYOUT&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;XML&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;scrollVertical&lt;/span&gt; &lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#DADED4&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+                            &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;label&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;message0&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;alignH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;fill&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;scrollVertical&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;;&lt;/span&gt;
+
+        &lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="n"&gt;_message&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;UILabel&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+        &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;function &lt;/span&gt;&lt;span class="nf"&gt;Patient&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
+        &lt;span class="o"&gt;{&lt;/span&gt;
+            &lt;span class="kd"&gt;super&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+
+        &lt;span class="o"&gt;}&lt;/span&gt;
+
+        &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;function &lt;/span&gt;&lt;span class="nf"&gt;initialize&lt;/span&gt;&lt;span class="o"&gt;():&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;_message&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;UILabel&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;UI&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;findViewById&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;message0&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;));&lt;/span&gt;
+            &lt;span class="n"&gt;_message&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;htmlText&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;lt;b&amp;gt;App Considerations:&amp;lt;/b&amp;gt;&amp;lt;p&amp;gt;&amp;lt;li&amp;gt;Is it AWESOME?&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Are you going to BroGram? Sup?&amp;lt;/li&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;li&amp;gt;More Stuff&amp;lt;/li&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+        &lt;span class="o"&gt;}&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is a basic page layout using HTML text. LAYOUT is the constant we
+call from within the NAVIGATION constant in the Main class as you've
+seen. If I may direct your attention to the constructor, notice that
+UI.create is not used here. In this case, we "instantiate" the layout
+through the public initialize method mentioned earlier. Also note, ID's
+for the components for each page need to be different. Ie. Page0 label
+has an id of "message0". Page1 will need a label id of "message1" to
+work as one would expect. Flash requires string literals to be on the
+same line. In my working app this line is almost ridiculously long, no
+need to worry as the text will render as you've defined.&lt;/p&gt;
+&lt;p&gt;This is the "MAIN" class in all its glory.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kd"&gt;package&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;com.danielfreeman.madcomponents.&lt;/span&gt;&lt;span class="o"&gt;*;&lt;/span&gt;
+
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.desktop.NativeApplication&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.display.Sprite&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.display.StageAlign&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.display.StageScaleMode&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.events.Event&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.events.KeyboardEvent&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.events.MouseEvent&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;flash.ui.Keyboard&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="n"&gt;SeparateClassExample&lt;/span&gt; &lt;span class="kd"&gt;extends&lt;/span&gt; &lt;span class="n"&gt;Sprite&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+
+        &lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="n"&gt;DATA&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;XML&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Page 0&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Page 1&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;;&lt;/span&gt;
+
+        &lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="n"&gt;LIST&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;XML&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; 
+            &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt; &lt;span class="n"&gt;colour&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#999999&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#DADED4&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;search&lt;/span&gt; &lt;span class="n"&gt;colour&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#DADED4&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;field&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;label&amp;quot;&lt;/span&gt;&lt;span class="sr"&gt;/&amp;gt;{DATA}&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;;&lt;/span&gt;
+
+        &lt;span class="c1"&gt;// Each additional &amp;quot;Page&amp;quot; needs to have different id&amp;#39;s &lt;/span&gt;
+        &lt;span class="c1"&gt;//for the components, even when they are separated into separate classes&lt;/span&gt;
+        &lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="n"&gt;NAVIGATION&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;XML&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; 
+            &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;navigation&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;nav&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;colour&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;#C100000&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Home&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="n"&gt;LIST&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+            &lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Page0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;LAYOUT&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+            &lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Page1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;LAYOUT&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+            &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;navigation&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;;&lt;/span&gt;
+
+        &lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;UINavigation&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+        &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;function &lt;/span&gt;&lt;span class="nf"&gt;SeparateClassExample&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;screen&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;Sprite&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;null&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;screen&lt;/span&gt;&lt;span class="o"&gt;){&lt;/span&gt;
+                &lt;span class="n"&gt;screen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;addChild&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+            &lt;span class="o"&gt;}&lt;/span&gt;
+            &lt;span class="c1"&gt;// support autoOrients&lt;/span&gt;
+            &lt;span class="n"&gt;stage&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;align&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;StageAlign&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;TOP_LEFT&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+            &lt;span class="n"&gt;stage&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;scaleMode&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;StageScaleMode&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;NO_SCALE&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+            &lt;span class="c1"&gt;// Create the main UI or &amp;quot;Landing Page&amp;quot;&lt;/span&gt;
+            &lt;span class="n"&gt;UI&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;create&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;NAVIGATION&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+
+            &lt;span class="c1"&gt;// Initialize &amp;quot;views&amp;quot;&lt;/span&gt;
+            &lt;span class="n"&gt;Page0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;initialize&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+            &lt;span class="n"&gt;Page1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;initialize&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+
+            &lt;span class="c1"&gt;// Navigation layout and behaviour &lt;/span&gt;
+            &lt;span class="n"&gt;_uiNavigation&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;UINavigation&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;UI&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;findViewById&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;nav&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;));&lt;/span&gt;
+            &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;autoForward&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+            &lt;span class="c1"&gt;// Must set to false otherwise the app scrolls through all the pages in the &amp;quot;stack&amp;quot;&lt;/span&gt;
+            &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;autoBack&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+            &lt;span class="c1"&gt;// Go to the &amp;quot;page&amp;quot; requested&lt;/span&gt;
+            &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;addEventListener&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;UIList&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;CLICKED&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;navigationChange&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+
+            &lt;span class="c1"&gt;// Go Back using the Nav bar back button&lt;/span&gt;
+            &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;navigationBar&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;backButton&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;addEventListener&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;MouseEvent&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;MOUSE_UP&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;goBack&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+
+            &lt;span class="c1"&gt;// Go back using the hardware back button&lt;/span&gt;
+            &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;addEventListener&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;KeyboardEvent&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;KEY_UP&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;goBackButton&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+            &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;navigationBar&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;backButton&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;colour&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;999999&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+        &lt;span class="o"&gt;}&lt;/span&gt;
+
+        &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;function &lt;/span&gt;&lt;span class="nf"&gt;navigationChange&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;Event&lt;/span&gt;&lt;span class="o"&gt;):&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+
+            &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="n"&gt;navIndex&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;index&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+            &lt;span class="c1"&gt;// Check to see if current page is @ 0 to set correct title&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;pages&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;]){&lt;/span&gt;
+                &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Home&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+            &lt;span class="o"&gt;}&lt;/span&gt;
+
+            &lt;span class="c1"&gt;// navigation Stuff&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;navIndex&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;){&lt;/span&gt;
+                &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;goToPage&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;UIPages&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;SLIDE_LEFT&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+                &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Page 0&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+            &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;navIndex&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;){&lt;/span&gt;
+                &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;goToPage&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;UIPages&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;SLIDE_LEFT&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+                &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Page 1&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+            &lt;span class="o"&gt;}&lt;/span&gt;
+        &lt;span class="o"&gt;}&lt;/span&gt;
+
+        &lt;span class="c1"&gt;// For the back button in the Navigation bar&lt;/span&gt;
+        &lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="kd"&gt;function &lt;/span&gt;&lt;span class="nf"&gt;goBack&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;Event&lt;/span&gt;&lt;span class="o"&gt;):&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+
+            &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;goToPage&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;UIPages&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;SLIDE_RIGHT&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+            &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Home&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+        &lt;span class="o"&gt;}&lt;/span&gt;
+
+        &lt;span class="c1"&gt;// With autoBack set to false, you lose the device back button for some reason&lt;/span&gt;
+        &lt;span class="c1"&gt;// You can use the Native App library to check for a device back button event&lt;/span&gt;
+        &lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="kd"&gt;function &lt;/span&gt;&lt;span class="nf"&gt;goBackButton&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="kt"&gt;KeyboardEvent&lt;/span&gt;&lt;span class="o"&gt;):&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+
+            &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;keyCode&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;Keyboard&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;BACK&lt;/span&gt;&lt;span class="o"&gt;){&lt;/span&gt;
+                &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;goToPage&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;UIPages&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;SLIDE_RIGHT&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+                &lt;span class="n"&gt;_uiNavigation&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Home&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>AS3 MadComponents Tutorial Series - Starting Out</title><link href="http://michaelmartinez.in/as3-madcomponents-tutorial-series-starting-out.html" rel="alternate"></link><updated>2011-09-02T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2011-09-02:as3-madcomponents-tutorial-series-starting-out.html</id><summary type="html">&lt;p&gt;&lt;a href="http://madskool.wordpress.com/" title="MadComponents-Blog"&gt;MadComponents&lt;/a&gt; is an AWESOME ActionScript 3 library for mobile UI
+design and App development. It is really lightweight, fast and doesn't
+use any of the FLEX framework*. MadComponents provides all the tools to
+make really nice functional mobile apps with Flash. One can choose to
+use pure ActionScript or use a combination of AS3 and XML. The XML
+implementation with MadComponents provides a clean method to populate
+and define the UI. If one comes from a background in Android development
+this will look very logical.&lt;/p&gt;
+&lt;p&gt;Daniel Freeman, the library author, has a nice collection of tutorials
+on his blog: http://madskool.wordpress.com/ I'll list them in this post
+and attempt to extend them in subsequent posts.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://madskool.wordpress.com/2011/06/20/tutorial-1-fb-4-5-hello-world-done-the-madcomponents-way/" title="Tutorial 1: FB 4.5 Hello World – done the MadComponents way"&gt;Tutorial 1: FB 4.5 Hello World – done the MadComponents way&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://madskool.wordpress.com/2011/06/23/tutorial-2-images-and-nine-patch-images-in-madcomponents/" title="Tutorial 2: Images, and Nine Patch Images in MadComponents"&gt;Tutorial 2: Images, and Nine Patch Images in MadComponents&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://madskool.wordpress.com/2011/06/30/tutorial-3-lists-and-pickers/" title="Tutorial 3: Lists and Pickers"&gt;Tutorial 3: Lists and Pickers&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://madskool.wordpress.com/2011/07/01/tutorial-4-building-a-mobile-twitter-client/" title="Tutorial 4: Building a mobile twitter client"&gt;Tutorial 4: Building a mobile twitter client&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://madskool.wordpress.com/2011/07/13/tutorial-5-deploying-to-mobile-devices/" title="Tutorial 5: Deploying to mobile devices"&gt;Tutorial 5: Deploying to mobile devices&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://madskool.wordpress.com/2011/07/18/tutorial-6-more-madcomponents/" title="Tutorial 6: More MadComponents"&gt;Tutorial 6: More MadComponents&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://madskool.wordpress.com/2011/07/25/tutorial-7-madcomponents-amf-service-test-drive-for-mobile/" title="Tutorial 7: MadComponents AMF Service Test Drive for Mobile"&gt;Tutorial 7: MadComponents AMF Service Test Drive for Mobile&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://madskool.wordpress.com/2011/07/28/extendedmadness-more-components-and-charts-for-mobile-developers/" title="ExtendedMadness.  More components and charts for mobile developers."&gt;ExtendedMadness. More components and charts for mobile developers.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;*I'm no zealot, but my experience with Flex on mobile has been a bit
+troubling. Number one, it is an extremely large library and has a lot of
+reported performance issues. I'm sure performance will get better as
+time goes on, as Adobe is working hard to fix this. Number two, MXML
+compiles down to AS3... so my thought is why waste time with MXML and
+just use AS3 from the onset, especially when Adobe asks you to code
+certain aspects (item renders) in AS3 anyway.&lt;/p&gt;</summary></entry></feed>
