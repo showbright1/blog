@@ -31,7 +31,9 @@ CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
 # Template pages are custom pages make a jinja2 template file
 # Then make a path pointing from it to the destination like so
 # =============
-TEMPLATE_PAGES = {'pages/math-notes.html': 'notes/math-notes.html'}
+TEMPLATE_PAGES = {'pages/math-notes.html': 'notes/math-notes.html',
+                  'pages/virt-machines.html': 'notes/virt-machines.html',
+                  'pages/pythonemacs.html': 'notes/pythonemacs.html'}
 
 #=============
 # Other

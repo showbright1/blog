@@ -386,14 +386,17 @@ color: #5C5B5B;
     color: #5F5F5F !important;
 }
 #menu ul ul a.sf-with-ul {
-    background: url('../images/icons/menu-sf-with-ul.gif') no-repeat 90% 50%;
+    background-color: #5F5F5F;
+    color: #fff;
 }
+
 #menu li:hover {
     background: none repeat scroll 0 0 #68CF16;
     visibility: inherit;
 }
 #menu li:hover ul,
 #menu li.sfHover ul {
+    background-color: #5F5F5F;
     left: 12px;
     top: 62px;
     z-index: 99;
