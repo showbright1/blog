@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>MM</title><link href="http://michaelmartinez.in/" rel="alternate"></link><link href="http://michaelmartinez.in/feeds/programming.atom.xml" rel="self"></link><id>http://michaelmartinez.in/</id><updated>2012-06-27T00:00:00-07:00</updated><entry><title>AppFog - Ruby on Rails 3.2 Tutorial</title><link href="http://michaelmartinez.in/appfog-ruby-on-rails-32-tutorial.html" rel="alternate"></link><updated>2012-06-27T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2012-06-27:appfog-ruby-on-rails-32-tutorial.html</id><summary type="html">&lt;p&gt;&lt;a href="http://www.appfog.com/"&gt;AppFog&lt;/a&gt; is an incredible service in the land of PaaS or Platform as a
+<feed xmlns="http://www.w3.org/2005/Atom"><title>MM</title><link href="http://michaelmartinez.in/" rel="alternate"></link><link href="http://michaelmartinez.in/feeds/programming.atom.xml" rel="self"></link><id>http://michaelmartinez.in/</id><updated>2013-01-01T00:00:00-07:00</updated><entry><title>Bloging with Pelican</title><link href="http://michaelmartinez.in/bloging-with-pelican.html" rel="alternate"></link><updated>2013-01-01T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2013-01-01:bloging-with-pelican.html</id><summary type="html">&lt;h2&gt;New Year, New Domain&lt;/h2&gt;
+&lt;p&gt;I am migrating away from caffeineindustries and you, my dear reader, may be scratching your head. Fear NOT!! 
+The reasons for this migration are several fold. I will enumerate a few of them here. &lt;/p&gt;
+&lt;p&gt;Numero uno, I have been spending quite a bit of time in school. This leaves very little time for other (generally more fun)
+activities like blogging and programming. So... I take lots of notes for school and gave up on &lt;a href="http://evernote.com"&gt;Evernote&lt;/a&gt; 
+as a study buddy last semester. Lets just say it is nice for some, but not for me.&lt;/p&gt;
+&lt;p&gt;I have almost completely switched to emacs for my day-to-day text based activities. That includes notes, code and love letters to my wife. 
+&lt;a href="http://orgmode.org"&gt;Org-mode&lt;/a&gt; has basically changed the way I write my life. Emacs in general give one the feeling of invincibility, for serious!&lt;/p&gt;
+&lt;p&gt;Spending so much time in emacs has allowed me to write everything down in plain text. I can then convert this to a plethora of formats, 
+many of which are suitable for the web. There is even an org-mode plugin that facilitates org-mode files to wordpress blogs. Wordpress is 
+great software and I don't have too many complaints. That said, I have always struggled to get exactly what I want without diving into PHP.&lt;/p&gt;
+&lt;p&gt;I don't want to learn PHP right now. There are a lot of people who say a lot of NOT nice things about PHP. I haven't really worked with 
+it so I will reserve judgment for now. I will say that I am trying to really learn Python... SO I found a python static site generator to 
+build this site and hack on here and there. &lt;/p&gt;
+&lt;p&gt;In the end, change is something that I am confortable with (thank goodness as this world moves fast). I hope to add a bunch of cool science-y 
+web experiments in the lab section. The notes section is for all my personal notes for study and reminders and general brain-dumps. &lt;/p&gt;
+&lt;h2&gt;Now Powered by Pelican&lt;/h2&gt;
+&lt;p&gt;This blog and website is now powered by the great &lt;a href="http://getpelican.com"&gt;Pelican&lt;/a&gt; static site generator.
+The documentation for the engine is quite good and didn't require much googling. If you are familiar with 
+Pelican, you have surely noticed that this is a custom theme. I will clean it up a bit and release it in 
+due time. More on Pelican in a future post... &lt;/p&gt;</summary></entry><entry><title>AppFog - Ruby on Rails 3.2 Tutorial</title><link href="http://michaelmartinez.in/appfog-ruby-on-rails-32-tutorial.html" rel="alternate"></link><updated>2012-06-27T00:00:00-07:00</updated><author><name>Michael</name></author><id>tag:michaelmartinez.in,2012-06-27:appfog-ruby-on-rails-32-tutorial.html</id><summary type="html">&lt;p&gt;&lt;a href="http://www.appfog.com/"&gt;AppFog&lt;/a&gt; is an incredible service in the land of PaaS or Platform as a
 Service. They are a &lt;a href="http://www.cloudfoundry.com/"&gt;Cloud Foundry&lt;/a&gt;-powered polyglot platform. You
 can &lt;a href="https://console.appfog.com/signup"&gt;sign up&lt;/a&gt; for beta access now and start pushing apps strait away.
 Their web based management interface is really nice, and I am a sucker
