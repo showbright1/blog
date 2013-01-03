@@ -42,7 +42,7 @@ LINKS =  (('Pelican', 'http://docs.notmyidea.org/alexis/pelican/'),
           ('Python.org', 'http://python.org'),
           ('Jinja2', 'http://jinja.pocoo.org'),
           ('iPython', 'http://ipython.org/'),)
-
+FILES_TO_COPY = [('CNAME', 'CNAME')]
 #=============
 # Theme Stuff
 #=============
