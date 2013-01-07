@@ -33,7 +33,8 @@ CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
 # =============
 TEMPLATE_PAGES = {'pages/math-notes.html': 'notes/math-notes.html',
                   'pages/virt-machines.html': 'notes/virt-machines.html',
-                  'pages/pythonemacs.html': 'notes/pythonemacs.html'}
+                  'pages/pythonemacs.html': 'notes/pythonemacs.html',
+                  'pages/books.html':'notes/books.html'}
 
 #=============
 # Other
