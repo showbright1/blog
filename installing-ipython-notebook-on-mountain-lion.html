@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>MM</title>
+	<meta name="description" content="Michael Martinez Blog">
+	 <meta name="viewport" content="width=100%; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no;" />
+	<meta name="author" content="Michael Martinez">
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="./theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="./theme/bootstrap.css" rel="stylesheet">
+	<link href="./theme/bootstrap-custom-grid.css" rel="stylesheet">
+	<link href="./theme/monk.css" rel="stylesheet">
+	<link href="./theme/pygments.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./theme/font-awesome.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="./theme/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./theme/jquery.ui.totop.js"></script>
+           <script type="text/javascript" src="./theme/monkjs.js"></script>
+           <script type="text/javascript" src="./theme/chirp.min.js"></script>
+           <script type="text/javascript" src="./theme/superfish.js"></script>
+
+		<!---->
+	<!---->
+	<!--<a href="http://github.com/MichaelMartinez"><img style="position: absolute; top: 39px; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub" /></a>
+-->
+
+	<!-- <link rel="shortcut icon" href="assets/ico/favicon.ico">
+	<link rel="apple-touch-icon" href="assets/ico/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="assets/ico/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="assets/ico/apple-touch-icon-114x114.png"> -->
+
+</head>
+<body >
+
+<div class="container wrap">
+<section id="top-menu">
+    <div class="row-fluid">
+        <div class="span6">
+            <a class="MyLogo" href="index.html">MM</a>
+        </div>
+        <div class="span6 hidden-phone">
+        	<div id='mysocial'>
+        		<ul>
+        			<li><a href="http://github.com/MichaelMartinez"><i class="icon-github"></i></a></li>
+        			<li><a href="https://plus.google.com/u/0/106657123530243977683/"><i class="icon-google-plus"></i></a></li>
+        			<li><a href="http://twitter.com/MonkMartinez"><i class="icon-twitter"></i></a></li>
+        			<li><a href="http://www.linkedin.com/pub/michael-martinez/26/914/407"><i class="icon-linkedin"></i></a></li>
+        		</ul>
+        	</div>
+    </div>
+</section>
+
+<header id="header">
+    <nav id="menu" class="clearfix">
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="#">Labs</a></li>
+            <li><a href="#">Apps</a></li>
+            <li><a href="#">Notes</a>
+             <ul>
+                    <li class="first"><a href="notes/math-notes.html">Math Notes</a></li>
+                    <li><a href="notes/pythonemacs.html">Emacs - Python Notes</a></li>
+                    <li class="last"><a href="notes/virt-machines.html">Virtual Machine Setup</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+   </header>
+
+<!--container-->
+<section id="container" class="clearfix sidebar-right">
+        <div class="row-fluid">
+            <section id="page-sidebar" class="alignleft span8">
+
+
+
+                <!-- This is my content as described in index.html -->
+				<div class='article'>
+		  <div class="page-title clearfix"><h1>Installing iPython Notebook on Mountain Lion</h1>
+			<ul class="meta clearfix">
+			<li>When: <a class="more" href="./installing-ipython-notebook-on-mountain-lion.html">January 2013</a></li>
+<li>Who: <a class="url fn" href="./author/michael-martinez.html">Michael Martinez</a> in <a href="./category/programming.html">programming</a></li>
+		           </ul>
+		</div>
+		<article class="blog-post">
+		<div><p>I've successfully installed iPython Notebook on a few different versions of OSX
+in recent months. There are quite a few methods of accomplishing this task and
+many of them seem quite elegant. The fact remains that installing iPyNB is not
+as strait forward as one might like and hopefully you find this of some utility.</p>
+<hr />
+<h2>Dependencies</h2>
+<p>This was built on a Mac running OSX 10.8.2 with the <a href="http://developer.apple.com/downloads">command line tools</a>
+installed. I deleted my version of Xcode because it takes up a lot of space on
+my SSD and I am not a mac dev (at the moment). You can sign up for a free ID with
+Apple to get the download and there are lots of other goodies in the download area.</p>
+<p>My system also has the package manager <a href="http://mxcl.github.com/homebrew/">Homebrew</a>
+installed. You could probably build everything here by hand, but why not
+leverage community efforts that lead to less stress, effort and error prone
+configuration? Install Homebrew, be happy and get to work orders of magnitude
+faster.</p>
+<hr />
+<h2>System Configuration</h2>
+<p>The C language ecosystem is a bit perplexing as an outsider with no real experience
+with the language and tool-chain. Thanks to the good people at Google, we can enter
+the foray with battle paint and Bluetooth keyboards. In all seriousness, I am not
+entirely sure why I had to do these steps with OSX Mountain Lion... but I did
+and you might want to follow suit.</p>
+<ul>
+<li><a href="http://robots.thoughtbot.com/post/27985816073/the-hitchhikers-guide-to-riding-a-mountain-lion">Thoughtbot ML Stuff</a></li>
+<li><a href="https://gist.github.com/3182604">Get Homebrew and ML to be happy</a></li>
+</ul>
+<p>...et cetera, et cetera...</p>
+<p>The "fix" I came to realize after lots of head banging was <em>Critical</em> as ML ships with llvm-gcc-4.2.
+Homebrew and a <em>lot</em> of the software it builds do not like llvm-gcc-4.2. They make
+it known when they refuse to install the packages you've requested. Here is what
+you do:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>sudo ln -s /usr/bin/llvm-gcc-4.2 /usr/bin/gcc-4.2
+</pre></div>
+
+
+<p>Yep, not much... but boy was that frustrating to figure out. The other story here
+is to download X11 via <a href="http://xquartz.macosforge.org/trac/wiki">Quartz 2.7.2+</a>,
+then install and symlink it in:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>ln -s /opt/X11 /usr/X11
+</pre></div>
+
+
+<hr />
+<h2>iPython Install</h2>
+<p>Now that we have that fun stuff taken care of we can install iPython Notebook
+and some science-y tools. To get started you should probably look into some kind of environment manager.
+<a href="https://github.com/brainsik/virtualenv-burrito">virtualenv burrito</a> is a good start to get up and running quickly.
+I know there are many ways to skin this cat: pythonbrew, virtualenv, virtualenvwrapper.</p>
+<p>Pick one and go for it. I was weary of Pythonbrew until a few weeks ago when it
+became active again. I think it is the closest thing to Ruby's RVM and it worked
+for me in a VM. However, I wanted to try virtualenv burrito as it nicely packages
+virtualenv += wrapper and has performed flawlessly thus far. Seriously pick one
+move on.</p>
+<div class="codehilite"><pre><span class="nv">$ </span>mkvirtualenv ipy
+</pre></div>
+
+
+<p>Now that we have a new virtualenv, lets get installing:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>workon ipy
+<span class="nv">$ </span>pip install ipython
+</pre></div>
+
+
+<p>Once ipython has finished installing we need to install readline</p>
+<div class="codehilite"><pre><span class="nv">$ </span>pip install readline
+</pre></div>
+
+
+<p>Then we install tornado for iPython Notebook</p>
+<div class="codehilite"><pre><span class="nv">$ </span>pip install tornado
+</pre></div>
+
+
+<p>The next item is the installation of the ZeroMQ library. Ultimately we want to install
+pyzmq. However, its a bit dicey using pip for reasons explained on their repo page
+<a href="https://github.com/zeromq/pyzmq#mac-osx">here</a>.</p>
+<div class="codehilite"><pre><span class="nv">$ </span>brew install zeromq --universal
+</pre></div>
+
+
+<p>Once that is completed we can now install pyzmq with pip:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>pip install pyzmq
+</pre></div>
+
+
+<p>Next is the install of pygments for syntax highlights:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>pip install pygments
+</pre></div>
+
+
+<p>After pygments installs we need to install freetype and libpng via
+Homebrew. The reason we want ipython is for the super awesome graphics,
+right? Well, you need these badboys to get super awesome graphics.</p>
+<div class="codehilite"><pre><span class="nv">$ </span>brew install freetype
+<span class="nv">$ </span>brew install libpng
+</pre></div>
+
+
+<p>Now time to install pyqt. I believe there is some misconception about pyqt and
+what is needed to install it correctly. If you followed this <a href="https://github.com/sympy/sympy/wiki/Installing-the-IPython-qtconsole-in-Mac-OS-X">Sympy wiki entry</a>
+you would install the QT stuff prematurely. Before I installed pyqt, I had a gander
+at the Homebrew formula. In it, I noticed that pyqt will download and install all the
+dependencies to make it work. I am telling you, Homebrew will make you happy!!!</p>
+<div class="codehilite"><pre><span class="nv">$ </span>brew install pyqt
+</pre></div>
+
+
+<p>YOU HAVE DONE IT!!! You now have a fully functional iPython qtconsole and notebook.
+I suggest installing in this order to minimize errors.</p>
+<hr />
+<h2>Science Modules</h2>
+<p>Now lets install numpy</p>
+<div class="codehilite"><pre><span class="nv">$ </span>pip install numpy
+</pre></div>
+
+
+<p>We need some fortran to compile scipy, so before we can install scipy we need:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>brew install gfortran
+</pre></div>
+
+
+<p>Note: I found that homebrew would hang on the mpfr dependency. I filed a bug and
+it was <a href="https://github.com/mxcl/homebrew/commit/4900ad83b973f0db32f8808193f2ec55ffd4f412">fixed</a>
+in less than 8 hours on a Sunday. That is Fucking Awesome. (not much else to say)</p>
+<p>Now we can go get scipy:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>pip install scipy
+</pre></div>
+
+
+<p>Some folks recommend installing matplotlib from git on ML. I took one for the team
+and just let it rip with pip and it worked great.</p>
+<div class="codehilite"><pre><span class="nv">$ </span>pip install matplotlib
+</pre></div>
+
+
+<p>These are probably the bare essentials to get started with some science. You may
+want to install Pandas, Sympy, stats models, pymc and others if you are a ninja. I am
+in the process of learning the math required to really use these libraries/modules,
+so I am definitely not a ninja just yet... but watch this space.</p>
+<p>Here are some cool notebooks to play around with:</p>
+<ul>
+<li><a href="https://github.com/invisibleroads/crosscompute-tutorials">Invisibleroads CrossCompute</a></li>
+<li><a href="https://github.com/ipython/ipython/tree/master/docs/examples/notebooks">What can iPython Notebook do?</a></li>
+<li><a href="https://github.com/masinoa/machine_learning">Machine Learning with iPython Notebooks</a></li>
+</ul></div>
+		<div>
+		</article>
+			<h2>Comments</h2>
+		 				
+		<div>
+	</div>
+
+    </section>
+	<!--sidebar-->
+            <aside id="sidebar" class="alignright span4">
+                <section class="blog-category">
+                    <div class="title-divider">
+                        <h3 class="title-sidebar">Categories</h3>
+                    </div>
+                    <ul class="ul-col2 clearfix">
+                        		<li ><a href="./category/apps.html"><i class="icon-chevron-right"></i>apps</a></li>
+	            		<li ><a href="./category/as3.html"><i class="icon-chevron-right"></i>as3</a></li>
+	            		<li ><a href="./category/design.html"><i class="icon-chevron-right"></i>design</a></li>
+	            		<li ><a href="./category/mobile.html"><i class="icon-chevron-right"></i>mobile</a></li>
+	            		<li class="active"><a href="./category/programming.html"><i class="icon-chevron-right"></i>programming</a></li>
+	            		<li ><a href="./category/terms.html"><i class="icon-chevron-right"></i>terms</a></li>
+	            		<li ><a href="./category/web-development.html"><i class="icon-chevron-right"></i>web development</a></li>
+	                                </ul>
+                </section>
+                <section class="blog-category">
+                    <div class="title-divider">
+                        <h3 class="title-sidebar">Archives</h3>
+                    </div>
+                    <ul class="ul-col2 clearfix">
+                    	<li><a href="archives.html"><i class="icon-chevron-right"></i>Complete Listing</a></li>
+                    </ul>
+                </section>
+            </aside>
+</section>
+<!--footer-->
+<footer id="footer">
+    <div class="row-fluid">
+
+        <div class="span4">
+            <div class="title-divider">
+                <h3>Thank You!</h3>
+            </div>
+            <div>
+                <p>Hey guys and gals! Thanks for visiting my blog, where the hope is to provide something of marginal utility. I am a full-time student in Computer Science and looking for interships or contract work. Drop me a line here: michael at caffeineindustries.com or send me a <a href="http://twitter.com/MonkMartinez">Tweet!</a></p>
+            </div>
+        </div>
+        <div class="span8">
+            <div class="title-divider">
+                <h3>Tweets</h3>
+            </div>
+            <div id='tweets'></div>
+        </div>
+        </div>
+</footer>
+
+<!--footer menu-->
+<section id="footer-menu">
+    <div class="row-fluid">
+        <p class="span8">&copy 2012 Michael Martinez <a style="color:#e1e1e1" href="#">Here</a></p>
+        <p class="span4"><span class="pull-right">Copyright 2012 - All Rights Reserved</span></p>
+    </div>
+</section>
+<!-- end footer -->
+
+</div><!-- main wrap -->
+
+</body>
+</html>
+<!-- Localized -->

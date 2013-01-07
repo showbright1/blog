@@ -1,5 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>MM</title><link href="http://michaelmartinez.in/" rel="alternate"></link><link href="http://michaelmartinez.in/feeds/all.atom.xml" rel="self"></link><id>http://michaelmartinez.in/</id><updated>2013-01-06T00:00:00-07:00</updated><entry><title>Virtual Machines</title><link href="http://michaelmartinez.in/virtual-machines.html" rel="alternate"></link><updated>2013-01-06T00:00:00-07:00</updated><author><name>Michael Martinez</name></author><id>tag:michaelmartinez.in,2013-01-06:virtual-machines.html</id><summary type="html">&lt;p&gt;Let me just put this right out there; Virtual Machines are awesome, but not
+<feed xmlns="http://www.w3.org/2005/Atom"><title>MM</title><link href="http://michaelmartinez.in/" rel="alternate"></link><link href="http://michaelmartinez.in/feeds/all.atom.xml" rel="self"></link><id>http://michaelmartinez.in/</id><updated>2013-01-06T00:00:00-07:00</updated><entry><title>Installing iPython Notebook on Mountain Lion</title><link href="http://michaelmartinez.in/installing-ipython-notebook-on-mountain-lion.html" rel="alternate"></link><updated>2013-01-06T00:00:00-07:00</updated><author><name>Michael Martinez</name></author><id>tag:michaelmartinez.in,2013-01-06:installing-ipython-notebook-on-mountain-lion.html</id><summary type="html">&lt;p&gt;I've successfully installed iPython Notebook on a few different versions of OSX
+in recent months. There are quite a few methods of accomplishing this task and
+many of them seem quite elegant. The fact remains that installing iPyNB is not
+as strait forward as one might like and hopefully you find this of some utility.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Dependencies&lt;/h2&gt;
+&lt;p&gt;This was built on a Mac running OSX 10.8.2 with the &lt;a href="http://developer.apple.com/downloads"&gt;command line tools&lt;/a&gt;
+installed. I deleted my version of Xcode because it takes up a lot of space on
+my SSD and I am not a mac dev (at the moment). You can sign up for a free ID with
+Apple to get the download and there are lots of other goodies in the download area.&lt;/p&gt;
+&lt;p&gt;My system also has the package manager &lt;a href="http://mxcl.github.com/homebrew/"&gt;Homebrew&lt;/a&gt;
+installed. You could probably build everything here by hand, but why not
+leverage community efforts that lead to less stress, effort and error prone
+configuration? Install Homebrew, be happy and get to work orders of magnitude
+faster.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;System Configuration&lt;/h2&gt;
+&lt;p&gt;The C language ecosystem is a bit perplexing as an outsider with no real experience
+with the language and tool-chain. Thanks to the good people at Google, we can enter
+the foray with battle paint and Bluetooth keyboards. In all seriousness, I am not
+entirely sure why I had to do these steps with OSX Mountain Lion... but I did
+and you might want to follow suit.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://robots.thoughtbot.com/post/27985816073/the-hitchhikers-guide-to-riding-a-mountain-lion"&gt;Thoughtbot ML Stuff&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gist.github.com/3182604"&gt;Get Homebrew and ML to be happy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;...et cetera, et cetera...&lt;/p&gt;
+&lt;p&gt;The "fix" I came to realize after lots of head banging was &lt;em&gt;Critical&lt;/em&gt; as ML ships with llvm-gcc-4.2.
+Homebrew and a &lt;em&gt;lot&lt;/em&gt; of the software it builds do not like llvm-gcc-4.2. They make
+it known when they refuse to install the packages you've requested. Here is what
+you do:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo ln -s /usr/bin/llvm-gcc-4.2 /usr/bin/gcc-4.2
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Yep, not much... but boy was that frustrating to figure out. The other story here
+is to download X11 via &lt;a href="http://xquartz.macosforge.org/trac/wiki"&gt;Quartz 2.7.2+&lt;/a&gt;,
+then install and symlink it in:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;ln -s /opt/X11 /usr/X11
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr /&gt;
+&lt;h2&gt;iPython Install&lt;/h2&gt;
+&lt;p&gt;Now that we have that fun stuff taken care of we can install iPython Notebook
+and some science-y tools. To get started you should probably look into some kind of environment manager.
+&lt;a href="https://github.com/brainsik/virtualenv-burrito"&gt;virtualenv burrito&lt;/a&gt; is a good start to get up and running quickly.
+I know there are many ways to skin this cat: pythonbrew, virtualenv, virtualenvwrapper.&lt;/p&gt;
+&lt;p&gt;Pick one and go for it. I was weary of Pythonbrew until a few weeks ago when it
+became active again. I think it is the closest thing to Ruby's RVM and it worked
+for me in a VM. However, I wanted to try virtualenv burrito as it nicely packages
+virtualenv += wrapper and has performed flawlessly thus far. Seriously pick one
+move on.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;mkvirtualenv ipy
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now that we have a new virtualenv, lets get installing:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;workon ipy
+&lt;span class="nv"&gt;$ &lt;/span&gt;pip install ipython
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Once ipython has finished installing we need to install readline&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip install readline
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then we install tornado for iPython Notebook&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip install tornado
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The next item is the installation of the ZeroMQ library. Ultimately we want to install
+pyzmq. However, its a bit dicey using pip for reasons explained on their repo page
+&lt;a href="https://github.com/zeromq/pyzmq#mac-osx"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;brew install zeromq --universal
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Once that is completed we can now install pyzmq with pip:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip install pyzmq
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Next is the install of pygments for syntax highlights:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip install pygments
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;After pygments installs we need to install freetype and libpng via
+Homebrew. The reason we want ipython is for the super awesome graphics,
+right? Well, you need these badboys to get super awesome graphics.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;brew install freetype
+&lt;span class="nv"&gt;$ &lt;/span&gt;brew install libpng
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now time to install pyqt. I believe there is some misconception about pyqt and
+what is needed to install it correctly. If you followed this &lt;a href="https://github.com/sympy/sympy/wiki/Installing-the-IPython-qtconsole-in-Mac-OS-X"&gt;Sympy wiki entry&lt;/a&gt;
+you would install the QT stuff prematurely. Before I installed pyqt, I had a gander
+at the Homebrew formula. In it, I noticed that pyqt will download and install all the
+dependencies to make it work. I am telling you, Homebrew will make you happy!!!&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;brew install pyqt
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;YOU HAVE DONE IT!!! You now have a fully functional iPython qtconsole and notebook.
+I suggest installing in this order to minimize errors.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Science Modules&lt;/h2&gt;
+&lt;p&gt;Now lets install numpy&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip install numpy
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We need some fortran to compile scipy, so before we can install scipy we need:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;brew install gfortran
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Note: I found that homebrew would hang on the mpfr dependency. I filed a bug and
+it was &lt;a href="https://github.com/mxcl/homebrew/commit/4900ad83b973f0db32f8808193f2ec55ffd4f412"&gt;fixed&lt;/a&gt;
+in less than 8 hours on a Sunday. That is Fucking Awesome. (not much else to say)&lt;/p&gt;
+&lt;p&gt;Now we can go get scipy:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip install scipy
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Some folks recommend installing matplotlib from git on ML. I took one for the team
+and just let it rip with pip and it worked great.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip install matplotlib
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;These are probably the bare essentials to get started with some science. You may
+want to install Pandas, Sympy, stats models, pymc and others if you are a ninja. I am
+in the process of learning the math required to really use these libraries/modules,
+so I am definitely not a ninja just yet... but watch this space.&lt;/p&gt;
+&lt;p&gt;Here are some cool notebooks to play around with:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/invisibleroads/crosscompute-tutorials"&gt;Invisibleroads CrossCompute&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/ipython/ipython/tree/master/docs/examples/notebooks"&gt;What can iPython Notebook do?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/masinoa/machine_learning"&gt;Machine Learning with iPython Notebooks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary></entry><entry><title>Virtual Machines</title><link href="http://michaelmartinez.in/virtual-machines.html" rel="alternate"></link><updated>2013-01-06T00:00:00-07:00</updated><author><name>Michael Martinez</name></author><id>tag:michaelmartinez.in,2013-01-06:virtual-machines.html</id><summary type="html">&lt;p&gt;Let me just put this right out there; Virtual Machines are awesome, but not
 for me in this use case.&lt;/p&gt;
 &lt;p&gt;For the last 6 or so months I have been developing in separate environments.
 Using VM ware Fusion for Mac OSX has enabled me to create virtual computers that
