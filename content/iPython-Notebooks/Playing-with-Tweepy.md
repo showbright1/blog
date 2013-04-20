@@ -387,5 +387,4 @@ This is to set-up tweepy and oauth to play with the Twitter API
 
      grid(True)
 
-
-     [!plot](static/images/tweepy-ipynb.png)
+     ![plot](|static|/images/tweepy-ipynb.png)
