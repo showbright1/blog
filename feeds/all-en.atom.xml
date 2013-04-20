@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>MM</title><link href="http://michaelmartinez.in/" rel="alternate"></link><link href="http://michaelmartinez.in/feeds/all-en.atom.xml" rel="self"></link><id>http://michaelmartinez.in/</id><updated>2013-03-17T00:00:00-07:00</updated><entry><title>NFLgame - Python for American Football</title><link href="http://michaelmartinez.in/nflgame-python-for-american-football.html" rel="alternate"></link><updated>2013-03-17T00:00:00-07:00</updated><author><name>Michael Martinez</name></author><id>tag:michaelmartinez.in,2013-03-17:nflgame-python-for-american-football.html</id><summary type="html">&lt;h2&gt;NFLgame is a Python package that allows programmatic access to NFL data&lt;/h2&gt;
 &lt;p&gt;The Github repo is located &lt;a href="https://github.com/BurntSushi/nflgame"&gt;here.&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a class="btn btn-large" href="ipynb/NFL.ipynb"&gt;&lt;i class="icon-download-alt"&gt;&lt;/i&gt; Download this Notebook&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="btn btn-large" href="/static/ipynb/NFL.ipynb"&gt;&lt;i class="icon-download-alt"&gt;&lt;/i&gt; Download this Notebook&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;In[1]:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;nflgame&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -331,7 +331,7 @@ respectively.&lt;/p&gt;
 &lt;p&gt;I plan on using this extensively next season. In preparation, I have been
 learning statistics and the Pandas data analysis python library.&lt;/p&gt;
 &lt;h4&gt;Note: Everything I work on in this space is using iPython Notebook and will&lt;/h4&gt;
-&lt;p&gt;be published for you to run as well...&lt;/p&gt;</summary></entry><entry><title>Installing iPython Notebook on Mountain Lion</title><link href="http://michaelmartinez.in/installing-ipython-notebook-on-mountain-lion.html" rel="alternate"></link><updated>2013-01-06T00:00:00-07:00</updated><author><name>Michael Martinez</name></author><id>tag:michaelmartinez.in,2013-01-06:installing-ipython-notebook-on-mountain-lion.html</id><summary type="html">&lt;p&gt;I've successfully installed iPython Notebook on a few different versions of OSX
+&lt;p&gt;be published for you to run as well... ####&lt;/p&gt;</summary></entry><entry><title>Installing iPython Notebook on Mountain Lion</title><link href="http://michaelmartinez.in/installing-ipython-notebook-on-mountain-lion.html" rel="alternate"></link><updated>2013-01-06T00:00:00-07:00</updated><author><name>Michael Martinez</name></author><id>tag:michaelmartinez.in,2013-01-06:installing-ipython-notebook-on-mountain-lion.html</id><summary type="html">&lt;p&gt;I've successfully installed iPython Notebook on a few different versions of OSX
 in recent months. There are quite a few methods of accomplishing this task and
 many of them seem quite elegant. The fact remains that installing iPyNB is not
 as strait forward as one might like and hopefully you find this of some utility.&lt;/p&gt;
