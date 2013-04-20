@@ -144,7 +144,7 @@ This is to set-up tweepy and oauth to play with the Twitter API
  Out[9]:
 
 
-     ![my mascot](static/images/myMascot_normal.png)
+     [!my mascot](static/images/myMascot_normal.png)
 
 
 
@@ -388,4 +388,4 @@ This is to set-up tweepy and oauth to play with the Twitter API
      grid(True)
 
 
-     ![plot](static/images/tweepy-ipynb.png)
+     [!plot](static/images/tweepy-ipynb.png)
