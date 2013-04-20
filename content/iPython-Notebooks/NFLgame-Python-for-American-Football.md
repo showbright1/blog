@@ -2,12 +2,15 @@ Title: NFLgame - Python for American Football
 Date: 2013-03-17
 Author: Michael Martinez
 
-## NFLgame is a Python package that allows programmatic access to NFL data ##
+NFLgame is a Python package that allows programmatic access to NFL data.
+It is a super fun way to get stats about your favorite NFL player or team.
+My plan is more sinister as I attempt to leverage this in my quest to win a
+fantasy football league.
 
 The Github repo is located [here.](https://github.com/BurntSushi/nflgame)
 
 
-<a class="btn btn-large" href="ipynb/NFL.ipynb"><i class="icon-download-alt"></i> Download this Notebook</a>
+<a class="btn btn-large" href="/static/ipynb/NFL.ipynb"><i class="icon-download-alt"></i> Download this Notebook</a>
 
 In[1]:
 
@@ -355,16 +358,24 @@ In[151]:
     -------
     -------
 
-So we took a look at the team stats for all three years to see if we can
-uncover actionable information. We can see that Frank Gore played in 2011
-but not in 2010. Marshawn Lynch did not play in 2011 nor in 2010. I think we will
-need to dig a bit further to get real insight.
+So we took a look at the team stats for the last three, first game, match-ups
+to see if we could uncover any actionable information. We see that Frank Gore
+played in 2011 but not in 2010. Marshawn Lynch did not play in 2011 nor in 2010. Not
+much to go on there...
+
+Rushing yards were low in the first two games, which may have suggested that the
+third game would have been similar. However, the 2012 match-up had both teams with over 100 yards
+rushing which may or may not be an outlier. Now to be thorough, I should compare the
+running backs I had on the bench in a similar manner. Then, ultimately, make a reasonable guess.
 
 Not all is lost in this simple analysis, I learned a bit about tuples in the
-process.
+process. I can also say that I am learning while playing which is 'win-win.' Perhaps the
+trophy on my mantle is a bit pre-mature at this point, as I really need to learn statistics
+(stay tuned for more on that front).
 
-The team stats are created in game.py and are delivered as a
-`namedtuple()`. The `._asdict()` method on Named Tuples will return an ordered
+Here is a neat little tidbit about Named tuples that I learned during this.
+The team stats are created in game.py and are delivered as a `namedtuple()`.
+The `._asdict()` method on Named Tuples will return an ordered
 dict as described [here](http://docs.python.org/release/2.7.4/library/collection
 s.html#collections.somenamedtuple._asdict). Once you have a dict, simply use
 (chain on) the `.items()` method to iterate over the key and value. If you want
@@ -375,5 +386,5 @@ I plan on using this extensively next season. In preparation, I have been
 learning statistics and the Pandas data analysis python library.
 
 #### Note: Everything I work on in this space is using iPython Notebook and will
-be published for you to run as well...
+be published for you to run as well... ####
 
