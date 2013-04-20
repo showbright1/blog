@@ -318,6 +318,7 @@ all the available fields for each player.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;hr /&gt;
 &lt;p&gt;So we took a look at the team stats for the last three, first game, match-ups
 to see if we could uncover any actionable information. We see that Frank Gore
 played in 2011 but not in 2010. Marshawn Lynch did not play in 2011 nor in 2010. Not
@@ -340,8 +341,8 @@ the keys or values by themselves, use the &lt;code&gt;.keys()&lt;/code&gt; or &l
 respectively.&lt;/p&gt;
 &lt;p&gt;I plan on using this extensively next season. In preparation, I have been
 learning statistics and the Pandas data analysis python library.&lt;/p&gt;
-&lt;h4&gt;Note: Everything I work on in this space is using iPython Notebook and will&lt;/h4&gt;
-&lt;p&gt;be published for you to run as well... ####&lt;/p&gt;</summary></entry><entry><title>Installing iPython Notebook on Mountain Lion</title><link href="http://michaelmartinez.in/installing-ipython-notebook-on-mountain-lion.html" rel="alternate"></link><updated>2013-01-06T00:00:00-07:00</updated><author><name>Michael Martinez</name></author><id>tag:michaelmartinez.in,2013-01-06:installing-ipython-notebook-on-mountain-lion.html</id><summary type="html">&lt;p&gt;I've successfully installed iPython Notebook on a few different versions of OSX
+&lt;p&gt;Note: Everything I work on in this space is using iPython Notebook and will
+be published for you to run as well...&lt;/p&gt;</summary></entry><entry><title>Installing iPython Notebook on Mountain Lion</title><link href="http://michaelmartinez.in/installing-ipython-notebook-on-mountain-lion.html" rel="alternate"></link><updated>2013-01-06T00:00:00-07:00</updated><author><name>Michael Martinez</name></author><id>tag:michaelmartinez.in,2013-01-06:installing-ipython-notebook-on-mountain-lion.html</id><summary type="html">&lt;p&gt;I've successfully installed iPython Notebook on a few different versions of OSX
 in recent months. There are quite a few methods of accomplishing this task and
 many of them seem quite elegant. The fact remains that installing iPyNB is not
 as strait forward as one might like and hopefully you find this of some utility.&lt;/p&gt;

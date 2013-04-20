@@ -9,7 +9,6 @@ fantasy football league.
 
 The Github repo is located [here.](https://github.com/BurntSushi/nflgame)
 
-
 <a class="btn btn-large" href="/static/ipynb/NFL.ipynb"><i class="icon-download-alt"></i> Download this Notebook</a>
 
 In[1]:
@@ -357,6 +356,7 @@ In[151]:
     pos_time 27:15
     -------
     -------
+*******
 
 So we took a look at the team stats for the last three, first game, match-ups
 to see if we could uncover any actionable information. We see that Frank Gore
@@ -385,6 +385,6 @@ respectively.
 I plan on using this extensively next season. In preparation, I have been
 learning statistics and the Pandas data analysis python library.
 
-#### Note: Everything I work on in this space is using iPython Notebook and will
-be published for you to run as well... ####
+Note: Everything I work on in this space is using iPython Notebook and will
+be published for you to run as well...
 
