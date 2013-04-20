@@ -91,7 +91,8 @@
 		</div>
 		<article class="blog-post">
 		<div><h2>NFLgame is a Python package that allows programmatic access to NFL data</h2>
-<p>The Github repo is located <a href="https://github.com/BurntSushi/nflgame">here</a></p>
+<p>The Github repo is located <a href="https://github.com/BurntSushi/nflgame">here.</a></p>
+<p><a class="btn btn-large" href="ipynb/NFL.ipynb"><i class="icon-download-alt"></i> Download this Notebook</a></p>
 <p>In[1]:</p>
 <div class="codehilite"><pre><span class="kn">import</span> <span class="nn">nflgame</span>
 </pre></div>
@@ -240,7 +241,7 @@ all the available fields for each player.</p>
 </pre></div>
 
 
-<p>Lets have a look at the last three match-ups between the 49'ers and the Seahawks</p>
+<p>Lets have a look at three, first game, match-ups between the 49'ers and the Seahawks.</p>
 <p>In[144]:</p>
 <div class="codehilite"><pre><span class="n">game12</span> <span class="o">=</span> <span class="n">nflgame</span><span class="o">.</span><span class="n">one</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="s">&quot;SF&quot;</span><span class="p">,</span> <span class="s">&quot;SEA&quot;</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">game12</span><span class="o">.</span><span class="n">nice_score</span><span class="p">()</span>
@@ -405,19 +406,20 @@ all the available fields for each player.</p>
 </pre></div>
 
 
-<p>We can see that Frank Gore played in the 2011 but not in 2010. Marshawn Lynch
-did not play in 2011 nor in 2010. So we took a look at the team stats for all
-three years to see if we can uncover actionable information. I think we will
-need to dig a bit further... however, I learned a bit about tuples in the
+<p>So we took a look at the team stats for all three years to see if we can
+uncover actionable information. We can see that Frank Gore played in 2011
+but not in 2010. Marshawn Lynch did not play in 2011 nor in 2010. I think we will
+need to dig a bit further to get real insight.</p>
+<p>Not all is lost in this simple analysis, I learned a bit about tuples in the
 process.</p>
-<p>The team stats are stored in game.py in the repo and are delivered as a
+<p>The team stats are created in game.py and are delivered as a
 <code>namedtuple()</code>. The <code>._asdict()</code> method on Named Tuples will return an ordered
 dict as described <a href="http://docs.python.org/release/2.7.4/library/collection
 s.html#collections.somenamedtuple._asdict">here</a>. Once you have a dict, simply use
 (chain on) the <code>.items()</code> method to iterate over the key and value. If you want
 the keys or values by themselves, use the <code>.keys()</code> or <code>.values()</code> methods
 respectively.</p>
-<p>I plan on using this extensively next season. In preperation, I have been
+<p>I plan on using this extensively next season. In preparation, I have been
 learning statistics and the Pandas data analysis python library.</p>
 <h4>Note: Everything I work on in this space is using iPython Notebook and will</h4>
 <p>be published for you to run as well...</p></div>
