@@ -65,7 +65,7 @@ This is to set-up tweepy and oauth to play with the Twitter API
 
 
 
- ## The user object
+ ## The user object ##
 
  Showing a method to access some variables returned by twitter
 
@@ -148,7 +148,7 @@ This is to set-up tweepy and oauth to play with the Twitter API
 
 
 
- ### Rate limits
+ ### Rate limits ###
 
  For items that return a dict, you can simply iterate through the list
 
