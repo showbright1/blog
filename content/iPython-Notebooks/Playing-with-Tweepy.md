@@ -63,7 +63,7 @@ This is to set-up tweepy and oauth to play with the Twitter API
 
      <tweepy.models.Status at 0x107ca3550>
 
-
+*******
 
 ## The user object ##
 
@@ -146,7 +146,7 @@ This is to set-up tweepy and oauth to play with the Twitter API
 
 ![my mascot](static/images/myMascot_normal.png)
 
-
+*******
 
 ### Rate limits ###
 
