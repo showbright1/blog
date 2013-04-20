@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>MM</title>
+	<meta name="description" content="Michael Martinez Blog">
+	 <meta name="viewport" content="width=100%; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no;" />
+	<meta name="author" content="Michael Martinez">
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="./theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="./theme/bootstrap.css" rel="stylesheet">
+	<link href="./theme/bootstrap-custom-grid.css" rel="stylesheet">
+	<link href="./theme/monk.css" rel="stylesheet">
+	<link href="./theme/pygments.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./theme/font-awesome.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="./theme/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./theme/jquery.ui.totop.js"></script>
+           <script type="text/javascript" src="./theme/monkjs.js"></script>
+           <script type="text/javascript" src="./theme/chirp.min.js"></script>
+           <script type="text/javascript" src="./theme/superfish.js"></script>
+
+		<!---->
+	<!---->
+	<!--<a href="http://github.com/MichaelMartinez"><img style="position: absolute; top: 39px; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub" /></a>
+-->
+
+	<!-- <link rel="shortcut icon" href="assets/ico/favicon.ico">
+	<link rel="apple-touch-icon" href="assets/ico/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="assets/ico/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="assets/ico/apple-touch-icon-114x114.png"> -->
+
+</head>
+<body >
+
+<div class="container wrap">
+<section id="top-menu">
+    <div class="row-fluid">
+        <div class="span6">
+            <a class="MyLogo" href="index.html">MM</a>
+        </div>
+        <div class="span6 hidden-phone">
+        	<div id='mysocial'>
+        		<ul>
+        			<li><a href="http://github.com/MichaelMartinez"><i class="icon-github"></i></a></li>
+        			<li><a href="https://plus.google.com/u/0/106657123530243977683/"><i class="icon-google-plus"></i></a></li>
+        			<li><a href="http://twitter.com/MonkMartinez"><i class="icon-twitter"></i></a></li>
+        			<li><a href="http://www.linkedin.com/pub/michael-martinez/26/914/407"><i class="icon-linkedin"></i></a></li>
+        		</ul>
+        	</div>
+    </div>
+</section>
+
+<header id="header">
+    <nav id="menu" class="clearfix">
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="#">Labs</a></li>
+            <li><a href="#">Apps</a></li>
+            <li><a href="#">Notes</a>
+             <ul>
+                    <li class="first"><a href="notes/math-notes.html">Math Notes</a></li>
+                    <li><a href="notes/books.html">Book Notes</a></li>
+                    <li><a href="notes/pythonemacs.html">Emacs - Python Notes</a></li>
+                    <li class="last"><a href="notes/virt-machines.html">Virtual Machine Setup</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+   </header>
+
+<!--container-->
+<section id="container" class="clearfix sidebar-right">
+        <div class="row-fluid">
+            <section id="page-sidebar" class="alignleft span8">
+
+
+
+                <!-- This is my content as described in index.html -->
+				<div class='article'>
+		  <div class="page-title clearfix"><h1>Playing with Tweepy</h1>
+			<ul class="meta clearfix">
+			<li>When: <a class="more" href="./playing-with-tweepy.html">April 2013</a></li>
+<li>Who: <a class="url fn" href="./author/michael-martinez.html">Michael Martinez</a> in <a href="./category/ipython-notebooks.html">iPython-Notebooks</a></li>
+		           </ul>
+		</div>
+		<article class="blog-post">
+		<div><p>Tweepy in iPython Notebook. I've wanted to have a play with the Twitter API
+for a few months. There is a lot of complexity in this API, so I looked for
+a library that abstracted as much as possible. Tweepy was the first to grab
+my attention.</p>
+<p>Another library that I plan on trying is <a href="http://mike.verdone.ca/twitter/">Python Twitter Tools</a>.
+In hindsight, I probably should have gone with PTT to start as Tweepy returns
+inconsistent data when accessing various API endpoints. Not to say Tweepy is bad,
+because it worked well for these basic examples.</p>
+<p><a class="btn btn-large" href="/static/ipynb/Tweepy.ipynb"><i class="icon-download-alt"></i> Download this Notebook</a></p>
+<p>This is to set-up tweepy and oauth to play with the Twitter API</p>
+<ul>
+<li>google group is <a href="https://groups.google.com/forum/?fromgroups=#!forum/tweepy">here:</a></li>
+<li>docs <a href="http://packages.python.org/tweepy/html/index.html">here:</a></li>
+<li>github repo <a href="https://github.com/tweepy/tweepy">here:</a></li>
+</ul>
+<p>In[1]:</p>
+<div class="codehilite"><pre> <span class="p">:::</span><span class="n">python</span>
+ <span class="n">import</span> <span class="n">tweepy</span>
+
+ # <span class="n">The</span> <span class="n">consumer</span> <span class="n">keys</span> <span class="n">can</span> <span class="n">be</span> <span class="n">found</span> <span class="n">on</span> <span class="n">your</span> <span class="n">application</span><span class="o">&#39;</span><span class="n">s</span> <span class="n">Details</span>
+ # <span class="n">page</span> <span class="n">located</span> <span class="n">at</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dev</span><span class="p">.</span><span class="n">twitter</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apps</span> <span class="p">(</span><span class="n">under</span> &quot;<span class="n">OAuth</span> <span class="n">settings</span>&quot;<span class="p">)</span>
+ <span class="n">consumer_key</span><span class="p">=</span>&quot;<span class="o">&lt;</span><span class="n">key</span> <span class="n">here</span><span class="o">&gt;</span>&quot;
+ <span class="n">consumer_secret</span><span class="p">=</span>&quot;<span class="o">&lt;</span><span class="n">secret</span> <span class="n">here</span><span class="o">&gt;</span>&quot;
+
+ # <span class="n">The</span> <span class="n">access</span> <span class="n">tokens</span> <span class="n">can</span> <span class="n">be</span> <span class="n">found</span> <span class="n">on</span> <span class="n">your</span> <span class="n">applications</span><span class="o">&#39;</span><span class="n">s</span> <span class="n">Details</span>
+ # <span class="n">page</span> <span class="n">located</span> <span class="n">at</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dev</span><span class="p">.</span><span class="n">twitter</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">apps</span> <span class="p">(</span><span class="n">located</span>
+ # <span class="n">under</span> &quot;<span class="n">Your</span> <span class="n">access</span> <span class="n">token</span>&quot;<span class="p">)</span>
+ <span class="n">access_token</span><span class="p">=</span>&quot;<span class="o">&lt;</span><span class="n">access</span> <span class="n">token</span> <span class="n">here</span><span class="o">&gt;</span>&quot;
+ <span class="n">access_token_secret</span><span class="p">=</span>&quot;<span class="o">&lt;</span><span class="n">access</span> <span class="n">ssecret</span> <span class="n">here</span><span class="o">&gt;</span>&quot;
+
+ <span class="n">auth</span> <span class="p">=</span> <span class="n">tweepy</span><span class="p">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">)</span>
+ <span class="n">auth</span><span class="p">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span>
+
+ <span class="n">myapi</span> <span class="p">=</span> <span class="n">tweepy</span><span class="p">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+
+ # <span class="n">If</span> <span class="n">the</span> <span class="n">authentication</span> <span class="n">was</span> <span class="n">successful</span><span class="p">,</span> <span class="n">you</span> <span class="n">should</span>
+ # <span class="n">see</span> <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">account</span> <span class="n">print</span> <span class="n">out</span>
+ <span class="n">print</span> <span class="n">myapi</span><span class="p">.</span><span class="n">me</span><span class="p">().</span><span class="n">name</span>
+
+ <span class="n">Michael</span> <span class="n">Martinez</span>
+</pre></div>
+
+
+<p>If the request was successful, you will see your name print out in the response</p>
+<p>In[2]:</p>
+<div class="codehilite"><pre> <span class="p">:::</span><span class="n">python</span>
+ <span class="n">myapi</span><span class="p">.</span><span class="n">update_status</span><span class="p">(</span><span class="s">&#39;Rocking #iPythonNotebook and tweepy&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Out[2]:</p>
+<div class="codehilite"><pre> <span class="o">&lt;</span><span class="n">tweepy</span><span class="p">.</span><span class="n">models</span><span class="p">.</span><span class="n">Status</span> <span class="n">at</span> 0<span class="n">x107ca3550</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p>## The user object</p>
+<p>Showing a method to access some variables returned by twitter</p>
+<p>In[3]:</p>
+<div class="codehilite"><pre> <span class="p">:::</span><span class="n">python</span>
+ <span class="n">print</span> <span class="n">myapi</span><span class="p">.</span><span class="n">me</span><span class="p">().</span><span class="n">screen_name</span>
+
+ <span class="n">MonkMartinez</span>
+</pre></div>
+
+
+<p>In[4]:</p>
+<div class="codehilite"><pre> <span class="p">:::</span><span class="n">python</span>
+ <span class="n">print</span> <span class="n">myapi</span><span class="p">.</span><span class="n">me</span><span class="p">().</span><span class="n">description</span>
+
+ <span class="n">Father</span><span class="p">.</span> <span class="n">Firefighter</span><span class="p">.</span> <span class="n">Mobile</span> <span class="n">Crafter</span><span class="p">.</span> <span class="n">Web</span> <span class="n">Crafter</span><span class="p">.</span> <span class="n">Garage</span><span class="o">-</span><span class="n">Business</span><span class="o">-</span><span class="n">Dude</span><span class="p">.</span>
+</pre></div>
+
+
+<p>In[5]:</p>
+<div class="codehilite"><pre> <span class="p">:::</span><span class="n">python</span>
+ <span class="n">me</span> <span class="p">=</span> <span class="n">myapi</span><span class="p">.</span><span class="n">me</span><span class="p">()</span>
+</pre></div>
+
+
+<p>In[6]:</p>
+<div class="codehilite"><pre> <span class="p">:::</span><span class="n">python</span>
+ <span class="n">print</span> <span class="n">me</span><span class="p">.</span><span class="n">followers_count</span>
+
+ 116
+</pre></div>
+
+
+<p>In[7]:</p>
+<div class="codehilite"><pre> <span class="p">:::</span><span class="n">python</span>
+ <span class="n">me</span><span class="p">.</span><span class="n">status</span><span class="p">.</span><span class="n">text</span>
+</pre></div>
+
+
+<p>Out[7]:</p>
+<div class="codehilite"><pre> <span class="n">u</span><span class="o">&#39;</span><span class="n">Rocking</span> #<span class="n">iPythonNotebook</span> <span class="n">and</span> <span class="n">tweepy</span><span class="o">&#39;</span>
+</pre></div>
+
+
+<p>In[8]:</p>
+<div class="codehilite"><pre> <span class="p">:::</span><span class="n">python</span>
+ <span class="n">me</span><span class="p">.</span><span class="n">statuses_count</span>
+</pre></div>
+
+
+<p>Out[8]:</p>
+<div class="codehilite"><pre> 1570
+</pre></div>
+
+
+<p>In[9]:</p>
+<div class="codehilite"><pre> <span class="p">:::</span><span class="n">python</span>
+ <span class="n">from</span> <span class="n">IPython</span><span class="p">.</span><span class="n">core</span><span class="p">.</span><span class="n">display</span> <span class="n">import</span> <span class="n">Image</span>
+ <span class="n">mepic</span> <span class="p">=</span> <span class="n">me</span><span class="p">.</span><span class="n">profile_image_url</span>
+ <span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="p">=</span><span class="n">mepic</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Out[9]:</p>
+<div class="codehilite"><pre> !<span class="p">[</span><span class="n">my</span> <span class="n">mascot</span><span class="p">](</span><span class="n">static</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">myMascot_normal</span><span class="p">.</span><span class="n">png</span><span class="p">)</span>
+</pre></div>
+
+
+<p>### Rate limits</p>
+<p>For items that return a dict, you can simply iterate through the list</p>
+<p>In[10]:</p>
+<div class="codehilite"><pre> <span class="p">:::</span><span class="n">python</span>
+ <span class="n">type</span><span class="p">(</span><span class="n">myapi</span><span class="p">.</span><span class="n">rate_limit_status</span><span class="p">())</span>
+
+ #<span class="n">lets</span> <span class="n">work</span> <span class="n">through</span> <span class="n">a</span> <span class="n">returned</span> <span class="n">dict</span>
+
+ <span class="n">rl</span> <span class="p">=</span> <span class="n">myapi</span><span class="p">.</span><span class="n">rate_limit_status</span><span class="p">()</span>
+
+ <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="n">in</span> <span class="n">rl</span><span class="p">.</span><span class="n">iteritems</span><span class="p">():</span>
+     <span class="n">print</span> <span class="s">&#39;%s : %s&#39;</span> <span class="c">%(k, v)</span>
+
+ <span class="n">photos</span> <span class="p">:</span> <span class="p">{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">daily_limit</span><span class="o">&#39;</span><span class="p">:</span> 100<span class="p">,</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">reset_time</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Sun</span> <span class="n">Apr</span> 21 17<span class="p">:</span>21<span class="p">:</span>43 <span class="o">+</span>0000
+ 2013<span class="o">&#39;</span><span class="p">,</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">remaining_hits</span><span class="o">&#39;</span><span class="p">:</span> 100<span class="p">,</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">reset_time_in_seconds</span><span class="o">&#39;</span><span class="p">:</span> 1366564903<span class="p">}</span>
+ <span class="n">remaining_hits</span> <span class="p">:</span> 346
+ <span class="n">reset_time_in_seconds</span> <span class="p">:</span> 1366482078
+ <span class="n">hourly_limit</span> <span class="p">:</span> 350
+ <span class="n">reset_time</span> <span class="p">:</span> <span class="n">Sat</span> <span class="n">Apr</span> 20 18<span class="p">:</span>21<span class="p">:</span>18 <span class="o">+</span>0000 2013
+</pre></div>
+
+
+<p>Another way to access variables within the api...</p>
+<p>In[11]:</p>
+<div class="codehilite"><pre> <span class="p">:::</span><span class="n">python</span>
+ <span class="n">myapi</span><span class="p">.</span><span class="n">rate_limit_status</span><span class="p">()[</span><span class="s">&#39;remaining_hits&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>Out[11]:</p>
+<div class="codehilite"><pre> 350
+</pre></div>
+
+
+<p>In[12]:</p>
+<div class="codehilite"><pre> <span class="p">:::</span><span class="n">python</span>
+ <span class="n">import</span> <span class="n">datetime</span>
+ # <span class="n">get</span> <span class="n">the</span> <span class="n">reset</span> <span class="n">time</span> <span class="n">from</span> <span class="n">twitter</span> <span class="n">call</span>
+ <span class="n">twitime</span> <span class="p">=</span> <span class="n">myapi</span><span class="p">.</span><span class="n">rate_limit_status</span><span class="p">()[</span><span class="s">&#39;reset_time_in_seconds&#39;</span><span class="p">]</span>
+
+ #<span class="n">convert</span> <span class="n">the</span> <span class="n">time</span>
+ <span class="n">timere</span> <span class="p">=</span> <span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">int</span><span class="p">(</span><span class="n">twitime</span><span class="p">)).</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%Y-%m-%d %H:%M:%S&#39;</span><span class="p">)</span>
+ <span class="n">print</span><span class="p">(</span><span class="s">&#39;Twitter will reset at:&#39;</span><span class="p">,</span> <span class="n">timere</span><span class="p">)</span>
+
+ <span class="p">(</span><span class="s">&#39;Twitter will reset at:&#39;</span><span class="p">,</span> <span class="s">&#39;2013-04-20 11:21:18&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>In[13]:</p>
+<div class="codehilite"><pre> <span class="s-Atom">:::python</span>
+ <span class="s-Atom">for</span> <span class="s-Atom">i</span> <span class="s-Atom">in</span> <span class="s-Atom">myapi</span><span class="p">.</span><span class="nf">user_timeline</span><span class="p">()</span><span class="s-Atom">:</span>
+     <span class="nf">print</span><span class="p">(</span><span class="s-Atom">i</span><span class="p">.</span><span class="s-Atom">text</span><span class="p">)</span>
+
+ <span class="nv">Rocking</span> <span class="s-Atom">#iPythonNotebook</span> <span class="s-Atom">and</span> <span class="s-Atom">tweepy</span>
+ <span class="nv">Have</span> <span class="s-Atom">you</span> <span class="s-Atom">heard</span> <span class="s-Atom">‘</span><span class="nv">Sisi</span> <span class="o">-</span> <span class="nv">Stay</span> <span class="o">-</span> <span class="nv">Funk</span> <span class="nv">Ferret</span> <span class="nv">Edit</span><span class="s-Atom">’</span> <span class="s-Atom">by</span> <span class="nv">FunkFerret</span> <span class="s-Atom">on</span>
+ <span class="s-Atom">#</span><span class="nv">SoundCloud</span><span class="s-Atom">?</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="s-Atom">t</span><span class="p">.</span><span class="s-Atom">co</span><span class="o">/</span><span class="s-Atom">lrdhjdOmDa</span>
+ <span class="nv">Have</span> <span class="s-Atom">you</span> <span class="s-Atom">heard</span> <span class="s-Atom">‘</span><span class="nv">Rufus</span> <span class="nv">Thomas</span> <span class="o">-</span> <span class="nv">Itch</span> <span class="s-Atom">&amp;amp</span><span class="p">;</span> <span class="nv">Scratch</span> <span class="o">-</span> <span class="nv">Funk</span> <span class="nv">Ferret</span> <span class="nv">Edit</span><span class="s-Atom">’</span> <span class="s-Atom">by</span>
+ <span class="nv">FunkFerret</span> <span class="s-Atom">on</span> <span class="s-Atom">#</span><span class="nv">SoundCloud</span><span class="s-Atom">?</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="s-Atom">t</span><span class="p">.</span><span class="s-Atom">co</span><span class="o">/</span><span class="nv">JW2sKvlvvV</span>
+ <span class="nv">Can</span> <span class="s-Atom">you</span> <span class="s-Atom">get</span> <span class="s-Atom">paid</span> <span class="s-Atom">to</span> <span class="s-Atom">evaluate</span> <span class="nv">OSS</span> <span class="s-Atom">python</span> <span class="s-Atom">packages?</span>
+ <span class="nv">Rocking</span> <span class="s-Atom">#iPythonNotebook</span> <span class="s-Atom">and</span> <span class="s-Atom">tweepy</span>
+ <span class="s-Atom">@</span><span class="nv">UnlearningEcon</span> <span class="nv">Outcomes</span> <span class="s-Atom">are</span> <span class="nv">NEVER</span> <span class="s-Atom">certain</span><span class="p">.</span> <span class="nv">More</span> <span class="s-Atom">thinking</span> <span class="s-Atom">and</span> <span class="s-Atom">less</span> <span class="s-Atom">emotion</span>
+ <span class="s-Atom">would</span> <span class="s-Atom">make</span> <span class="s-Atom">the</span> <span class="s-Atom">world</span> <span class="s-Atom">a</span> <span class="s-Atom">better</span> <span class="s-Atom">place</span><span class="p">.</span>
+ <span class="s-Atom">@kennethlove</span> <span class="nv">Right</span> <span class="s-Atom">on</span><span class="p">,</span> <span class="s-Atom">can&#39;t wait!!!</span>
+<span class="s-Atom"> @kennethlove Really AWESOME #GSWD tut(s)... Muchas Gracias! More coming soon</span>
+<span class="s-Atom"> I hope?</span>
+<span class="s-Atom"> I am working on data analysis with #pandas and #iPython for a GIS project</span>
+<span class="s-Atom"> that may help #firefighters be more efficient.</span>
+<span class="s-Atom"> Back on the horse after a one month non-programming hiatus. Feels good...</span>
+<span class="s-Atom"> and my fingers still remember #emacs. #python #iPython</span>
+<span class="s-Atom"> The damage has already been done. The #bankrun will proceed as if the tax</span>
+<span class="s-Atom"> levy had passed. #Cyprus</span>
+<span class="s-Atom"> @charlesfrith short on math eh???</span>
+<span class="s-Atom"> Enough politics, back to programming and awesomeness in general.</span>
+<span class="s-Atom"> #hispanics are not dumb people that simply recognize latino names and think,</span>
+<span class="s-Atom"> &quot;bueno, yo vota para el.&quot;</span>
+<span class="s-Atom"> Not only that, the #republican party thinks that trotting people with</span>
+<span class="s-Atom"> hispanic last names will to help &quot;win&quot; the hispanic vote. #notworking</span>
+<span class="s-Atom"> The #republican party is so out of touch with my generation I really don&#39;t</span>
+ <span class="s-Atom">know</span> <span class="s-Atom">where</span> <span class="s-Atom">to</span> <span class="s-Atom">begin</span><span class="p">.</span>
+ <span class="s-Atom">@cjno</span> <span class="s-Atom">pic</span> <span class="s-Atom">or</span> <span class="s-Atom">it</span> <span class="s-Atom">didn</span><span class="err">&#39;</span><span class="s-Atom">t</span> <span class="nf">happen</span> <span class="o">:-</span><span class="p">)</span>
+</pre></div>
+
+
+<p>In[14]:</p>
+<div class="codehilite"><pre> <span class="p">:::</span><span class="n">python</span>
+ <span class="k">for</span> <span class="nb">i</span> <span class="n">in</span> <span class="n">myapi</span><span class="p">.</span><span class="n">search</span><span class="p">(</span>&quot;#<span class="n">watertown</span>&quot;<span class="p">):</span>
+     <span class="n">print</span><span class="o">&#39;</span><span class="n">name</span><span class="p">:</span><span class="s">&#39;, i.from_user,&#39;</span><span class="o">\</span><span class="n">n</span><span class="o">&#39;</span><span class="p">,</span> <span class="s">&#39;:: twit:&#39;</span><span class="p">,</span> <span class="nb">i</span><span class="p">.</span><span class="n">text</span><span class="p">,</span> <span class="s">&#39;\n&#39;</span><span class="p">,</span> <span class="s">&#39;geo:&#39;</span><span class="p">,</span> <span class="nb">i</span><span class="p">.</span><span class="n">geo</span>
+
+ <span class="n">name</span><span class="p">:</span> <span class="n">Sirajulrox98</span>
+ <span class="p">::</span> <span class="n">twit</span><span class="p">:</span> <span class="n">RT</span> <span class="p">@</span><span class="n">Jessewelle</span><span class="p">:</span> <span class="n">ish</span> <span class="n">is</span> <span class="n">getting</span> <span class="nb">real</span> <span class="n">in</span> <span class="n">Boston</span><span class="p">.</span> <span class="n">Be</span> <span class="n">safe</span> <span class="n">people</span><span class="p">.</span> <span class="n">Stay</span>
+ <span class="n">in</span> <span class="n">your</span> <span class="n">house</span> #<span class="n">Watertown</span><span class="p">.</span>
+ <span class="n">geo</span><span class="p">:</span> <span class="n">None</span>
+ <span class="n">name</span><span class="p">:</span> <span class="n">ConradddJay</span>
+ <span class="p">::</span> <span class="n">twit</span><span class="p">:</span> <span class="n">RT</span> <span class="p">@</span><span class="n">YourAnonNews</span><span class="p">:</span> <span class="n">Bomber</span><span class="o">&#39;</span><span class="n">s</span> <span class="n">uncle</span><span class="p">:</span> <span class="n">It</span><span class="o">&#39;</span><span class="n">s</span> <span class="n">about</span> <span class="n">being</span> <span class="n">losers</span><span class="p">.</span> <span class="n">Not</span>
+ <span class="n">Chechnya</span><span class="p">.</span> <span class="n">Not</span> <span class="n">Islam</span><span class="p">.</span> <span class="n">They</span> <span class="n">deserve</span> <span class="n">to</span> <span class="n">die</span><span class="p">.</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="p">.</span><span class="n">co</span><span class="o">/</span><span class="n">SH1yhnBUFQ</span> #<span class="n">Watertown</span>
+ #<span class="n">BostonBombing</span>
+ <span class="n">geo</span><span class="p">:</span> <span class="n">None</span>
+ <span class="n">name</span><span class="p">:</span> <span class="n">Jesicakhua</span>
+ <span class="p">::</span> <span class="n">twit</span><span class="p">:</span> <span class="n">This</span> <span class="n">goes</span> <span class="n">to</span> <span class="n">show</span> <span class="n">that</span> <span class="n">law</span> <span class="n">enforcement</span> <span class="n">in</span> <span class="n">the</span> <span class="n">US</span> <span class="n">is</span> <span class="n">better</span> <span class="n">that</span>
+ <span class="n">most</span> <span class="n">other</span> <span class="n">countries</span><span class="o">&#39;</span> <span class="n">military</span><span class="p">.</span> #<span class="n">watertown</span> #<span class="n">boston</span>
+ <span class="n">geo</span><span class="p">:</span> <span class="n">None</span>
+ <span class="n">name</span><span class="p">:</span> <span class="n">SaraGCeli</span>
+ <span class="p">::</span> <span class="n">twit</span><span class="p">:</span> <span class="n">RT</span> <span class="p">@</span><span class="n">mackissler</span><span class="p">:</span> <span class="n">Little</span> <span class="n">boy</span> <span class="n">goes</span> <span class="n">up</span> <span class="n">to</span> <span class="n">police</span> <span class="n">officers</span> <span class="n">and</span> <span class="n">says</span>
+ &quot;<span class="n">thank</span> <span class="n">you</span>!&quot; <span class="n">Near</span> <span class="n">the</span> #<span class="n">Watertown</span> <span class="n">home</span> <span class="n">where</span> <span class="n">the</span> <span class="n">suspect</span> <span class="n">was</span> <span class="n">caught</span><span class="p">.</span>
+ <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="p">.</span><span class="n">co</span><span class="o">/</span><span class="n">xoGlNqx2Lt</span>
+ <span class="n">geo</span><span class="p">:</span> <span class="n">None</span>
+ <span class="n">name</span><span class="p">:</span> <span class="n">Gina_Gillespie</span>
+ <span class="p">::</span> <span class="n">twit</span><span class="p">:</span> <span class="n">RT</span> <span class="p">@</span><span class="n">AJELive</span><span class="p">:</span> <span class="n">Dead</span> #<span class="n">Boston</span> <span class="n">bombings</span> <span class="n">suspect</span> <span class="n">was</span> <span class="n">interviewed</span> <span class="n">by</span> <span class="n">FBI</span>
+ <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="p">.</span><span class="n">co</span><span class="o">/</span><span class="n">hLSqKYKZUz</span> #<span class="n">Watertown</span>
+ <span class="n">geo</span><span class="p">:</span> <span class="n">None</span>
+ <span class="n">name</span><span class="p">:</span> <span class="n">bumpinuglies55</span>
+ <span class="p">::</span> <span class="n">twit</span><span class="p">:</span> <span class="n">RT</span> <span class="p">@</span><span class="n">MentalityMag</span><span class="p">:</span> #<span class="n">Watertown</span> <span class="n">Police</span> <span class="n">Chief</span> <span class="n">claims</span> <span class="n">Tamerlan</span> <span class="n">Tsarnaev</span>
+ <span class="n">was</span> <span class="n">cuffed</span> <span class="n">and</span> <span class="n">alive</span> <span class="n">on</span> <span class="n">the</span> <span class="n">ground</span> <span class="n">when</span> <span class="n">Dzhokhar</span> <span class="n">ran</span> <span class="n">him</span> <span class="n">over</span> <span class="n">with</span> <span class="n">stolen</span> <span class="n">SUV</span><span class="p">,</span>
+ <span class="n">killing</span> <span class="n">him</span><span class="p">.</span>
+ <span class="n">geo</span><span class="p">:</span> <span class="n">None</span>
+ <span class="n">name</span><span class="p">:</span> <span class="n">watertowntab</span>
+ <span class="p">::</span> <span class="n">twit</span><span class="p">:</span> <span class="n">RT</span> <span class="p">@</span><span class="n">ThatGuyBoston</span> <span class="n">We</span> <span class="n">are</span> #<span class="n">watertown</span><span class="p">.</span> <span class="n">We</span> <span class="n">are</span> <span class="n">boston</span><span class="p">.</span> <span class="n">We</span> <span class="n">are</span> <span class="n">the</span>
+ <span class="n">United</span> <span class="n">States</span> <span class="n">of</span> <span class="n">America</span><span class="p">.</span> <span class="n">Proud</span> <span class="n">to</span> <span class="n">be</span> <span class="n">a</span> <span class="n">family</span> <span class="n">of</span> <span class="n">Boston</span> <span class="n">Firefighters</span>
+ <span class="n">geo</span><span class="p">:</span> <span class="n">None</span>
+ <span class="n">name</span><span class="p">:</span> <span class="n">DMillsTheGod</span>
+ <span class="p">::</span> <span class="n">twit</span><span class="p">:</span> <span class="n">RT</span> <span class="p">@</span><span class="n">AJELive</span><span class="p">:</span> <span class="n">Dead</span> #<span class="n">Boston</span> <span class="n">bombings</span> <span class="n">suspect</span> <span class="n">was</span> <span class="n">interviewed</span> <span class="n">by</span> <span class="n">FBI</span>
+ <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="p">.</span><span class="n">co</span><span class="o">/</span><span class="n">hLSqKYKZUz</span> #<span class="n">Watertown</span>
+ <span class="n">geo</span><span class="p">:</span> <span class="n">None</span>
+ <span class="n">name</span><span class="p">:</span> <span class="n">watertowntab</span>
+ <span class="p">::</span> <span class="n">twit</span><span class="p">:</span> <span class="n">RT</span> <span class="p">@</span><span class="n">GarrettQuinn</span> <span class="n">resident</span> <span class="n">Taryn</span> <span class="n">Sullivan</span><span class="p">,</span> 28<span class="p">,</span> <span class="n">says</span> <span class="n">she</span> <span class="n">was</span> <span class="n">nervous</span>
+ <span class="n">but</span> &quot;<span class="n">put</span> <span class="n">my</span> <span class="n">faith</span> <span class="n">in</span> <span class="n">the</span> #<span class="n">Watertown</span><span class="p">,</span> <span class="n">State</span> <span class="n">Police</span>&quot; <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="p">.</span><span class="n">co</span><span class="o">/</span>39<span class="n">Lf9HB32t</span>
+ <span class="n">geo</span><span class="p">:</span> <span class="n">None</span>
+ <span class="n">name</span><span class="p">:</span> <span class="n">infolibri</span>
+ <span class="p">::</span> <span class="n">twit</span><span class="p">:</span> <span class="n">RT</span> <span class="p">@</span><span class="n">AJELive</span><span class="p">:</span> <span class="n">Dead</span> #<span class="n">Boston</span> <span class="n">bombings</span> <span class="n">suspect</span> <span class="n">was</span> <span class="n">interviewed</span> <span class="n">by</span> <span class="n">FBI</span>
+ <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="p">.</span><span class="n">co</span><span class="o">/</span><span class="n">hLSqKYKZUz</span> #<span class="n">Watertown</span>
+ <span class="n">geo</span><span class="p">:</span> <span class="n">None</span>
+ <span class="n">name</span><span class="p">:</span> <span class="n">fabian70813</span>
+ <span class="p">::</span> <span class="n">twit</span><span class="p">:</span> <span class="n">RT</span> <span class="p">@</span><span class="n">YourAnonNews</span><span class="p">:</span> <span class="n">Cop</span> <span class="n">to</span> <span class="n">NBC</span> <span class="n">reporter</span><span class="p">:</span>&quot;<span class="k">if</span> <span class="n">you</span> <span class="n">knew</span> <span class="n">what</span> <span class="n">was</span> <span class="n">going</span>
+ <span class="n">on</span><span class="p">,</span> <span class="n">you</span> <span class="n">wouldn</span><span class="o">&#39;</span><span class="n">t</span> <span class="n">be</span> <span class="n">standing</span> <span class="n">here</span> <span class="n">right</span> <span class="n">now</span><span class="p">.</span>&quot;#<span class="n">watertown</span> #<span class="n">manhunt</span> #<span class="n">Boston</span> <span class="n">via</span>
+<span class="p">@</span><span class="n">CiaPressOffice</span>
+ <span class="n">geo</span><span class="p">:</span> <span class="n">None</span>
+ <span class="n">name</span><span class="p">:</span> <span class="n">PatrakaarPopat</span>
+ <span class="p">::</span> <span class="n">twit</span><span class="p">:</span> <span class="n">RT</span> <span class="p">@</span><span class="n">AJELive</span><span class="p">:</span> <span class="n">Dead</span> #<span class="n">Boston</span> <span class="n">bombings</span> <span class="n">suspect</span> <span class="n">was</span> <span class="n">interviewed</span> <span class="n">by</span> <span class="n">FBI</span>
+ <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="p">.</span><span class="n">co</span><span class="o">/</span><span class="n">hLSqKYKZUz</span> #<span class="n">Watertown</span>
+ <span class="n">geo</span><span class="p">:</span> <span class="n">None</span>
+ <span class="n">name</span><span class="p">:</span> <span class="n">HaaziqUvais</span>
+ <span class="p">::</span> <span class="n">twit</span><span class="p">:</span> <span class="n">RT</span> <span class="p">@</span><span class="n">lisawilliams</span><span class="p">:</span> <span class="n">Police</span> <span class="n">searched</span> <span class="n">my</span> <span class="n">house</span> <span class="k">while</span> <span class="n">I</span> <span class="n">was</span> <span class="n">away</span><span class="p">.</span> <span class="n">Attic</span>
+ <span class="n">door</span> <span class="n">open</span> <span class="n">items</span> <span class="n">on</span> <span class="nb">floor</span><span class="p">.</span> <span class="n">No</span> <span class="n">complaints</span><span class="p">:</span> <span class="n">doing</span> <span class="n">their</span> <span class="n">job</span><span class="p">.</span> #<span class="n">watertown</span>
+ <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="p">.</span><span class="n">co</span><span class="o">/</span><span class="n">A4lw0ZBxoJ</span>
+ <span class="n">geo</span><span class="p">:</span> <span class="n">None</span>
+ <span class="n">name</span><span class="p">:</span> <span class="n">Slainte2505</span>
+ <span class="p">::</span> <span class="n">twit</span><span class="p">:</span> <span class="n">RT</span> <span class="p">@</span><span class="n">OpocAnOn</span><span class="p">:</span> #<span class="n">Dzhokhar</span> #<span class="n">Tsarnaev</span> <span class="n">in</span> <span class="n">this</span> <span class="n">wider</span> <span class="n">picture</span> <span class="n">running</span>
+ <span class="n">from</span> <span class="n">second</span> <span class="n">bombing</span> <span class="n">in</span> #<span class="n">bostonbombing</span> #<span class="n">manhunt</span> #<span class="n">Watertown</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="p">.</span><span class="n">co</span><span class="o">/</span><span class="n">LXWlVR9RkQ</span>
+ <span class="n">geo</span><span class="p">:</span> <span class="n">None</span>
+</pre></div>
+
+
+<p>In[15]:</p>
+<div class="codehilite"><pre> <span class="p">:::</span><span class="n">python</span>
+ <span class="k">for</span> <span class="nb">i</span> <span class="n">in</span> <span class="n">myapi</span><span class="p">.</span><span class="n">lists_subscriptions</span><span class="p">():</span>
+     <span class="n">print</span> <span class="nb">i</span><span class="p">.</span><span class="n">name</span>
+
+ <span class="n">pythonistas</span>
+ <span class="n">python</span>
+ <span class="n">Rails</span>
+ <span class="n">rails</span> <span class="n">guys</span>
+ <span class="n">Rails</span>
+ <span class="n">tech</span> <span class="n">pundits</span>
+ <span class="n">peoplewhomakestuff</span>
+ <span class="n">Microsoft</span>
+ <span class="n">MSExpSLTeam</span>
+ <span class="n">Rad</span> <span class="n">Designers</span>
+ <span class="n">The</span> <span class="n">Pixel</span> <span class="n">Horde</span>
+ <span class="n">Designer</span>
+ <span class="n">Cool</span> <span class="n">Infographics</span> <span class="n">People</span>
+ <span class="n">visual</span><span class="o">-</span><span class="n">effects</span><span class="o">-</span><span class="n">peeps</span>
+ <span class="n">Design</span><span class="o">/</span><span class="n">Animation</span>
+ <span class="n">design</span>
+ <span class="n">design</span>
+ <span class="n">Design</span><span class="p">,</span> <span class="n">UI</span><span class="p">,</span> <span class="n">Arts</span> <span class="o">&amp;</span> <span class="n">co</span>
+ <span class="n">Graphics</span> <span class="n">Software</span>
+ <span class="n">UX</span> <span class="o">-</span> <span class="n">IxD</span>
+</pre></div>
+
+
+<p>In[16]:</p>
+<div class="codehilite"><pre> <span class="p">:::</span><span class="n">python</span>
+ <span class="n">myapi</span><span class="p">.</span><span class="n">update_status</span><span class="p">(</span><span class="s">&#39;Someone looking for a part-time #pythondev?&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Out[16]:</p>
+<div class="codehilite"><pre> <span class="o">&lt;</span><span class="n">tweepy</span><span class="p">.</span><span class="n">models</span><span class="p">.</span><span class="n">Status</span> <span class="n">at</span> 0<span class="n">x108228d10</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p>In[19]:</p>
+<div class="codehilite"><pre> <span class="p">:::</span><span class="n">python</span>
+ <span class="n">import</span> <span class="n">numpy</span> <span class="n">as</span> <span class="n">np</span>
+ <span class="n">import</span> <span class="n">matplotlib</span><span class="p">.</span><span class="n">pyplot</span> <span class="n">as</span> <span class="n">plt</span>
+
+ <span class="n">tweet_length</span> <span class="p">=</span> <span class="p">[]</span>
+ <span class="k">for</span> <span class="n">status</span> <span class="n">in</span> <span class="n">tweepy</span><span class="p">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">myapi</span><span class="p">.</span><span class="n">user_timeline</span><span class="p">).</span><span class="n">items</span><span class="p">(</span>50<span class="p">):</span>
+      <span class="n">tweet_length</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">len</span><span class="p">(</span><span class="n">status</span><span class="p">.</span><span class="n">text</span><span class="p">))</span>
+
+ # <span class="n">Convert</span> <span class="n">tweet_length</span> <span class="n">to</span> <span class="n">numpy</span> <span class="n">array</span>
+ <span class="n">b</span> <span class="p">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">tweet_length</span><span class="p">)</span>
+
+ #<span class="n">now</span> <span class="n">calc</span> <span class="n">mean</span>
+ <span class="n">vf</span> <span class="p">=</span> <span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+ #<span class="n">now</span> <span class="n">plot</span> <span class="n">it</span>
+ <span class="n">figure</span><span class="p">(</span>1<span class="p">)</span>
+ <span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="s">&#39;gd&#39;</span><span class="p">)</span>
+
+ #<span class="n">Horizontal</span> <span class="n">line</span>
+ <span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="p">=</span>92<span class="p">,</span> <span class="n">linewidth</span><span class="p">=</span>1<span class="p">,</span> <span class="n">color</span><span class="p">=</span><span class="s">&#39;r&#39;</span><span class="p">)</span>
+
+ <span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Number of Tweets&#39;</span><span class="p">)</span>
+ <span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Number of Characters&#39;</span><span class="p">)</span>
+ <span class="n">title</span><span class="p">(</span><span class="s">&#39;Mean length of last 50 tweets: %f characters&#39;</span> <span class="c">%vf)</span>
+
+ <span class="n">grid</span><span class="p">(</span><span class="n">True</span><span class="p">)</span>
+
+ !<span class="p">[</span><span class="n">plot</span><span class="p">](</span><span class="n">static</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">tweepy</span><span class="o">-</span><span class="n">ipynb</span><span class="p">.</span><span class="n">png</span><span class="p">)</span>
+</pre></div></div>
+		<div>
+		</article>
+			<h2>Comments</h2>
+		 				
+		<div>
+	</div>
+
+    </section>
+	<!--sidebar-->
+            <aside id="sidebar" class="alignright span4">
+                <section class="blog-category">
+                    <div class="title-divider">
+                        <h3 class="title-sidebar">Categories</h3>
+                    </div>
+                    <ul class="ul-col2 clearfix">
+                        		<li ><a href="./category/apps.html"><i class="icon-chevron-right"></i>apps</a></li>
+	            		<li ><a href="./category/as3.html"><i class="icon-chevron-right"></i>as3</a></li>
+	            		<li ><a href="./category/design.html"><i class="icon-chevron-right"></i>design</a></li>
+	            		<li class="active"><a href="./category/ipython-notebooks.html"><i class="icon-chevron-right"></i>iPython-Notebooks</a></li>
+	            		<li ><a href="./category/mobile.html"><i class="icon-chevron-right"></i>mobile</a></li>
+	            		<li ><a href="./category/programming.html"><i class="icon-chevron-right"></i>programming</a></li>
+	            		<li ><a href="./category/terms.html"><i class="icon-chevron-right"></i>terms</a></li>
+	            		<li ><a href="./category/web-development.html"><i class="icon-chevron-right"></i>web development</a></li>
+	                                </ul>
+                </section>
+                <section class="blog-category">
+                    <div class="title-divider">
+                        <h3 class="title-sidebar">Archives</h3>
+                    </div>
+                    <ul class="ul-col2 clearfix">
+                    	<li><a href="archives.html"><i class="icon-chevron-right"></i>Complete Listing</a></li>
+                    </ul>
+                </section>
+            </aside>
+</section>
+<!--footer-->
+<footer id="footer">
+    <div class="row-fluid">
+
+        <div class="span4">
+            <div class="title-divider">
+                <h3>Thank You!</h3>
+            </div>
+            <div>
+                <p>Hey guys and gals! Thanks for visiting my blog, where the hope is to provide something of marginal utility. I am a full-time student in Computer Science and looking for interships or contract work. Drop me a line here: michael at caffeineindustries.com or send me a <a href="http://twitter.com/MonkMartinez">Tweet!</a></p>
+            </div>
+        </div>
+        <div class="span8">
+            <div class="title-divider">
+                <h3>Tweets</h3>
+            </div>
+            <div id='tweets'></div>
+        </div>
+        </div>
+</footer>
+
+<!--footer menu-->
+<section id="footer-menu">
+    <div class="row-fluid">
+        <p class="span8">&copy 2012 Michael Martinez <a style="color:#e1e1e1" href="#">Here</a></p>
+        <p class="span4"><span class="pull-right">Copyright 2012 - All Rights Reserved</span></p>
+    </div>
+</section>
+<!-- end footer -->
+
+</div><!-- main wrap -->
+
+</body>
+</html>
+<!-- Localized -->
