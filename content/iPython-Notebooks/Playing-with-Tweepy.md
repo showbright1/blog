@@ -23,31 +23,31 @@ This is to set-up tweepy and oauth to play with the Twitter API
  In[1]:
 
 
-     :::python
-     import tweepy
+    :::python
+    import tweepy
 
-     # The consumer keys can be found on your application's Details
-     # page located at https://dev.twitter.com/apps (under "OAuth settings")
-     consumer_key="<key here>"
-     consumer_secret="<secret here>"
+    # The consumer keys can be found on your application's Details
+    # page located at https://dev.twitter.com/apps (under "OAuth settings")
+    consumer_key="<key here>"
+    consumer_secret="<secret here>"
 
-     # The access tokens can be found on your applications's Details
-     # page located at https://dev.twitter.com/apps (located
-     # under "Your access token")
-     access_token="<access token here>"
-     access_token_secret="<access ssecret here>"
+    # The access tokens can be found on your applications's Details
+    # page located at https://dev.twitter.com/apps (located
+    # under "Your access token")
+    access_token="<access token here>"
+    access_token_secret="<access ssecret here>"
 
-     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-     auth.set_access_token(access_token, access_token_secret)
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
 
-     myapi = tweepy.API(auth)
+    myapi = tweepy.API(auth)
 
-     # If the authentication was successful, you should
-     # see the name of the account print out
-     print myapi.me().name
+    # If the authentication was successful, you should
+    # see the name of the account print out
+    print myapi.me().name
 
 
-     Michael Martinez
+    Michael Martinez
 
 
  If the request was successful, you will see your name print out in the response
@@ -55,8 +55,8 @@ This is to set-up tweepy and oauth to play with the Twitter API
  In[2]:
 
 
-     :::python
-     myapi.update_status('Rocking #iPythonNotebook and tweepy')
+    :::python
+    myapi.update_status('Rocking #iPythonNotebook and tweepy')
 
  Out[2]:
 
@@ -72,8 +72,8 @@ This is to set-up tweepy and oauth to play with the Twitter API
  In[3]:
 
 
-     :::python
-     print myapi.me().screen_name
+    :::python
+    print myapi.me().screen_name
 
 
      MonkMartinez
@@ -82,8 +82,8 @@ This is to set-up tweepy and oauth to play with the Twitter API
  In[4]:
 
 
-     :::python
-     print myapi.me().description
+    :::python
+    print myapi.me().description
 
 
      Father. Firefighter. Mobile Crafter. Web Crafter. Garage-Business-Dude.
@@ -92,15 +92,15 @@ This is to set-up tweepy and oauth to play with the Twitter API
  In[5]:
 
 
-     :::python
-     me = myapi.me()
+    :::python
+    me = myapi.me()
 
 
  In[6]:
 
 
-     :::python
-     print me.followers_count
+    :::python
+    print me.followers_count
 
 
      116
@@ -109,8 +109,8 @@ This is to set-up tweepy and oauth to play with the Twitter API
  In[7]:
 
 
-     :::python
-     me.status.text
+    :::python
+    me.status.text
 
  Out[7]:
 
@@ -122,8 +122,8 @@ This is to set-up tweepy and oauth to play with the Twitter API
  In[8]:
 
 
-     :::python
-     me.statuses_count
+    :::python
+    me.statuses_count
 
  Out[8]:
 
@@ -135,10 +135,10 @@ This is to set-up tweepy and oauth to play with the Twitter API
  In[9]:
 
 
-     :::python
-     from IPython.core.display import Image
-     mepic = me.profile_image_url
-     Image(url=mepic)
+    :::python
+    from IPython.core.display import Image
+    mepic = me.profile_image_url
+    Image(url=mepic)
 
 
  Out[9]:
@@ -155,15 +155,15 @@ This is to set-up tweepy and oauth to play with the Twitter API
  In[10]:
 
 
-     :::python
-     type(myapi.rate_limit_status())
+    :::python
+    type(myapi.rate_limit_status())
 
-     #lets work through a returned dict
+    #lets work through a returned dict
 
-     rl = myapi.rate_limit_status()
+    rl = myapi.rate_limit_status()
 
-     for k, v in rl.iteritems():
-         print '%s : %s' %(k, v)
+    for k, v in rl.iteritems():
+        print '%s : %s' %(k, v)
 
 
      photos : {u'daily_limit': 100, u'reset_time': u'Sun Apr 21 17:21:43 +0000
@@ -179,8 +179,8 @@ This is to set-up tweepy and oauth to play with the Twitter API
  In[11]:
 
 
-     :::python
-     myapi.rate_limit_status()['remaining_hits']
+    :::python
+    myapi.rate_limit_status()['remaining_hits']
 
  Out[11]:
 
@@ -192,14 +192,14 @@ This is to set-up tweepy and oauth to play with the Twitter API
  In[12]:
 
 
-     :::python
-     import datetime
-     # get the reset time from twitter call
-     twitime = myapi.rate_limit_status()['reset_time_in_seconds']
+    :::python
+    import datetime
+    # get the reset time from twitter call
+    twitime = myapi.rate_limit_status()['reset_time_in_seconds']
 
-     #convert the time
-     timere = datetime.datetime.fromtimestamp(int(twitime)).strftime('%Y-%m-%d %H:%M:%S')
-     print('Twitter will reset at:', timere)
+    #convert the time
+    timere = datetime.datetime.fromtimestamp(int(twitime)).strftime('%Y-%m-%d %H:%M:%S')
+    print('Twitter will reset at:', timere)
 
 
      ('Twitter will reset at:', '2013-04-20 11:21:18')
@@ -208,9 +208,9 @@ This is to set-up tweepy and oauth to play with the Twitter API
  In[13]:
 
 
-     :::python
-     for i in myapi.user_timeline():
-         print(i.text)
+    :::python
+    for i in myapi.user_timeline():
+        print(i.text)
 
 
      Rocking #iPythonNotebook and tweepy
@@ -245,9 +245,9 @@ This is to set-up tweepy and oauth to play with the Twitter API
  In[14]:
 
 
-     :::python
-     for i in myapi.search("#watertown"):
-         print'name:', i.from_user,'\n', ':: twit:', i.text, '\n', 'geo:', i.geo
+    :::python
+    for i in myapi.search("#watertown"):
+        print'name:', i.from_user,'\n', ':: twit:', i.text, '\n', 'geo:', i.geo
 
 
      name: Sirajulrox98
@@ -316,9 +316,9 @@ This is to set-up tweepy and oauth to play with the Twitter API
  In[15]:
 
 
-     :::python
-     for i in myapi.lists_subscriptions():
-         print i.name
+    :::python
+    for i in myapi.lists_subscriptions():
+        print i.name
 
 
 
@@ -347,8 +347,8 @@ This is to set-up tweepy and oauth to play with the Twitter API
  In[16]:
 
 
-     :::python
-     myapi.update_status('Someone looking for a part-time #pythondev?')
+    :::python
+    myapi.update_status('Someone looking for a part-time #pythondev?')
 
  Out[16]:
 
@@ -360,31 +360,31 @@ This is to set-up tweepy and oauth to play with the Twitter API
  In[19]:
 
 
-     :::python
-     import numpy as np
-     import matplotlib.pyplot as plt
+    :::python
+    import numpy as np
+    import matplotlib.pyplot as plt
 
-     tweet_length = []
-     for status in tweepy.Cursor(myapi.user_timeline).items(50):
-          tweet_length.append(len(status.text))
+    tweet_length = []
+    for status in tweepy.Cursor(myapi.user_timeline).items(50):
+         tweet_length.append(len(status.text))
 
-     # Convert tweet_length to numpy array
-     b = np.array(tweet_length)
+    # Convert tweet_length to numpy array
+    b = np.array(tweet_length)
 
-     #now calc mean
-     vf = np.mean(b)
+    #now calc mean
+    vf = np.mean(b)
 
-     #now plot it
-     figure(1)
-     plt.plot(b, 'gd')
+    #now plot it
+    figure(1)
+    plt.plot(b, 'gd')
 
-     #Horizontal line
-     axhline(y=92, linewidth=1, color='r')
+    #Horizontal line
+    axhline(y=92, linewidth=1, color='r')
 
-     xlabel('Number of Tweets')
-     ylabel('Number of Characters')
-     title('Mean length of last 50 tweets: %f characters' %vf)
+    xlabel('Number of Tweets')
+    ylabel('Number of Characters')
+    title('Mean length of last 50 tweets: %f characters' %vf)
 
-     grid(True)
+    grid(True)
 
 ![plot](/static/images/tweepy-ipynb.png)
