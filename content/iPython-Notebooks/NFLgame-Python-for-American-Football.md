@@ -4,7 +4,10 @@ Author: Michael Martinez
 
 ## NFLgame is a Python package that allows programmatic access to NFL data ##
 
-The Github repo is located [here](https://github.com/BurntSushi/nflgame)
+The Github repo is located [here.](https://github.com/BurntSushi/nflgame)
+
+
+<a class="btn btn-large" href="ipynb/NFL.ipynb"><i class="icon-download-alt"></i> Download this Notebook</a>
 
 In[1]:
 
@@ -177,7 +180,7 @@ In[85]:
     -------
 
 
-Lets have a look at the last three match-ups between the 49'ers and the Seahawks
+Lets have a look at three, first game, match-ups between the 49'ers and the Seahawks.
 
 In[144]:
 
@@ -352,14 +355,15 @@ In[151]:
     -------
     -------
 
+So we took a look at the team stats for all three years to see if we can
+uncover actionable information. We can see that Frank Gore played in 2011
+but not in 2010. Marshawn Lynch did not play in 2011 nor in 2010. I think we will
+need to dig a bit further to get real insight.
 
-We can see that Frank Gore played in the 2011 but not in 2010. Marshawn Lynch
-did not play in 2011 nor in 2010. So we took a look at the team stats for all
-three years to see if we can uncover actionable information. I think we will
-need to dig a bit further... however, I learned a bit about tuples in the
+Not all is lost in this simple analysis, I learned a bit about tuples in the
 process.
 
-The team stats are stored in game.py in the repo and are delivered as a
+The team stats are created in game.py and are delivered as a
 `namedtuple()`. The `._asdict()` method on Named Tuples will return an ordered
 dict as described [here](http://docs.python.org/release/2.7.4/library/collection
 s.html#collections.somenamedtuple._asdict). Once you have a dict, simply use
@@ -367,7 +371,7 @@ s.html#collections.somenamedtuple._asdict). Once you have a dict, simply use
 the keys or values by themselves, use the `.keys()` or `.values()` methods
 respectively.
 
-I plan on using this extensively next season. In preperation, I have been
+I plan on using this extensively next season. In preparation, I have been
 learning statistics and the Pandas data analysis python library.
 
 #### Note: Everything I work on in this space is using iPython Notebook and will

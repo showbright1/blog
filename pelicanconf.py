@@ -44,6 +44,7 @@ LINKS =  (('Pelican', 'http://docs.notmyidea.org/alexis/pelican/'),
           ('Jinja2', 'http://jinja.pocoo.org'),
           ('iPython', 'http://ipython.org/'),)
 FILES_TO_COPY = [('CNAME', 'CNAME')]
+STATIC_PATHS = ['images', 'ipynb']
 #=============
 # Theme Stuff
 #=============

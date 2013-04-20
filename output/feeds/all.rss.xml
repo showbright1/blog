@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>MM</title><link>http://michaelmartinez.in/</link><description></description><atom:link href="http://michaelmartinez.in/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 17 Mar 2013 00:00:00 -0700</lastBuildDate><item><title>NFLgame - Python for American Football</title><link>http://michaelmartinez.in/nflgame-python-for-american-football.html</link><description>&lt;h2&gt;NFLgame is a Python package that allows programmatic access to NFL data&lt;/h2&gt;
-&lt;p&gt;The Github repo is located &lt;a href="https://github.com/BurntSushi/nflgame"&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The Github repo is located &lt;a href="https://github.com/BurntSushi/nflgame"&gt;here.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="btn btn-large" href="ipynb/NFL.ipynb"&gt;&lt;i class="icon-download-alt"&gt;&lt;/i&gt; Download this Notebook&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;In[1]:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;nflgame&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -149,7 +150,7 @@ all the available fields for each player.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Lets have a look at the last three match-ups between the 49'ers and the Seahawks&lt;/p&gt;
+&lt;p&gt;Lets have a look at three, first game, match-ups between the 49'ers and the Seahawks.&lt;/p&gt;
 &lt;p&gt;In[144]:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;game12&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;nflgame&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2012&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;SF&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;SEA&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;game12&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nice_score&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
@@ -314,19 +315,20 @@ all the available fields for each player.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;We can see that Frank Gore played in the 2011 but not in 2010. Marshawn Lynch
-did not play in 2011 nor in 2010. So we took a look at the team stats for all
-three years to see if we can uncover actionable information. I think we will
-need to dig a bit further... however, I learned a bit about tuples in the
+&lt;p&gt;So we took a look at the team stats for all three years to see if we can
+uncover actionable information. We can see that Frank Gore played in 2011
+but not in 2010. Marshawn Lynch did not play in 2011 nor in 2010. I think we will
+need to dig a bit further to get real insight.&lt;/p&gt;
+&lt;p&gt;Not all is lost in this simple analysis, I learned a bit about tuples in the
 process.&lt;/p&gt;
-&lt;p&gt;The team stats are stored in game.py in the repo and are delivered as a
+&lt;p&gt;The team stats are created in game.py and are delivered as a
 &lt;code&gt;namedtuple()&lt;/code&gt;. The &lt;code&gt;._asdict()&lt;/code&gt; method on Named Tuples will return an ordered
 dict as described &lt;a href="http://docs.python.org/release/2.7.4/library/collection
 s.html#collections.somenamedtuple._asdict"&gt;here&lt;/a&gt;. Once you have a dict, simply use
 (chain on) the &lt;code&gt;.items()&lt;/code&gt; method to iterate over the key and value. If you want
 the keys or values by themselves, use the &lt;code&gt;.keys()&lt;/code&gt; or &lt;code&gt;.values()&lt;/code&gt; methods
 respectively.&lt;/p&gt;
-&lt;p&gt;I plan on using this extensively next season. In preperation, I have been
+&lt;p&gt;I plan on using this extensively next season. In preparation, I have been
 learning statistics and the Pandas data analysis python library.&lt;/p&gt;
 &lt;h4&gt;Note: Everything I work on in this space is using iPython Notebook and will&lt;/h4&gt;
 &lt;p&gt;be published for you to run as well...&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Michael Martinez</dc:creator><pubDate>Sun, 17 Mar 2013 00:00:00 -0700</pubDate><guid>tag:michaelmartinez.in,2013-03-17:nflgame-python-for-american-football.html</guid></item><item><title>Installing iPython Notebook on Mountain Lion</title><link>http://michaelmartinez.in/installing-ipython-notebook-on-mountain-lion.html</link><description>&lt;p&gt;I've successfully installed iPython Notebook on a few different versions of OSX
