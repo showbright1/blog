@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>MM</title>
+	<meta name="description" content="Michael Martinez Blog">
+	 <meta name="viewport" content="width=100%; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no;" />
+	<meta name="author" content="Michael Martinez">
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="./theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="./theme/bootstrap.css" rel="stylesheet">
+	<link href="./theme/bootstrap-custom-grid.css" rel="stylesheet">
+	<link href="./theme/monk.css" rel="stylesheet">
+	<link href="./theme/pygments.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./theme/font-awesome.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="./theme/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./theme/jquery.ui.totop.js"></script>
+           <script type="text/javascript" src="./theme/monkjs.js"></script>
+           <script type="text/javascript" src="./theme/chirp.min.js"></script>
+           <script type="text/javascript" src="./theme/superfish.js"></script>
+
+		<!---->
+	<!---->
+	<!--<a href="http://github.com/MichaelMartinez"><img style="position: absolute; top: 39px; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub" /></a>
+-->
+
+	<!-- <link rel="shortcut icon" href="assets/ico/favicon.ico">
+	<link rel="apple-touch-icon" href="assets/ico/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="assets/ico/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="assets/ico/apple-touch-icon-114x114.png"> -->
+
+</head>
+<body >
+
+<div class="container wrap">
+<section id="top-menu">
+    <div class="row-fluid">
+        <div class="span6">
+            <a class="MyLogo" href="index.html">MM</a>
+        </div>
+        <div class="span6 hidden-phone">
+        	<div id='mysocial'>
+        		<ul>
+        			<li><a href="http://github.com/MichaelMartinez"><i class="icon-github"></i></a></li>
+        			<li><a href="https://plus.google.com/u/0/106657123530243977683/"><i class="icon-google-plus"></i></a></li>
+        			<li><a href="http://twitter.com/MonkMartinez"><i class="icon-twitter"></i></a></li>
+        			<li><a href="http://www.linkedin.com/pub/michael-martinez/26/914/407"><i class="icon-linkedin"></i></a></li>
+        		</ul>
+        	</div>
+    </div>
+</section>
+
+<header id="header">
+    <nav id="menu" class="clearfix">
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="#">Labs</a></li>
+            <li><a href="#">Apps</a></li>
+            <li><a href="#">Notes</a>
+             <ul>
+                    <li class="first"><a href="notes/math-notes.html">Math Notes</a></li>
+                    <li><a href="notes/books.html">Book Notes</a></li>
+                    <li><a href="notes/pythonemacs.html">Emacs - Python Notes</a></li>
+                    <li class="last"><a href="notes/virt-machines.html">Virtual Machine Setup</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+   </header>
+
+<!--container-->
+<section id="container" class="clearfix sidebar-right">
+        <div class="row-fluid">
+            <section id="page-sidebar" class="alignleft span8">
+
+
+
+                <!-- This is my content as described in index.html -->
+				<div class='article'>
+		  <div class="page-title clearfix"><h1>NFLgame - Python for American Football</h1>
+			<ul class="meta clearfix">
+			<li>When: <a class="more" href="./nflgame-python-for-american-football.html">March 2013</a></li>
+<li>Who: <a class="url fn" href="./author/michael-martinez.html">Michael Martinez</a> in <a href="./category/ipython-notebooks.html">iPython-Notebooks</a></li>
+		           </ul>
+		</div>
+		<article class="blog-post">
+		<div><h2>NFLgame is a Python package that allows programmatic access to NFL data</h2>
+<p>The Github repo is located <a href="https://github.com/BurntSushi/nflgame">here</a></p>
+<p>In[1]:</p>
+<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">nflgame</span>
+</pre></div>
+
+
+<h3>Lets have a look at some basic stats for the last 3 games of the NFL Regular season</h3>
+<p>First we'll have a look at the top 25 rushers for weeks 15, 16, 17. Awesome that we get
+summary stats right out of the box, right?</p>
+<p>In[15]:</p>
+<div class="codehilite"><pre><span class="n">games</span> <span class="o">=</span> <span class="n">nflgame</span><span class="o">.</span><span class="n">games</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="n">week</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">])</span>
+<span class="n">players</span> <span class="o">=</span> <span class="n">nflgame</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">games</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">players</span><span class="o">.</span><span class="n">rushing</span><span class="p">()</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s">&quot;rushing_yds&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">25</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">p</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">rushing_yds</span>
+
+<span class="n">A</span><span class="o">.</span><span class="n">Peterson</span> <span class="mi">497</span>
+<span class="n">A</span><span class="o">.</span><span class="n">Morris</span> <span class="mi">378</span>
+<span class="n">M</span><span class="o">.</span><span class="n">Lynch</span> <span class="mi">324</span>
+<span class="n">D</span><span class="o">.</span><span class="n">Williams</span> <span class="mi">322</span>
+<span class="n">C</span><span class="o">.</span><span class="n">Spiller</span> <span class="mi">300</span>
+<span class="n">J</span><span class="o">.</span><span class="n">Charles</span> <span class="mi">289</span>
+<span class="n">A</span><span class="o">.</span><span class="n">Foster</span> <span class="mi">276</span>
+<span class="n">M</span><span class="o">.</span><span class="n">Forte</span> <span class="mi">260</span>
+<span class="n">V</span><span class="o">.</span><span class="n">Ballard</span> <span class="mi">252</span>
+<span class="n">K</span><span class="o">.</span><span class="n">Moreno</span> <span class="mi">240</span>
+<span class="n">B</span><span class="o">.</span><span class="n">Pierce</span> <span class="mi">232</span>
+<span class="n">D</span><span class="o">.</span><span class="n">Martin</span> <span class="mi">220</span>
+<span class="n">S</span><span class="o">.</span><span class="n">Jackson</span> <span class="mi">206</span>
+<span class="n">C</span><span class="o">.</span><span class="n">Johnson</span> <span class="mi">206</span>
+<span class="n">D</span><span class="o">.</span><span class="n">McFadden</span> <span class="mi">200</span>
+<span class="n">D</span><span class="o">.</span><span class="n">Murray</span> <span class="mi">197</span>
+<span class="n">R</span><span class="o">.</span><span class="n">Bush</span> <span class="mi">195</span>
+<span class="n">M</span><span class="o">.</span><span class="n">Ingram</span> <span class="mi">182</span>
+<span class="n">S</span><span class="o">.</span><span class="n">Ridley</span> <span class="mi">181</span>
+<span class="n">S</span><span class="o">.</span><span class="n">Greene</span> <span class="mi">180</span>
+<span class="n">R</span><span class="o">.</span><span class="n">Wilson</span> <span class="mi">179</span>
+<span class="n">F</span><span class="o">.</span><span class="n">Gore</span> <span class="mi">179</span>
+<span class="n">M</span><span class="o">.</span><span class="n">Leshoure</span> <span class="mi">158</span>
+<span class="n">R</span><span class="o">.</span><span class="n">Rice</span> <span class="mi">150</span>
+<span class="n">D</span><span class="o">.</span><span class="n">Wilson</span> <span class="mi">147</span>
+</pre></div>
+
+
+<p>Next, we'll look at the top 25 running backs and the total amount of touchdowns
+for weeks 15, 16, 17 using the players variable we created above.</p>
+<p>In[16]:</p>
+<div class="codehilite"><pre><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">players</span><span class="o">.</span><span class="n">touchdowns</span><span class="p">()</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s">&quot;rushing_tds&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">25</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">p</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">rushing_tds</span>
+
+<span class="n">A</span><span class="o">.</span><span class="n">Morris</span> <span class="mi">6</span>
+<span class="n">M</span><span class="o">.</span><span class="n">Tolbert</span> <span class="mi">5</span>
+<span class="n">R</span><span class="o">.</span><span class="n">Wilson</span> <span class="mi">4</span>
+<span class="n">C</span><span class="o">.</span><span class="n">Wells</span> <span class="mi">3</span>
+<span class="n">M</span><span class="o">.</span><span class="n">Forte</span> <span class="mi">2</span>
+<span class="n">R</span><span class="o">.</span><span class="n">Grant</span> <span class="mi">2</span>
+<span class="n">M</span><span class="o">.</span><span class="n">Turner</span> <span class="mi">2</span>
+<span class="n">M</span><span class="o">.</span><span class="n">Ingram</span> <span class="mi">2</span>
+<span class="n">A</span><span class="o">.</span><span class="n">Peterson</span> <span class="mi">2</span>
+<span class="n">T</span><span class="o">.</span><span class="n">Richardson</span> <span class="mi">2</span>
+<span class="n">K</span><span class="o">.</span><span class="n">Moreno</span> <span class="mi">2</span>
+<span class="n">J</span><span class="o">.</span><span class="n">Hester</span> <span class="mi">2</span>
+<span class="n">M</span><span class="o">.</span><span class="n">Leshoure</span> <span class="mi">2</span>
+<span class="n">D</span><span class="o">.</span><span class="n">Williams</span> <span class="mi">2</span>
+<span class="n">M</span><span class="o">.</span><span class="n">Lynch</span> <span class="mi">2</span>
+<span class="n">S</span><span class="o">.</span><span class="n">Ridley</span> <span class="mi">2</span>
+<span class="n">D</span><span class="o">.</span><span class="n">Woodhead</span> <span class="mi">2</span>
+<span class="n">C</span><span class="o">.</span><span class="n">Johnson</span> <span class="mi">2</span>
+<span class="n">S</span><span class="o">.</span><span class="n">Greene</span> <span class="mi">2</span>
+<span class="n">D</span><span class="o">.</span><span class="n">Lewis</span> <span class="mi">1</span>
+<span class="n">A</span><span class="o">.</span><span class="n">Dalton</span> <span class="mi">1</span>
+<span class="n">B</span><span class="o">.</span><span class="n">Green</span><span class="o">-</span><span class="n">Ellis</span> <span class="mi">1</span>
+<span class="n">A</span><span class="o">.</span><span class="n">Rodgers</span> <span class="mi">1</span>
+<span class="n">D</span><span class="o">.</span><span class="n">Harris</span> <span class="mi">1</span>
+<span class="n">D</span><span class="o">.</span><span class="n">Wilson</span> <span class="mi">1</span>
+</pre></div>
+
+
+<p>Fumbles are bad in fantasy football, umkay. Lets see the top 25 fumblers for the
+same weeks...</p>
+<p>In[17]:</p>
+<div class="codehilite"><pre><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">players</span><span class="o">.</span><span class="n">fumbles</span><span class="p">()</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s">&quot;fumbles_tot&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">25</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">p</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">fumbles_tot</span>
+
+<span class="n">P</span><span class="o">.</span><span class="n">Rivers</span> <span class="mi">4</span>
+<span class="n">C</span><span class="o">.</span><span class="n">Kaepernick</span> <span class="mi">4</span>
+<span class="n">R</span><span class="o">.</span><span class="n">Tannehill</span> <span class="mi">3</span>
+<span class="n">M</span><span class="o">.</span><span class="n">Sanchez</span> <span class="mi">3</span>
+<span class="n">N</span><span class="o">.</span><span class="n">Foles</span> <span class="mi">2</span>
+<span class="n">A</span><span class="o">.</span><span class="n">Dalton</span> <span class="mi">2</span>
+<span class="n">J</span><span class="o">.</span><span class="n">Cutler</span> <span class="mi">2</span>
+<span class="n">M</span><span class="o">.</span><span class="n">Colston</span> <span class="mi">2</span>
+<span class="n">J</span><span class="o">.</span><span class="n">Freeman</span> <span class="mi">2</span>
+<span class="n">D</span><span class="o">.</span><span class="n">Amendola</span> <span class="mi">2</span>
+<span class="n">C</span><span class="o">.</span><span class="n">Ponder</span> <span class="mi">2</span>
+<span class="n">C</span><span class="o">.</span><span class="n">Henne</span> <span class="mi">2</span>
+<span class="n">T</span><span class="o">.</span><span class="n">Holliday</span> <span class="mi">2</span>
+<span class="n">M</span><span class="o">.</span><span class="n">Stafford</span> <span class="mi">2</span>
+<span class="n">R</span><span class="o">.</span><span class="n">Fitzpatrick</span> <span class="mi">2</span>
+<span class="n">D</span><span class="o">.</span><span class="n">Murray</span> <span class="mi">2</span>
+<span class="n">A</span><span class="o">.</span><span class="n">Brown</span> <span class="mi">2</span>
+<span class="n">D</span><span class="o">.</span><span class="n">Moore</span> <span class="mi">2</span>
+<span class="n">J</span><span class="o">.</span><span class="n">McKnight</span> <span class="mi">2</span>
+<span class="n">T</span><span class="o">.</span><span class="n">Yates</span> <span class="mi">2</span>
+<span class="n">C</span><span class="o">.</span><span class="n">Harbor</span> <span class="mi">1</span>
+<span class="n">J</span><span class="o">.</span><span class="n">Maclin</span> <span class="mi">1</span>
+<span class="n">C</span><span class="o">.</span><span class="n">Thornton</span> <span class="mi">1</span>
+<span class="n">A</span><span class="o">.</span><span class="n">Green</span> <span class="mi">1</span>
+<span class="n">M</span><span class="o">.</span><span class="n">Forte</span> <span class="mi">1</span>
+</pre></div>
+
+
+<hr />
+<h3>Now lets have a go with a basic 'player on player' comparison and see if we can dig up any help from the past</h3>
+<p>In my first week of the 2012 Fantasy Football season I had the RB match up
+between Marshawn Lynch and Frank Gore. My team started M. "Beast Mode" Lynch and
+I came up a bit short... could the outcome have been different with some
+analysis? I had other RB's on the bench.</p>
+<p>M. Lynch, player ID: 00-0025399</p>
+<p>F. Gore, player ID: 00-0023500</p>
+<p>The player can be looked up by name or player ID. Iterate through the list of
+player in <code>for</code> loop and <code>print p.playerid</code> or <code>print p.name</code> ... or just look
+in <a href="https://github.com/BurntSushi/nflgame/blob/master/nflgame/players.json">players.json</a>
+and use <code>control-f</code> , then start typing a players name to find
+all the available fields for each player.</p>
+<p>In[85]:</p>
+<div class="codehilite"><pre><span class="n">week1</span> <span class="o">=</span> <span class="n">nflgame</span><span class="o">.</span><span class="n">games</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="n">week</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">players</span> <span class="o">=</span> <span class="n">nflgame</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">week1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">players</span><span class="o">.</span><span class="n">rushing</span><span class="p">()</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s">&quot;rushing_yds&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">25</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">playerid</span> <span class="o">==</span> <span class="s">&quot;00-0025399&quot;</span> <span class="ow">or</span> <span class="n">p</span><span class="o">.</span><span class="n">playerid</span> <span class="o">==</span> <span class="s">&quot;00-0023500&quot;</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&quot;--------&quot;</span>
+        <span class="k">print</span> <span class="n">p</span><span class="o">.</span><span class="n">player</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">formatted_stats</span><span class="p">()</span>
+
+<span class="k">print</span> <span class="s">&quot;-------&quot;</span>
+
+<span class="o">--------</span>
+<span class="n">Frank</span> <span class="n">Gore</span> <span class="p">(</span><span class="n">RB</span><span class="p">,</span> <span class="n">SF</span><span class="p">)</span> <span class="n">rushing_lngtd</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="n">rushing_tds</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">rushing_twopta</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="n">rushing_lng</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="n">rushing_yds</span><span class="p">:</span> <span class="mi">112</span><span class="p">,</span> <span class="n">rushing_att</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="n">rushing_twoptm</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="n">receiving_tds</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">receiving_lng</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">receiving_rec</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">receiving_twopta</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="n">receiving_yds</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">receiving_lngtd</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">receiving_twoptm</span><span class="p">:</span> <span class="mi">0</span>
+<span class="o">--------</span>
+<span class="n">Marshawn</span> <span class="n">Lynch</span> <span class="p">(</span><span class="n">RB</span><span class="p">,</span> <span class="n">SEA</span><span class="p">)</span> <span class="n">rushing_lngtd</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">rushing_tds</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">rushing_twopta</span><span class="p">:</span>
+<span class="mi">0</span><span class="p">,</span> <span class="n">rushing_lng</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="n">rushing_yds</span><span class="p">:</span> <span class="mi">85</span><span class="p">,</span> <span class="n">rushing_att</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span> <span class="n">rushing_twoptm</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="n">receiving_tds</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">receiving_lng</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="n">receiving_rec</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="n">receiving_twopta</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="n">receiving_yds</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="n">receiving_lngtd</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">receiving_twoptm</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">fumbles_trcv</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="n">fumbles_tot</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">fumbles_rcv</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">fumbles_yds</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">fumbles_lost</span><span class="p">:</span> <span class="mi">0</span>
+<span class="o">-------</span>
+</pre></div>
+
+
+<p>Lets have a look at the last three match-ups between the 49'ers and the Seahawks</p>
+<p>In[144]:</p>
+<div class="codehilite"><pre><span class="n">game12</span> <span class="o">=</span> <span class="n">nflgame</span><span class="o">.</span><span class="n">one</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="s">&quot;SF&quot;</span><span class="p">,</span> <span class="s">&quot;SEA&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">game12</span><span class="o">.</span><span class="n">nice_score</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">&#39;*****&#39;</span>
+<span class="k">print</span> <span class="s">&quot;2012 Away team: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">game12</span><span class="o">.</span><span class="n">away</span><span class="p">)</span>
+<span class="c"># convert the named tuple to dict and iterate with items</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">game12</span><span class="o">.</span><span class="n">stats_away</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span>
+<span class="k">print</span> <span class="s">&#39;-------&#39;</span>
+<span class="k">print</span> <span class="s">&quot;2012 Home team: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="n">game11</span><span class="o">.</span><span class="n">home</span>
+<span class="c"># convert the named tuple to dict and iterate with items</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">game11</span><span class="o">.</span><span class="n">stats_home</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span>
+
+<span class="k">print</span> <span class="s">&#39;-------&#39;</span>
+
+<span class="n">SF</span> <span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="n">vs</span><span class="o">.</span> <span class="n">SEA</span> <span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="o">*****</span>
+<span class="mi">2012</span> <span class="n">Away</span> <span class="n">team</span><span class="p">:</span> <span class="n">SEA</span>
+<span class="n">first_downs</span> <span class="mi">13</span>
+<span class="n">total_yds</span> <span class="mi">251</span>
+<span class="n">passing_yds</span> <span class="mi">115</span>
+<span class="n">rushing_yds</span> <span class="mi">136</span>
+<span class="n">penalty_cnt</span> <span class="mi">3</span>
+<span class="n">penalty_yds</span> <span class="mi">20</span>
+<span class="n">turnovers</span> <span class="mi">1</span>
+<span class="n">punt_cnt</span> <span class="mi">4</span>
+<span class="n">punt_yds</span> <span class="mi">194</span>
+<span class="n">punt_avg</span> <span class="mi">31</span>
+<span class="n">pos_time</span> <span class="mi">27</span><span class="p">:</span><span class="mi">59</span>
+<span class="o">-------</span>
+<span class="mi">2012</span> <span class="n">Home</span> <span class="n">team</span><span class="p">:</span> <span class="n">SF</span>
+<span class="n">first_downs</span> <span class="mi">12</span>
+<span class="n">total_yds</span> <span class="mi">209</span>
+<span class="n">passing_yds</span> <span class="mi">124</span>
+<span class="n">rushing_yds</span> <span class="mi">85</span>
+<span class="n">penalty_cnt</span> <span class="mi">9</span>
+<span class="n">penalty_yds</span> <span class="mi">102</span>
+<span class="n">turnovers</span> <span class="mi">0</span>
+<span class="n">punt_cnt</span> <span class="mi">5</span>
+<span class="n">punt_yds</span> <span class="mi">298</span>
+<span class="n">punt_avg</span> <span class="mi">54</span>
+<span class="n">pos_time</span> <span class="mi">31</span><span class="p">:</span><span class="mo">07</span>
+<span class="o">-------</span>
+</pre></div>
+
+
+<p>In[145]:</p>
+<div class="codehilite"><pre><span class="n">game11</span> <span class="o">=</span> <span class="n">nflgame</span><span class="o">.</span><span class="n">one</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&quot;SF&quot;</span><span class="p">,</span> <span class="s">&quot;SEA&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">game11</span><span class="o">.</span><span class="n">nice_score</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">&#39;*****&#39;</span>
+<span class="k">print</span> <span class="s">&quot;2011 Away team: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">game11</span><span class="o">.</span><span class="n">away</span><span class="p">)</span>
+<span class="c"># convert the named tuple to dict and iterate with items</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">game11</span><span class="o">.</span><span class="n">stats_away</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span>
+<span class="k">print</span> <span class="s">&#39;-------&#39;</span>
+<span class="k">print</span> <span class="s">&quot;2011 Home team: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="n">game11</span><span class="o">.</span><span class="n">home</span>
+<span class="c"># convert the named tuple to dict and iterate with items</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">game11</span><span class="o">.</span><span class="n">stats_home</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span>
+
+<span class="k">print</span> <span class="s">&#39;-------&#39;</span>
+<span class="n">week_11</span> <span class="o">=</span> <span class="n">nflgame</span><span class="o">.</span><span class="n">games</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="n">week</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">players</span> <span class="o">=</span> <span class="n">nflgame</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">week_11</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">players</span><span class="o">.</span><span class="n">rushing</span><span class="p">()</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s">&quot;rushing_yds&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">25</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">playerid</span> <span class="o">==</span> <span class="s">&quot;00-0025399&quot;</span> <span class="ow">or</span> <span class="n">p</span><span class="o">.</span><span class="n">playerid</span> <span class="o">==</span> <span class="s">&quot;00-0023500&quot;</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&quot;--------&quot;</span>
+        <span class="k">print</span> <span class="n">p</span><span class="o">.</span><span class="n">player</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">formatted_stats</span><span class="p">()</span>
+
+<span class="k">print</span> <span class="s">&quot;-------&quot;</span>
+
+<span class="n">SF</span> <span class="p">(</span><span class="mi">33</span><span class="p">)</span> <span class="n">vs</span><span class="o">.</span> <span class="n">SEA</span> <span class="p">(</span><span class="mi">17</span><span class="p">)</span>
+<span class="o">*****</span>
+<span class="mi">2011</span> <span class="n">Away</span> <span class="n">team</span><span class="p">:</span> <span class="n">SEA</span>
+<span class="n">first_downs</span> <span class="mi">18</span>
+<span class="n">total_yds</span> <span class="mi">219</span>
+<span class="n">passing_yds</span> <span class="mi">155</span>
+<span class="n">rushing_yds</span> <span class="mi">64</span>
+<span class="n">penalty_cnt</span> <span class="mi">11</span>
+<span class="n">penalty_yds</span> <span class="mi">72</span>
+<span class="n">turnovers</span> <span class="mi">3</span>
+<span class="n">punt_cnt</span> <span class="mi">7</span>
+<span class="n">punt_yds</span> <span class="mi">342</span>
+<span class="n">punt_avg</span> <span class="mi">33</span>
+<span class="n">pos_time</span> <span class="mi">28</span><span class="p">:</span><span class="mi">53</span>
+<span class="o">-------</span>
+<span class="mi">2011</span> <span class="n">Home</span> <span class="n">team</span><span class="p">:</span> <span class="n">SF</span>
+<span class="n">first_downs</span> <span class="mi">12</span>
+<span class="n">total_yds</span> <span class="mi">209</span>
+<span class="n">passing_yds</span> <span class="mi">124</span>
+<span class="n">rushing_yds</span> <span class="mi">85</span>
+<span class="n">penalty_cnt</span> <span class="mi">9</span>
+<span class="n">penalty_yds</span> <span class="mi">102</span>
+<span class="n">turnovers</span> <span class="mi">0</span>
+<span class="n">punt_cnt</span> <span class="mi">5</span>
+<span class="n">punt_yds</span> <span class="mi">298</span>
+<span class="n">punt_avg</span> <span class="mi">54</span>
+<span class="n">pos_time</span> <span class="mi">31</span><span class="p">:</span><span class="mo">07</span>
+<span class="o">-------</span>
+<span class="o">--------</span>
+<span class="n">Frank</span> <span class="n">Gore</span> <span class="p">(</span><span class="n">RB</span><span class="p">,</span> <span class="n">SF</span><span class="p">)</span> <span class="n">rushing_lngtd</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">rushing_tds</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">rushing_twopta</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="n">rushing_lng</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="n">rushing_yds</span><span class="p">:</span> <span class="mi">59</span><span class="p">,</span> <span class="n">rushing_att</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span> <span class="n">rushing_twoptm</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="n">receiving_tds</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">receiving_lng</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="n">receiving_rec</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="n">receiving_twopta</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="n">receiving_yds</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span> <span class="n">receiving_lngtd</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">receiving_twoptm</span><span class="p">:</span> <span class="mi">0</span>
+<span class="o">-------</span>
+</pre></div>
+
+
+<p>In[151]:</p>
+<div class="codehilite"><pre><span class="n">game10</span> <span class="o">=</span> <span class="n">nflgame</span><span class="o">.</span><span class="n">one</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&quot;SEA&quot;</span><span class="p">,</span> <span class="s">&quot;SF&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">game10</span><span class="o">.</span><span class="n">nice_score</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">&#39;*****&#39;</span>
+<span class="k">print</span> <span class="s">&quot;2010 Away team: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">game10</span><span class="o">.</span><span class="n">away</span><span class="p">)</span>
+<span class="c"># convert the named tuple to dict and iterate with items</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">game10</span><span class="o">.</span><span class="n">stats_away</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span>
+<span class="k">print</span> <span class="s">&#39;-------&#39;</span>
+<span class="k">print</span> <span class="s">&quot;2010 Home team: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span><span class="n">game10</span><span class="o">.</span><span class="n">home</span>
+<span class="c"># convert the named tuple to dict and iterate with items</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">game10</span><span class="o">.</span><span class="n">stats_home</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span>
+
+<span class="k">print</span> <span class="s">&#39;-------&#39;</span>
+<span class="n">week_10</span> <span class="o">=</span> <span class="n">nflgame</span><span class="o">.</span><span class="n">games</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span> <span class="n">week</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">players</span> <span class="o">=</span> <span class="n">nflgame</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">week_10</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">players</span><span class="o">.</span><span class="n">rushing</span><span class="p">()</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s">&quot;rushing_yds&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">25</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">playerid</span> <span class="o">==</span> <span class="s">&quot;00-0025399&quot;</span> <span class="ow">or</span> <span class="n">p</span><span class="o">.</span><span class="n">playerid</span> <span class="o">==</span> <span class="s">&quot;00-0023500&quot;</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&quot;--------&quot;</span>
+        <span class="k">print</span> <span class="n">p</span><span class="o">.</span><span class="n">player</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">formatted_stats</span><span class="p">()</span>
+
+<span class="k">print</span> <span class="s">&quot;-------&quot;</span>
+
+<span class="n">SEA</span> <span class="p">(</span><span class="mi">31</span><span class="p">)</span> <span class="n">vs</span><span class="o">.</span> <span class="n">SF</span> <span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="o">*****</span>
+<span class="mi">2010</span> <span class="n">Away</span> <span class="n">team</span><span class="p">:</span> <span class="n">SF</span>
+<span class="n">first_downs</span> <span class="mi">14</span>
+<span class="n">total_yds</span> <span class="mi">263</span>
+<span class="n">passing_yds</span> <span class="mi">214</span>
+<span class="n">rushing_yds</span> <span class="mi">49</span>
+<span class="n">penalty_cnt</span> <span class="mi">8</span>
+<span class="n">penalty_yds</span> <span class="mi">60</span>
+<span class="n">turnovers</span> <span class="mi">2</span>
+<span class="n">punt_cnt</span> <span class="mi">6</span>
+<span class="n">punt_yds</span> <span class="mi">249</span>
+<span class="n">punt_avg</span> <span class="mi">35</span>
+<span class="n">pos_time</span> <span class="mi">32</span><span class="p">:</span><span class="mi">45</span>
+<span class="o">-------</span>
+<span class="mi">2010</span> <span class="n">Home</span> <span class="n">team</span><span class="p">:</span> <span class="n">SEA</span>
+<span class="n">first_downs</span> <span class="mi">14</span>
+<span class="n">total_yds</span> <span class="mi">242</span>
+<span class="n">passing_yds</span> <span class="mi">165</span>
+<span class="n">rushing_yds</span> <span class="mi">77</span>
+<span class="n">penalty_cnt</span> <span class="mi">5</span>
+<span class="n">penalty_yds</span> <span class="mi">35</span>
+<span class="n">turnovers</span> <span class="mi">1</span>
+<span class="n">punt_cnt</span> <span class="mi">5</span>
+<span class="n">punt_yds</span> <span class="mi">207</span>
+<span class="n">punt_avg</span> <span class="mi">36</span>
+<span class="n">pos_time</span> <span class="mi">27</span><span class="p">:</span><span class="mi">15</span>
+<span class="o">-------</span>
+<span class="o">-------</span>
+</pre></div>
+
+
+<p>We can see that Frank Gore played in the 2011 but not in 2010. Marshawn Lynch
+did not play in 2011 nor in 2010. So we took a look at the team stats for all
+three years to see if we can uncover actionable information. I think we will
+need to dig a bit further... however, I learned a bit about tuples in the
+process.</p>
+<p>The team stats are stored in game.py in the repo and are delivered as a
+<code>namedtuple()</code>. The <code>._asdict()</code> method on Named Tuples will return an ordered
+dict as described <a href="http://docs.python.org/release/2.7.4/library/collection
+s.html#collections.somenamedtuple._asdict">here</a>. Once you have a dict, simply use
+(chain on) the <code>.items()</code> method to iterate over the key and value. If you want
+the keys or values by themselves, use the <code>.keys()</code> or <code>.values()</code> methods
+respectively.</p>
+<p>I plan on using this extensively next season. In preperation, I have been
+learning statistics and the Pandas data analysis python library.</p>
+<h4>Note: Everything I work on in this space is using iPython Notebook and will</h4>
+<p>be published for you to run as well...</p></div>
+		<div>
+		</article>
+			<h2>Comments</h2>
+		 				
+		<div>
+	</div>
+
+    </section>
+	<!--sidebar-->
+            <aside id="sidebar" class="alignright span4">
+                <section class="blog-category">
+                    <div class="title-divider">
+                        <h3 class="title-sidebar">Categories</h3>
+                    </div>
+                    <ul class="ul-col2 clearfix">
+                        		<li ><a href="./category/apps.html"><i class="icon-chevron-right"></i>apps</a></li>
+	            		<li ><a href="./category/as3.html"><i class="icon-chevron-right"></i>as3</a></li>
+	            		<li ><a href="./category/design.html"><i class="icon-chevron-right"></i>design</a></li>
+	            		<li class="active"><a href="./category/ipython-notebooks.html"><i class="icon-chevron-right"></i>iPython-Notebooks</a></li>
+	            		<li ><a href="./category/mobile.html"><i class="icon-chevron-right"></i>mobile</a></li>
+	            		<li ><a href="./category/programming.html"><i class="icon-chevron-right"></i>programming</a></li>
+	            		<li ><a href="./category/terms.html"><i class="icon-chevron-right"></i>terms</a></li>
+	            		<li ><a href="./category/web-development.html"><i class="icon-chevron-right"></i>web development</a></li>
+	                                </ul>
+                </section>
+                <section class="blog-category">
+                    <div class="title-divider">
+                        <h3 class="title-sidebar">Archives</h3>
+                    </div>
+                    <ul class="ul-col2 clearfix">
+                    	<li><a href="archives.html"><i class="icon-chevron-right"></i>Complete Listing</a></li>
+                    </ul>
+                </section>
+            </aside>
+</section>
+<!--footer-->
+<footer id="footer">
+    <div class="row-fluid">
+
+        <div class="span4">
+            <div class="title-divider">
+                <h3>Thank You!</h3>
+            </div>
+            <div>
+                <p>Hey guys and gals! Thanks for visiting my blog, where the hope is to provide something of marginal utility. I am a full-time student in Computer Science and looking for interships or contract work. Drop me a line here: michael at caffeineindustries.com or send me a <a href="http://twitter.com/MonkMartinez">Tweet!</a></p>
+            </div>
+        </div>
+        <div class="span8">
+            <div class="title-divider">
+                <h3>Tweets</h3>
+            </div>
+            <div id='tweets'></div>
+        </div>
+        </div>
+</footer>
+
+<!--footer menu-->
+<section id="footer-menu">
+    <div class="row-fluid">
+        <p class="span8">&copy 2012 Michael Martinez <a style="color:#e1e1e1" href="#">Here</a></p>
+        <p class="span4"><span class="pull-right">Copyright 2012 - All Rights Reserved</span></p>
+    </div>
+</section>
+<!-- end footer -->
+
+</div><!-- main wrap -->
+
+</body>
+</html>
+<!-- Localized -->
