@@ -54,7 +54,7 @@ because it worked well for these basic examples.&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;## The user object ##&lt;/p&gt;
+&lt;h2&gt;The user object&lt;/h2&gt;
 &lt;p&gt;Showing a method to access some variables returned by twitter&lt;/p&gt;
 &lt;p&gt;In[3]:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt; &lt;span class="p"&gt;:::&lt;/span&gt;&lt;span class="n"&gt;python&lt;/span&gt;
@@ -118,7 +118,7 @@ because it worked well for these basic examples.&lt;/p&gt;
 
 &lt;p&gt;Out[9]:&lt;/p&gt;
 &lt;p&gt;&lt;img alt="my mascot" src="static/images/myMascot_normal.png" /&gt;&lt;/p&gt;
-&lt;p&gt;### Rate limits ###&lt;/p&gt;
+&lt;h3&gt;Rate limits&lt;/h3&gt;
 &lt;p&gt;For items that return a dict, you can simply iterate through the list&lt;/p&gt;
 &lt;p&gt;In[10]:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt; &lt;span class="p"&gt;:::&lt;/span&gt;&lt;span class="n"&gt;python&lt;/span&gt;
