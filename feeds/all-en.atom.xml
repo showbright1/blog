@@ -117,10 +117,7 @@ because it worked well for these basic examples.&lt;/p&gt;
 
 
 &lt;p&gt;Out[9]:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt; &lt;span class="p"&gt;[&lt;/span&gt;!&lt;span class="n"&gt;my&lt;/span&gt; &lt;span class="n"&gt;mascot&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="n"&gt;static&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;images&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;myMascot_normal&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;png&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
+&lt;p&gt;&lt;img alt="my mascot" src="static/images/myMascot_normal.png" /&gt;&lt;/p&gt;
 &lt;p&gt;### Rate limits&lt;/p&gt;
 &lt;p&gt;For items that return a dict, you can simply iterate through the list&lt;/p&gt;
 &lt;p&gt;In[10]:&lt;/p&gt;
