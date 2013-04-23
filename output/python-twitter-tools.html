@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>MM</title>
+	<meta name="description" content="Michael Martinez Blog">
+	 <meta name="viewport" content="width=100%; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no;" />
+	<meta name="author" content="Michael Martinez">
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="./theme/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le styles -->
+	<link href="./theme/bootstrap.css" rel="stylesheet">
+	<link href="./theme/bootstrap-custom-grid.css" rel="stylesheet">
+	<link href="./theme/monk.css" rel="stylesheet">
+	<link href="./theme/pygments.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./theme/font-awesome.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="./theme/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./theme/jquery.ui.totop.js"></script>
+           <script type="text/javascript" src="./theme/monkjs.js"></script>
+           <script type="text/javascript" src="./theme/chirp.min.js"></script>
+           <script type="text/javascript" src="./theme/superfish.js"></script>
+
+		<!---->
+	<!---->
+	<!--<a href="http://github.com/MichaelMartinez"><img style="position: absolute; top: 39px; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub" /></a>
+-->
+
+	<!-- <link rel="shortcut icon" href="assets/ico/favicon.ico">
+	<link rel="apple-touch-icon" href="assets/ico/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="assets/ico/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="assets/ico/apple-touch-icon-114x114.png"> -->
+
+</head>
+<body >
+
+<div class="container wrap">
+<section id="top-menu">
+    <div class="row-fluid">
+        <div class="span6">
+            <a class="MyLogo" href="index.html">MM</a>
+        </div>
+        <div class="span6 hidden-phone">
+        	<div id='mysocial'>
+        		<ul>
+        			<li><a href="http://github.com/MichaelMartinez"><i class="icon-github"></i></a></li>
+        			<li><a href="https://plus.google.com/u/0/106657123530243977683/"><i class="icon-google-plus"></i></a></li>
+        			<li><a href="http://twitter.com/MonkMartinez"><i class="icon-twitter"></i></a></li>
+        			<li><a href="http://www.linkedin.com/pub/michael-martinez/26/914/407"><i class="icon-linkedin"></i></a></li>
+        		</ul>
+        	</div>
+    </div>
+</section>
+
+<header id="header">
+    <nav id="menu" class="clearfix">
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="#">Labs</a></li>
+            <li><a href="#">Apps</a></li>
+            <li><a href="#">Notes</a>
+             <ul>
+                    <li class="first"><a href="notes/math-notes.html">Math Notes</a></li>
+                    <li><a href="notes/books.html">Book Notes</a></li>
+                    <li><a href="notes/pythonemacs.html">Emacs - Python Notes</a></li>
+                    <li class="last"><a href="notes/virt-machines.html">Virtual Machine Setup</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+   </header>
+
+<!--container-->
+<section id="container" class="clearfix sidebar-right">
+        <div class="row-fluid">
+            <section id="page-sidebar" class="alignleft span8">
+
+
+
+                <!-- This is my content as described in index.html -->
+				<div class='article'>
+		  <div class="page-title clearfix"><h1>Python Twitter Tools</h1>
+			<ul class="meta clearfix">
+			<li>When: <a class="more" href="./python-twitter-tools.html">April 2013</a></li>
+<li>Who: <a class="url fn" href="./author/michael-martinez.html">Michael Martinez</a> in <a href="./category/ipython-notebooks.html">iPython-Notebooks</a></li>
+		           </ul>
+		</div>
+		<article class="blog-post">
+		<div><p>In the first episode of playing with twitter, I demo'ed
+<a href="https://github.com/tweepy/tweepy">Tweepy</a>. In this episode, I will use the
+<a href="https://github.com/sixohsix/twitter">twitter library</a> from <a href="http://mike.verdone.ca/twitter/">Mike
+Verdone</a>.</p>
+<ul>
+<li>install the library: <code>pip install twitter</code></li>
+</ul>
+<p>In the README and other sources of documentation, the config for the user/app
+credentials are accessed via <code>os.path</code> utilizing a <code>read_file_token</code> method.
+This method of credential retrieval has perplexed me in the past because I was
+unable to find a sort of "canonical" way of repeating this in other projects. So
+before started evaluating the code base, I set out to see if I could find a more
+'pythonic' way of storing and retrieving credentials. Lo and behold, we have a
+ConfigParser module built right into the standard library. Further, Doug Hellmann
+has graciously covered the ConfigParser module in great detail
+<a href="http://pymotw.com/2/ConfigParser/">here</a>.</p>
+<p>To get started with this config option:</p>
+<ul>
+<li>create a twitter.ini file in the same directory as this file (its a simple text file)</li>
+<li>type [twitter] to delineate a section (read about sections in the ConfigParser tut)</li>
+<li><code>parser.get</code> in this case looks in the twitter section and retrieves the value of the argument as a string.</li>
+</ul>
+<p>sample twitter.ini file</p>
+<div class="codehilite"><pre><span class="o">[</span>twitter<span class="o">]</span>
+<span class="nv">CONSUMER_KEY</span> <span class="o">=</span> iowef03434ijskdmjlfasd2039sdkon
+<span class="nv">CONSUMER_SECRET</span> <span class="o">=</span> akldsjfsal3fadijfaosasdk34
+<span class="nv">oauth_token</span> <span class="o">=</span> kasdljnbfglkajdsnfq34908
+<span class="nv">oauth_secret</span> <span class="o">=</span> dalkfewoiejaosdkmcadfaslkjdfsdfalasdf
+</pre></div>
+
+
+<p>note: these values are bogus</p>
+<p><a class="btn btn-large" href="/static/ipynb/Twitter.ipynb"><i class="icon-download-alt"></i> Download this Notebook</a></p>
+<p>In[1]:</p>
+<div class="codehilite"><pre><span class="kn">from</span> <span class="nn">twitter</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">ConfigParser</span> <span class="kn">import</span> <span class="n">SafeConfigParser</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">SafeConfigParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;twitter.ini&#39;</span><span class="p">)</span>
+
+<span class="n">consumer_key</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;twitter&#39;</span><span class="p">,</span> <span class="s">&#39;CONSUMER_KEY&#39;</span><span class="p">)</span>
+<span class="n">consumer_secret</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;twitter&#39;</span><span class="p">,</span> <span class="s">&#39;CONSUMER_SECRET&#39;</span><span class="p">)</span>
+<span class="n">oauth_access_token</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;twitter&#39;</span><span class="p">,</span> <span class="s">&#39;oauth_token&#39;</span><span class="p">)</span>
+<span class="n">oauth_access_secret</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;twitter&#39;</span><span class="p">,</span> <span class="s">&#39;oauth_secret&#39;</span><span class="p">)</span>
+
+<span class="n">twitter</span> <span class="o">=</span> <span class="n">Twitter</span><span class="p">(</span><span class="n">auth</span><span class="o">=</span><span class="n">OAuth</span><span class="p">(</span>
+    <span class="n">oauth_access_token</span><span class="p">,</span> <span class="n">oauth_access_secret</span><span class="p">,</span> <span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">))</span>
+
+<span class="c"># Update your status</span>
+<span class="n">twitter</span><span class="o">.</span><span class="n">statuses</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+    <span class="n">status</span><span class="o">=</span><span class="s">&quot;Control the things that are in your control&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Out[1]:</p>
+<div class="codehilite"><pre><span class="p">{</span><span class="s">u&#39;contributors&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+ <span class="s">u&#39;coordinates&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+ <span class="s">u&#39;created_at&#39;</span><span class="p">:</span> <span class="s">u&#39;Tue Apr 23 05:15:56 +0000 2013&#39;</span><span class="p">,</span>
+ <span class="s">u&#39;entities&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">u&#39;hashtags&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s">u&#39;urls&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s">u&#39;user_mentions&#39;</span><span class="p">:</span> <span class="p">[]},</span>
+ <span class="s">u&#39;favorited&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+ <span class="s">u&#39;geo&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+ <span class="s">u&#39;id&#39;</span><span class="p">:</span> <span class="mi">326565076066766848</span><span class="p">,</span>
+ <span class="s">u&#39;id_str&#39;</span><span class="p">:</span> <span class="s">u&#39;326565076066766848&#39;</span><span class="p">,</span>
+ <span class="s">u&#39;in_reply_to_screen_name&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+ <span class="s">u&#39;in_reply_to_status_id&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+ <span class="s">u&#39;in_reply_to_status_id_str&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+ <span class="s">u&#39;in_reply_to_user_id&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+ <span class="s">u&#39;in_reply_to_user_id_str&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+ <span class="s">u&#39;place&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+ <span class="s">u&#39;retweet_count&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+ <span class="s">u&#39;retweeted&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+ <span class="s">u&#39;source&#39;</span><span class="p">:</span> <span class="s">u&#39;&lt;a href=&quot;http://michaelmartinez.in&quot; rel=&quot;nofollow&quot;&gt;ipython-local&lt;/a&gt;&#39;</span><span class="p">,</span>
+ <span class="s">u&#39;text&#39;</span><span class="p">:</span> <span class="s">u&#39;Control the things that are in your control&#39;</span><span class="p">,</span>
+ <span class="s">u&#39;truncated&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+ <span class="s">u&#39;user&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">u&#39;contributors_enabled&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+  <span class="s">u&#39;created_at&#39;</span><span class="p">:</span> <span class="s">u&#39;Sun Oct 31 17:44:06 +0000 2010&#39;</span><span class="p">,</span>
+  <span class="s">u&#39;default_profile&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+  <span class="s">u&#39;default_profile_image&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+  <span class="s">u&#39;description&#39;</span><span class="p">:</span> <span class="s">u&#39;Father. Firefighter. Mobile Crafter. Web Crafter. Garage-Business-Dude. &#39;</span><span class="p">,</span>
+  <span class="s">u&#39;entities&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">u&#39;description&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">u&#39;urls&#39;</span><span class="p">:</span> <span class="p">[]},</span>
+   <span class="s">u&#39;url&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">u&#39;urls&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s">u&#39;display_url&#39;</span><span class="p">:</span> <span class="s">u&#39;michaelmartinez.in&#39;</span><span class="p">,</span>
+      <span class="s">u&#39;expanded_url&#39;</span><span class="p">:</span> <span class="s">u&#39;http://michaelmartinez.in&#39;</span><span class="p">,</span>
+      <span class="s">u&#39;indices&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">22</span><span class="p">],</span>
+      <span class="s">u&#39;url&#39;</span><span class="p">:</span> <span class="s">u&#39;http://t.co/MTXlg5n87M&#39;</span><span class="p">}]}},</span>
+  <span class="s">u&#39;favourites_count&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s">u&#39;follow_request_sent&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+  <span class="s">u&#39;followers_count&#39;</span><span class="p">:</span> <span class="mi">118</span><span class="p">,</span>
+  <span class="s">u&#39;following&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+  <span class="s">u&#39;friends_count&#39;</span><span class="p">:</span> <span class="mi">441</span><span class="p">,</span>
+  <span class="s">u&#39;geo_enabled&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+  <span class="s">u&#39;id&#39;</span><span class="p">:</span> <span class="mi">210539658</span><span class="p">,</span>
+  <span class="s">u&#39;id_str&#39;</span><span class="p">:</span> <span class="s">u&#39;210539658&#39;</span><span class="p">,</span>
+  <span class="s">u&#39;is_translator&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+  <span class="s">u&#39;lang&#39;</span><span class="p">:</span> <span class="s">u&#39;en&#39;</span><span class="p">,</span>
+  <span class="s">u&#39;listed_count&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="s">u&#39;location&#39;</span><span class="p">:</span> <span class="s">u&#39;Arizona&#39;</span><span class="p">,</span>
+  <span class="s">u&#39;name&#39;</span><span class="p">:</span> <span class="s">u&#39;Michael Martinez&#39;</span><span class="p">,</span>
+  <span class="s">u&#39;notifications&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+  <span class="s">u&#39;profile_background_color&#39;</span><span class="p">:</span> <span class="s">u&#39;706B5C&#39;</span><span class="p">,</span>
+  <span class="s">u&#39;profile_background_image_url&#39;</span><span class="p">:</span> <span class="s">u&#39;http://a0.twimg.com/profile_background_images/543977615/tankdude1-Twit.jpg&#39;</span><span class="p">,</span>
+  <span class="s">u&#39;profile_background_image_url_https&#39;</span><span class="p">:</span> <span class="s">u&#39;https://si0.twimg.com/profile_background_images/543977615/tankdude1-Twit.jpg&#39;</span><span class="p">,</span>
+  <span class="s">u&#39;profile_background_tile&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+  <span class="s">u&#39;profile_image_url&#39;</span><span class="p">:</span> <span class="s">u&#39;http://a0.twimg.com/profile_images/1496212678/myMascot_normal.png&#39;</span><span class="p">,</span>
+  <span class="s">u&#39;profile_image_url_https&#39;</span><span class="p">:</span> <span class="s">u&#39;https://si0.twimg.com/profile_images/1496212678/myMascot_normal.png&#39;</span><span class="p">,</span>
+  <span class="s">u&#39;profile_link_color&#39;</span><span class="p">:</span> <span class="s">u&#39;009999&#39;</span><span class="p">,</span>
+  <span class="s">u&#39;profile_sidebar_border_color&#39;</span><span class="p">:</span> <span class="s">u&#39;EEEEEE&#39;</span><span class="p">,</span>
+  <span class="s">u&#39;profile_sidebar_fill_color&#39;</span><span class="p">:</span> <span class="s">u&#39;EFEFEF&#39;</span><span class="p">,</span>
+  <span class="s">u&#39;profile_text_color&#39;</span><span class="p">:</span> <span class="s">u&#39;333333&#39;</span><span class="p">,</span>
+  <span class="s">u&#39;profile_use_background_image&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+  <span class="s">u&#39;protected&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+  <span class="s">u&#39;screen_name&#39;</span><span class="p">:</span> <span class="s">u&#39;MonkMartinez&#39;</span><span class="p">,</span>
+  <span class="s">u&#39;statuses_count&#39;</span><span class="p">:</span> <span class="mi">1582</span><span class="p">,</span>
+  <span class="s">u&#39;time_zone&#39;</span><span class="p">:</span> <span class="s">u&#39;Arizona&#39;</span><span class="p">,</span>
+  <span class="s">u&#39;url&#39;</span><span class="p">:</span> <span class="s">u&#39;http://t.co/MTXlg5n87M&#39;</span><span class="p">,</span>
+  <span class="s">u&#39;utc_offset&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">25200</span><span class="p">,</span>
+  <span class="s">u&#39;verified&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">}}</span>
+</pre></div>
+
+
+<p>The nice thing about PTT is that you can inspect the returned fields of the
+Twitter API requested as you work. This may save time in that you don't need to
+look at the API docs as much. It may also aid in the access of data, as nested
+dict's and tuples are not easy to iterate if you don't know how many layers of
+nesting to uncover. For example:</p>
+<p>In[2]:</p>
+<div class="codehilite"><pre><span class="n">home_timeline</span> <span class="o">=</span> <span class="n">twitter</span><span class="o">.</span><span class="n">statuses</span><span class="o">.</span><span class="n">home_timeline</span><span class="p">()</span> <span class="c"># returns sweet, parseable decoded json</span>
+<span class="n">home_timeline</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c"># the most recent tweet in my timeline</span>
+</pre></div>
+
+
+<p>Out[2]:</p>
+<div class="codehilite"><pre>{u&#39;contributors&#39;: None,
+ u&#39;coordinates&#39;: None,
+ u&#39;created_at&#39;: u&#39;Tue Apr 23 05:16:38 +0000 2013&#39;,
+ u&#39;entities&#39;: {u&#39;hashtags&#39;: [],
+  u&#39;symbols&#39;: [],
+  u&#39;urls&#39;: [{u&#39;display_url&#39;: u&#39;oreilly.com/openbook/&#39;,
+    u&#39;expanded_url&#39;: u&#39;http://oreilly.com/openbook/&#39;,
+    u&#39;indices&#39;: [20, 42],
+    u&#39;url&#39;: u&#39;http://t.co/vtk5YWe44y&#39;}],
+  u&#39;user_mentions&#39;: []},
+ u&#39;favorite_count&#39;: 0,
+ u&#39;favorited&#39;: False,
+ u&#39;geo&#39;: None,
+ u&#39;id&#39;: 326565255465558017,
+ u&#39;id_str&#39;: u&#39;326565255465558017&#39;,
+ u&#39;in_reply_to_screen_name&#39;: None,
+ u&#39;in_reply_to_status_id&#39;: None,
+ u&#39;in_reply_to_status_id_str&#39;: None,
+ u&#39;in_reply_to_user_id&#39;: None,
+ u&#39;in_reply_to_user_id_str&#39;: None,
+ u&#39;lang&#39;: u&#39;en&#39;,
+ u&#39;place&#39;: None,
+ u&#39;possibly_sensitive&#39;: False,
+ u&#39;retweet_count&#39;: 0,
+ u&#39;retweeted&#39;: False,
+ u&#39;source&#39;: u&#39;<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://www.tweetdeck.com&quot;</span> <span class="na">rel=</span><span class="s">&quot;nofollow&quot;</span><span class="nt">&gt;</span>TweetDeck<span class="nt">&lt;/a&gt;</span>&#39;,
+ u&#39;text&#39;: u&quot;Free O&#39;Reilly books http://t.co/vtk5YWe44y&quot;,
+ u&#39;truncated&#39;: False,
+ u&#39;user&#39;: {u&#39;contributors_enabled&#39;: False,
+  u&#39;created_at&#39;: u&#39;Tue Mar 13 20:12:40 +0000 2007&#39;,
+  u&#39;default_profile&#39;: False,
+  u&#39;default_profile_image&#39;: False,
+  u&#39;description&#39;: u&#39;Now putting podcasts in the cloud at http://t.co/kuIpq9dj. Previously Google, Osmosoft. #HTML5 #Rails #UX #DevExp michael@mahemoff.com&#39;,
+  u&#39;entities&#39;: {u&#39;description&#39;: {u&#39;urls&#39;: [{u&#39;display_url&#39;: u&#39;player.fm&#39;,
+      u&#39;expanded_url&#39;: u&#39;http://player.fm&#39;,
+      u&#39;indices&#39;: [37, 57],
+      u&#39;url&#39;: u&#39;http://t.co/kuIpq9dj&#39;}]},
+   u&#39;url&#39;: {u&#39;urls&#39;: [{u&#39;expanded_url&#39;: None,
+      u&#39;indices&#39;: [0, 19],
+      u&#39;url&#39;: u&#39;http://mahemoff.com&#39;}]}},
+  u&#39;favourites_count&#39;: 1747,
+  u&#39;follow_request_sent&#39;: None,
+  u&#39;followers_count&#39;: 5715,
+  u&#39;following&#39;: True,
+  u&#39;friends_count&#39;: 1138,
+  u&#39;geo_enabled&#39;: False,
+  u&#39;id&#39;: 1112431,
+  u&#39;id_str&#39;: u&#39;1112431&#39;,
+  u&#39;is_translator&#39;: False,
+  u&#39;lang&#39;: u&#39;en&#39;,
+  u&#39;listed_count&#39;: 486,
+  u&#39;location&#39;: u&#39;London + Melbourne&#39;,
+  u&#39;name&#39;: u&#39;Michael Mahemoff&#39;,
+  u&#39;notifications&#39;: None,
+  u&#39;profile_background_color&#39;: u&#39;022330&#39;,
+  u&#39;profile_background_image_url&#39;: u&#39;http://a0.twimg.com/profile_background_images/97774687/twilk_background_4bddb8dda6006.jpg&#39;,
+  u&#39;profile_background_image_url_https&#39;: u&#39;https://si0.twimg.com/profile_background_images/97774687/twilk_background_4bddb8dda6006.jpg&#39;,
+  u&#39;profile_background_tile&#39;: False,
+  u&#39;profile_image_url&#39;: u&#39;http://a0.twimg.com/profile_images/1150432577/speakhdr_normal.jpg&#39;,
+  u&#39;profile_image_url_https&#39;: u&#39;https://si0.twimg.com/profile_images/1150432577/speakhdr_normal.jpg&#39;,
+  u&#39;profile_link_color&#39;: u&#39;717273&#39;,
+  u&#39;profile_sidebar_border_color&#39;: u&#39;000000&#39;,
+  u&#39;profile_sidebar_fill_color&#39;: u&#39;99CC33&#39;,
+  u&#39;profile_text_color&#39;: u&#39;3E4415&#39;,
+  u&#39;profile_use_background_image&#39;: True,
+  u&#39;protected&#39;: False,
+  u&#39;screen_name&#39;: u&#39;mahemoff&#39;,
+  u&#39;statuses_count&#39;: 12996,
+  u&#39;time_zone&#39;: u&#39;London&#39;,
+  u&#39;url&#39;: u&#39;http://mahemoff.com&#39;,
+  u&#39;utc_offset&#39;: 0,
+  u&#39;verified&#39;: False}}
+</pre></div>
+
+
+<p>In[3]:</p>
+<div class="codehilite"><pre><span class="n">home_timeline</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;text&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>Out[3]:</p>
+<div class="codehilite"><pre><span class="n">u</span>&quot;<span class="n">Free</span> <span class="n">O</span><span class="o">&#39;</span><span class="n">Reilly</span> <span class="n">books</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="p">.</span><span class="n">co</span><span class="o">/</span><span class="n">vtk5YWe44y</span>&quot;
+</pre></div>
+
+
+<p>urls is a nested dict inside a dict of from the tweet above. Lets see how we
+would access that data if we needed it...</p>
+<p>In[4]:</p>
+<div class="codehilite"><pre><span class="k">def</span> <span class="nf">double_nest</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">home_timeline</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&#39;entities&#39;</span><span class="p">][</span><span class="s">&#39;urls&#39;</span><span class="p">]:</span>
+        <span class="k">print</span> <span class="n">i</span>
+        <span class="k">return</span> <span class="n">i</span>
+<span class="n">double_nest</span><span class="p">()</span>
+</pre></div>
+
+
+<p 42],="42]," [20,="[20," u'display_url':="u'display_url':" u'expanded_url':
+u'http://oreilly.com/openbook/',="u'expanded_url':
+u'http://oreilly.com/openbook/'," u'http://t.co/vtk5YWe44y',="u'http://t.co/vtk5YWe44y'," u'indices':="u'indices':" u'oreilly.com/openbook/'="u'oreilly.com/openbook/'" u'url':="u'url':">Out[4]:</p>
+<div class="codehilite"><pre><span class="p">{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">display_url</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">oreilly</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">openbook</span><span class="o">/</span><span class="s">&#39;,</span>
+<span class="s"> u&#39;</span><span class="n">expanded_url</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">oreilly</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">openbook</span><span class="o">/</span><span class="s">&#39;,</span>
+<span class="s"> u&#39;</span><span class="n">indices</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">[</span>20<span class="p">,</span> 42<span class="p">],</span>
+ <span class="n">u</span><span class="o">&#39;</span><span class="n">url</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="p">.</span><span class="n">co</span><span class="o">/</span><span class="n">vtk5YWe44y</span><span class="o">&#39;</span><span class="p">}</span>
+</pre></div>
+
+
+<p>So now that we have the basics down, lets poke around some of the more
+interesting API endpoints. I'm going to investigate trends and this requires a
+<a href="http://developer.yahoo.com/geo/geoplanet/guide/concepts.html">WOEID</a> and
+because I am a bit lazy, this WOEID look up should suffice. <a href="http://woeid.rosselliot.co.nz/">WOEID Look
+up</a>.</p>
+<p>In[5]:</p>
+<div class="codehilite"><pre><span class="n">trends_available</span> <span class="o">=</span> <span class="n">twitter</span><span class="o">.</span><span class="n">trends</span><span class="o">.</span><span class="n">available</span><span class="p">()</span> <span class="c"># returns a long list of places where trends currently &quot;exist&quot; </span>
+<span class="n">trends_available</span>
+</pre></div>
+
+
+<p>Out[5]:</p>
+<div class="codehilite"><pre><span class="p">[{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">country</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="s">&#39;,</span>
+<span class="s">  u&#39;</span><span class="n">countryCode</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">None</span><span class="p">,</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Worldwide</span><span class="o">&#39;</span><span class="p">,</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">parentid</span><span class="o">&#39;</span><span class="p">:</span> 0<span class="p">,</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">placeType</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">code</span><span class="o">&#39;</span><span class="p">:</span> 19<span class="p">,</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Supername</span><span class="o">&#39;</span><span class="p">},</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">url</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">where</span><span class="p">.</span><span class="n">yahooapis</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">place</span><span class="o">/</span>1<span class="o">&#39;</span><span class="p">,</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">woeid</span><span class="o">&#39;</span><span class="p">:</span> 1<span class="p">},</span>
+ <span class="p">{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">country</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Brazil</span><span class="o">&#39;</span><span class="p">,</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">countryCode</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">BR</span><span class="o">&#39;</span><span class="p">,</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Manaus</span><span class="o">&#39;</span><span class="p">,</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">parentid</span><span class="o">&#39;</span><span class="p">:</span> 23424768<span class="p">,</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">placeType</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">code</span><span class="o">&#39;</span><span class="p">:</span> 7<span class="p">,</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Town</span><span class="o">&#39;</span><span class="p">},</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">url</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">where</span><span class="p">.</span><span class="n">yahooapis</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">place</span><span class="o">/</span>455833<span class="o">&#39;</span><span class="p">,</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">woeid</span><span class="o">&#39;</span><span class="p">:</span> 455833<span class="p">},</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">placeType</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">code</span><span class="o">&#39;</span><span class="p">:</span> 7<span class="p">,</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Town</span><span class="o">&#39;</span><span class="p">},</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">url</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">where</span><span class="p">.</span><span class="n">yahooapis</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">place</span><span class="o">/</span>455867<span class="o">&#39;</span><span class="p">,</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">woeid</span><span class="o">&#39;</span><span class="p">:</span> 455867<span class="p">},</span>
+ <span class="p">{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">country</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Argentina</span><span class="o">&#39;</span><span class="p">,</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">countryCode</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">AR</span><span class="o">&#39;</span><span class="p">,</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">C</span><span class="o">\</span><span class="n">xf3rdoba</span><span class="o">&#39;</span><span class="p">,</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">parentid</span><span class="o">&#39;</span><span class="p">:</span> 23424747<span class="p">,</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">placeType</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">code</span><span class="o">&#39;</span><span class="p">:</span> 7<span class="p">,</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Town</span><span class="o">&#39;</span><span class="p">},</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">url</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">where</span><span class="p">.</span><span class="n">yahooapis</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">place</span><span class="o">/</span>466861<span class="o">&#39;</span><span class="p">,</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">woeid</span><span class="o">&#39;</span><span class="p">:</span> 466861<span class="p">},</span>
+ <span class="p">{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">country</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Argentina</span><span class="o">&#39;</span><span class="p">,</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">countryCode</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">AR</span><span class="o">&#39;</span><span class="p">,</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Rosario</span><span class="o">&#39;</span><span class="p">,</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">parentid</span><span class="o">&#39;</span><span class="p">:</span> 23424747<span class="p">,</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">placeType</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">code</span><span class="o">&#39;</span><span class="p">:</span> 7<span class="p">,</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Town</span><span class="o">&#39;</span><span class="p">},</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">url</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">where</span><span class="p">.</span><span class="n">yahooapis</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">place</span><span class="o">/</span>466862<span class="o">&#39;</span><span class="p">,</span>
+  <span class="n">u</span><span class="o">&#39;</span><span class="n">woeid</span><span class="o">&#39;</span><span class="p">:</span> 466862<span class="p">},</span>
+ <span class="p">...</span> <span class="n">cut</span> <span class="n">to</span> <span class="n">save</span> <span class="n">space</span>
+</pre></div>
+
+
+<p>Tucson, Arizona USA = 2508428. Note for passing parameters into requests, the
+magic underscore is nessesary as seen in <code>_id="2508428</code></p>
+<p>In[6]:</p>
+<div class="codehilite"><pre><span class="n">trends_tucson</span> <span class="o">=</span> <span class="n">twitter</span><span class="o">.</span><span class="n">trends</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">_id</span><span class="o">=</span><span class="s">&quot;2508428&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>In[7]:</p>
+<div class="codehilite"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">trends_tucson</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">i</span><span class="p">[</span><span class="s">&#39;trends&#39;</span><span class="p">]:</span>
+        <span class="k">print</span> <span class="n">b</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">]</span>
+
+<span class="c">#5PainfulThings</span>
+<span class="c">#IntialsOfSomeoneYouCareAbout</span>
+<span class="c">#MediaQuestionsForDzhokhar</span>
+<span class="c">#encorepaso</span>
+<span class="c">#ThereGoesMyPants</span>
+<span class="n">Tony</span> <span class="n">Allen</span>
+<span class="n">Eric</span> <span class="n">Bledsoe</span>
+<span class="n">Matt</span> <span class="n">Barnes</span>
+<span class="n">Brandon</span> <span class="n">Belt</span>
+<span class="n">Lamar</span> <span class="n">Odom</span>
+</pre></div>
+
+
+<p>Nothing really happening in Tucson as these closely match the global trends...
+but San Diego is mentioned, what about San Diego? WOEID = 2487889</p>
+<p>In[8]:</p>
+<div class="codehilite"><pre><span class="n">trends_SD</span> <span class="o">=</span> <span class="n">twitter</span><span class="o">.</span><span class="n">trends</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">_id</span><span class="o">=</span><span class="s">&quot;2487889&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">trends_SD</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">i</span><span class="p">[</span><span class="s">&#39;trends&#39;</span><span class="p">]:</span>
+        <span class="k">print</span> <span class="n">b</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">]</span>
+
+<span class="c">#middleschoolmemories</span>
+<span class="c">#IntialsOfSomeoneYouCareAbout</span>
+<span class="c">#LHHATL</span>
+<span class="c">#ItsTooEarlyTo</span>
+<span class="c">#earthday</span>
+<span class="n">Tony</span> <span class="n">Allen</span>
+<span class="n">Z</span> <span class="n">Bo</span>
+<span class="n">Jason</span><span class="s">&#39;s Lyric</span>
+<span class="n">Matt</span> <span class="n">Barnes</span>
+<span class="n">Rudy</span> <span class="n">Gay</span>
+</pre></div>
+
+
+<p>Cool, some of these look interesting but I'll leave the investigation to you ...
+Boston had some major incidents this past week. Are Bostonians still talking
+about it? Boston WOEID = 2367105</p>
+<p>In[9]:</p>
+<div class="codehilite"><pre><span class="n">trends_Bos</span> <span class="o">=</span> <span class="n">twitter</span><span class="o">.</span><span class="n">trends</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">_id</span><span class="o">=</span><span class="s">&quot;2367105&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">trends_Bos</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">i</span><span class="p">[</span><span class="s">&#39;trends&#39;</span><span class="p">]:</span>
+        <span class="k">print</span> <span class="n">b</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">]</span>
+
+<span class="c">#IntialsOfSomeoneYouCareAbout</span>
+<span class="c">#ItsTooEarlyTo</span>
+<span class="c">#LHHATL</span>
+<span class="c">#RAW</span>
+<span class="n">Happy</span> <span class="n">Earth</span> <span class="n">Day</span>
+<span class="n">Stevie</span> <span class="n">J</span>
+<span class="c">#dragrace</span>
+<span class="n">Jason</span><span class="s">&#39;s Lyric</span>
+<span class="n">Tony</span> <span class="n">Allen</span>
+<span class="n">Eric</span> <span class="n">Bledsoe</span>
+</pre></div>
+
+
+<p>Hmmm... TV shows and big topics... One would assume (you know about assumptions) that perhaps we could find
+something about the recent events in Boston trending.</p>
+<p>Lets see what a geo search for Tucson yields. There are a million of cool and novel ways to use this data,
+this little demo simply shows you how to access the data.</p>
+<p>In[10]:</p>
+<div class="codehilite"><pre><span class="n">geo_tweets</span> <span class="o">=</span> <span class="n">twitter</span><span class="o">.</span><span class="n">geo</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="s">&quot;tucson&quot;</span><span class="p">)</span>
+<span class="n">geo_tweets</span><span class="p">[</span><span class="s">&#39;result&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>Out[10]:</p>
+<div class="codehilite"><pre><span class="p">{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">places</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">attributes</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">{},</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">bounding_box</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">coordinates</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">[[[</span><span class="o">-</span>111<span class="p">.</span>059406<span class="p">,</span> 32<span class="p">.</span>033883<span class="p">],</span>
+      <span class="p">[</span><span class="o">-</span>110<span class="p">.</span>708206<span class="p">,</span> 32<span class="p">.</span>033883<span class="p">],</span>
+      <span class="p">[</span><span class="o">-</span>110<span class="p">.</span>708206<span class="p">,</span> 32<span class="p">.</span>32095<span class="p">],</span>
+      <span class="p">[</span><span class="o">-</span>111<span class="p">.</span>059406<span class="p">,</span> 32<span class="p">.</span>32095<span class="p">]]],</span>
+    <span class="n">u</span><span class="o">&#39;</span><span class="n">type</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Polygon</span><span class="o">&#39;</span><span class="p">},</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">contained_within</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">attributes</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">{},</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">bounding_box</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">coordinates</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">[[[</span><span class="o">-</span>114<span class="p">.</span>816591<span class="p">,</span> 31<span class="p">.</span>332177<span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span>109<span class="p">.</span>045223<span class="p">,</span> 31<span class="p">.</span>332177<span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span>109<span class="p">.</span>045223<span class="p">,</span> 37<span class="p">.</span>00426<span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span>114<span class="p">.</span>816591<span class="p">,</span> 37<span class="p">.</span>00426<span class="p">]]],</span>
+      <span class="n">u</span><span class="o">&#39;</span><span class="n">type</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Polygon</span><span class="o">&#39;</span><span class="p">},</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">country</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">United</span> <span class="n">States</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">country_code</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">US</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">full_name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Arizona</span><span class="p">,</span> <span class="n">US</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">id</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">a612c69b44b2e5da</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Arizona</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">place_type</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">admin</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">url</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="p">.</span><span class="n">twitter</span><span class="p">.</span><span class="n">com</span><span class="o">/</span>1<span class="p">.</span>1<span class="o">/</span><span class="n">geo</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="n">a612c69b44b2e5da</span><span class="p">.</span><span class="n">json</span><span class="o">&#39;</span><span class="p">}],</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">country</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">United</span> <span class="n">States</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">country_code</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">US</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">full_name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Tucson</span><span class="p">,</span> <span class="n">AZ</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">id</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">e6a7d49161470b37</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Tucson</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">place_type</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">city</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">url</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="p">.</span><span class="n">twitter</span><span class="p">.</span><span class="n">com</span><span class="o">/</span>1<span class="p">.</span>1<span class="o">/</span><span class="n">geo</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="n">e6a7d49161470b37</span><span class="p">.</span><span class="n">json</span><span class="o">&#39;</span><span class="p">},</span>
+  <span class="p">{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">attributes</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">{},</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">bounding_box</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">coordinates</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">[[[</span><span class="o">-</span>110<span class="p">.</span>977543<span class="p">,</span> 32<span class="p">.</span>185824<span class="p">],</span>
+      <span class="p">[</span><span class="o">-</span>110<span class="p">.</span>960795<span class="p">,</span> 32<span class="p">.</span>185824<span class="p">],</span>
+      <span class="p">[</span><span class="o">-</span>110<span class="p">.</span>960795<span class="p">,</span> 32<span class="p">.</span>203223<span class="p">],</span>
+      <span class="p">[</span><span class="o">-</span>110<span class="p">.</span>977543<span class="p">,</span> 32<span class="p">.</span>203223<span class="p">]]],</span>
+    <span class="n">u</span><span class="o">&#39;</span><span class="n">type</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Polygon</span><span class="o">&#39;</span><span class="p">},</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">contained_within</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">attributes</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">{},</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">bounding_box</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">coordinates</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">[[[</span><span class="o">-</span>114<span class="p">.</span>816591<span class="p">,</span> 31<span class="p">.</span>332177<span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span>109<span class="p">.</span>045223<span class="p">,</span> 31<span class="p">.</span>332177<span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span>109<span class="p">.</span>045223<span class="p">,</span> 37<span class="p">.</span>00426<span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span>114<span class="p">.</span>816591<span class="p">,</span> 37<span class="p">.</span>00426<span class="p">]]],</span>
+      <span class="n">u</span><span class="o">&#39;</span><span class="n">type</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Polygon</span><span class="o">&#39;</span><span class="p">},</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">country</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">United</span> <span class="n">States</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">country_code</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">US</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">full_name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Arizona</span><span class="p">,</span> <span class="n">US</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">id</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">a612c69b44b2e5da</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Arizona</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">place_type</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">admin</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">url</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="p">.</span><span class="n">twitter</span><span class="p">.</span><span class="n">com</span><span class="o">/</span>1<span class="p">.</span>1<span class="o">/</span><span class="n">geo</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="n">a612c69b44b2e5da</span><span class="p">.</span><span class="n">json</span><span class="o">&#39;</span><span class="p">}],</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">country</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">United</span> <span class="n">States</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">country_code</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">US</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">full_name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">South</span> <span class="n">Tucson</span><span class="p">,</span> <span class="n">AZ</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">id</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span>9<span class="n">ba0ab30258b7362</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">South</span> <span class="n">Tucson</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">place_type</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">city</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">url</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="p">.</span><span class="n">twitter</span><span class="p">.</span><span class="n">com</span><span class="o">/</span>1<span class="p">.</span>1<span class="o">/</span><span class="n">geo</span><span class="o">/</span><span class="n">id</span><span class="o">/</span>9<span class="n">ba0ab30258b7362</span><span class="p">.</span><span class="n">json</span><span class="o">&#39;</span><span class="p">},</span>
+  <span class="p">{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">attributes</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">{},</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">bounding_box</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">coordinates</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">[[[</span><span class="o">-</span>111<span class="p">.</span>218168<span class="p">,</span> 32<span class="p">.</span>154521<span class="p">],</span>
+      <span class="p">[</span><span class="o">-</span>111<span class="p">.</span>044793<span class="p">,</span> 32<span class="p">.</span>154521<span class="p">],</span>
+      <span class="p">[</span><span class="o">-</span>111<span class="p">.</span>044793<span class="p">,</span> 32<span class="p">.</span>248227<span class="p">],</span>
+      <span class="p">[</span><span class="o">-</span>111<span class="p">.</span>218168<span class="p">,</span> 32<span class="p">.</span>248227<span class="p">]]],</span>
+    <span class="n">u</span><span class="o">&#39;</span><span class="n">type</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Polygon</span><span class="o">&#39;</span><span class="p">},</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">contained_within</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">attributes</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">{},</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">bounding_box</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">coordinates</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">[[[</span><span class="o">-</span>114<span class="p">.</span>816591<span class="p">,</span> 31<span class="p">.</span>332177<span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span>109<span class="p">.</span>045223<span class="p">,</span> 31<span class="p">.</span>332177<span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span>109<span class="p">.</span>045223<span class="p">,</span> 37<span class="p">.</span>00426<span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span>114<span class="p">.</span>816591<span class="p">,</span> 37<span class="p">.</span>00426<span class="p">]]],</span>
+      <span class="n">u</span><span class="o">&#39;</span><span class="n">type</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Polygon</span><span class="o">&#39;</span><span class="p">},</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">country</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">United</span> <span class="n">States</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">country_code</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">US</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">full_name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Arizona</span><span class="p">,</span> <span class="n">US</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">id</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">a612c69b44b2e5da</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Arizona</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">place_type</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">admin</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">url</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="p">.</span><span class="n">twitter</span><span class="p">.</span><span class="n">com</span><span class="o">/</span>1<span class="p">.</span>1<span class="o">/</span><span class="n">geo</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="n">a612c69b44b2e5da</span><span class="p">.</span><span class="n">json</span><span class="o">&#39;</span><span class="p">}],</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">country</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">United</span> <span class="n">States</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">country_code</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">US</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">full_name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Tucson</span> <span class="n">Estates</span><span class="p">,</span> <span class="n">AZ</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">id</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span>2<span class="n">df92895f5362a8a</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Tucson</span> <span class="n">Estates</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">place_type</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">city</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">url</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="p">.</span><span class="n">twitter</span><span class="p">.</span><span class="n">com</span><span class="o">/</span>1<span class="p">.</span>1<span class="o">/</span><span class="n">geo</span><span class="o">/</span><span class="n">id</span><span class="o">/</span>2<span class="n">df92895f5362a8a</span><span class="p">.</span><span class="n">json</span><span class="o">&#39;</span><span class="p">},</span>
+  <span class="p">{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">attributes</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">{},</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">bounding_box</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">coordinates</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">[[[</span><span class="o">-</span>110<span class="p">.</span>789464<span class="p">,</span> 31<span class="p">.</span>932823<span class="p">],</span>
+      <span class="p">[</span><span class="o">-</span>110<span class="p">.</span>755804<span class="p">,</span> 31<span class="p">.</span>932823<span class="p">],</span>
+      <span class="p">[</span><span class="o">-</span>110<span class="p">.</span>755804<span class="p">,</span> 31<span class="p">.</span>963138<span class="p">],</span>
+      <span class="p">[</span><span class="o">-</span>110<span class="p">.</span>789464<span class="p">,</span> 31<span class="p">.</span>963138<span class="p">]]],</span>
+    <span class="n">u</span><span class="o">&#39;</span><span class="n">type</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Polygon</span><span class="o">&#39;</span><span class="p">},</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">contained_within</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">attributes</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">{},</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">bounding_box</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">{</span><span class="n">u</span><span class="o">&#39;</span><span class="n">coordinates</span><span class="o">&#39;</span><span class="p">:</span> <span class="p">[[[</span><span class="o">-</span>114<span class="p">.</span>816591<span class="p">,</span> 31<span class="p">.</span>332177<span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span>109<span class="p">.</span>045223<span class="p">,</span> 31<span class="p">.</span>332177<span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span>109<span class="p">.</span>045223<span class="p">,</span> 37<span class="p">.</span>00426<span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span>114<span class="p">.</span>816591<span class="p">,</span> 37<span class="p">.</span>00426<span class="p">]]],</span>
+      <span class="n">u</span><span class="o">&#39;</span><span class="n">type</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Polygon</span><span class="o">&#39;</span><span class="p">},</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">country</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">United</span> <span class="n">States</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">country_code</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">US</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">full_name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Arizona</span><span class="p">,</span> <span class="n">US</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">id</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">a612c69b44b2e5da</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Arizona</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">place_type</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">admin</span><span class="o">&#39;</span><span class="p">,</span>
+     <span class="n">u</span><span class="o">&#39;</span><span class="n">url</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="p">.</span><span class="n">twitter</span><span class="p">.</span><span class="n">com</span><span class="o">/</span>1<span class="p">.</span>1<span class="o">/</span><span class="n">geo</span><span class="o">/</span><span class="n">id</span><span class="o">/</span><span class="n">a612c69b44b2e5da</span><span class="p">.</span><span class="n">json</span><span class="o">&#39;</span><span class="p">}],</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">country</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">United</span> <span class="n">States</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">country_code</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">US</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">full_name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Corona</span> <span class="n">de</span> <span class="n">Tucson</span><span class="p">,</span> <span class="n">AZ</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">id</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span>4<span class="n">d35b22f6680264a</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">name</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">Corona</span> <span class="n">de</span> <span class="n">Tucson</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">place_type</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">city</span><span class="o">&#39;</span><span class="p">,</span>
+   <span class="n">u</span><span class="o">&#39;</span><span class="n">url</span><span class="o">&#39;</span><span class="p">:</span> <span class="n">u</span><span class="o">&#39;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="p">.</span><span class="n">twitter</span><span class="p">.</span><span class="n">com</span><span class="o">/</span>1<span class="p">.</span>1<span class="o">/</span><span class="n">geo</span><span class="o">/</span><span class="n">id</span><span class="o">/</span>4<span class="n">d35b22f6680264a</span><span class="p">.</span><span class="n">json</span><span class="o">&#39;</span><span class="p">}]}</span>
+</pre></div>
+
+
+<p>Cool, Now we'll perform a query for tweets containing <code>python job</code> and iterate
+the results:</p>
+<p>In[11]:</p>
+<div class="codehilite"><pre><span class="n">fun_search</span> <span class="o">=</span> <span class="n">twitter</span><span class="o">.</span><span class="n">search</span><span class="o">.</span><span class="n">tweets</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="s">&quot;python job&quot;</span><span class="p">,</span><span class="n">result_type</span><span class="o">=</span><span class="s">&#39;recent&#39;</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="c">#fun_search # uncomment to see the returned data for fields that look interesting...</span>
+</pre></div>
+
+
+<p>In[12]:</p>
+<div class="codehilite"><pre><span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">fun_search</span><span class="p">[</span><span class="s">&#39;statuses&#39;</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">b</span><span class="p">[</span><span class="s">&#39;entities&#39;</span><span class="p">][</span><span class="s">&#39;urls&#39;</span><span class="p">]:</span>
+        <span class="k">print</span> <span class="n">b</span><span class="p">[</span><span class="s">&#39;text&#39;</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="s">&#39;created_at&#39;</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="s">&#39;url&#39;</span><span class="p">]</span>
+
+<span class="n">Lead</span> <span class="n">Software</span> <span class="n">Engineer</span> <span class="p">(</span><span class="n">Server</span> <span class="n">side</span><span class="p">,</span> <span class="n">Python</span><span class="p">)</span> <span class="o">*</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">qObCXSv46P</span>
+<span class="o">*</span> <span class="n">Empresa</span><span class="p">:</span> <span class="n">F</span><span class="o">-</span><span class="n">Secure</span> <span class="o">*</span> <span class="n">Lugar</span><span class="p">:</span> <span class="n">Helsinki</span> <span class="c">#empleo #trabajo #finlandia Tue Apr 23</span>
+<span class="mo">05</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mo">07</span> <span class="o">+</span><span class="mo">0000</span> <span class="mi">2013</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">qObCXSv46P</span>
+<span class="c">#Python Install and configure reddit clone script on amazon web services by</span>
+<span class="n">gorrrra</span><span class="p">:</span> <span class="n">Configure</span> <span class="n">existing</span> <span class="n">r</span><span class="o">...</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">VgYuI3te4T</span> <span class="c">#Job Tue Apr 23 05:14:09</span>
+<span class="o">+</span><span class="mo">0000</span> <span class="mi">2013</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">VgYuI3te4T</span>
+<span class="n">New</span> <span class="n">Job</span> <span class="n">Alert</span><span class="p">:</span> <span class="n">Senior</span> <span class="n">Software</span> <span class="n">Engineers</span> <span class="p">(</span><span class="n">Ruby</span> <span class="n">on</span> <span class="n">Rails</span><span class="p">,</span> <span class="n">Python</span> <span class="ow">and</span><span class="o">/</span><span class="ow">or</span> <span class="n">Java</span><span class="p">)</span>
+<span class="n">at</span> <span class="n">Rafte</span><span class="o">...</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">Ef7ZsAGdAe</span> <span class="c">#python #jobs Tue Apr 23 05:07:38 +0000 2013</span>
+<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">Ef7ZsAGdAe</span>
+<span class="n">Site</span> <span class="n">Reliability</span> <span class="n">Engineer</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">J784yxGA3w</span> <span class="c">#java #python #jobs #hiring</span>
+<span class="c">#careers Tue Apr 23 05:00:47 +0000 2013 http://t.co/J784yxGA3w</span>
+<span class="c">#uitgeverij #Belgie Python Developer gevraagd voor interne functie te</span>
+<span class="n">Antwerpen</span><span class="p">:</span> <span class="n">Comput</span><span class="o">...</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">NstoYH6KIh</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="mi">6</span><span class="n">R25reAyu2</span> <span class="n">Tue</span> <span class="n">Apr</span> <span class="mi">23</span>
+<span class="mo">04</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">51</span> <span class="o">+</span><span class="mo">0000</span> <span class="mi">2013</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">NstoYH6KIh</span>
+<span class="c">#uitgeverij #Belgie Python Developer gevraagd voor interne functie te</span>
+<span class="n">Antwerpen</span><span class="p">:</span> <span class="n">Comput</span><span class="o">...</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">NstoYH6KIh</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="mi">6</span><span class="n">R25reAyu2</span> <span class="n">Tue</span> <span class="n">Apr</span> <span class="mi">23</span>
+<span class="mo">04</span><span class="p">:</span><span class="mi">47</span><span class="p">:</span><span class="mi">51</span> <span class="o">+</span><span class="mo">0000</span> <span class="mi">2013</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="mi">6</span><span class="n">R25reAyu2</span>
+<span class="p">[</span><span class="n">Full</span><span class="o">-</span><span class="n">time</span><span class="p">]</span> <span class="n">Seeking</span> <span class="n">Passionate</span> <span class="n">Python</span> <span class="n">developers</span> <span class="n">at</span> <span class="n">Soshio</span>
+<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">YVWCEEBBhA</span> <span class="n">Tue</span> <span class="n">Apr</span> <span class="mi">23</span> <span class="mo">04</span><span class="p">:</span><span class="mi">36</span><span class="p">:</span><span class="mi">33</span> <span class="o">+</span><span class="mo">0000</span> <span class="mi">2013</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">YVWCEEBBhA</span>
+<span class="n">RT</span> <span class="nd">@zs_frontline</span><span class="p">:</span> <span class="err">［</span><span class="n">Web</span><span class="err">求人情報］</span>
+ <span class="n">Python</span><span class="err">，</span><span class="n">Ruby</span><span class="err">，</span><span class="n">Perl</span><span class="err">，</span><span class="n">PHP</span><span class="err">，</span><span class="n">Java</span><span class="err">などを用いた</span><span class="n">Web</span><span class="err">アプリの開発やフロントエンド、デザイン案件まで多数あります！</span><span class="o">...</span>
+<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">t8WBRghjFF</span> <span class="n">Tue</span> <span class="n">Apr</span> <span class="mi">23</span> <span class="mo">04</span><span class="p">:</span><span class="mo">03</span><span class="p">:</span><span class="mi">26</span> <span class="o">+</span><span class="mo">0000</span> <span class="mi">2013</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">t8WBRghjFF</span>
+<span class="err">［</span><span class="n">Web</span><span class="err">求人情報］</span>
+ <span class="n">Python</span><span class="err">，</span><span class="n">Ruby</span><span class="err">，</span><span class="n">Perl</span><span class="err">，</span><span class="n">PHP</span><span class="err">，</span><span class="n">Java</span><span class="err">などを用いた</span><span class="n">Web</span><span class="err">アプリの開発やフロントエンド、デザイン案件まで多数あります！</span><span class="o">...</span>
+<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">t8WBRghjFF</span> <span class="n">Tue</span> <span class="n">Apr</span> <span class="mi">23</span> <span class="mo">04</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">06</span> <span class="o">+</span><span class="mo">0000</span> <span class="mi">2013</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">t8WBRghjFF</span>
+<span class="c">#job http://t.co/ew5ADWt8oE</span>
+ <span class="o">-</span> <span class="n">Senior</span> <span class="n">Python</span> <span class="o">/</span> <span class="n">MongoDB</span> <span class="n">Developer</span><span class="p">,</span> <span class="n">Array</span> <span class="n">Tue</span> <span class="n">Apr</span> <span class="mi">23</span> <span class="mo">03</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mi">12</span> <span class="o">+</span><span class="mo">0000</span> <span class="mi">2013</span>
+<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">ew5ADWt8oE</span>
+<span class="c">#job http://t.co/4WMtLjTtJ0</span>
+ <span class="o">-</span> <span class="err">Разработчик</span> <span class="n">Python</span><span class="p">,</span> <span class="n">Array</span> <span class="n">Tue</span> <span class="n">Apr</span> <span class="mi">23</span> <span class="mo">03</span><span class="p">:</span><span class="mi">54</span><span class="p">:</span><span class="mi">08</span> <span class="o">+</span><span class="mo">0000</span> <span class="mi">2013</span>
+<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="mi">4</span><span class="n">WMtLjTtJ0</span>
+<span class="n">Python</span> <span class="n">Flask</span> <span class="n">Data</span> <span class="n">Collection</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">cLcyyLaqri</span> <span class="n">Tue</span> <span class="n">Apr</span> <span class="mi">23</span> <span class="mo">03</span><span class="p">:</span><span class="mi">53</span><span class="p">:</span><span class="mi">40</span>
+<span class="o">+</span><span class="mo">0000</span> <span class="mi">2013</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">cLcyyLaqri</span>
+<span class="n">RT</span> <span class="nd">@findmjob</span><span class="p">:</span> <span class="n">Site</span> <span class="n">Reliability</span> <span class="n">Engineer</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">J784yxGA3w</span> <span class="c">#php #git</span>
+<span class="c">#java #rest #unix #ruby #mysql #redis #python #hadoop... http://t.… Tue Apr 23</span>
+<span class="mo">03</span><span class="p">:</span><span class="mi">46</span><span class="p">:</span><span class="mi">13</span> <span class="o">+</span><span class="mo">0000</span> <span class="mi">2013</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">J784yxGA3w</span>
+<span class="n">Site</span> <span class="n">Reliability</span> <span class="n">Engineer</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">J784yxGA3w</span> <span class="c">#php #git #java #rest #unix</span>
+<span class="c">#ruby #mysql #redis #python #hadoop... http://t.co/6xrPUo9zRr Tue Apr 23</span>
+<span class="mo">03</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">08</span> <span class="o">+</span><span class="mo">0000</span> <span class="mi">2013</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">J784yxGA3w</span>
+<span class="n">Site</span> <span class="n">Reliability</span> <span class="n">Engineer</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">J784yxGA3w</span> <span class="c">#php #git #java #rest #unix</span>
+<span class="c">#ruby #mysql #redis #python #hadoop... http://t.co/6xrPUo9zRr Tue Apr 23</span>
+<span class="mo">03</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">08</span> <span class="o">+</span><span class="mo">0000</span> <span class="mi">2013</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="mi">6</span><span class="n">xrPUo9zRr</span>
+<span class="n">Programador</span> <span class="n">Python</span><span class="p">:</span> <span class="n">Porto</span> <span class="n">Alegre</span> <span class="o">-</span> <span class="n">RS</span> <span class="o">-</span>  <span class="n">An</span><span class="err">ú</span><span class="n">ncio</span> <span class="n">n</span><span class="err">º</span><span class="p">:</span> <span class="mi">919784</span> <span class="n">Programador</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">PythonAn</span><span class="err">ú</span><span class="n">ncio</span> <span class="n">p</span><span class="o">...</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">fYoyZ35xLT</span> <span class="c">#vagas #programador Tue Apr 23</span>
+<span class="mo">03</span><span class="p">:</span><span class="mi">29</span><span class="p">:</span><span class="mi">42</span> <span class="o">+</span><span class="mo">0000</span> <span class="mi">2013</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">fYoyZ35xLT</span>
+<span class="n">New</span> <span class="n">Job</span> <span class="n">Alert</span><span class="p">:</span> <span class="n">Software</span> <span class="n">Engineer</span> <span class="o">-</span> <span class="n">Python</span> <span class="n">at</span> <span class="n">Jawbone</span> <span class="p">(</span><span class="n">San</span> <span class="n">Francisco</span><span class="p">,</span> <span class="n">CA</span><span class="p">):</span>
+<span class="n">technical</span> <span class="n">design</span> <span class="n">speci</span><span class="o">...</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="mo">02</span><span class="n">proruK5j</span> <span class="c">#python #jobs Tue Apr 23</span>
+<span class="mo">03</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mi">55</span> <span class="o">+</span><span class="mo">0000</span> <span class="mi">2013</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="mo">02</span><span class="n">proruK5j</span>
+<span class="c">#job #python Write up 3 algorithm base on an interface and abstraction in</span>
+<span class="n">OCaml</span> <span class="n">by</span> <span class="n">kennguy13</span><span class="p">:</span> <span class="n">Sorry</span><span class="o">...</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">PGb3klkXbV</span> <span class="c">#freelance Tue Apr 23</span>
+<span class="mo">03</span><span class="p">:</span><span class="mo">06</span><span class="p">:</span><span class="mo">00</span> <span class="o">+</span><span class="mo">0000</span> <span class="mi">2013</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">PGb3klkXbV</span>
+<span class="c">#C Write up 3 algorithm base on an interface and abstraction in OCaml by</span>
+<span class="n">kennguy13</span><span class="p">:</span> <span class="n">Sorry</span> <span class="n">the</span> <span class="n">project</span> <span class="n">has</span><span class="o">...</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">eV5enpwGcD</span> <span class="c">#JOB Tue Apr 23</span>
+<span class="mo">03</span><span class="p">:</span><span class="mo">02</span><span class="p">:</span><span class="mi">37</span> <span class="o">+</span><span class="mo">0000</span> <span class="mi">2013</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">eV5enpwGcD</span>
+<span class="c">#C Write up 3 algorithm base on an interface and abstraction in OCaml by</span>
+<span class="n">kennguy13</span><span class="p">:</span> <span class="n">Sorry</span> <span class="n">the</span> <span class="n">pro</span><span class="o">...</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">V5cPAOv7PX</span> <span class="c">#Programming Tue Apr 23</span>
+<span class="mo">03</span><span class="p">:</span><span class="mo">02</span><span class="p">:</span><span class="mi">36</span> <span class="o">+</span><span class="mo">0000</span> <span class="mi">2013</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">V5cPAOv7PX</span>
+<span class="c">#Python Write up 3 algorithm base on an interface and abstraction in OCaml</span>
+<span class="n">by</span> <span class="n">kennguy13</span><span class="p">:</span> <span class="n">Sorry</span> <span class="n">the</span> <span class="n">projec</span><span class="o">...</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="mi">57</span><span class="n">Kw3abxVV</span> <span class="c">#Job Tue Apr 23</span>
+<span class="mo">02</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mi">35</span> <span class="o">+</span><span class="mo">0000</span> <span class="mi">2013</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">t</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="mi">57</span><span class="n">Kw3abxVV</span>
+</pre></div>
+
+
+<p>If the traditional method of accessing Twitter bores you or you want finer
+control over your use of the Twitter services, I think Python Twitter Tools is a
+viable option. It reliably hits and maps to the Twitter API and comes packed
+with an IRCBOT and commandline utilities. PTT is actively maintained as of this
+writing and looks well constructed in my opinion.</p></div>
+		<div>
+		</article>
+			<h2>Comments</h2>
+		 				
+		<div>
+	</div>
+
+    </section>
+	<!--sidebar-->
+            <aside id="sidebar" class="alignright span4">
+                <section class="blog-category">
+                    <div class="title-divider">
+                        <h3 class="title-sidebar">Categories</h3>
+                    </div>
+                    <ul class="ul-col2 clearfix">
+                        		<li ><a href="./category/apps.html"><i class="icon-chevron-right"></i>apps</a></li>
+	            		<li ><a href="./category/as3.html"><i class="icon-chevron-right"></i>as3</a></li>
+	            		<li ><a href="./category/design.html"><i class="icon-chevron-right"></i>design</a></li>
+	            		<li class="active"><a href="./category/ipython-notebooks.html"><i class="icon-chevron-right"></i>iPython-Notebooks</a></li>
+	            		<li ><a href="./category/mobile.html"><i class="icon-chevron-right"></i>mobile</a></li>
+	            		<li ><a href="./category/programming.html"><i class="icon-chevron-right"></i>programming</a></li>
+	            		<li ><a href="./category/terms.html"><i class="icon-chevron-right"></i>terms</a></li>
+	            		<li ><a href="./category/web-development.html"><i class="icon-chevron-right"></i>web development</a></li>
+	                                </ul>
+                </section>
+                <section class="blog-category">
+                    <div class="title-divider">
+                        <h3 class="title-sidebar">Archives</h3>
+                    </div>
+                    <ul class="ul-col2 clearfix">
+                    	<li><a href="archives.html"><i class="icon-chevron-right"></i>Complete Listing</a></li>
+                    </ul>
+                </section>
+            </aside>
+</section>
+<!--footer-->
+<footer id="footer">
+    <div class="row-fluid">
+
+        <div class="span4">
+            <div class="title-divider">
+                <h3>Thank You!</h3>
+            </div>
+            <div>
+                <p>Hey guys and gals! Thanks for visiting my blog, where the hope is to provide something of marginal utility. I am a full-time student in Computer Science and looking for interships or contract work. Drop me a line here: michael at caffeineindustries.com or send me a <a href="http://twitter.com/MonkMartinez">Tweet!</a></p>
+            </div>
+        </div>
+        <div class="span8">
+            <div class="title-divider">
+                <h3>Tweets</h3>
+            </div>
+            <div id='tweets'></div>
+        </div>
+        </div>
+</footer>
+
+<!--footer menu-->
+<section id="footer-menu">
+    <div class="row-fluid">
+        <p class="span8">&copy 2012 Michael Martinez <a style="color:#e1e1e1" href="#">Here</a></p>
+        <p class="span4"><span class="pull-right">Copyright 2012 - All Rights Reserved</span></p>
+    </div>
+</section>
+<!-- end footer -->
+
+</div><!-- main wrap -->
+
+</body>
+</html>
+<!-- Localized -->
