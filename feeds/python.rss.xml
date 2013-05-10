@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>MM</title><link>http://michaelmartinez.in/</link><description></description><atom:link href="http://michaelmartinez.in/feeds/python.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 10 May 2013 00:00:00 -0700</lastBuildDate><item><title>Basic Alembic Migrations with Flask</title><link>http://michaelmartinez.in/basic-alembic-migrations-with-flask.html</link><description>&lt;p&gt;This post will cover the minimal set-up to get basic (auto-generating) Alembic migrations working within a Flask application. The pre-requisites are;
+Flask, SQLAlchemy, Flask-SQLAlchemy and Alembic in case that wasn't obvious.&lt;/p&gt;
+&lt;p&gt;My current project is being built with &lt;a href="http://flask.pocoo.org/"&gt;Flask&lt;/a&gt; utilizing &lt;a href="http://www.sqlalchemy.org/"&gt;SQLalchemy&lt;/a&gt; as an abstraction to
+my data persistence layer AKA ORM. I am also using the &lt;a href="http://pythonhosted.org/Flask-SQLAlchemy/"&gt;Flask-SQLALchemy&lt;/a&gt;
+extension to make life even easier. In the fantastic &lt;a href="http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world"&gt;Flask Mega Tutorial&lt;/a&gt;,
+Miguel Grinburg uses &lt;a href="http://code.google.com/p/sqlalchemy-migrate"&gt;sqlalchemy-migrate&lt;/a&gt; to manage the migrations of his database.
+I found the code to be a bit heavy-handed and fragile, not to mention that sqlalchemy-migrate is incompatible with versions
+of SQLAlchemy greater than 0.8, nor has it seen an update in sometime. The constant churn of packages and frameworks is a
+&lt;s&gt;risk&lt;/s&gt;feature of Open Source Software. One has to be comfortable with this situation and I am!&lt;/p&gt;
+&lt;p&gt;That said, to the database migration rescue comes &lt;a href="http://alembic.readthedocs.org/en/latest/"&gt;Alembic&lt;/a&gt;. This package is
+written by &lt;a href="http://techspot.zzzeek.org/"&gt;Mike Mayer&lt;/a&gt; who happens to be the father of SQLAlchemy itself. I can't
+think of another person who would be more qualified to write such a tool than he. We are a truly lucky lot in this case!&lt;/p&gt;
+&lt;p&gt;On with it now!&lt;/p&gt;
+&lt;h3&gt;Get started&lt;/h3&gt;
+&lt;p&gt;This first thing you need to do is create the migration environment. I suggest creating a virtualenv for your project before
+you start.&lt;/p&gt;
+&lt;p&gt;Once you have activated your virutalenv:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;yourproject
+&lt;span class="nv"&gt;$ &lt;/span&gt;pip install alembic
+&lt;span class="nv"&gt;$ &lt;/span&gt;alembic init alembic
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This command creates an Alembic directory and alembic.ini file in your project directory. Running &lt;code&gt;alembic init alembic&lt;/code&gt;
+creates a generic configuration. Run it as described above unless you have a multi-database or a pylons project. The docs
+for this are &lt;a href="https://alembic.readthedocs.org/en/latest/tutorial.html#creating-an-environment"&gt;here.&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;alembic.ini&lt;/h3&gt;
+&lt;p&gt;Just like SQLAlchemy, I believe Alembic is customizable to its very core, but I am no expert. For my simple mission to get Alembic running,
+I chose to leave this file as is. I will revisit this aspect if conditions warrant in a future post.&lt;/p&gt;
+&lt;h3&gt;env.py&lt;/h3&gt;
+&lt;p&gt;This is where I made some modifications to the generated file to get it working with Flask.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;__future__&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;with_statement&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getcwd&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;alembic&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;context&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sqlalchemy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;engine_from_config&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pool&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;logging.config&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;fileConfig&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="err"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nn"&gt;application&lt;/span&gt;&lt;span class="err"&gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;app&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="err"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nn"&gt;application&lt;/span&gt;&lt;span class="err"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nn"&gt;.models&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;
+
+&lt;span class="c"&gt;# This is the &amp;#39;Generic&amp;#39; alembic modified with some settings&lt;/span&gt;
+&lt;span class="c"&gt;# specific to this app&lt;/span&gt;
+
+&lt;span class="c"&gt;# this is the Alembic Config object, which provides&lt;/span&gt;
+&lt;span class="c"&gt;# access to the values within the .ini file in use.&lt;/span&gt;
+&lt;span class="n"&gt;config&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;
+
+&lt;span class="c"&gt;# Overwrite the sqlalchemy.url in the alembic.ini file.&lt;/span&gt;
+&lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_main_option&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;sqlalchemy.url&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;SQLALCHEMY_DATABASE_URI&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+&lt;span class="c"&gt;# Interpret the config file for Python logging.&lt;/span&gt;
+&lt;span class="c"&gt;# This line sets up loggers basically.&lt;/span&gt;
+&lt;span class="n"&gt;fileConfig&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;config_file_name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c"&gt;# add your model&amp;#39;s MetaData object here&lt;/span&gt;
+&lt;span class="c"&gt;# for &amp;#39;autogenerate&amp;#39; support&lt;/span&gt;
+&lt;span class="c"&gt;# from myapp import mymodel&lt;/span&gt;
+&lt;span class="c"&gt;# target_metadata = mymodel.Base.metadata&lt;/span&gt;
+&lt;span class="n"&gt;target_metadata&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;metadata&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Import os and sys to modify the path. I am not sure if this is a bug in Alembic, but I could not get
+Alembic to find my modules without appending the current working directory to my path.&lt;/li&gt;
+&lt;li&gt;Import your app and db. Note: this is application specific as Flask will let you set these up in a few different places.&lt;/li&gt;
+&lt;li&gt;Override the sqlalchemy.url in Alembic.ini file with a pointer to your applications database config&lt;/li&gt;
+&lt;li&gt;Use db.metadata to provide automatic migration generation support.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Autogenerate Migrations&lt;/h3&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;alembic revision --autogenerate -m &lt;span class="s2"&gt;&amp;quot;&amp;lt;insert message here&amp;gt;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can inspect and modify the migration created by looking in the &lt;code&gt;application/alembic/versions/&lt;/code&gt; directory&lt;/p&gt;
+&lt;p&gt;Docs for this are &lt;a href="https://alembic.readthedocs.org/en/latest/tutorial.html#auto-generating-migrations"&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Run Migrations&lt;/h3&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;alembic upgrade head
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Docs for this are &lt;a href="https://alembic.readthedocs.org/en/latest/tutorial.html#running-our-first-migration"&gt;here.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;... and we are good to go! Basic Alembic migrations should be running with most Flask apps.
+&lt;a href="http://flask.pocoo.org/"&gt;Flask&lt;/a&gt; is great framework for building python web apps. I plan on using it
+extensively for the next few projects floating around in my head. There will be a lot more on that front
+in due time. I will be sure to post more on my adventures with Flask, SQLAlchemy, Alembic and others as time permits...&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Michael Martinez</dc:creator><pubDate>Fri, 10 May 2013 00:00:00 -0700</pubDate><guid>tag:michaelmartinez.in,2013-05-10:basic-alembic-migrations-with-flask.html</guid></item></channel></rss>
