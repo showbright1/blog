@@ -1,5 +1,570 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>MM</title><link href="http://michaelmartinez.in/" rel="alternate"></link><link href="http://michaelmartinez.in/feeds/all.atom.xml" rel="self"></link><id>http://michaelmartinez.in/</id><updated>2013-05-10T00:00:00-07:00</updated><entry><title>Basic Alembic Migrations with Flask</title><link href="http://michaelmartinez.in/basic-alembic-migrations-with-flask.html" rel="alternate"></link><updated>2013-05-10T00:00:00-07:00</updated><author><name>Michael Martinez</name></author><id>tag:michaelmartinez.in,2013-05-10:basic-alembic-migrations-with-flask.html</id><summary type="html">&lt;p&gt;This post will cover the minimal set-up to get basic (auto-generating) Alembic migrations working within a Flask application. The pre-requisites are;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>MM</title><link href="http://michaelmartinez.in/" rel="alternate"></link><link href="http://michaelmartinez.in/feeds/all.atom.xml" rel="self"></link><id>http://michaelmartinez.in/</id><updated>2013-05-20T00:00:00-07:00</updated><entry><title>Parse Feeds with FeedParser</title><link href="http://michaelmartinez.in/parse-feeds-with-feedparser.html" rel="alternate"></link><updated>2013-05-20T00:00:00-07:00</updated><author><name>Michael Martinez</name></author><id>tag:michaelmartinez.in,2013-05-20:parse-feeds-with-feedparser.html</id><summary type="html">&lt;p&gt;I am currently working on a &lt;a href="http://flask.pocoo.org/"&gt;Flask&lt;/a&gt; feed reader app.
+The plan is to enable a reader app that attaches to static site generator like
+&lt;a href="http://docs.getpelican.com/en/latest/"&gt;Pelican&lt;/a&gt;,
+&lt;a href="http://nikola.ralsina.com.ar/"&gt;Nikola&lt;/a&gt; and
+&lt;a href="http://mynt.mirroredwhite.com/"&gt;Mynt&lt;/a&gt; among many &lt;a href="http://www.quora.com
+/Whats-the-best-available-static-blog-website-generator-in-Python"&gt;others&lt;/a&gt;. I have the
+basic structure of the app done and I wanted to implement feed parsing. With
+quite a bit of effort I probably could have rolled my own bugging feedparser,
+but I am a believer in not re-inventing the wheel. So I turned to Google and
+found FeedParser for python.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://pythonhosted.org/feedparser/index.html"&gt;Feedparser&lt;/a&gt; is touted as a
+&lt;a href="https://pypi.python.org/pypi/feedparser/5.1.3"&gt;universal feed parser&lt;/a&gt; that
+handles RSS 0.9x, RSS 1.0, RSS 2.0, CDF, Atom 0.3, and Atom 1.0 feeds. In order
+to really understand how this package works, I decided to create this notebook
+and share with all of you. Hopefully, it sheds some light on the finer details
+of working with feeds and python.&lt;/p&gt;
+&lt;p&gt;&lt;a class="btn btn-large" href="/static/ipynb/Feedparser.ipynb"&gt;&lt;i class="icon-download-alt"&gt;&lt;/i&gt; Download this Notebook&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Feed Data&lt;/h3&gt;
+&lt;p&gt;There are basically two "groups" of data that come with every feed. The feed
+data itself, as in the hackaday, or Planet Python feed(s) and the relevant data
+about them. The other group of data are the feed entries, and these can be
+thought of as the stream of entities that the feed produces. For this example,
+entries are individual blog posts supplied by the feed.&lt;/p&gt;
+&lt;p&gt;The first task is to import feedparser and get a few feeds to work with.&lt;/p&gt;
+&lt;p&gt;In[1]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;feedparser&lt;/span&gt;
+&lt;span class="n"&gt;planet_python&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;feedparser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;http://planet.python.org/rss20.xml&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;hack&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;feedparser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;http://www.hackaday.com/rss.xml&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So let's get some data about the specific feeds we have just accessed and parsed
+with feedparser.&lt;/p&gt;
+&lt;p&gt;In[2]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;hack&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;feed&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out[2]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="o"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Hack&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;Day&lt;/span&gt;&lt;span class="o"&gt;&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If we want to store the title data as a string in a database or something, we
+can use the encode to &lt;code&gt;utf-8&lt;/code&gt; method as demo'ed below. If not, simply calling
+&lt;code&gt;feed.title&lt;/code&gt; will return the raw (parsed) title of the feed.&lt;/p&gt;
+&lt;p&gt;In[3]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;planet_python&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;feed&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out[3]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="s"&gt;&amp;#39;Planet Python&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The feed links. Reference the doc's for a full list of feed items that can be accessed.&lt;/p&gt;
+&lt;p&gt;In[4]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;hack&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;feed&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out[4]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="o"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;hackaday&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In[5]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;planet_python&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;feed&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out[5]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="o"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;planet&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;There are two convenience http methods that can potentially save a bunch of
+error prone manual date/time checking code. In short, your implementation needs
+a way to check if the feed has any updated items. &lt;a href="http://pythonhosted.org/feedparser/http-etag.html"&gt;ETag and last modified
+Headers&lt;/a&gt; are special http
+headers that &lt;em&gt;may&lt;/em&gt; be sent on subsequent requests to check for updates. Proper
+&lt;a href="http://docs.python.org/2/tutorial/errors.html"&gt;exception&lt;/a&gt; handling and testing
+will need to be done to ensure these operate as expected. I've included them
+here we will try them out at the end of the post.&lt;/p&gt;
+&lt;p&gt;In[6]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;h_tag&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;hack&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;etag&lt;/span&gt;
+&lt;span class="n"&gt;h_tag&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out[6]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="o"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;jJkun8gY53hstqhk&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;8&lt;span class="n"&gt;EvcdIIKuA&lt;/span&gt;&lt;span class="o"&gt;&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In[7]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;h_mod&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;hack&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;modified&lt;/span&gt;
+&lt;span class="n"&gt;h_mod&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out[7]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="s"&gt;&amp;#39;Mon, 20 May 2013 06:29:38 GMT&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In[8]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;p_tag&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;planet_python&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;etag&lt;/span&gt;
+&lt;span class="n"&gt;p_tag&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out[8]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="o"&gt;&amp;#39;&lt;/span&gt;&amp;quot;17&lt;span class="n"&gt;d8206&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;c0c4e&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;4&lt;span class="n"&gt;dd1fe032e880&lt;/span&gt;&amp;quot;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In[9]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;p_mod&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;planet_python&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;modified&lt;/span&gt;
+&lt;span class="n"&gt;p_mod&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out[9]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="s"&gt;&amp;#39;Mon, 20 May 2013 05:48:02 GMT&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Entries, or the meat and potatoes of Feed parsing&lt;/h3&gt;
+&lt;p&gt;The other half of the equation in this demo is accessing the data that the feed
+produces. The following explores the myriad of ways to get and manipulate this
+data&lt;/p&gt;
+&lt;p&gt;Calling entries on our feedparser object returns a FeedParserDict. After
+inspecting the source code, FeedParserDict subclasses a UserDict which
+subclasses dict but it behaves like a list as well. This is what I love about
+Python.&lt;/p&gt;
+&lt;p&gt;The first item in the entries is called with entries at index 0. This gives us a
+clue as to how the data is structured. The doc's are equally clear about what
+you can access with &lt;code&gt;entries[i].&amp;lt;item here&amp;gt;&lt;/code&gt;. Chain `encode('utf-8') to the end
+of each call to get a string.&lt;/p&gt;
+&lt;p&gt;In[10]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;hack&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;entries&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out[10]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;{&amp;#39;author&amp;#39;: u&amp;#39;Mike Szczys&amp;#39;,
+ &amp;#39;author_detail&amp;#39;: {&amp;#39;name&amp;#39;: u&amp;#39;Mike Szczys&amp;#39;},
+ &amp;#39;authors&amp;#39;: [{}],
+ &amp;#39;comments&amp;#39;: u&amp;#39;http://hackaday.com/2013/05/19/hackaday-links-sunday-may-19th-2013/#comments&amp;#39;,
+ &amp;#39;content&amp;#39;: [{&amp;#39;base&amp;#39;: u&amp;#39;http://feeds2.feedburner.com/hackaday/LgoM&amp;#39;,
+   &amp;#39;language&amp;#39;: None,
+   &amp;#39;type&amp;#39;: u&amp;#39;text/html&amp;#39;,
+   &amp;#39;value&amp;#39;: u&amp;#39;&lt;span class="nt"&gt;&amp;lt;p&amp;gt;&amp;lt;img&lt;/span&gt; &lt;span class="na"&gt;alt=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;hackaday-links-chain&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;aligncenter size-full wp-image-97424&amp;quot;&lt;/span&gt;
+   &lt;span class="na"&gt;height=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;32&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://hackadaycom.files.wordpress.com/2013/04/hackaday-links-chain.png?w=580&amp;amp;#038;h=32&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;width=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;580&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+   &lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;\n&lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Laser cutter owners may find &lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://www.makercase.com/&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;target=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;_blank&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;this online box design tool&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+   which [Jon] built quite useful. It&lt;span class="ni"&gt;&amp;amp;#8217;&lt;/span&gt;s got a few more joint options than
+   &lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://hackaday.com/2012/07/26/box-maker-extension-for-inkscape/&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;the Inkscape box design add-on&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&lt;/span&gt; does.
+   &lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;\n&lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Apparently the US Navy has the ability to bring down drones in
+   &lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://www.youtube.com/watch?v=KEUwnqmKlbE&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;target=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;_blank&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;a flaming pile of laser-caused death&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;.
+   [Thanks Joshua]&lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;\n&lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;[Michail] has been working on &lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://3.14.by/en/read/BarsFA-4T-full-adder&amp;quot;&lt;/span&gt;
+   &lt;span class="na"&gt;target=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;_blank&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;a transistor-based full adder&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;. He&lt;span class="ni"&gt;&amp;amp;#8217;&lt;/span&gt;s posted a Spice simulation if you want to learn about the design.
+   &lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;\n&lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Turn your crystal clear LED bodies into diffuse ones &lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://rurandom.org/justintime/index.php?title=Diffusing_Leds_the_Fast_Way&amp;quot;&lt;/span&gt;
+   &lt;span class="na"&gt;target=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;_blank&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;using a wooden dowel, power drill, and sandpaper&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;. The results look better than what we&lt;span class="ni"&gt;&amp;amp;#8217;&lt;/span&gt;ve accomplished by hand.
+   [Thanks Vinnie]&lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;\n&lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Play your favorite Atari Jaguar games on an FPGA thanks to the work\xa0[Gregory Estrade] did to get it running on a\xa0Stratix-II board.
+   You can pick &lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;https://github.com/Torlus/JagNetlists&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;target=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;_blank&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;up the VHDL and support tools&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+   in his repo. If you&lt;span class="ni"&gt;&amp;amp;#8217;&lt;/span&gt;re just curious you can watch\xa0&lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://www.youtube.com/watch?v=l6KWd-LPwKg&amp;quot;&lt;/span&gt;
+   &lt;span class="na"&gt;target=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;_blank&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;his demo vid&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;.&lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;\n&lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Members of Open Space Aarhus &lt;span class="ni"&gt;&amp;amp;#8212;&lt;/span&gt; a hackerspace in Risskov, Denmark
+   &lt;span class="ni"&gt;&amp;amp;#8212;&lt;/span&gt; have been playing around with a bunch of old server fans. &lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://www.youtube.com/watch?v=NILCWpM5oCo&amp;quot;&lt;/span&gt;
+   &lt;span class="na"&gt;target=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;_blank&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;They made a skirtless hovercraft&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&lt;/span&gt; by taping them together and letting them rip. Too bad it can&lt;span class="ni"&gt;&amp;amp;#8217;&lt;/span&gt;t
+   carry its own power supply&lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;\n&lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Here&lt;span class="ni"&gt;&amp;amp;#8217;&lt;/span&gt;s another final project from that bountiful Cornell embedded systems class.
+   This team of students made a maze game that &lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://people.ece.cornell.edu/land/courses/ece5760/FinalProjects/s2013/cwf38_as889_mao65/index.htm&amp;quot;&lt;/span&gt;
+   &lt;span class="na"&gt;target=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;_blank&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;forms the maze by capturing walls drawn on a white board&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;.&lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;\n&lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;And finally, here&lt;span class="ni"&gt;&amp;amp;#8217;&lt;/span&gt;s
+   &lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://wastecycle.blogspot.com/2013/05/hardware-vs-electronics-wastecycle.html&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;target=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;_blank&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;a unique
+   chess board you can build&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&lt;/span&gt; by raiding your parts bin. [Tetris Monkey] made the board from the LCD screen of a
+   broken monitor. The playing pieces are salvaged electronics (like big capacitors) against corroded hardware
+   (like nuts and bolts). We think it came out just great!&lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;\n&lt;span class="nt"&gt;&amp;lt;br&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;Filed under:
+   &lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://hackaday.com/category/hackaday-links/&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Hackaday links&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;  &lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;rel=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;nofollow&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;target=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;_blank&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+   &lt;span class="nt"&gt;&amp;lt;img&lt;/span&gt; &lt;span class="na"&gt;alt=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;border=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;0&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://feeds.wordpress.com/1.0/comments/hackadaycom.wordpress.com/98186/&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+   &lt;span class="nt"&gt;&amp;lt;img&lt;/span&gt; &lt;span class="na"&gt;alt=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;border=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;0&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;height=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://stats.wordpress.com/b.gif?host=hackaday.com&amp;amp;#038;blog=4779443&amp;amp;#038;&lt;/span&gt;
+&lt;span class="s"&gt;   post=98186&amp;amp;#038;subd=hackadaycom&amp;amp;#038;ref=&amp;amp;#038;feed=1&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;width=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&amp;lt;img&lt;/span&gt; &lt;span class="na"&gt;height=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;
+   &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://feeds.feedburner.com/~r/hackaday/LgoM/~4/h48k1BgqUaw&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;width=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&amp;#39;}],
+ &amp;#39;feedburner_origlink&amp;#39;: u&amp;#39;http://hackaday.com/2013/05/19/hackaday-links-sunday-may-19th-2013/&amp;#39;,
+ &amp;#39;guidislink&amp;#39;: False,
+ &amp;#39;id&amp;#39;: u&amp;#39;http://hackaday.com/?p=98186&amp;#39;,
+ &amp;#39;link&amp;#39;: u&amp;#39;http://feedproxy.google.com/~r/hackaday/LgoM/~3/h48k1BgqUaw/&amp;#39;,
+ &amp;#39;links&amp;#39;: [{&amp;#39;href&amp;#39;: u&amp;#39;http://feedproxy.google.com/~r/hackaday/LgoM/~3/h48k1BgqUaw/&amp;#39;,
+   &amp;#39;rel&amp;#39;: u&amp;#39;alternate&amp;#39;,
+   &amp;#39;type&amp;#39;: u&amp;#39;text/html&amp;#39;}],
+ &amp;#39;media_content&amp;#39;: [{&amp;#39;medium&amp;#39;: u&amp;#39;image&amp;#39;,
+   &amp;#39;url&amp;#39;: u&amp;#39;http://1.gravatar.com/avatar/1aac8835fba7c550fea5a53cd1b0dfb8?s=96&lt;span class="err"&gt;&amp;amp;&lt;/span&gt;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D96&amp;#39;},
+  {&amp;#39;medium&amp;#39;: u&amp;#39;image&amp;#39;,
+   &amp;#39;url&amp;#39;: u&amp;#39;http://hackadaycom.files.wordpress.com/2013/04/hackaday-links-chain.png&amp;#39;}],
+ &amp;#39;published&amp;#39;: u&amp;#39;Sun, 19 May 2013 21:01:28 +0000&amp;#39;,
+ &amp;#39;published_parsed&amp;#39;: time.struct_time(tm_year=2013, tm_mon=5, tm_mday=19, tm_hour=21, tm_min=1, tm_sec=28, tm_wday=6, tm_yday=139, tm_isdst=0),
+ &amp;#39;slash_comments&amp;#39;: u&amp;#39;16&amp;#39;,
+ &amp;#39;summary&amp;#39;: u&amp;#39;Laser cutter owners may find this online box design tool which [Jon] built quite useful.
+ It&lt;span class="ni"&gt;&amp;amp;#8217;&lt;/span&gt;s got a few more joint options than the Inkscape box design add-on does. Apparently the US Navy has the
+ ability to bring down drones in a flaming pile of laser-caused death. [Thanks Joshua] [Michail] has been working on
+  a [&lt;span class="ni"&gt;&amp;amp;#8230;&lt;/span&gt;]&lt;span class="nt"&gt;&amp;lt;img&lt;/span&gt; &lt;span class="na"&gt;alt=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;border=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;0&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;height=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://stats.wordpress.com/b.gif?host=hackaday.com&amp;amp;#038;blog=4779443&amp;amp;#038;&lt;/span&gt;
+&lt;span class="s"&gt;  post=98186&amp;amp;#038;subd=hackadaycom&amp;amp;#038;ref=&amp;amp;#038;feed=1&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;width=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&amp;#39;,
+ &amp;#39;summary_detail&amp;#39;: {&amp;#39;base&amp;#39;: u&amp;#39;http://feeds2.feedburner.com/hackaday/LgoM&amp;#39;,
+  &amp;#39;language&amp;#39;: None,
+  &amp;#39;type&amp;#39;: u&amp;#39;text/html&amp;#39;,
+  &amp;#39;value&amp;#39;: u&amp;#39;Laser cutter owners may find this online box design tool which [Jon] built quite useful.
+  It&lt;span class="ni"&gt;&amp;amp;#8217;&lt;/span&gt;s got a few more joint options than the Inkscape box design add-on does. Apparently the US Navy has the
+  ability to bring down drones in a flaming pile of laser-caused death. [Thanks Joshua] [Michail] has been working
+  on a [&lt;span class="ni"&gt;&amp;amp;#8230;&lt;/span&gt;]&lt;span class="nt"&gt;&amp;lt;img&lt;/span&gt; &lt;span class="na"&gt;alt=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;border=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;0&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;height=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;http://stats.wordpress.com/b.gif?host=hackaday.com&amp;amp;#038;&lt;/span&gt;
+&lt;span class="s"&gt;  blog=4779443&amp;amp;#038;post=98186&amp;amp;#038;subd=hackadaycom&amp;amp;#038;ref=&amp;amp;#038;feed=1&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;width=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;1&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;&amp;#39;},
+ &amp;#39;tags&amp;#39;: [{&amp;#39;label&amp;#39;: None, &amp;#39;scheme&amp;#39;: None, &amp;#39;term&amp;#39;: u&amp;#39;Hackaday links&amp;#39;},
+  {&amp;#39;label&amp;#39;: None, &amp;#39;scheme&amp;#39;: None, &amp;#39;term&amp;#39;: u&amp;#39;chess&amp;#39;},
+  {&amp;#39;label&amp;#39;: None, &amp;#39;scheme&amp;#39;: None, &amp;#39;term&amp;#39;: u&amp;#39;diffuse&amp;#39;},
+  {&amp;#39;label&amp;#39;: None, &amp;#39;scheme&amp;#39;: None, &amp;#39;term&amp;#39;: u&amp;#39;fans&amp;#39;},
+  {&amp;#39;label&amp;#39;: None, &amp;#39;scheme&amp;#39;: None, &amp;#39;term&amp;#39;: u&amp;#39;fpga&amp;#39;},
+  {&amp;#39;label&amp;#39;: None, &amp;#39;scheme&amp;#39;: None, &amp;#39;term&amp;#39;: u&amp;#39;full adder&amp;#39;},
+  {&amp;#39;label&amp;#39;: None, &amp;#39;scheme&amp;#39;: None, &amp;#39;term&amp;#39;: u&amp;#39;laser&amp;#39;},
+  {&amp;#39;label&amp;#39;: None, &amp;#39;scheme&amp;#39;: None, &amp;#39;term&amp;#39;: u&amp;#39;maze&amp;#39;}],
+ &amp;#39;title&amp;#39;: u&amp;#39;Hackaday Links: Sunday, May 19th, 2013&amp;#39;,
+ &amp;#39;title_detail&amp;#39;: {&amp;#39;base&amp;#39;: u&amp;#39;http://feeds2.feedburner.com/hackaday/LgoM&amp;#39;,
+  &amp;#39;language&amp;#39;: None,
+  &amp;#39;type&amp;#39;: u&amp;#39;text/plain&amp;#39;,
+  &amp;#39;value&amp;#39;: u&amp;#39;Hackaday Links: Sunday, May 19th, 2013&amp;#39;},
+ &amp;#39;wfw_commentrss&amp;#39;: u&amp;#39;http://hackaday.com/2013/05/19/hackaday-links-sunday-may-19th-2013/feed/&amp;#39;}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In[11]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;hack&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;entries&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;summary&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out[11]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="o"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Sending&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;microcontroller&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;PC&lt;/span&gt; &lt;span class="n"&gt;usually&lt;/span&gt; &lt;span class="n"&gt;requires&lt;/span&gt; &lt;span class="n"&gt;some&lt;/span&gt; &lt;span class="n"&gt;sort&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;serial&lt;/span&gt; &lt;span class="n"&gt;connection&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;either&lt;/span&gt; &lt;span class="n"&gt;through&lt;/span&gt; &lt;span class="n"&gt;fiddly&lt;/span&gt;
+&lt;span class="n"&gt;on&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;chip&lt;/span&gt; &lt;span class="n"&gt;USB&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;FTDI&lt;/span&gt; &lt;span class="n"&gt;chips&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;expensive&lt;/span&gt; &lt;span class="n"&gt;radio&lt;/span&gt; &lt;span class="n"&gt;ICs&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Scott&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;didn&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;#8217&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;deal&lt;/span&gt; &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;when&lt;/span&gt; &lt;span class="n"&gt;creating&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;network&lt;/span&gt;
+&lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;wireless&lt;/span&gt; &lt;span class="n"&gt;temperature&lt;/span&gt; &lt;span class="n"&gt;sensors&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;so&lt;/span&gt; &lt;span class="n"&gt;he&lt;/span&gt; &lt;span class="n"&gt;hacked&lt;/span&gt; &lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;few&lt;/span&gt; &lt;span class="n"&gt;cheap&lt;/span&gt; 433 &lt;span class="n"&gt;MHz&lt;/span&gt; &lt;span class="n"&gt;radio&lt;/span&gt; &lt;span class="n"&gt;transmitters&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt;&lt;span class="o"&gt;\&lt;/span&gt;&lt;span class="n"&gt;xa0receivers&lt;/span&gt;&lt;span class="o"&gt;\&lt;/span&gt;&lt;span class="n"&gt;xa0to&lt;/span&gt; &lt;span class="n"&gt;transmit&lt;/span&gt;
+&lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;#8230&lt;span class="p"&gt;;]&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;img&lt;/span&gt; &lt;span class="n"&gt;alt&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&amp;quot;&amp;quot; &lt;span class="n"&gt;border&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&amp;quot;0&amp;quot; &lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&amp;quot;1&amp;quot; &lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&amp;quot;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;stats&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;wordpress&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;gif&lt;/span&gt;?&lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="n"&gt;hackaday&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;#038&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;blog&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;4779443&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;#038&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;post&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;98208&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;#038&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;subd&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="n"&gt;hackadaycom&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;#038&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;ref&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;#038&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;feed&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;1&amp;quot; &lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&amp;quot;1&amp;quot; &lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In[12]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;hack&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;entries&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out[12]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="o"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;feedproxy&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;google&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/~&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;hackaday&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;LgoM&lt;/span&gt;&lt;span class="o"&gt;/~&lt;/span&gt;3&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;HfH&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;IWvdlN8&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In[13]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;planet_python&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;entries&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out[13]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="o"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pythondiary&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;blog&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;May&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;19&lt;span class="p"&gt;,&lt;/span&gt;2013&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;looking&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;advertising&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;proposals&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="o"&gt;&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Lets try to naively iterate over the &lt;code&gt;planet_python.entries&lt;/code&gt; list which is
+actually called FeedParserDict&lt;/p&gt;
+&lt;p&gt;In[14]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;planet_python&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;entries&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;planet_python&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;entries&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt;
+
+&lt;span class="o"&gt;---------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class="ne"&gt;TypeError&lt;/span&gt;                                 &lt;span class="n"&gt;Traceback&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;most&lt;/span&gt; &lt;span class="n"&gt;recent&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;ipython&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;14&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f4095ac7e970&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+      &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;planet_python&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;entries&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="o"&gt;----&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;     &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;planet_python&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;entries&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt;
+
+&lt;span class="ne"&gt;TypeError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;list&lt;/span&gt; &lt;span class="n"&gt;indices&lt;/span&gt; &lt;span class="n"&gt;must&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;integers&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;FeedParserDict&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Ok, that didn't go so well. FeedParserDict looks more like an integer indexed
+list with nested dicts. Lets see what kind of data structure is being returned.
+Lets print the index&lt;/p&gt;
+&lt;p&gt;In[15]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hack&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;entries&lt;/span&gt;&lt;span class="p"&gt;)):&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt;
+
+&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;span class="mi"&gt;5&lt;/span&gt;
+&lt;span class="mi"&gt;6&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now we'll enumerate the list to access the link data... any of the
+&lt;code&gt;entries[i].&amp;lt;item&amp;gt;&lt;/code&gt; will work here.&lt;/p&gt;
+&lt;p&gt;In[16]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hack&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;entries&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;&amp;quot; ** &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;&amp;quot; ** &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;published&lt;/span&gt;
+
+&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;feedproxy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;google&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/~&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;hackaday&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;LgoM&lt;/span&gt;&lt;span class="o"&gt;/~&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;h48k1BgqUaw&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;Hackaday&lt;/span&gt;
+&lt;span class="n"&gt;Links&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Sunday&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;May&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="n"&gt;th&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;Sun&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt; &lt;span class="n"&gt;May&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt; &lt;span class="mi"&gt;21&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mo"&gt;0000&lt;/span&gt;
+&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;feedproxy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;google&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/~&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;hackaday&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;LgoM&lt;/span&gt;&lt;span class="o"&gt;/~&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ucspkFVdN0U&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;ATX&lt;/span&gt; &lt;span class="n"&gt;Raspi&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;smart&lt;/span&gt; &lt;span class="n"&gt;power&lt;/span&gt; &lt;span class="n"&gt;source&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;Raspberry&lt;/span&gt; &lt;span class="n"&gt;Pi&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;Sun&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt; &lt;span class="n"&gt;May&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mo"&gt;0000&lt;/span&gt;
+&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;feedproxy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;google&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/~&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;hackaday&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;LgoM&lt;/span&gt;&lt;span class="o"&gt;/~&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;HfH&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;IWvdlN8&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;Wireless&lt;/span&gt;
+&lt;span class="n"&gt;microcontroller&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;PC&lt;/span&gt; &lt;span class="n"&gt;interface&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;Sun&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt; &lt;span class="n"&gt;May&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;58&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mo"&gt;0000&lt;/span&gt;
+&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;feedproxy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;google&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/~&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;hackaday&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;LgoM&lt;/span&gt;&lt;span class="o"&gt;/~&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;xDIE&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;HyDI3Y&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;Controlling&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;terminal&lt;/span&gt; &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="n"&gt;Google&lt;/span&gt; &lt;span class="n"&gt;Voice&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;Sun&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt; &lt;span class="n"&gt;May&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;23&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mo"&gt;0000&lt;/span&gt;
+&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;feedproxy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;google&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/~&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;hackaday&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;LgoM&lt;/span&gt;&lt;span class="o"&gt;/~&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;GY6JT&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;CI7hU&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;FPGA&lt;/span&gt; &lt;span class="n"&gt;plays&lt;/span&gt;
+&lt;span class="n"&gt;Mario&lt;/span&gt; &lt;span class="n"&gt;like&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;champ&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;Sun&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt; &lt;span class="n"&gt;May&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt; &lt;span class="mi"&gt;13&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;27&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mo"&gt;0000&lt;/span&gt;
+&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;feedproxy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;google&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/~&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;hackaday&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;LgoM&lt;/span&gt;&lt;span class="o"&gt;/~&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;UIbzO7WSI_c&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;Robot&lt;/span&gt; &lt;span class="n"&gt;air&lt;/span&gt;
+&lt;span class="n"&gt;hockey&lt;/span&gt; &lt;span class="n"&gt;championship&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;final&lt;/span&gt; &lt;span class="n"&gt;project&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;Sat&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;18&lt;/span&gt; &lt;span class="n"&gt;May&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt; &lt;span class="mi"&gt;21&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mo"&gt;0000&lt;/span&gt;
+&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;feedproxy&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;google&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/~&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;hackaday&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;LgoM&lt;/span&gt;&lt;span class="o"&gt;/~&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;s7hF&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;USiG1c&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;Just&lt;/span&gt; &lt;span class="n"&gt;put&lt;/span&gt;
+&lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;lips&lt;/span&gt; &lt;span class="n"&gt;together&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;turn&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;lamp&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;Sat&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;18&lt;/span&gt; &lt;span class="n"&gt;May&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;01&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mo"&gt;0000&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So we know how to get to the data, we can start to build some useful data
+structures suitable for storage or further operation. Below we create a list
+called links, then we create a variable to we set to the length of the returned
+number of entries. This integer can be used to loop and access the data we want.
+This method of iteration should shield you from IndexError in that the loop
+should be equal to the number of entries and nothing more or less&lt;/p&gt;
+&lt;p&gt;In[17]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;links&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="n"&gt;ent_length&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;planet_python&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;entries&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# capture the number of items in the FeedParserDict&lt;/span&gt;
+&lt;span class="c"&gt;# Now we can iterate through the list&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;planet_python&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;entries&lt;/span&gt;&lt;span class="p"&gt;)):&lt;/span&gt; &lt;span class="c"&gt;# The structure of the FeedParserDict Nessistates iteration with integers&lt;/span&gt;
+    &lt;span class="n"&gt;links&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;planet_python&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;entries&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="n"&gt;links&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out[17]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;http://www.pythondiary.com/blog/May.19,2013/looking-advertising-proposals.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://codeboje.de/tumblr-with-python/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://www.pythondiary.com/blog/May.19,2013/dvd-collection-source-code-now-available.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://www.pythondiary.com/blog/May.19,2013/python-script-encode-django-templates.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://pycon.blogspot.com/2013/05/pycon-2014-begins-call-for-launch-day.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://python4kids.wordpress.com/2013/05/19/661/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://holgerkrekel.net/2013/05/19/pep438-is-live-speed-up-python-package-installs-now/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://txzone.net/2013/05/kivy-1-7-0-is-out/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://feedproxy.google.com/~r/TwistedMatrixLaboratories/~3/f1Hs3pETcpc/migration-report.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://www.gefira.pl/blog/2013/05/18/zato-1-0-the-next-generation-esb-and-application-server-open-source-in-python/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://scummos.blogspot.com/2013/05/kdev-python-151-released.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://learnpython.wordpress.com/2013/01/19/another-quick-python-deal/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://nuitka.net/posts/nuitka-release-043.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://jugad2.blogspot.com/2013/05/python-inspect-module-is-powerful.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://pyrseas.wordpress.com/2013/05/17/pyrseas-contributions-solicited/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://montrealpython.org/2013/05/pycon-day-sponsors/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://reinout.vanrees.org/weblog/2013/05/17/priniciple-philosophy.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://feedproxy.google.com/~r/PyPyStatusBlog/~3/q2ijxAdBLcQ/pypy-201-bohr-smrrebrd.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://reinout.vanrees.org/weblog/2013/05/16/web-of-stuff.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://reinout.vanrees.org/weblog/2013/05/16/planting-open-source-seeds.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://www.tryton.org/posts/last-maintenance-releases-for-series-18.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://reinout.vanrees.org/weblog/2013/05/16/advanced-python-metaclasses.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://reinout.vanrees.org/weblog/2013/05/15/thread-profiling-python.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://reinout.vanrees.org/weblog/2013/05/15/brandon-rhodes.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://reinout.vanrees.org/weblog/2013/05/15/imaginative-programmer.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We can also slice the "list" to access whatever data we need, by
+creating/copying it into another list.&lt;/p&gt;
+&lt;p&gt;In[18]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;links_one&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;planet_python&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;entries&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
+    &lt;span class="n"&gt;links_one&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;links_one&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out[18]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;http://www.pythondiary.com/blog/May.19,2013/looking-advertising-proposals.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://codeboje.de/tumblr-with-python/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://www.pythondiary.com/blog/May.19,2013/dvd-collection-source-code-now-available.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://www.pythondiary.com/blog/May.19,2013/python-script-encode-django-templates.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+ &lt;span class="s"&gt;&amp;#39;http://pycon.blogspot.com/2013/05/pycon-2014-begins-call-for-launch-day.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now we can use &lt;code&gt;for i in hack.entries[:]:&lt;/code&gt; without index numbers inclusive or
+exclusive to get a copy of the list for iteration. Ie. &lt;code&gt;for i in
+hack.entries[1:6]:&lt;/code&gt; where index position 1 is inclusive and 6 would be
+exclusive. Below, we ask for the first two items.&lt;/p&gt;
+&lt;p&gt;In[19]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;hack_dict&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;hack&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;entries&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
+    &lt;span class="n"&gt;hack_dict&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;title&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;url&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;summary&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;summary&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)})&lt;/span&gt;
+&lt;span class="n"&gt;hack_dict&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out[19]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="p"&gt;[{&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;summary&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Laser cutter owners may find this online box design tool which [Jon] built quite useful. It&amp;amp;#8217;s got a few more joint options than the Inkscape box design add-on does. Apparently the US Navy has the ability to bring down drones in a flaming pile of laser-caused death. [Thanks Joshua] [Michail] has been working on a [&amp;amp;#8230;]&amp;lt;img alt=&amp;quot;&amp;quot; border=&amp;quot;0&amp;quot; height=&amp;quot;1&amp;quot; src=&amp;quot;http://stats.wordpress.com/b.gif?host=hackaday.com&amp;amp;#038;blog=4779443&amp;amp;#038;post=98186&amp;amp;#038;subd=hackadaycom&amp;amp;#038;ref=&amp;amp;#038;feed=1&amp;quot; width=&amp;quot;1&amp;quot; /&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="s"&gt;&amp;#39;title&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Hackaday Links: Sunday, May 19th, 2013&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="s"&gt;&amp;#39;url&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://feedproxy.google.com/~r/hackaday/LgoM/~3/h48k1BgqUaw/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+ &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;summary&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;One aspect of the Raspberry Pi that has always challenged us is the power supply. It was a great idea to power the board from a standard micro-USB\xc2\xa0port because economy of scale makes phone chargers (even in the 1A range necessary for stable operation of the RPi) cheap and easy to acquire. The thing we [&amp;amp;#8230;]&amp;lt;img alt=&amp;quot;&amp;quot; border=&amp;quot;0&amp;quot; height=&amp;quot;1&amp;quot; src=&amp;quot;http://stats.wordpress.com/b.gif?host=hackaday.com&amp;amp;#038;blog=4779443&amp;amp;#038;post=98166&amp;amp;#038;subd=hackadaycom&amp;amp;#038;ref=&amp;amp;#038;feed=1&amp;quot; width=&amp;quot;1&amp;quot; /&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="s"&gt;&amp;#39;title&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;ATX Raspi is a smart power source for Raspberry Pi&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="s"&gt;&amp;#39;url&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://feedproxy.google.com/~r/hackaday/LgoM/~3/ucspkFVdN0U/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;}]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Time / Date&lt;/h3&gt;
+&lt;p&gt;Time and date are imporant factors in feed parsing for a myriad of reasons. One
+reason is becuase the relavancy of the item may degrade over time. Luckily the
+Feedparser package includes some nice convinenice methods to access time/date
+data to use how we please. The published_parsed item is a Python 9-tuple that is
+easy to manipulate into any format required for storage into a database datetime
+column, for example.&lt;/p&gt;
+&lt;p&gt;In[20]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;#time&lt;/span&gt;
+&lt;span class="c"&gt;# Go here to learn about formatting times: http://docs.python.org/2/library/time.html#time.strftime&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;time&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;strftime&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;planet_python&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;entries&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Feed Published Time: &amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;published&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;My Formatted time: &amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;strftime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;%H:%M:%S %z %Z on %a, &lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s"&gt; %b %Y&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;published_parsed&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;Feed&lt;/span&gt; &lt;span class="n"&gt;Published&lt;/span&gt; &lt;span class="n"&gt;Time&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Sun&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt; &lt;span class="n"&gt;May&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt; &lt;span class="mi"&gt;23&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;41&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mo"&gt;0000&lt;/span&gt;
+&lt;span class="n"&gt;My&lt;/span&gt; &lt;span class="n"&gt;Formatted&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;23&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;41&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;0700&lt;/span&gt; &lt;span class="n"&gt;MST&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;Sun&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt; &lt;span class="n"&gt;May&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt;
+
+&lt;span class="n"&gt;Feed&lt;/span&gt; &lt;span class="n"&gt;Published&lt;/span&gt; &lt;span class="n"&gt;Time&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Sun&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt; &lt;span class="n"&gt;May&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt; &lt;span class="mi"&gt;21&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;31&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;05&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mo"&gt;0000&lt;/span&gt;
+&lt;span class="n"&gt;My&lt;/span&gt; &lt;span class="n"&gt;Formatted&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;21&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;31&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;05&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;0700&lt;/span&gt; &lt;span class="n"&gt;MST&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;Sun&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt; &lt;span class="n"&gt;May&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt;
+
+&lt;span class="n"&gt;Feed&lt;/span&gt; &lt;span class="n"&gt;Published&lt;/span&gt; &lt;span class="n"&gt;Time&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Sun&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt; &lt;span class="n"&gt;May&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;41&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;21&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mo"&gt;0000&lt;/span&gt;
+&lt;span class="n"&gt;My&lt;/span&gt; &lt;span class="n"&gt;Formatted&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;41&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;21&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;0700&lt;/span&gt; &lt;span class="n"&gt;MST&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;Sun&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt; &lt;span class="n"&gt;May&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt;
+
+&lt;span class="n"&gt;Feed&lt;/span&gt; &lt;span class="n"&gt;Published&lt;/span&gt; &lt;span class="n"&gt;Time&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Sun&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt; &lt;span class="n"&gt;May&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;41&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;21&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mo"&gt;0000&lt;/span&gt;
+&lt;span class="n"&gt;My&lt;/span&gt; &lt;span class="n"&gt;Formatted&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;41&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;21&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;0700&lt;/span&gt; &lt;span class="n"&gt;MST&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;Sun&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt; &lt;span class="n"&gt;May&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt;
+
+&lt;span class="n"&gt;Feed&lt;/span&gt; &lt;span class="n"&gt;Published&lt;/span&gt; &lt;span class="n"&gt;Time&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Sun&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt; &lt;span class="n"&gt;May&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt; &lt;span class="mi"&gt;18&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mo"&gt;0000&lt;/span&gt;
+&lt;span class="n"&gt;My&lt;/span&gt; &lt;span class="n"&gt;Formatted&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;18&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;42&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;0700&lt;/span&gt; &lt;span class="n"&gt;MST&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;Sun&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt; &lt;span class="n"&gt;May&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Revisit Etags / Last-Modified&lt;/h3&gt;
+&lt;p&gt;As I tried to explain above these http methods could be extremely useful as a way
+to check the status of the respective feeds. I've looked at several feed
+projects implementing feedparser and did not utilize this method to check on the
+status of the feed. I am not totally sure what that means as it may prove to be
+an ineffective way to check on the feed status. I plan on implementing this and
+will report back what I find...&lt;/p&gt;
+&lt;p&gt;In[21]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Lets revisit the modified and etag headers to use this library effectively...&lt;/span&gt;
+&lt;span class="n"&gt;hack&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;feedparser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;http://www.hackaday.com/rss.xml&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;etag&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;h_tag&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;modified&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;h_mod&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;planet_python&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;feedparser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;http://planet.python.org/rss20.xml&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;etag&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;p_tag&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;  &lt;span class="n"&gt;modified&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;p_mod&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In[23]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;h_mod&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;hack&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;modified&lt;/span&gt;
+&lt;span class="n"&gt;h_mod&lt;/span&gt;
+
+&lt;span class="o"&gt;---------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class="ne"&gt;AttributeError&lt;/span&gt;                            &lt;span class="n"&gt;Traceback&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;most&lt;/span&gt; &lt;span class="n"&gt;recent&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;ipython&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;23&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;7e9&lt;/span&gt;&lt;span class="n"&gt;a4afcf0f8&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;----&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;h_mod&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;hack&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;modified&lt;/span&gt;
+      &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;h_mod&lt;/span&gt;
+
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Users&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;michaelmartinez&lt;/span&gt;&lt;span class="o"&gt;/.&lt;/span&gt;&lt;span class="n"&gt;virtualenvs&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;iPynotebook&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;python2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;feedparser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pyc&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;__getattr__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="mi"&gt;414&lt;/span&gt;             &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__getitem__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="mi"&gt;415&lt;/span&gt;         &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;KeyError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="o"&gt;--&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;416&lt;/span&gt;             &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="ne"&gt;AttributeError&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;object has no attribute &amp;#39;&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;
+    &lt;span class="mi"&gt;417&lt;/span&gt; 
+    &lt;span class="mi"&gt;418&lt;/span&gt;     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__hash__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+&lt;span class="ne"&gt;AttributeError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;object&lt;/span&gt; &lt;span class="n"&gt;has&lt;/span&gt; &lt;span class="n"&gt;no&lt;/span&gt; &lt;span class="n"&gt;attribute&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;modified&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In[24]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;h_tag&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;hack&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;etag&lt;/span&gt;
+&lt;span class="n"&gt;h_tag&lt;/span&gt;
+
+&lt;span class="o"&gt;---------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class="ne"&gt;AttributeError&lt;/span&gt;                            &lt;span class="n"&gt;Traceback&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;most&lt;/span&gt; &lt;span class="n"&gt;recent&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;ipython&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;569&lt;/span&gt;&lt;span class="n"&gt;f4162a64d&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;----&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;h_tag&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;hack&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;etag&lt;/span&gt;
+      &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;h_tag&lt;/span&gt;
+
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Users&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;michaelmartinez&lt;/span&gt;&lt;span class="o"&gt;/.&lt;/span&gt;&lt;span class="n"&gt;virtualenvs&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;iPynotebook&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;python2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;feedparser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pyc&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;__getattr__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="mi"&gt;414&lt;/span&gt;             &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__getitem__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="mi"&gt;415&lt;/span&gt;         &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;KeyError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="o"&gt;--&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;416&lt;/span&gt;             &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="ne"&gt;AttributeError&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;object has no attribute &amp;#39;&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;
+    &lt;span class="mi"&gt;417&lt;/span&gt; 
+    &lt;span class="mi"&gt;418&lt;/span&gt;     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__hash__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+&lt;span class="ne"&gt;AttributeError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;object&lt;/span&gt; &lt;span class="n"&gt;has&lt;/span&gt; &lt;span class="n"&gt;no&lt;/span&gt; &lt;span class="n"&gt;attribute&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;etag&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In[22]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;hack&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out[22]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;301
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In[25]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;p_tag&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;planet_python&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;etag&lt;/span&gt;
+&lt;span class="n"&gt;p_tag&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out[25]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="o"&gt;&amp;#39;&lt;/span&gt;&amp;quot;17&lt;span class="n"&gt;d8206&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;c0c4e&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;4&lt;span class="n"&gt;dd1fe032e880&lt;/span&gt;&amp;quot;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In[26]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;p_mod&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;planet_python&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;modified&lt;/span&gt;
+&lt;span class="n"&gt;p_mod&lt;/span&gt;
+
+&lt;span class="o"&gt;---------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class="ne"&gt;AttributeError&lt;/span&gt;                            &lt;span class="n"&gt;Traceback&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;most&lt;/span&gt; &lt;span class="n"&gt;recent&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;ipython&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;26&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;71&lt;/span&gt;&lt;span class="n"&gt;aec7e6b70b&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;----&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;p_mod&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;planet_python&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;modified&lt;/span&gt;
+      &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;p_mod&lt;/span&gt;
+
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Users&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;michaelmartinez&lt;/span&gt;&lt;span class="o"&gt;/.&lt;/span&gt;&lt;span class="n"&gt;virtualenvs&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;iPynotebook&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;python2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;feedparser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pyc&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;__getattr__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="mi"&gt;414&lt;/span&gt;             &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__getitem__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="mi"&gt;415&lt;/span&gt;         &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;KeyError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="o"&gt;--&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;416&lt;/span&gt;             &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="ne"&gt;AttributeError&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;object has no attribute &amp;#39;&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;
+    &lt;span class="mi"&gt;417&lt;/span&gt; 
+    &lt;span class="mi"&gt;418&lt;/span&gt;     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__hash__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+&lt;span class="ne"&gt;AttributeError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;object&lt;/span&gt; &lt;span class="n"&gt;has&lt;/span&gt; &lt;span class="n"&gt;no&lt;/span&gt; &lt;span class="n"&gt;attribute&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;modified&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In[27]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;planet_python&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out[27]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;304
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In[28]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;hack&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;debug_message&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out[28]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="s"&gt;&amp;#39;The feed has not changed since you last checked, so the server sent no data.  This is a feature, not a bug!&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In[29]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;planet_python&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;debug_message&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Out[29]:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="s"&gt;&amp;#39;The feed has not changed since you last checked, so the server sent no data.  This is a feature, not a bug!&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I really hope this proves useful as I could not find a tutorial or demo using
+this package/library. Thanks for reading!&lt;/p&gt;</summary></entry><entry><title>Basic Alembic Migrations with Flask</title><link href="http://michaelmartinez.in/basic-alembic-migrations-with-flask.html" rel="alternate"></link><updated>2013-05-10T00:00:00-07:00</updated><author><name>Michael Martinez</name></author><id>tag:michaelmartinez.in,2013-05-10:basic-alembic-migrations-with-flask.html</id><summary type="html">&lt;p&gt;This post will cover the minimal set-up to get basic (auto-generating) Alembic migrations working within a Flask application. The pre-requisites are;
 Flask, SQLAlchemy, Flask-SQLAlchemy and Alembic in case that wasn't obvious.&lt;/p&gt;
 &lt;p&gt;My current project is being built with &lt;a href="http://flask.pocoo.org/"&gt;Flask&lt;/a&gt; utilizing &lt;a href="http://www.sqlalchemy.org/"&gt;SQLalchemy&lt;/a&gt; as an abstraction to
 my data persistence layer AKA ORM. I am also using the &lt;a href="http://pythonhosted.org/Flask-SQLAlchemy/"&gt;Flask-SQLALchemy&lt;/a&gt;
