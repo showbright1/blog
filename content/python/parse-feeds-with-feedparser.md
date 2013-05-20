@@ -493,10 +493,18 @@ In[19]:
 Out[19]:
 
 
-    [{'summary': 'Laser cutter owners may find this online box design tool which [Jon] built quite useful. It&#8217;s got a few more joint options than the Inkscape box design add-on does. Apparently the US Navy has the ability to bring down drones in a flaming pile of laser-caused death. [Thanks Joshua] [Michail] has been working on a [&#8230;]<img alt="" border="0" height="1" src="http://stats.wordpress.com/b.gif?host=hackaday.com&#038;blog=4779443&#038;post=98186&#038;subd=hackadaycom&#038;ref=&#038;feed=1" width="1" />',
+    [{'summary': 'Laser cutter owners may find this online box design tool which [Jon] built quite useful.
+    It&#8217;s got a few more joint options than the Inkscape box design add-on does. Apparently the US Navy has the
+    ability to bring down drones in a flaming pile of laser-caused death. [Thanks Joshua] [Michail] has been working on
+    a [&#8230;]<img alt="" border="0" height="1" src="http://stats.wordpress.com/b.gif?host=hackaday.com&#038;blog=4779443&#038;
+    post=98186&#038;subd=hackadaycom&#038;ref=&#038;feed=1" width="1" />',
       'title': 'Hackaday Links: Sunday, May 19th, 2013',
       'url': 'http://feedproxy.google.com/~r/hackaday/LgoM/~3/h48k1BgqUaw/'},
-     {'summary': 'One aspect of the Raspberry Pi that has always challenged us is the power supply. It was a great idea to power the board from a standard micro-USB\xc2\xa0port because economy of scale makes phone chargers (even in the 1A range necessary for stable operation of the RPi) cheap and easy to acquire. The thing we [&#8230;]<img alt="" border="0" height="1" src="http://stats.wordpress.com/b.gif?host=hackaday.com&#038;blog=4779443&#038;post=98166&#038;subd=hackadaycom&#038;ref=&#038;feed=1" width="1" />',
+     {'summary': 'One aspect of the Raspberry Pi that has always challenged us is the power supply. It was a great idea
+     to power the board from a standard micro-USB\xc2\xa0port because economy of scale makes phone chargers
+     (even in the 1A range necessary for stable operation of the RPi) cheap and easy to acquire. The thing we [&#8230;]
+     <img alt="" border="0" height="1" src="http://stats.wordpress.com/b.gif?host=hackaday.com&#038;blog=4779443&#038;
+     post=98166&#038;subd=hackadaycom&#038;ref=&#038;feed=1" width="1" />',
       'title': 'ATX Raspi is a smart power source for Raspberry Pi',
       'url': 'http://feedproxy.google.com/~r/hackaday/LgoM/~3/ucspkFVdN0U/'}]
 
