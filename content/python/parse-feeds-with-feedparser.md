@@ -412,11 +412,8 @@ In[17]:
 
     :::python
     links = []
-    ent_length = len(planet_python.entries) # capture the number of items in the FeedParserDict
-    # Now we can iterate through the list
-    for i in range(len(planet_python.entries)): # The structure of the FeedParserDict Nessistates iteration with integers
-        links.append(str(planet_python.entries[i].link))
-    
+    for entry in planet_python.entries:
+        links.append(entry.link)
     links
 
 

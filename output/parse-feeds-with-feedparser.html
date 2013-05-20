@@ -420,11 +420,8 @@ This method of iteration should shield you from IndexError in that the loop
 should be equal to the number of entries and nothing more or less</p>
 <p>In[17]:</p>
 <div class="codehilite"><pre><span class="n">links</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">ent_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">planet_python</span><span class="o">.</span><span class="n">entries</span><span class="p">)</span> <span class="c"># capture the number of items in the FeedParserDict</span>
-<span class="c"># Now we can iterate through the list</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">planet_python</span><span class="o">.</span><span class="n">entries</span><span class="p">)):</span> <span class="c"># The structure of the FeedParserDict Nessistates iteration with integers</span>
-    <span class="n">links</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">planet_python</span><span class="o">.</span><span class="n">entries</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">link</span><span class="p">))</span>
-
+<span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">planet_python</span><span class="o">.</span><span class="n">entries</span><span class="p">:</span>
+    <span class="n">links</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">link</span><span class="p">)</span>
 <span class="n">links</span>
 </pre></div>
 
