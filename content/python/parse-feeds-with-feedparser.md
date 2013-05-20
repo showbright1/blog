@@ -1,9 +1,7 @@
-Title: Playing with Tweepy
+Title: Parse Feeds with FeedParser
 Date: 2013-05-20
 Author: Michael Martinez
 
-
-## Parse Feeds with FeedParser
 
 I am currently working on a [Flask](http://flask.pocoo.org/) feed reader app.
 The plan is to enable a reader app that attaches to static site generator like
