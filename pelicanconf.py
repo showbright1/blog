@@ -33,15 +33,17 @@ CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
 # =============
 TEMPLATE_PAGES = {}
 
+GRAVATAR_URL = 'http://www.gravatar.com/avatar/2d65ec519536a6827c0bc5f2904d7b06.png'
+
 #=============
 # Twitter Card
 #=============
 # https://dev.twitter.com/cards
 TWITTER_CARD_USE = (True) #| False
-#TWITTER_CARD_SITE = '@website' # The site's Twitter handle like @my_blog
-#TWITTER_CARD_SITE_ID = 123456 # The site's Twitter ID
+TWITTER_CARD_SITE = ''  # The site's Twitter handle like @my_blog
+TWITTER_CARD_SITE_ID = ''  # The site's Twitter ID
 TWITTER_CARD_CREATOR = '@monkmartinez'  # Your twitter handle like @yourtwitname
-#TWITTER_CARD_CREATOR_ID = 56789 # The site creator's id
+TWITTER_CARD_CREATOR_ID = ''  # The site creator's id
 
 #=============
 # Other
