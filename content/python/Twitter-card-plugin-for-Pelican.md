@@ -127,6 +127,8 @@ Then add the following macro to your article macros or wherever it makes sense:
 
 * On the validation page click the apply for validation button then ... `time.sleep(email_arrival)`
 
-![Alt Validator tool](static/images/approved.png)
+![Alt Email Arrived](static/images/approved.png)
 
 * Now try it out!
+
+![Alt Actual Use](static/images/inuse.png)

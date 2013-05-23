@@ -114,10 +114,11 @@ you have an article_macros file where you store/define macros.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;On the validation page click the apply for validation button then ... &lt;code&gt;time.sleep(email_arrival)&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="Alt Validator tool" src="static/images/approved.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt Email Arrived" src="static/images/approved.png" /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Now try it out!&lt;/li&gt;
-&lt;/ul&gt;</summary></entry><entry><title>Parse Feeds with FeedParser</title><link href="http://michaelmartinez.in/parse-feeds-with-feedparser.html" rel="alternate"></link><updated>2013-05-20T00:00:00-07:00</updated><author><name>Michael Martinez</name></author><id>tag:michaelmartinez.in,2013-05-20:parse-feeds-with-feedparser.html</id><summary type="html">&lt;p&gt;I am currently working on a &lt;a href="http://flask.pocoo.org/"&gt;Flask&lt;/a&gt; feed reader app.
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="Alt Actual Use" src="static/images/inuse.png" /&gt;&lt;/p&gt;</summary></entry><entry><title>Parse Feeds with FeedParser</title><link href="http://michaelmartinez.in/parse-feeds-with-feedparser.html" rel="alternate"></link><updated>2013-05-20T00:00:00-07:00</updated><author><name>Michael Martinez</name></author><id>tag:michaelmartinez.in,2013-05-20:parse-feeds-with-feedparser.html</id><summary type="html">&lt;p&gt;I am currently working on a &lt;a href="http://flask.pocoo.org/"&gt;Flask&lt;/a&gt; feed reader app.
 The plan is to enable a reader app that attaches to static site generator like
 &lt;a href="http://docs.getpelican.com/en/latest/"&gt;Pelican&lt;/a&gt;,
 &lt;a href="http://nikola.ralsina.com.ar/"&gt;Nikola&lt;/a&gt; and
