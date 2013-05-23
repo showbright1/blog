@@ -1,5 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>MM</title><link>http://michaelmartinez.in/</link><description></description><atom:link href="http://michaelmartinez.in/feeds/python.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 20 May 2013 00:00:00 -0700</lastBuildDate><item><title>Parse Feeds with FeedParser</title><link>http://michaelmartinez.in/parse-feeds-with-feedparser.html</link><description>&lt;p&gt;I am currently working on a &lt;a href="http://flask.pocoo.org/"&gt;Flask&lt;/a&gt; feed reader app.
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>MM</title><link>http://michaelmartinez.in/</link><description></description><atom:link href="http://michaelmartinez.in/feeds/python.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 22 May 2013 00:00:00 -0700</lastBuildDate><item><title>Twitter Card plugin for Pelican</title><link>http://michaelmartinez.in/twitter-card-plugin-for-pelican.html</link><description>&lt;p&gt;This plugin adds the ability to generate a &lt;a href="https://dev.twitter.com/cards"&gt;Twitter card&lt;/a&gt; automagically upon every &lt;code&gt;make html&lt;/code&gt; command. It takes a little bit of effort to set-up due to the fact that templates and themes can
+vary wildly from implementation to implementation.&lt;/p&gt;
+&lt;h4&gt;The minimal requirements for a functioning Twitter card are:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Type of card - summary by default&lt;/li&gt;
+&lt;li&gt;URL of the content&lt;/li&gt;
+&lt;li&gt;Title of the content&lt;/li&gt;
+&lt;li&gt;Description of the content&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;See: TODO.md for a list of items I will be working on to improve this plugin&lt;/p&gt;
+&lt;h3&gt;Step 1&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Go to &lt;a href="https://dev.twitter.com/cards"&gt;https://dev.twitter.com/cards&lt;/a&gt; to see what this is all about.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Step 2&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Integrate this plugin - The meat and potatoes of it all...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In &lt;code&gt;pelicanconf.py&lt;/code&gt; add:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;#=============&lt;/span&gt;
+&lt;span class="c"&gt;# Twitter Card&lt;/span&gt;
+&lt;span class="c"&gt;#=============&lt;/span&gt;
+&lt;span class="c"&gt;# https://dev.twitter.com/cards&lt;/span&gt;
+&lt;span class="n"&gt;TWITTER_CARD_USE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# (False)&lt;/span&gt;
+&lt;span class="n"&gt;TWITTER_CARD_SITE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&amp;#39;&lt;/span&gt;  &lt;span class="c"&gt;# The site&amp;#39;s Twitter handle like @my_blog&lt;/span&gt;
+&lt;span class="n"&gt;TWITTER_CARD_SITE_ID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&amp;#39;&lt;/span&gt;  &lt;span class="c"&gt;# The site&amp;#39;s Twitter ID&lt;/span&gt;
+&lt;span class="n"&gt;TWITTER_CARD_CREATOR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;@m&amp;lt;yourhandle&amp;gt;&amp;#39;&lt;/span&gt;  &lt;span class="c"&gt;# Your twitter handle like @monkmartinez&lt;/span&gt;
+&lt;span class="n"&gt;TWITTER_CARD_CREATOR_ID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&amp;#39;&lt;/span&gt;  &lt;span class="c"&gt;# The site creator&amp;#39;s id&lt;/span&gt;
+&lt;span class="n"&gt;GRAVARTAR_URL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you use &lt;a href="http://jinja.pocoo.org/docs/templates/#include"&gt;Jinja's includes pattern&lt;/a&gt; Ie. &lt;code&gt;_includes\pathtohtml.html&lt;/code&gt; use the following tag in your templates header area.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;{% if article %}
+  {% if TWITTER_CARD_USE %}
+    {% include &amp;#39;_includes/twitter_card.html&amp;#39; %}
+  {% endif %}
+{% endif %}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then create and paste this code into twitter_card.html&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;{% if TWITTER_CARD_USE %}
+    &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;twitter:card&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;summary&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;og:url&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ SITEURL }}/{{ article.url }}&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    {% if TWITTER_CARD_SITE_ID %}
+        &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;twitter:site:id&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ TWITTER_CARD_SITE_ID }}&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    {% elif TWITTER_CARD_SITE: %}
+        &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;twitter:site&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ TWITTER_CARD_SITE }}&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    {% endif %}
+    {% if TWITTER_CARD_CREATOR_ID %}
+        &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;twitter:creator:id&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ TWITTER_CARD_CREATOR_ID }}&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    {% elif TWITTER_CARD_CREATOR: %}
+        &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;twitter:creator&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ TWITTER_CARD_CREATOR }}&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    {% endif %}
+    &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;og:title&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ article.title[:70]|e }}&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;og:description&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ article.summary[:200]|striptags }}&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    {% if GRAVATAR_URL %}
+        &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;twitter:image:src&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ GRAVATAR_URL }}&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    {% endif %}
+{% endif %}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To use this plugin with macros, use the following macro tag in the head portion of your template. The tag below assumes
+you have an article_macros file where you store/define macros.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;article&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;article_macros.twitter_card&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endif&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then add the following macro to your article macros or wherever it makes sense:&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;{% macro twitter_card %}
+{% if TWITTER_CARD_USE %}
+    &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;twitter:card&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;summary&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;og:url&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ SITEURL }}/{{ article.url }}&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    {% if TWITTER_CARD_SITE_ID %}
+        &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;twitter:site:id&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ TWITTER_CARD_SITE_ID }}&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    {% elif TWITTER_CARD_SITE: %}
+        &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;twitter:site&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ TWITTER_CARD_SITE }}&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    {% endif %}
+    {% if TWITTER_CARD_CREATOR_ID %}
+        &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;twitter:creator:id&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ TWITTER_CARD_CREATOR_ID }}&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    {% elif TWITTER_CARD_CREATOR: %}
+        &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;twitter:creator&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ TWITTER_CARD_CREATOR }}&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    {% endif %}
+    &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;og:title&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ article.title[:70]|e }}&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;og:description&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ article.summary[:200]|striptags }}&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    {% if GRAVATAR_URL %}
+        &lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;twitter:image:src&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;{{ GRAVATAR_URL }}&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    {% endif %}
+{% endif %}
+{% endmacro %}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Step 3&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Run &lt;code&gt;make html&lt;/code&gt; to generate the site.&lt;/li&gt;
+&lt;li&gt;Inspect the output and to be sure twitter meta data was generated successfully&lt;/li&gt;
+&lt;li&gt;Push the site to your host&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Step 4&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Visit &lt;a href="https://dev.twitter.com/docs/cards/validation/validator"&gt;https://dev.twitter.com/docs/cards/validation/validator&lt;/a&gt; to validate. You will need to supply form with a page that has the correct meta data.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="Alt Validator tool" src="static/images/validator.png" /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;On the validation page click the apply for validation button then ... &lt;code&gt;time.sleep(email_arrival)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="Alt Validator tool" src="static/images/approved.png" /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Now try it out!&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Michael Martinez</dc:creator><pubDate>Wed, 22 May 2013 00:00:00 -0700</pubDate><guid>tag:michaelmartinez.in,2013-05-22:twitter-card-plugin-for-pelican.html</guid></item><item><title>Parse Feeds with FeedParser</title><link>http://michaelmartinez.in/parse-feeds-with-feedparser.html</link><description>&lt;p&gt;I am currently working on a &lt;a href="http://flask.pocoo.org/"&gt;Flask&lt;/a&gt; feed reader app.
 The plan is to enable a reader app that attaches to static site generator like
 &lt;a href="http://docs.getpelican.com/en/latest/"&gt;Pelican&lt;/a&gt;,
 &lt;a href="http://nikola.ralsina.com.ar/"&gt;Nikola&lt;/a&gt; and
