@@ -2,7 +2,13 @@ Title: Twitter Card plugin for Pelican
 Date: 2013-05-22
 Author: Michael Martinez
 
-This plugin adds the ability to generate a [Twitter card](https://dev.twitter.com/cards) automagically upon every `make html` command. It takes a little bit of effort to set-up due to the fact that templates and themes can
+I am just getting my feet wet with Pelican development and this seemed like a decent way to get started. I will work to make it
+more seamless for the end user as there is quite a bit of leg work (on the user end) that goes into it now.
+
+<a class="btn btn-large" href="https://github.com/MichaelMartinez/twitter_card"><i class="icon-download-alt"></i>Twitter_card</a>
+
+This plugin adds the ability to generate a [Twitter card](https://dev.twitter.com/cards) automagically upon every `make html` command.
+It takes a little bit of effort to set-up due to the fact that templates and themes can
 vary wildly from implementation to implementation.
 
 #### The minimal requirements for a functioning Twitter card are: ####

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>MM</title><link>http://michaelmartinez.in/</link><description></description><atom:link href="http://michaelmartinez.in/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 22 May 2013 00:00:00 -0700</lastBuildDate><item><title>Twitter Card plugin for Pelican</title><link>http://michaelmartinez.in/twitter-card-plugin-for-pelican.html</link><description>&lt;p&gt;This plugin adds the ability to generate a &lt;a href="https://dev.twitter.com/cards"&gt;Twitter card&lt;/a&gt; automagically upon every &lt;code&gt;make html&lt;/code&gt; command. It takes a little bit of effort to set-up due to the fact that templates and themes can
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>MM</title><link>http://michaelmartinez.in/</link><description></description><atom:link href="http://michaelmartinez.in/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 22 May 2013 00:00:00 -0700</lastBuildDate><item><title>Twitter Card plugin for Pelican</title><link>http://michaelmartinez.in/twitter-card-plugin-for-pelican.html</link><description>&lt;p&gt;I am just getting my feet wet with Pelican development and this seemed like a decent way to get started. I will work to make it
+more seamless for the end user as there is quite a bit of leg work (on the user end) that goes into it now.&lt;/p&gt;
+&lt;p&gt;&lt;a class="btn btn-large" href="https://github.com/MichaelMartinez/twitter_card"&gt;&lt;i class="icon-download-alt"&gt;&lt;/i&gt;Twitter_card&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This plugin adds the ability to generate a &lt;a href="https://dev.twitter.com/cards"&gt;Twitter card&lt;/a&gt; automagically upon every &lt;code&gt;make html&lt;/code&gt; command.
+It takes a little bit of effort to set-up due to the fact that templates and themes can
 vary wildly from implementation to implementation.&lt;/p&gt;
 &lt;h4&gt;The minimal requirements for a functioning Twitter card are:&lt;/h4&gt;
 &lt;ul&gt;
