@@ -16,7 +16,7 @@ internet connectivity, HUGE! What I mean is, if I want to bang something out on 
 HP that sounds like a jet... No problem as long as it has a decent browser and internet. This is BIG win for PythonAnywhere
 and Python developers alike.
 
-Heroku has integrated the Cloud9 webIDE and has 'management' apps for Android/iOS: [Nezumi[(http://nezumiapp.com/#/iphone), but both are third party
+Heroku has integrated the Cloud9 webIDE and has 'management' apps for Android/iOS: [Nezumi](http://nezumiapp.com/#/iphone), but both are third party
 projects and that can be good and bad. Appfog has no concept of File browsing, Consoles or webIDE's... I mean, they aren't
 even part of the equation, but Appfog supports a ton of different frameworks/languages. I don't want to bash on Appfog,
 they are a good provider and their tools are good, but PythonAnywhere has them flat out beat in some ways.
