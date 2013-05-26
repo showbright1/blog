@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>MM</title><link>http://michaelmartinez.in/</link><description></description><atom:link href="http://michaelmartinez.in/feeds/python.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 22 May 2013 00:00:00 -0700</lastBuildDate><item><title>Twitter Card plugin for Pelican</title><link>http://michaelmartinez.in/twitter-card-plugin-for-pelican.html</link><description>&lt;p&gt;I am just getting my feet wet with Pelican development and this seemed like a decent way to get started. I will work to make it
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>MM</title><link>http://michaelmartinez.in/</link><description></description><atom:link href="http://michaelmartinez.in/feeds/python.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 25 May 2013 00:00:00 -0700</lastBuildDate><item><title>Python Anywhere means Anywhere</title><link>http://michaelmartinez.in/python-anywhere-means-anywhere.html</link><description>&lt;p&gt;I just signed up for the &lt;a href="https://www.pythonanywhere.com/pricing/"&gt;web developer&lt;/a&gt; price point at &lt;a href="http://pythonanywhere.com/"&gt;PythonAnywhere&lt;/a&gt;.
+PythonAnywhere is Platform as a service (PaaS) company which means they are in business to provide a platform to build from. If
+you are a web developer, I am quite positive that you have heard of Heroku, Appfog and many other PaaS providers.&lt;/p&gt;
+&lt;p&gt;PythonAnywhere is a bit different in that they are not aiming to be a one stop shop for all popular language frameworks.
+They are clearly attempting to lock down Python dev in the cloud. The product at PythonAnywhere is really innovative among the
+PaaS companies that provide Python support as they require no local tools to be installed. They also have the notion of
+file browsing for decent visual project management and editing. They also offer DropBox sync out of the box.&lt;/p&gt;
+&lt;p&gt;I particularly like that no local tools need to be installed. I can use ANY device in virtually ANY location that has
+internet connectivity, HUGE! What I mean is, if I want to bang something out on my phone, tablet or my parent's 1999
+HP that sounds like a jet... No problem as long as it has a decent browser and internet. This is BIG win for PythonAnywhere
+and Python developers alike.&lt;/p&gt;
+&lt;p&gt;Heroku has integrated the Cloud9 webIDE and has 'management' apps for Android/iOS ([Nezumi[(http://nezumiapp.com/#/iphone)), but both are third party
+projects and that can be good and bad. Appfog has no concept of File browsing, Consoles or webIDE's... I mean, they aren't
+even part of the equation, but Appfog supports a ton of different frameworks/languages. I don't want to bash on Appfog,
+they are a good provider and their tools are good, but PythonAnywhere has them flat out beat in some ways.&lt;/p&gt;
+&lt;p&gt;The PythonAnywhere blog actually has a more comprehensive blog post on &lt;a href="http://blog.pythonanywhere.com/65/"&gt;Heroku v. PythonAnywhere&lt;/a&gt;
+NetTuts+ has a nice comparison between &lt;a href="http://net.tutsplus.com/articles/editorials/appfog-vs-heroku/"&gt;Heroku and Appfog&lt;/a&gt;.
+PythonAnywhere is based on workers and each worker has 500mb of RAM. So at $12 a month, the Web Developer account on PythonAnywhere
+can have 10 webapps with 3 workers each. If you need to scale an app, I would venture to guess you could potentially
+deploy more workers towards a particular app if needed (don't hold me to that). The "bang for buck" or "pound" if you
+are in Britain like the founders and a Python developer is really compelling.&lt;/p&gt;
+&lt;p&gt;One can't possibly enumerate all the possibilities for using the PythonAnywhere service. From hacking basic python
+scripts to running bots against irc/chat to scraping web sites/twitter to full blown web app development with Flask,
+Django or any of the other &lt;a href="https://www.pythonanywhere.com/batteries_included/"&gt;batteries included libraries/frameworks&lt;/a&gt;.
+The price point for this service is unheard of, but you need to be a Python developer.&lt;/p&gt;
+&lt;p&gt;Let's take a look at a static site generator, Pelican, for an example work flow... Lets say I have an idea or thought I just need to blog.
+My blog is a pelican static site and I am not able to use my laptop for whatever reason. I can log into SSH into PA via
+one of the many Android SSH apps (or chrome for Anroid, or ssh from vim touch), create the blog post (way slower on phone),
+start a bash shell (or use the Android ZSH shell), issue a few commands and it is done. Then I commit and push via
+git and/or sync to DropBox. BAM! Blog post from the cloud with a crazy web-based workflow not possible just a few years ago.&lt;/p&gt;
+&lt;p&gt;VPS are cool, but I am not a good sysadmin... I prefer coding to administration.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Michael Martinez</dc:creator><pubDate>Sat, 25 May 2013 00:00:00 -0700</pubDate><guid>tag:michaelmartinez.in,2013-05-25:python-anywhere-means-anywhere.html</guid></item><item><title>Twitter Card plugin for Pelican</title><link>http://michaelmartinez.in/twitter-card-plugin-for-pelican.html</link><description>&lt;p&gt;I am just getting my feet wet with Pelican development and this seemed like a decent way to get started. I will work to make it
 more seamless for the end user as there is quite a bit of leg work (on the user end) that goes into it now.&lt;/p&gt;
 &lt;p&gt;&lt;a class="btn btn-large" href="https://github.com/MichaelMartinez/twitter_card"&gt;&lt;i class="icon-download-alt"&gt;&lt;/i&gt;Twitter_card&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This plugin adds the ability to generate a &lt;a href="https://dev.twitter.com/cards"&gt;Twitter card&lt;/a&gt; automagically upon every &lt;code&gt;make html&lt;/code&gt; command.
