@@ -14,7 +14,7 @@ and Python developers alike.&lt;/p&gt;
 projects and that can be good and bad. Appfog has no concept of File browsing, Consoles or webIDE's... I mean, they aren't
 even part of the equation, but Appfog supports a ton of different frameworks/languages. I don't want to bash on Appfog,
 they are a good provider and their tools are good, but PythonAnywhere has them flat out beat in some ways.&lt;/p&gt;
-&lt;p&gt;The PythonAnywhere blog actually has a more comprehensive blog post on &lt;a href="http://blog.pythonanywhere.com/65/"&gt;Heroku v. PythonAnywhere&lt;/a&gt;
+&lt;p&gt;The PythonAnywhere blog actually has a more comprehensive blog post on &lt;a href="http://blog.pythonanywhere.com/65/"&gt;Heroku v. PythonAnywhere&lt;/a&gt;.
 NetTuts+ has a nice comparison between &lt;a href="http://net.tutsplus.com/articles/editorials/appfog-vs-heroku/"&gt;Heroku and Appfog&lt;/a&gt;.
 PythonAnywhere is based on workers and each worker has 500mb of RAM. So at $12 a month, the Web Developer account on PythonAnywhere
 can have 10 webapps with 3 workers each. If you need to scale an app, I would venture to guess you could potentially
