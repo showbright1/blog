@@ -1,44 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>MM</title><link href="http://michaelmartinez.in/" rel="alternate"></link><link href="http://michaelmartinez.in/feeds/python.atom.xml" rel="self"></link><id>http://michaelmartinez.in/</id><updated>2013-06-13T00:00:00-07:00</updated><entry><title>PostgreSQL app for Mac OSX</title><link href="http://michaelmartinez.in/postgresql-app-for-mac-osx.html" rel="alternate"></link><updated>2013-06-13T00:00:00-07:00</updated><author><name>Michael Martinez</name></author><id>tag:michaelmartinez.in,2013-06-13:postgresql-app-for-mac-osx.html</id><summary type="html">&lt;p&gt;OSX users who develop Python applications (any application, really) that use PostgreSQL are in luck. If you are looking
+<feed xmlns="http://www.w3.org/2005/Atom"><title>MM</title><link href="http://michaelmartinez.in/" rel="alternate"></link><link href="http://michaelmartinez.in/feeds/python.atom.xml" rel="self"></link><id>http://michaelmartinez.in/</id><updated>2013-06-13T00:00:00-07:00</updated><entry><title>PostgreSQL and the app for Mac OSX</title><link href="http://michaelmartinez.in/postgresql-and-the-app-for-mac-osx.html" rel="alternate"></link><updated>2013-06-13T00:00:00-07:00</updated><author><name>Michael Martinez</name></author><id>tag:michaelmartinez.in,2013-06-13:postgresql-and-the-app-for-mac-osx.html</id><summary type="html">&lt;p&gt;OSX users who develop Python applications (any application really) that use PostgreSQL are in luck. If you are looking
 for, quite possibly, the easiest way to install, run and use the most advanced open source database on the planet
-(provided you are using Mac OSX &amp;gt; 10.7).&lt;a href="http://postgresapp.com/"&gt;PostgresSQL.app&lt;/a&gt; | &lt;a href="http://postgresapp.com/documentation"&gt;docs&lt;/a&gt;
-- will make your life very happy. When you just want to run PostgreSQL and get to coding, Postgresgl.app from
+(provided you are using Mac OSX &amp;gt; 10.7). &lt;a href="http://postgresapp.com/"&gt;Postgres.app&lt;/a&gt; | &lt;a href="http://postgresapp.com/documentation"&gt;docs&lt;/a&gt;
+- will make your life very happy. When you just want to run PostgreSQL and get to coding, Postgres.app from
 &lt;a href="http://mattt.me/"&gt;Matt Thompson&lt;/a&gt; and the awesome guys at &lt;a href="http://postgres.heroku.com/"&gt;Heroku&lt;/a&gt; is where its at.&lt;/p&gt;
+&lt;h2&gt;Install PostgreSQL&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Use Homebrew and follow this &lt;a href="https://coderwall.com/p/1mni7w"&gt;guide&lt;/a&gt; or something similar&lt;/li&gt;
+&lt;li&gt;Use the PostgreSQL binaries and follow this &lt;a href="http://www.enterprisedb.com/resources-community/pginst-guide"&gt;guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Use postgres.app - it is hard to make an argument against this app. Download it, drag it to applications, DONE.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Use PostgreSQL&lt;/h2&gt;
 &lt;p&gt;If you have ever used postgreSQL from the commandline you have undoubtedly felt this pain:&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;pg_ctl -D /usr/local/var/postgres status
-pg_ctl -D /usr/local/var/postgres start
+&lt;div class="codehilite"&gt;&lt;pre&gt;pg_ctl -D /usr/local/var/postgres start
 pg_ctl -D /usr/local/var/postgres status
 pg_ctl -D /usr/local/var/postgres stop -s -m fast
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This is just to start and/or check on the darn thing. Then you can enter the &lt;code&gt;psql&lt;/code&gt; command to access the &lt;code&gt;$USER&lt;/code&gt; database.
-Remember that the $USER database doesn't have a password or user like it would in a production environment. The postgreSQL
-app simplifies this process by allowing you to start postgreSQL like any other mac app, click on the app. Once the app
-initializes, you get the cool little elephant in your toolbar.&lt;/p&gt;
-&lt;p&gt;The only thing you need to do besides installing the app is add one line to your &lt;code&gt;.bashrc&lt;/code&gt; or in my case, &lt;code&gt;.zshrc&lt;/code&gt;.&lt;/p&gt;
+Remember that the &lt;code&gt;$USER&lt;/code&gt; database doesn't have a user/password like it would in a production environment.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Use Postgres.app&lt;/h2&gt;
+&lt;p&gt;The postgres app simplifies this process by allowing you to start PostgreSQL like any other mac app, click on the app.
+But before you do that; Add one line to your &lt;code&gt;.bashrc&lt;/code&gt; or in my case, &lt;code&gt;.zshrc&lt;/code&gt;.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/Applications/Postgres.app/Contents/MacOS/bin:$PATH&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;With this done you can now create a database:&lt;/p&gt;
+&lt;p&gt;Once the app initializes, you get the cool little elephant in your toolbar. That's it, PostgreSQL is running and ready to
+relation. With this done you can now create a database:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;psql
 psql &lt;span class="o"&gt;(&lt;/span&gt;9.2.2&lt;span class="o"&gt;)&lt;/span&gt;
 Type &lt;span class="s2"&gt;&amp;quot;help&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;for &lt;/span&gt;help.
 
-&lt;span class="nv"&gt;$ michaelmartinez&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="c"&gt;# CREATE DATABASE my_data;&lt;/span&gt;
+&lt;span class="nv"&gt;$ michaelmartinez&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="c"&gt;# CREATE DATABASE my_database;&lt;/span&gt;
 &lt;span class="c"&gt;# If you want to delete the database you just created&lt;/span&gt;
-&lt;span class="nv"&gt;$ michaelmartinez&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="c"&gt;# DROP DATABASE my_data;&lt;/span&gt;
+&lt;span class="nv"&gt;$ michaelmartinez&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="c"&gt;# DROP DATABASE my_database;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;note: don't forget the semi-colon!&lt;/p&gt;
-&lt;p&gt;To use this with Django you need to install the psycopg2 package then its just a matter of adding the correct parameters
+&lt;hr /&gt;
+&lt;h2&gt;Use for Development&lt;/h2&gt;
+&lt;p&gt;To use this with Django you need to install the psycopg2 package, then its just a matter of adding the correct parameters
 to your &lt;code&gt;DATABASE&lt;/code&gt; settings:&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;DATABASES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="s"&gt;&amp;quot;default&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
         &lt;span class="s"&gt;&amp;quot;ENGINE&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;django.db.backends.postgresql_psycopg2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-        &lt;span class="s"&gt;&amp;quot;NAME&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;[YOUR_DATABASE_NAME]&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;NAME&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;my_database&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
         &lt;span class="s"&gt;&amp;quot;USER&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
         &lt;span class="s"&gt;&amp;quot;PASSWORD&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
         &lt;span class="s"&gt;&amp;quot;HOST&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;localhost&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
@@ -53,14 +64,14 @@ to your &lt;code&gt;DATABASE&lt;/code&gt; settings:&lt;/p&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;flask.ext.sqlalchemy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;SQLAlchemy&lt;/span&gt;
 
 &lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Flask&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;__name__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;SQLALCHEMY_DATABASE_URI&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;postgresql://localhost/[YOUR_DATABASE_NAME]&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;SQLALCHEMY_DATABASE_URI&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;postgresql://localhost/my_database&amp;#39;&lt;/span&gt;
 &lt;span class="n"&gt;db&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SQLAlchemy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Vanilla SQLAlchemy&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sqlalchemy&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;create_engine&lt;/span&gt;
-&lt;span class="n"&gt;engine&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_engine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;postgresql://localhost/[YOUR_DATABASE_NAME]&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;engine&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_engine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;postgresql://localhost/my_database&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;</summary></entry><entry><title>Python Anywhere means Anywhere</title><link href="http://michaelmartinez.in/python-anywhere-means-anywhere.html" rel="alternate"></link><updated>2013-05-25T00:00:00-07:00</updated><author><name>Michael Martinez</name></author><id>tag:michaelmartinez.in,2013-05-25:python-anywhere-means-anywhere.html</id><summary type="html">&lt;p&gt;I just signed up for the &lt;a href="https://www.pythonanywhere.com/pricing/"&gt;web developer&lt;/a&gt; price point at &lt;a href="http://pythonanywhere.com/"&gt;PythonAnywhere&lt;/a&gt;.
 PythonAnywhere is Platform as a service (PaaS) company which means they are in business to provide a platform to build from. If
 you are a web developer, I am quite positive that you have heard of Heroku, Appfog and many other PaaS providers.&lt;/p&gt;

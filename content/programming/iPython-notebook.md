@@ -8,7 +8,7 @@ many of them seem quite elegant. The fact remains that installing iPyNB is not
 as strait forward as one might like and hopefully you find this of some utility.
 
 *******
-a
+
 ## Dependencies ##
 
 
